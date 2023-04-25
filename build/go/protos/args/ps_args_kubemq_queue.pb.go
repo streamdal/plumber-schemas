@@ -26,13 +26,13 @@ type KubeMQQueueConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Dial string for KubeMQ server',env='PLUMBER_RELAY_KUBEMQ_QUEUE_ADDRESS',default='localhost:50000',required"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Dial string for KubeMQ server',env='PLUMBER_RELAY_KUBEMQ_QUEUE_ADDRESS',default='localhost:50000',required"`
 	// @gotags: kong:"help='Client JWT authentication token',env='PLUMBER_RELAY_KUBEMQ_QUEUE_AUTH_TOKEN'"
-	AuthToken string `protobuf:"bytes,2,opt,name=auth_token,json=authToken,proto3" json:"auth_token,omitempty"`
+	AuthToken string `protobuf:"bytes,2,opt,name=auth_token,json=authToken,proto3" json:"auth_token,omitempty" kong:"help='Client JWT authentication token',env='PLUMBER_RELAY_KUBEMQ_QUEUE_AUTH_TOKEN'"`
 	// @gotags: kong:"help='KubeMQ client cert file',env='PLUMBER_RELAY_KUBEMQ_QUEUE_TLS_CLIENT_CERT'"
-	TlsClientCert string `protobuf:"bytes,3,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty"`
+	TlsClientCert string `protobuf:"bytes,3,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty" kong:"help='KubeMQ client cert file',env='PLUMBER_RELAY_KUBEMQ_QUEUE_TLS_CLIENT_CERT'"`
 	// @gotags: kong:"help='KubeMQ client ID',env='PLUMBER_RELAY_KUBEMQ_QUEUE_CLIENT_ID',default=plumber"
-	ClientId string `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
+	ClientId string `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty" kong:"help='KubeMQ client ID',env='PLUMBER_RELAY_KUBEMQ_QUEUE_CLIENT_ID',default=plumber"`
 }
 
 func (x *KubeMQQueueConn) Reset() {
@@ -101,7 +101,7 @@ type KubeMQQueueReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='KubeMQ queue name',env='PLUMBER_RELAY_KUBEMQ_QUEUE_QUEUE'"
-	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty"`
+	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty" kong:"help='KubeMQ queue name',env='PLUMBER_RELAY_KUBEMQ_QUEUE_QUEUE'"`
 }
 
 func (x *KubeMQQueueReadArgs) Reset() {
@@ -149,7 +149,7 @@ type KubeMQQueueWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='KubeMQ queue name'"
-	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty"`
+	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty" kong:"help='KubeMQ queue name'"`
 }
 
 func (x *KubeMQQueueWriteArgs) Reset() {

@@ -26,7 +26,7 @@ type ActiveMQConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Destination host address',required,default=localhost:61613"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Destination host address',required,default=localhost:61613"`
 }
 
 func (x *ActiveMQConn) Reset() {
@@ -74,7 +74,7 @@ type ActiveMQReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Topic to read message(s) from',xor=activemq_read"
-	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='Topic to read message(s) from',xor=activemq_read"`
 	// @gotags: kong:'help='Queue to read message(s) from',xor=activemq_read"
 	Queue string `protobuf:"bytes,2,opt,name=queue,proto3" json:"queue,omitempty"`
 }
@@ -131,7 +131,7 @@ type ActiveMQWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Topic to write message(s) to',xor=activemq_write"
-	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='Topic to write message(s) to',xor=activemq_write"`
 	// @gotags: kong:'help='Queue to write message(s) to',xor=activemq_write"
 	Queue string `protobuf:"bytes,2,opt,name=queue,proto3" json:"queue,omitempty"`
 }

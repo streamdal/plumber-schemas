@@ -27,7 +27,7 @@ type GetRelayOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the relay to get (leave empty to get all)'"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the relay to get (leave empty to get all)'"`
 }
 
 func (x *GetRelayOptions) Reset() {
@@ -75,53 +75,53 @@ type CreateRelayOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the connection to use',required"
-	ConnectionId string `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
+	ConnectionId string `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"help='ID of the connection to use',required"`
 	// @gotags: kong:"help='Secret collection token',required"
-	CollectionToken string `protobuf:"bytes,2,opt,name=collection_token,json=collectionToken,proto3" json:"collection_token,omitempty"`
+	CollectionToken string `protobuf:"bytes,2,opt,name=collection_token,json=collectionToken,proto3" json:"collection_token,omitempty" kong:"help='Secret collection token',required"`
 	// @gotags: kong:"help='How many messages to send in a single batch',default=1000"
-	BatchSize int32 `protobuf:"varint,3,opt,name=batch_size,json=batchSize,proto3" json:"batch_size,omitempty"`
+	BatchSize int32 `protobuf:"varint,3,opt,name=batch_size,json=batchSize,proto3" json:"batch_size,omitempty" kong:"help='How many messages to send in a single batch',default=1000"`
 	// @gotags: kong:"help='How many times plumber will try re-sending a batch',default=3"
-	BatchMaxRetry int32 `protobuf:"varint,4,opt,name=batch_max_retry,json=batchMaxRetry,proto3" json:"batch_max_retry,omitempty"`
+	BatchMaxRetry int32 `protobuf:"varint,4,opt,name=batch_max_retry,json=batchMaxRetry,proto3" json:"batch_max_retry,omitempty" kong:"help='How many times plumber will try re-sending a batch',default=3"`
 	// @gotags: kong:"help='How many workers to launch per relay',default=10"
-	NumWorkers int32 `protobuf:"varint,5,opt,name=num_workers,json=numWorkers,proto3" json:"num_workers,omitempty"`
+	NumWorkers int32 `protobuf:"varint,5,opt,name=num_workers,json=numWorkers,proto3" json:"num_workers,omitempty" kong:"help='How many workers to launch per relay',default=10"`
 	// @gotags: kong:"help='Alternative collector to relay events to',default='grpc-collector.streamdal.com:9000'"
-	StreamdalGrpcAddress string `protobuf:"bytes,6,opt,name=streamdal_grpc_address,json=streamdalGrpcAddress,proto3" json:"streamdal_grpc_address,omitempty"`
+	StreamdalGrpcAddress string `protobuf:"bytes,6,opt,name=streamdal_grpc_address,json=streamdalGrpcAddress,proto3" json:"streamdal_grpc_address,omitempty" kong:"help='Alternative collector to relay events to',default='grpc-collector.streamdal.com:9000'"`
 	// @gotags: kong:"help='Whether to use TLS with collector'"
-	StreamdalGrpcDisableTls bool `protobuf:"varint,7,opt,name=streamdal_grpc_disable_tls,json=streamdalGrpcDisableTls,proto3" json:"streamdal_grpc_disable_tls,omitempty"`
+	StreamdalGrpcDisableTls bool `protobuf:"varint,7,opt,name=streamdal_grpc_disable_tls,json=streamdalGrpcDisableTls,proto3" json:"streamdal_grpc_disable_tls,omitempty" kong:"help='Whether to use TLS with collector'"`
 	// @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',default=5"
-	StreamdalGrpcTimeoutSeconds int32 `protobuf:"varint,8,opt,name=streamdal_grpc_timeout_seconds,json=streamdalGrpcTimeoutSeconds,proto3" json:"streamdal_grpc_timeout_seconds,omitempty"`
+	StreamdalGrpcTimeoutSeconds int32 `protobuf:"varint,8,opt,name=streamdal_grpc_timeout_seconds,json=streamdalGrpcTimeoutSeconds,proto3" json:"streamdal_grpc_timeout_seconds,omitempty" kong:"help='How long to wait before giving up talking to the gRPC collector',default=5"`
 	// @gotags: kong:"help='Consumed messages are intended to be dead-lettered'"
-	DeadLetter bool `protobuf:"varint,9,opt,name=dead_letter,json=deadLetter,proto3" json:"dead_letter,omitempty"`
+	DeadLetter bool `protobuf:"varint,9,opt,name=dead_letter,json=deadLetter,proto3" json:"dead_letter,omitempty" kong:"help='Consumed messages are intended to be dead-lettered'"`
 	// @gotags: kong:"cmd,help='Apache Kafka'"
-	Kafka *args.KafkaRelayArgs `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	Kafka *args.KafkaRelayArgs `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
 	// @gotags: kong:"cmd,help='AWS Simple Queue System'"
-	AwsSqs *args.AWSSQSRelayArgs `protobuf:"bytes,101,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty"`
+	AwsSqs *args.AWSSQSRelayArgs `protobuf:"bytes,101,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty" kong:"cmd,help='AWS Simple Queue System'"`
 	// @gotags: kong:"cmd,help='MongoDB (CDC)'"
-	Mongo *args.MongoReadArgs `protobuf:"bytes,102,opt,name=mongo,proto3" json:"mongo,omitempty"`
+	Mongo *args.MongoReadArgs `protobuf:"bytes,102,opt,name=mongo,proto3" json:"mongo,omitempty" kong:"cmd,help='MongoDB (CDC)'"`
 	// @gotags: kong:"cmd,help='NSQ'"
-	Nsq *args.NSQReadArgs `protobuf:"bytes,103,opt,name=nsq,proto3" json:"nsq,omitempty"`
+	Nsq *args.NSQReadArgs `protobuf:"bytes,103,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd,help='NSQ'"`
 	// @gotags: kong:"cmd,help='MQTT'"
-	Rabbit *args.RabbitReadArgs `protobuf:"bytes,104,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	Rabbit *args.RabbitReadArgs `protobuf:"bytes,104,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='MQTT'"`
 	// @gotags: kong:"cmd,help='MQTT'"
-	Mqtt *args.MQTTReadArgs `protobuf:"bytes,105,opt,name=mqtt,proto3" json:"mqtt,omitempty"`
+	Mqtt *args.MQTTReadArgs `protobuf:"bytes,105,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd,help='MQTT'"`
 	// @gotags: kong:"cmd,help='Azure Service Bus'"
-	AzureServiceBus *args.AzureServiceBusReadArgs `protobuf:"bytes,106,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty"`
+	AzureServiceBus *args.AzureServiceBusReadArgs `protobuf:"bytes,106,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd,help='Azure Service Bus'"`
 	// @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-	GcpPubsub *args.GCPPubSubReadArgs `protobuf:"bytes,107,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty"`
+	GcpPubsub *args.GCPPubSubReadArgs `protobuf:"bytes,107,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd,help='Google Cloud Platform Pub/Sub'"`
 	// @gotags: kong:"cmd,help='KubeMQ Queue'"
-	KubemqQueue *args.KubeMQQueueReadArgs `protobuf:"bytes,108,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	KubemqQueue *args.KubeMQQueueReadArgs `protobuf:"bytes,108,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
 	// @gotags: kong:"cmd,help='Redis PubSub'"
-	RedisPubsub *args.RedisPubSubReadArgs `protobuf:"bytes,109,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty"`
+	RedisPubsub *args.RedisPubSubReadArgs `protobuf:"bytes,109,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd,help='Redis PubSub'"`
 	// @gotags: kong:"cmd,help='Redis Streams'"
-	RedisStreams *args.RedisStreamsReadArgs `protobuf:"bytes,111,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty"`
+	RedisStreams *args.RedisStreamsReadArgs `protobuf:"bytes,111,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd,help='Redis Streams'"`
 	// @gotags: kong:"cmd,help='PostgreSQL (CDC)'"
-	Postgres *args.PostgresReadArgs `protobuf:"bytes,112,opt,name=postgres,proto3" json:"postgres,omitempty"`
+	Postgres *args.PostgresReadArgs `protobuf:"bytes,112,opt,name=postgres,proto3" json:"postgres,omitempty" kong:"cmd,help='PostgreSQL (CDC)'"`
 	// @gotags: kong:"cmd,help='NATS'"
-	Nats *args.NatsReadArgs `protobuf:"bytes,113,opt,name=nats,proto3" json:"nats,omitempty"`
+	Nats *args.NatsReadArgs `protobuf:"bytes,113,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd,help='NATS'"`
 	// @gotags: kong:"cmd,help='NATS Streaming'"
-	NatsStreaming *args.NatsStreamingReadArgs `protobuf:"bytes,114,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty"`
+	NatsStreaming *args.NatsStreamingReadArgs `protobuf:"bytes,114,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd,help='NATS Streaming'"`
 	// @gotags: kong:"cmd,help='NATS JetStream'"
-	NatsJetstream *args.NatsJetstreamReadArgs `protobuf:"bytes,115,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty"`
+	NatsJetstream *args.NatsJetstreamReadArgs `protobuf:"bytes,115,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty" kong:"cmd,help='NATS JetStream'"`
 }
 
 func (x *CreateRelayOptions) Reset() {
@@ -330,7 +330,7 @@ type DeleteRelayOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the relay to delete',required=true"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the relay to delete',required=true"`
 }
 
 func (x *DeleteRelayOptions) Reset() {
@@ -378,7 +378,7 @@ type StopRelayOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the relay to stop',required=true"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the relay to stop',required=true"`
 }
 
 func (x *StopRelayOptions) Reset() {
@@ -426,7 +426,7 @@ type ResumeRelayOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the relay to resume',required=true"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the relay to resume',required=true"`
 }
 
 func (x *ResumeRelayOptions) Reset() {

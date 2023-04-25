@@ -26,17 +26,17 @@ type ManageOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	GlobalOptions *GlobalManageOptions `protobuf:"bytes,1,opt,name=global_options,json=globalOptions,proto3" json:"global_options,omitempty"`
+	GlobalOptions *GlobalManageOptions `protobuf:"bytes,1,opt,name=global_options,json=globalOptions,proto3" json:"global_options,omitempty" kong:"embed"`
 	// @gotags: kong:"cmd,help='Get resource(s) from plumber server'"
-	Get *GetOptions `protobuf:"bytes,2,opt,name=get,proto3" json:"get,omitempty"`
+	Get *GetOptions `protobuf:"bytes,2,opt,name=get,proto3" json:"get,omitempty" kong:"cmd,help='Get resource(s) from plumber server'"`
 	// @gotags: kong:"cmd,help='Create resources in plumber server'"
-	Create *CreateOptions `protobuf:"bytes,3,opt,name=create,proto3" json:"create,omitempty"`
+	Create *CreateOptions `protobuf:"bytes,3,opt,name=create,proto3" json:"create,omitempty" kong:"cmd,help='Create resources in plumber server'"`
 	// @gotags: kong:"cmd,help='Delete resources in plumber server'"
-	Delete *DeleteOptions `protobuf:"bytes,5,opt,name=delete,proto3" json:"delete,omitempty"`
+	Delete *DeleteOptions `protobuf:"bytes,5,opt,name=delete,proto3" json:"delete,omitempty" kong:"cmd,help='Delete resources in plumber server'"`
 	// @gotags: kong:"cmd,help='Stop resources in plumber server'"
-	Stop *StopOptions `protobuf:"bytes,6,opt,name=stop,proto3" json:"stop,omitempty"`
+	Stop *StopOptions `protobuf:"bytes,6,opt,name=stop,proto3" json:"stop,omitempty" kong:"cmd,help='Stop resources in plumber server'"`
 	// @gotags: kong:"cmd,help='Resume/Start resources in plumber server'"
-	Resume *ResumeOptions `protobuf:"bytes,7,opt,name=resume,proto3" json:"resume,omitempty"`
+	Resume *ResumeOptions `protobuf:"bytes,7,opt,name=resume,proto3" json:"resume,omitempty" kong:"cmd,help='Resume/Start resources in plumber server'"`
 }
 
 func (x *ManageOptions) Reset() {
@@ -119,23 +119,23 @@ type GlobalManageOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Plumber server gRPC API address',default='localhost:9090'"
-	ManageAddress string `protobuf:"bytes,1,opt,name=manage_address,json=manageAddress,proto3" json:"manage_address,omitempty"`
+	ManageAddress string `protobuf:"bytes,1,opt,name=manage_address,json=manageAddress,proto3" json:"manage_address,omitempty" kong:"help='Plumber server gRPC API address',default='localhost:9090'"`
 	// @gotags: kong:"help='Plumber server auth token',default='streamdal'"
-	ManageToken string `protobuf:"bytes,2,opt,name=manage_token,json=manageToken,proto3" json:"manage_token,omitempty"`
+	ManageToken string `protobuf:"bytes,2,opt,name=manage_token,json=manageToken,proto3" json:"manage_token,omitempty" kong:"help='Plumber server auth token',default='streamdal'"`
 	// @gotags: kong:"help='gRPC call timeout seconds',default=10"
-	ManageTimeoutSeconds int64 `protobuf:"varint,3,opt,name=manage_timeout_seconds,json=manageTimeoutSeconds,proto3" json:"manage_timeout_seconds,omitempty"`
+	ManageTimeoutSeconds int64 `protobuf:"varint,3,opt,name=manage_timeout_seconds,json=manageTimeoutSeconds,proto3" json:"manage_timeout_seconds,omitempty" kong:"help='gRPC call timeout seconds',default=10"`
 	// @gotags: kong:"help='Use TLS when talking to plumber server',default='false'"
-	ManageUseTls bool `protobuf:"varint,4,opt,name=manage_use_tls,json=manageUseTls,proto3" json:"manage_use_tls,omitempty"`
+	ManageUseTls bool `protobuf:"varint,4,opt,name=manage_use_tls,json=manageUseTls,proto3" json:"manage_use_tls,omitempty" kong:"help='Use TLS when talking to plumber server',default='false'"`
 	// @gotags: kong:"help='Skip TLS server certificate verification',default='false'"
-	ManageInsecureTls bool `protobuf:"varint,5,opt,name=manage_insecure_tls,json=manageInsecureTls,proto3" json:"manage_insecure_tls,omitempty"`
+	ManageInsecureTls bool `protobuf:"varint,5,opt,name=manage_insecure_tls,json=manageInsecureTls,proto3" json:"manage_insecure_tls,omitempty" kong:"help='Skip TLS server certificate verification',default='false'"`
 	// @gotags: kong:"help='TLS CA file'"
-	ManageTlsCaFile string `protobuf:"bytes,6,opt,name=manage_tls_ca_file,json=manageTlsCaFile,proto3" json:"manage_tls_ca_file,omitempty"`
+	ManageTlsCaFile string `protobuf:"bytes,6,opt,name=manage_tls_ca_file,json=manageTlsCaFile,proto3" json:"manage_tls_ca_file,omitempty" kong:"help='TLS CA file'"`
 	// @gotags: kong:"help='TLS client cert file'"
-	ManageTlsCertFile string `protobuf:"bytes,7,opt,name=manage_tls_cert_file,json=manageTlsCertFile,proto3" json:"manage_tls_cert_file,omitempty"`
+	ManageTlsCertFile string `protobuf:"bytes,7,opt,name=manage_tls_cert_file,json=manageTlsCertFile,proto3" json:"manage_tls_cert_file,omitempty" kong:"help='TLS client cert file'"`
 	// @gotags: kong:"help='TLS client key file'"
-	ManageTlsKeyFile string `protobuf:"bytes,8,opt,name=manage_tls_key_file,json=manageTlsKeyFile,proto3" json:"manage_tls_key_file,omitempty"`
+	ManageTlsKeyFile string `protobuf:"bytes,8,opt,name=manage_tls_key_file,json=manageTlsKeyFile,proto3" json:"manage_tls_key_file,omitempty" kong:"help='TLS client key file'"`
 	// @gotags: kong:"help='Disable pretty/colorized output',default='false'"
-	DisablePretty bool `protobuf:"varint,9,opt,name=disable_pretty,json=disablePretty,proto3" json:"disable_pretty,omitempty"`
+	DisablePretty bool `protobuf:"varint,9,opt,name=disable_pretty,json=disablePretty,proto3" json:"disable_pretty,omitempty" kong:"help='Disable pretty/colorized output',default='false'"`
 }
 
 func (x *GlobalManageOptions) Reset() {
@@ -239,11 +239,11 @@ type GetOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"cmd,help='Get connection(s) from plumber server'"
-	Connection *GetConnectionOptions `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty"`
+	Connection *GetConnectionOptions `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty" kong:"cmd,help='Get connection(s) from plumber server'"`
 	// @gotags: kong:"cmd,help='Get relay(s) from plumber server'"
-	Relay *GetRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty"`
+	Relay *GetRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty" kong:"cmd,help='Get relay(s) from plumber server'"`
 	// @gotags: kong:"cmd,help='Get tunnel(s) from plumber server'"
-	Tunnel *GetTunnelOptions `protobuf:"bytes,3,opt,name=tunnel,proto3" json:"tunnel,omitempty"`
+	Tunnel *GetTunnelOptions `protobuf:"bytes,3,opt,name=tunnel,proto3" json:"tunnel,omitempty" kong:"cmd,help='Get tunnel(s) from plumber server'"`
 }
 
 func (x *GetOptions) Reset() {
@@ -305,11 +305,11 @@ type CreateOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"cmd,help='Create connection in plumber server'"
-	Connection *CreateConnectionOptions `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty"`
+	Connection *CreateConnectionOptions `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty" kong:"cmd,help='Create connection in plumber server'"`
 	// @gotags: kong:"cmd,help='Create relay in plumber server'"
-	Relay *CreateRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty"`
+	Relay *CreateRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty" kong:"cmd,help='Create relay in plumber server'"`
 	// @gotags: kong:"cmd,help='Create tunnel in plumber server'"
-	Tunnel *CreateTunnelOptions `protobuf:"bytes,3,opt,name=tunnel,proto3" json:"tunnel,omitempty"`
+	Tunnel *CreateTunnelOptions `protobuf:"bytes,3,opt,name=tunnel,proto3" json:"tunnel,omitempty" kong:"cmd,help='Create tunnel in plumber server'"`
 }
 
 func (x *CreateOptions) Reset() {
@@ -371,11 +371,11 @@ type DeleteOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"cmd,help='Delete connection in plumber server'"
-	Connection *DeleteConnectionOptions `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty"`
+	Connection *DeleteConnectionOptions `protobuf:"bytes,1,opt,name=connection,proto3" json:"connection,omitempty" kong:"cmd,help='Delete connection in plumber server'"`
 	// @gotags: kong:"cmd,help='Delete relay in plumber server'"
-	Relay *DeleteRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty"`
+	Relay *DeleteRelayOptions `protobuf:"bytes,2,opt,name=relay,proto3" json:"relay,omitempty" kong:"cmd,help='Delete relay in plumber server'"`
 	// @gotags: kong:"cmd,help='Delete tunnel in plumber server'"
-	Tunnel *DeleteTunnelOptions `protobuf:"bytes,3,opt,name=tunnel,proto3" json:"tunnel,omitempty"`
+	Tunnel *DeleteTunnelOptions `protobuf:"bytes,3,opt,name=tunnel,proto3" json:"tunnel,omitempty" kong:"cmd,help='Delete tunnel in plumber server'"`
 }
 
 func (x *DeleteOptions) Reset() {
@@ -437,9 +437,9 @@ type StopOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"cmd,help='Stop relay in plumber server'"
-	Relay *StopRelayOptions `protobuf:"bytes,1,opt,name=relay,proto3" json:"relay,omitempty"`
+	Relay *StopRelayOptions `protobuf:"bytes,1,opt,name=relay,proto3" json:"relay,omitempty" kong:"cmd,help='Stop relay in plumber server'"`
 	// @gotags: kong:"cmd,help='Stop tunnel in plumber server'"
-	Tunnel *StopTunnelOptions `protobuf:"bytes,2,opt,name=tunnel,proto3" json:"tunnel,omitempty"`
+	Tunnel *StopTunnelOptions `protobuf:"bytes,2,opt,name=tunnel,proto3" json:"tunnel,omitempty" kong:"cmd,help='Stop tunnel in plumber server'"`
 }
 
 func (x *StopOptions) Reset() {
@@ -494,9 +494,9 @@ type ResumeOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"cmd,help='Resume/Start relay in plumber server'"
-	Relay *ResumeRelayOptions `protobuf:"bytes,1,opt,name=relay,proto3" json:"relay,omitempty"`
+	Relay *ResumeRelayOptions `protobuf:"bytes,1,opt,name=relay,proto3" json:"relay,omitempty" kong:"cmd,help='Resume/Start relay in plumber server'"`
 	// @gotags: kong:"cmd,help='Resume/Start tunnel in plumber server'"
-	Tunnel *ResumeTunnelOptions `protobuf:"bytes,2,opt,name=tunnel,proto3" json:"tunnel,omitempty"`
+	Tunnel *ResumeTunnelOptions `protobuf:"bytes,2,opt,name=tunnel,proto3" json:"tunnel,omitempty" kong:"cmd,help='Resume/Start tunnel in plumber server'"`
 }
 
 func (x *ResumeOptions) Reset() {

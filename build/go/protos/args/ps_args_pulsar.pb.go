@@ -124,19 +124,19 @@ type PulsarConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Full DSN to connect to Pulsar',default='pulsar://localhost:6650',required"
-	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty"`
+	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty" kong:"help='Full DSN to connect to Pulsar',default='pulsar://localhost:6650',required"`
 	// @gotags: kong:"help='Connection timeout',default=10"
-	ConnectTimeoutSeconds uint32 `protobuf:"varint,2,opt,name=connect_timeout_seconds,json=connectTimeoutSeconds,proto3" json:"connect_timeout_seconds,omitempty"`
+	ConnectTimeoutSeconds uint32 `protobuf:"varint,2,opt,name=connect_timeout_seconds,json=connectTimeoutSeconds,proto3" json:"connect_timeout_seconds,omitempty" kong:"help='Connection timeout',default=10"`
 	// @gotags: kong:"help='Whether to verify server certificate'"
-	TlsSkipVerify bool `protobuf:"varint,3,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty"`
+	TlsSkipVerify bool `protobuf:"varint,3,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Whether to verify server certificate'"`
 	// @gotags: kong:"help='TLS client certificate file'"
-	TlsClientCert string `protobuf:"bytes,4,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty"`
+	TlsClientCert string `protobuf:"bytes,4,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty" kong:"help='TLS client certificate file'"`
 	// @gotags: kong:"help='TLS client key file'"
-	TlsClientKey string `protobuf:"bytes,5,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty"`
+	TlsClientKey string `protobuf:"bytes,5,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty" kong:"help='TLS client key file'"`
 	// @gotags: kong:"help='Authentication token file'"
-	Token string `protobuf:"bytes,6,opt,name=token,proto3" json:"token,omitempty"`
+	Token string `protobuf:"bytes,6,opt,name=token,proto3" json:"token,omitempty" kong:"help='Authentication token file'"`
 	// @gotags: kong:"help='Listener name'"
-	ListenerName string `protobuf:"bytes,7,opt,name=listener_name,json=listenerName,proto3" json:"listener_name,omitempty"`
+	ListenerName string `protobuf:"bytes,7,opt,name=listener_name,json=listenerName,proto3" json:"listener_name,omitempty" kong:"help='Listener name'"`
 }
 
 func (x *PulsarConn) Reset() {
@@ -226,13 +226,13 @@ type PulsarReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Topic to read messages from',required"
-	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='Topic to read messages from',required"`
 	// @gotags: kong:"help='Subscription name',required"
-	SubscriptionName string `protobuf:"bytes,2,opt,name=subscription_name,json=subscriptionName,proto3" json:"subscription_name,omitempty"`
+	SubscriptionName string `protobuf:"bytes,2,opt,name=subscription_name,json=subscriptionName,proto3" json:"subscription_name,omitempty" kong:"help='Subscription name',required"`
 	// @gotags: kong:"help='Subscription type (options: shared exclusive failover keyshared)',default=shared,type=pbenum,pbenum_lowercase"
-	SubscriptionType SubscriptionType `protobuf:"varint,3,opt,name=subscription_type,json=subscriptionType,proto3,enum=protos.args.SubscriptionType" json:"subscription_type,omitempty"`
+	SubscriptionType SubscriptionType `protobuf:"varint,3,opt,name=subscription_type,json=subscriptionType,proto3,enum=protos.args.SubscriptionType" json:"subscription_type,omitempty" kong:"help='Subscription type (options: shared exclusive failover keyshared)',default=shared,type=pbenum,pbenum_lowercase"`
 	// @gotags: kong:"help='Subscription initial position (options: latest earliest)',default=latest,type=pbenum,pbenum_lowercase,pbenum_strip_prefix=PULSAR_"
-	InitialPosition SubscriptionInitialPosition `protobuf:"varint,4,opt,name=initial_position,json=initialPosition,proto3,enum=protos.args.SubscriptionInitialPosition" json:"initial_position,omitempty"`
+	InitialPosition SubscriptionInitialPosition `protobuf:"varint,4,opt,name=initial_position,json=initialPosition,proto3,enum=protos.args.SubscriptionInitialPosition" json:"initial_position,omitempty" kong:"help='Subscription initial position (options: latest earliest)',default=latest,type=pbenum,pbenum_lowercase,pbenum_strip_prefix=PULSAR_"`
 }
 
 func (x *PulsarReadArgs) Reset() {
@@ -301,7 +301,7 @@ type PulsarWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='topic to write messages to'"
-	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='topic to write messages to'"`
 }
 
 func (x *PulsarWriteArgs) Reset() {

@@ -27,7 +27,7 @@ type AzureServiceBusConn struct {
 
 	// NOTE: This is an azure-defined env var
 	// @gotags: kong:"help='Connection string',env='SERVICEBUS_CONNECTION_STRING',required"
-	ConnectionString string `protobuf:"bytes,1,opt,name=connection_string,json=connectionString,proto3" json:"connection_string,omitempty"`
+	ConnectionString string `protobuf:"bytes,1,opt,name=connection_string,json=connectionString,proto3" json:"connection_string,omitempty" kong:"help='Connection string',env='SERVICEBUS_CONNECTION_STRING',required"`
 }
 
 func (x *AzureServiceBusConn) Reset() {
@@ -75,11 +75,11 @@ type AzureServiceBusReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Queue name',env='PLUMBER_RELAY_AZURE_QUEUE_NAME',xor=asb_read"
-	Queue string `protobuf:"bytes,1,opt,name=queue,proto3" json:"queue,omitempty"`
+	Queue string `protobuf:"bytes,1,opt,name=queue,proto3" json:"queue,omitempty" kong:"help='Queue name',env='PLUMBER_RELAY_AZURE_QUEUE_NAME',xor=asb_read"`
 	// @gotags: kong:"help='Topic name',env='PLUMBER_RELAY_AZURE_TOPIC_NAME',xor=asb_read"
-	Topic string `protobuf:"bytes,2,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,2,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='Topic name',env='PLUMBER_RELAY_AZURE_TOPIC_NAME',xor=asb_read"`
 	// @gotags: kong:"help='Subscription name',env='PLUMBER_RELAY_AZURE_SUBSCRIPTION',required"
-	SubscriptionName string `protobuf:"bytes,3,opt,name=subscription_name,json=subscriptionName,proto3" json:"subscription_name,omitempty"`
+	SubscriptionName string `protobuf:"bytes,3,opt,name=subscription_name,json=subscriptionName,proto3" json:"subscription_name,omitempty" kong:"help='Subscription name',env='PLUMBER_RELAY_AZURE_SUBSCRIPTION',required"`
 }
 
 func (x *AzureServiceBusReadArgs) Reset() {
@@ -141,9 +141,9 @@ type AzureServiceBusWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Queue name',xor=asb_write"
-	Queue string `protobuf:"bytes,1,opt,name=queue,proto3" json:"queue,omitempty"`
+	Queue string `protobuf:"bytes,1,opt,name=queue,proto3" json:"queue,omitempty" kong:"help='Queue name',xor=asb_write"`
 	// @gotags: kong:"help='Topic name',xor=asb_write"
-	Topic string `protobuf:"bytes,2,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,2,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='Topic name',xor=asb_write"`
 }
 
 func (x *AzureServiceBusWriteArgs) Reset() {

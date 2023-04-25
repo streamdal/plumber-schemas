@@ -26,41 +26,41 @@ type ServerOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"default=plumber1,help='Unique ID that identifies this plumber node',env='PLUMBER_SERVER_NODE_ID',required"
-	NodeId string `protobuf:"bytes,1,opt,name=node_id,json=nodeId,proto3" json:"node_id,omitempty"`
+	NodeId string `protobuf:"bytes,1,opt,name=node_id,json=nodeId,proto3" json:"node_id,omitempty" kong:"default=plumber1,help='Unique ID that identifies this plumber node',env='PLUMBER_SERVER_NODE_ID',required"`
 	// @gotags: kong:"default=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,help='ID of the plumber cluster (has to be the same across all nodes)',env='PLUMBER_SERVER_CLUSTER_ID',required"
-	ClusterId string `protobuf:"bytes,2,opt,name=cluster_id,json=clusterId,proto3" json:"cluster_id,omitempty"`
+	ClusterId string `protobuf:"bytes,2,opt,name=cluster_id,json=clusterId,proto3" json:"cluster_id,omitempty" kong:"default=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa,help='ID of the plumber cluster (has to be the same across all nodes)',env='PLUMBER_SERVER_CLUSTER_ID',required"`
 	// @gotags: kong:"help='Host:port that the gRPC server will bind to',env='PLUMBER_SERVER_GRPC_LISTEN_ADDRESS',default=0.0.0.0:9090"
-	GrpcListenAddress string `protobuf:"bytes,3,opt,name=grpc_listen_address,json=grpcListenAddress,proto3" json:"grpc_listen_address,omitempty"`
+	GrpcListenAddress string `protobuf:"bytes,3,opt,name=grpc_listen_address,json=grpcListenAddress,proto3" json:"grpc_listen_address,omitempty" kong:"help='Host:port that the gRPC server will bind to',env='PLUMBER_SERVER_GRPC_LISTEN_ADDRESS',default=0.0.0.0:9090"`
 	// @gotags: kong:"default=streamdal,help='All gRPC requests require this auth token to be set',env='PLUMBER_SERVER_AUTH_TOKEN',required"
-	AuthToken string `protobuf:"bytes,4,opt,name=auth_token,json=authToken,proto3" json:"auth_token,omitempty"`
+	AuthToken string `protobuf:"bytes,4,opt,name=auth_token,json=authToken,proto3" json:"auth_token,omitempty" kong:"default=streamdal,help='All gRPC requests require this auth token to be set',env='PLUMBER_SERVER_AUTH_TOKEN',required"`
 	// @gotags: kong:"help='Comma separated list of NATS server URLs (can contain user:password if using auth; only used if --enable-cluster is true)',env='PLUMBER_SERVER_NATS_URL',default='nats://localhost:4222'"
-	NatsUrl []string `protobuf:"bytes,5,rep,name=nats_url,json=natsUrl,proto3" json:"nats_url,omitempty"`
+	NatsUrl []string `protobuf:"bytes,5,rep,name=nats_url,json=natsUrl,proto3" json:"nats_url,omitempty" kong:"help='Comma separated list of NATS server URLs (can contain user:password if using auth; only used if --enable-cluster is true)',env='PLUMBER_SERVER_NATS_URL',default='nats://localhost:4222'"`
 	// @gotags: kong:"help='Whether to use TLS (only used if --enable-cluster is true)',env='PLUMBER_SERVER_USE_TLS'"
-	UseTls bool `protobuf:"varint,500,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty"`
+	UseTls bool `protobuf:"varint,500,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty" kong:"help='Whether to use TLS (only used if --enable-cluster is true)',env='PLUMBER_SERVER_USE_TLS'"`
 	// @gotags: kong:"help='TLS client cert file (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_CERT_FILE'"
-	TlsCertFile string `protobuf:"bytes,6,opt,name=tls_cert_file,json=tlsCertFile,proto3" json:"tls_cert_file,omitempty"`
+	TlsCertFile string `protobuf:"bytes,6,opt,name=tls_cert_file,json=tlsCertFile,proto3" json:"tls_cert_file,omitempty" kong:"help='TLS client cert file (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_CERT_FILE'"`
 	// @gotags: kong:"help='TLS client key file (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_KEY_FILE'"
-	TlsKeyFile string `protobuf:"bytes,7,opt,name=tls_key_file,json=tlsKeyFile,proto3" json:"tls_key_file,omitempty"`
+	TlsKeyFile string `protobuf:"bytes,7,opt,name=tls_key_file,json=tlsKeyFile,proto3" json:"tls_key_file,omitempty" kong:"help='TLS client key file (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_KEY_FILE'"`
 	// @gotags: kong:"help='TLS CA certificate file (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_CA_FILE'"
-	TlsCaFile string `protobuf:"bytes,8,opt,name=tls_ca_file,json=tlsCaFile,proto3" json:"tls_ca_file,omitempty"`
+	TlsCaFile string `protobuf:"bytes,8,opt,name=tls_ca_file,json=tlsCaFile,proto3" json:"tls_ca_file,omitempty" kong:"help='TLS CA certificate file (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_CA_FILE'"`
 	// @gotags: kong:"help='Skip server cert verification (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_SKIP_VERIFY',default=false"
-	TlsSkipVerify bool `protobuf:"varint,9,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty"`
+	TlsSkipVerify bool `protobuf:"varint,9,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Skip server cert verification (only used if --enable-cluster is true)',env='PLUMBER_SERVER_TLS_SKIP_VERIFY',default=false"`
 	// @gotags: kong:"help='Run plumber in cluster mode (will use NATS)',env='PLUMBER_SERVER_ENABLE_CLUSTER',default=false"
-	EnableCluster bool `protobuf:"varint,10,opt,name=enable_cluster,json=enableCluster,proto3" json:"enable_cluster,omitempty"`
+	EnableCluster bool `protobuf:"varint,10,opt,name=enable_cluster,json=enableCluster,proto3" json:"enable_cluster,omitempty" kong:"help='Run plumber in cluster mode (will use NATS)',env='PLUMBER_SERVER_ENABLE_CLUSTER',default=false"`
 	// @gotags: kong:"help='Location to store time-series data for counters',default='./.tsdata'"
-	StatsDatabasePath string `protobuf:"bytes,14,opt,name=stats_database_path,json=statsDatabasePath,proto3" json:"stats_database_path,omitempty"`
+	StatsDatabasePath string `protobuf:"bytes,14,opt,name=stats_database_path,json=statsDatabasePath,proto3" json:"stats_database_path,omitempty" kong:"help='Location to store time-series data for counters',default='./.tsdata'"`
 	// @gotags: kong:"help='How often to flush time-series data (in seconds) from memory to storage',default='60'"
-	StatsFlushIntervalSeconds int32 `protobuf:"varint,15,opt,name=stats_flush_interval_seconds,json=statsFlushIntervalSeconds,proto3" json:"stats_flush_interval_seconds,omitempty"`
+	StatsFlushIntervalSeconds int32 `protobuf:"varint,15,opt,name=stats_flush_interval_seconds,json=statsFlushIntervalSeconds,proto3" json:"stats_flush_interval_seconds,omitempty" kong:"help='How often to flush time-series data (in seconds) from memory to storage',default='60'"`
 	// @gotags: kong:"help='What address to bind the built-in HTTP server to',default='0.0.0.0:9191'"
-	HttpListenAddress string `protobuf:"bytes,16,opt,name=http_listen_address,json=httpListenAddress,proto3" json:"http_listen_address,omitempty"`
+	HttpListenAddress string `protobuf:"bytes,16,opt,name=http_listen_address,json=httpListenAddress,proto3" json:"http_listen_address,omitempty" kong:"help='What address to bind the built-in HTTP server to',default='0.0.0.0:9191'"`
 	// @gotags: kong:"help='Allow plumber to be controlled from https://console.streamdal.com',env='PLUMBER_REMOTE_CONTROL_ENABLED',default=false"
-	RemoteControlEnabled bool `protobuf:"varint,17,opt,name=remote_control_enabled,json=remoteControlEnabled,proto3" json:"remote_control_enabled,omitempty"`
+	RemoteControlEnabled bool `protobuf:"varint,17,opt,name=remote_control_enabled,json=remoteControlEnabled,proto3" json:"remote_control_enabled,omitempty" kong:"help='Allow plumber to be controlled from https://console.streamdal.com',env='PLUMBER_REMOTE_CONTROL_ENABLED',default=false"`
 	// @gotags: kong:"help='Address of Streamdal Plumber remote control service',env='PLUMBER_REMOTE_CONTROL_ADDRESS',default='foreman.streamdal.com:443'"
-	RemoteControlAddress string `protobuf:"bytes,18,opt,name=remote_control_address,json=remoteControlAddress,proto3" json:"remote_control_address,omitempty"`
+	RemoteControlAddress string `protobuf:"bytes,18,opt,name=remote_control_address,json=remoteControlAddress,proto3" json:"remote_control_address,omitempty" kong:"help='Address of Streamdal Plumber remote control service',env='PLUMBER_REMOTE_CONTROL_ADDRESS',default='foreman.streamdal.com:443'"`
 	// @gotags: kong:"help='Streamdal API token, needed to access remote control service',env='PLUMBER_REMOTE_CONTROL_API_TOKEN'"
-	RemoteControlApiToken string `protobuf:"bytes,19,opt,name=remote_control_api_token,json=remoteControlApiToken,proto3" json:"remote_control_api_token,omitempty"`
+	RemoteControlApiToken string `protobuf:"bytes,19,opt,name=remote_control_api_token,json=remoteControlApiToken,proto3" json:"remote_control_api_token,omitempty" kong:"help='Streamdal API token, needed to access remote control service',env='PLUMBER_REMOTE_CONTROL_API_TOKEN'"`
 	// @gotags: kong:"help='Connect to remote control server without TLS',default=false"
-	RemoteControlDisableTls bool `protobuf:"varint,20,opt,name=remote_control_disable_tls,json=remoteControlDisableTls,proto3" json:"remote_control_disable_tls,omitempty"`
+	RemoteControlDisableTls bool `protobuf:"varint,20,opt,name=remote_control_disable_tls,json=remoteControlDisableTls,proto3" json:"remote_control_disable_tls,omitempty" kong:"help='Connect to remote control server without TLS',default=false"`
 }
 
 func (x *ServerOptions) Reset() {

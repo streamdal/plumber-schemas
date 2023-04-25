@@ -26,11 +26,11 @@ type MemphisConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Address of Memphis broker (Ex: localhost:6666)',default='localhost:6666'"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Address of Memphis broker (Ex: localhost:6666)',default='localhost:6666'"`
 	// @gotags: kong:"help='Broker username',default='plumber'"
-	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty" kong:"help='Broker username',default='plumber'"`
 	// @gotags: kong:"help='Broker access token',default='memphis'"
-	BrokerToken string `protobuf:"bytes,3,opt,name=broker_token,json=brokerToken,proto3" json:"broker_token,omitempty"`
+	BrokerToken string `protobuf:"bytes,3,opt,name=broker_token,json=brokerToken,proto3" json:"broker_token,omitempty" kong:"help='Broker access token',default='memphis'"`
 }
 
 func (x *MemphisConn) Reset() {
@@ -92,11 +92,11 @@ type MemphisReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Station name to consume from',required"
-	Station string `protobuf:"bytes,1,opt,name=station,proto3" json:"station,omitempty"`
+	Station string `protobuf:"bytes,1,opt,name=station,proto3" json:"station,omitempty" kong:"help='Station name to consume from',required"`
 	// @gotags: kong:"help='Consumer Name',default='plumber'"
-	ConsumerName string `protobuf:"bytes,2,opt,name=consumer_name,json=consumerName,proto3" json:"consumer_name,omitempty"`
+	ConsumerName string `protobuf:"bytes,2,opt,name=consumer_name,json=consumerName,proto3" json:"consumer_name,omitempty" kong:"help='Consumer Name',default='plumber'"`
 	// @gotags: kong:"help='Consumer Group, defaults to consumer-name if not specified',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_GROUP'"
-	ConsumerGroup string `protobuf:"bytes,3,opt,name=consumer_group,json=consumerGroup,proto3" json:"consumer_group,omitempty"`
+	ConsumerGroup string `protobuf:"bytes,3,opt,name=consumer_group,json=consumerGroup,proto3" json:"consumer_group,omitempty" kong:"help='Consumer Group, defaults to consumer-name if not specified',env='PLUMBER_RELAY_MEMPHIS_CONSUMER_GROUP'"`
 }
 
 func (x *MemphisReadArgs) Reset() {
@@ -158,13 +158,13 @@ type MemphisWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Station name to write to',required"
-	Station string `protobuf:"bytes,1,opt,name=station,proto3" json:"station,omitempty"`
+	Station string `protobuf:"bytes,1,opt,name=station,proto3" json:"station,omitempty" kong:"help='Station name to write to',required"`
 	// @gotags: kong:"help='Producer name',default='plumber'"
-	ProducerName string `protobuf:"bytes,2,opt,name=producer_name,json=producerName,proto3" json:"producer_name,omitempty"`
+	ProducerName string `protobuf:"bytes,2,opt,name=producer_name,json=producerName,proto3" json:"producer_name,omitempty" kong:"help='Producer name',default='plumber'"`
 	// @gotags: kong:"help='Add one or more headers (optional; repeat flags to specify multiple)'"
-	Headers map[string]string `protobuf:"bytes,3,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Headers map[string]string `protobuf:"bytes,3,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" kong:"help='Add one or more headers (optional; repeat flags to specify multiple)'"`
 	// @gotags: kong:"help='ID to give message'"
-	MessageId string `protobuf:"bytes,4,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
+	MessageId string `protobuf:"bytes,4,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty" kong:"help='ID to give message'"`
 }
 
 func (x *MemphisWriteArgs) Reset() {

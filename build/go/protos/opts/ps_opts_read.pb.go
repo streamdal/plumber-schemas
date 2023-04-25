@@ -123,11 +123,11 @@ type ReadCLIOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Display more verbose information during reads (varies by backend)'"
-	VerboseOutput bool `protobuf:"varint,1,opt,name=verbose_output,json=verboseOutput,proto3" json:"verbose_output,omitempty"`
+	VerboseOutput bool `protobuf:"varint,1,opt,name=verbose_output,json=verboseOutput,proto3" json:"verbose_output,omitempty" kong:"help='Display more verbose information during reads (varies by backend)'"`
 	// @gotags: kong:"help='Pretty (colorized) output'"
-	Pretty bool `protobuf:"varint,2,opt,name=pretty,proto3" json:"pretty,omitempty"`
+	Pretty bool `protobuf:"varint,2,opt,name=pretty,proto3" json:"pretty,omitempty" kong:"help='Pretty (colorized) output'"`
 	// @gotags: kong:"help='Display all output as JSON (including tabular metadata)'"
-	Json bool `protobuf:"varint,3,opt,name=json,proto3" json:"json,omitempty"`
+	Json bool `protobuf:"varint,3,opt,name=json,proto3" json:"json,omitempty" kong:"help='Display all output as JSON (including tabular metadata)'"`
 }
 
 func (x *ReadCLIOptions) Reset() {
@@ -189,9 +189,9 @@ type ReadSampleOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='How many events to fetch during a sample interval',default=100"
-	SampleRate uint32 `protobuf:"varint,1,opt,name=sample_rate,json=sampleRate,proto3" json:"sample_rate,omitempty"`
+	SampleRate uint32 `protobuf:"varint,1,opt,name=sample_rate,json=sampleRate,proto3" json:"sample_rate,omitempty" kong:"help='How many events to fetch during a sample interval',default=100"`
 	// @gotags: kong:"help='Sample interval seconds',enum:'1,60',default=60"
-	SampleIntervalSeconds uint32 `protobuf:"varint,2,opt,name=sample_interval_seconds,json=sampleIntervalSeconds,proto3" json:"sample_interval_seconds,omitempty"`
+	SampleIntervalSeconds uint32 `protobuf:"varint,2,opt,name=sample_interval_seconds,json=sampleIntervalSeconds,proto3" json:"sample_interval_seconds,omitempty" kong:"help='Sample interval seconds',enum:'1,60',default=60"`
 }
 
 func (x *ReadSampleOptions) Reset() {
@@ -246,7 +246,7 @@ type ReadFilterOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"-"
-	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty" kong:"-"`
 }
 
 func (x *ReadFilterOptions) Reset() {
@@ -296,79 +296,79 @@ type ReadOptions struct {
 
 	// Required; friendly name for the read
 	// @gotags: kong:"-"
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" kong:"-"`
 	// Required for desktop; ignored in CLI.
 	// @gotags: kong:"-"
-	ConnectionId string `protobuf:"bytes,2,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
+	ConnectionId string `protobuf:"bytes,2,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"-"`
 	// Required; specify if a read is continuous or not (default: false)
 	// @gotags: kong:"help='Follow/read continuously',short=f"
-	Continuous bool `protobuf:"varint,3,opt,name=continuous,proto3" json:"continuous,omitempty"`
+	Continuous bool `protobuf:"varint,3,opt,name=continuous,proto3" json:"continuous,omitempty" kong:"help='Follow/read continuously',short=f"`
 	// Optional; specify if reading should utilize sampling
 	// @gotags: kong:"embed,group=sampling"
-	SampleOptions *ReadSampleOptions `protobuf:"bytes,4,opt,name=sample_options,json=sampleOptions,proto3" json:"sample_options,omitempty"`
+	SampleOptions *ReadSampleOptions `protobuf:"bytes,4,opt,name=sample_options,json=sampleOptions,proto3" json:"sample_options,omitempty" kong:"embed,group=sampling"`
 	// Optional; decode_options specify how to decode the _value_ in a message.
 	// If left unset, plumber will still populate records.ReadRecord.Decoded
 	// with the (untouched) value.
 	// @gotags: kong:"embed,group=decode"
-	DecodeOptions *encoding.DecodeOptions `protobuf:"bytes,5,opt,name=decode_options,json=decodeOptions,proto3" json:"decode_options,omitempty"`
+	DecodeOptions *encoding.DecodeOptions `protobuf:"bytes,5,opt,name=decode_options,json=decodeOptions,proto3" json:"decode_options,omitempty" kong:"embed,group=decode"`
 	// @gotags: kong:"help='Convert output before it is printed to STDOUT (options: unset; base64; gzip)',type=pbenum,pbenum_strip_prefix=CONVERT_OPTION_,pbenum_lowercase,default=unset"
-	ConvertOutput ConvertOption `protobuf:"varint,6,opt,name=convert_output,json=convertOutput,proto3,enum=protos.opts.ConvertOption" json:"convert_output,omitempty"`
+	ConvertOutput ConvertOption `protobuf:"varint,6,opt,name=convert_output,json=convertOutput,proto3,enum=protos.opts.ConvertOption" json:"convert_output,omitempty" kong:"help='Convert output before it is printed to STDOUT (options: unset; base64; gzip)',type=pbenum,pbenum_strip_prefix=CONVERT_OPTION_,pbenum_lowercase,default=unset"`
 	// @gotags: kong:"-"
-	Filter *ReadFilterOptions `protobuf:"bytes,7,opt,name=filter,proto3" json:"filter,omitempty"`
+	Filter *ReadFilterOptions `protobuf:"bytes,7,opt,name=filter,proto3" json:"filter,omitempty" kong:"-"`
 	// Whether to infer a JSON schema from this read. Ignored if schema_id is populated. Desktop use only
 	// @gotags: kong:"-"
-	InferSchemaOptions *InferSchemaOptions `protobuf:"bytes,8,opt,name=infer_schema_options,json=inferSchemaOptions,proto3" json:"infer_schema_options,omitempty"`
+	InferSchemaOptions *InferSchemaOptions `protobuf:"bytes,8,opt,name=infer_schema_options,json=inferSchemaOptions,proto3" json:"infer_schema_options,omitempty" kong:"-"`
 	// Automatically set by plumber when a new read is created
 	// @gotags: kong:"-"
-	XId string `protobuf:"bytes,1000,opt,name=_id,json=Id,proto3" json:"_id,omitempty"`
+	XId string `protobuf:"bytes,1000,opt,name=_id,json=Id,proto3" json:"_id,omitempty" kong:"-"`
 	// Used by plumber to set read state
 	// @gotags: kong:"-"
-	XActive bool `protobuf:"varint,1001,opt,name=_active,json=Active,proto3" json:"_active,omitempty"`
+	XActive bool `protobuf:"varint,1001,opt,name=_active,json=Active,proto3" json:"_active,omitempty" kong:"-"`
 	// Contains options/fields specific to the CLI
 	// @gotags: kong:"embed"
-	XCliOptions *ReadCLIOptions `protobuf:"bytes,1002,opt,name=_cli_options,json=CliOptions,proto3" json:"_cli_options,omitempty"`
+	XCliOptions *ReadCLIOptions `protobuf:"bytes,1002,opt,name=_cli_options,json=CliOptions,proto3" json:"_cli_options,omitempty" kong:"embed"`
 	// @gotags: kong:"cmd,help='Apache Kafka'"
-	Kafka *ReadGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	Kafka *ReadGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
 	// @gotags: kong:"cmd,help='Apache ActiveMQ (STOMP)'"
-	Activemq *ReadGroupActiveMQOptions `protobuf:"bytes,101,opt,name=activemq,proto3" json:"activemq,omitempty"`
+	Activemq *ReadGroupActiveMQOptions `protobuf:"bytes,101,opt,name=activemq,proto3" json:"activemq,omitempty" kong:"cmd,help='Apache ActiveMQ (STOMP)'"`
 	// @gotags: kong:"cmd,help='AWS Simple Queue System'"
-	AwsSqs *ReadGroupAWSSQSOptions `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty"`
+	AwsSqs *ReadGroupAWSSQSOptions `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty" kong:"cmd,help='AWS Simple Queue System'"`
 	// @gotags: kong:"cmd,help='MongoDB'"
-	Mongo *ReadGroupMongoOptions `protobuf:"bytes,103,opt,name=mongo,proto3" json:"mongo,omitempty"`
+	Mongo *ReadGroupMongoOptions `protobuf:"bytes,103,opt,name=mongo,proto3" json:"mongo,omitempty" kong:"cmd,help='MongoDB'"`
 	// @gotags: kong:"cmd,help='NATS'"
-	Nats *ReadGroupNatsOptions `protobuf:"bytes,104,opt,name=nats,proto3" json:"nats,omitempty"`
+	Nats *ReadGroupNatsOptions `protobuf:"bytes,104,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd,help='NATS'"`
 	// @gotags: kong:"cmd,help='NATS Streaming'"
-	NatsStreaming *ReadGroupNatsStreamingOptions `protobuf:"bytes,105,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty"`
+	NatsStreaming *ReadGroupNatsStreamingOptions `protobuf:"bytes,105,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd,help='NATS Streaming'"`
 	// @gotags: kong:"cmd,help='NSQ'"
-	Nsq *ReadGroupNSQOptions `protobuf:"bytes,106,opt,name=nsq,proto3" json:"nsq,omitempty"`
+	Nsq *ReadGroupNSQOptions `protobuf:"bytes,106,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd,help='NSQ'"`
 	// @gotags: kong:"cmd,help='Apache Pulsar'"
-	Pulsar *ReadGroupPulsarOptions `protobuf:"bytes,107,opt,name=pulsar,proto3" json:"pulsar,omitempty"`
+	Pulsar *ReadGroupPulsarOptions `protobuf:"bytes,107,opt,name=pulsar,proto3" json:"pulsar,omitempty" kong:"cmd,help='Apache Pulsar'"`
 	// @gotags: kong:"cmd,help='RabbitMQ'"
-	Rabbit *ReadGroupRabbitOptions `protobuf:"bytes,108,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	Rabbit *ReadGroupRabbitOptions `protobuf:"bytes,108,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='RabbitMQ'"`
 	// @gotags: kong:"cmd,help='RabbitMQ Streams'"
-	RabbitStreams *ReadGroupRabbitStreamsOptions `protobuf:"bytes,109,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty"`
+	RabbitStreams *ReadGroupRabbitStreamsOptions `protobuf:"bytes,109,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty" kong:"cmd,help='RabbitMQ Streams'"`
 	// @gotags: kong:"cmd,help='MQTT'"
-	Mqtt *ReadGroupMQTTOptions `protobuf:"bytes,110,opt,name=mqtt,proto3" json:"mqtt,omitempty"`
+	Mqtt *ReadGroupMQTTOptions `protobuf:"bytes,110,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd,help='MQTT'"`
 	// @gotags: kong:"cmd,help='Azure Service Bus'"
-	AzureServiceBus *ReadGroupAzureServiceBusOptions `protobuf:"bytes,111,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty"`
+	AzureServiceBus *ReadGroupAzureServiceBusOptions `protobuf:"bytes,111,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd,help='Azure Service Bus'"`
 	// @gotags: kong:"cmd,help='Azure Event Hub'"
-	AzureEventHub *ReadGroupAzureEventHubOptions `protobuf:"bytes,112,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty"`
+	AzureEventHub *ReadGroupAzureEventHubOptions `protobuf:"bytes,112,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty" kong:"cmd,help='Azure Event Hub'"`
 	// @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-	GcpPubsub *ReadGroupGCPPubSubOptions `protobuf:"bytes,113,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty"`
+	GcpPubsub *ReadGroupGCPPubSubOptions `protobuf:"bytes,113,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd,help='Google Cloud Platform Pub/Sub'"`
 	// @gotags: kong:"cmd,help='KubeMQ Queue'"
-	KubemqQueue *ReadGroupKubeMQQueueOptions `protobuf:"bytes,114,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	KubemqQueue *ReadGroupKubeMQQueueOptions `protobuf:"bytes,114,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
 	// @gotags: kong:"cmd,help='Redis PubSub'"
-	RedisPubsub *ReadGroupRedisPubSubOptions `protobuf:"bytes,115,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty"`
+	RedisPubsub *ReadGroupRedisPubSubOptions `protobuf:"bytes,115,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd,help='Redis PubSub'"`
 	// @gotags: kong:"cmd,help='Redis Streams'"
-	RedisStreams *ReadGroupRedisStreamsOptions `protobuf:"bytes,116,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty"`
+	RedisStreams *ReadGroupRedisStreamsOptions `protobuf:"bytes,116,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd,help='Redis Streams'"`
 	// @gotags: kong:"cmd,help='PostgreSQL'"
-	Postgres *ReadGroupPostgresOptions `protobuf:"bytes,117,opt,name=postgres,proto3" json:"postgres,omitempty"`
+	Postgres *ReadGroupPostgresOptions `protobuf:"bytes,117,opt,name=postgres,proto3" json:"postgres,omitempty" kong:"cmd,help='PostgreSQL'"`
 	// @gotags: kong:"cmd,help='NATS Jetstream'"
-	NatsJetstream *ReadGroupNatsJetstreamOptions `protobuf:"bytes,118,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty"`
+	NatsJetstream *ReadGroupNatsJetstreamOptions `protobuf:"bytes,118,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty" kong:"cmd,help='NATS Jetstream'"`
 	// @gotags: kong:"cmd,help='AWS Kinesis Streams'"
-	AwsKinesis *ReadGroupAWSKinesisOptions `protobuf:"bytes,119,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty"`
+	AwsKinesis *ReadGroupAWSKinesisOptions `protobuf:"bytes,119,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty" kong:"cmd,help='AWS Kinesis Streams'"`
 	// @gotags: kong:"cmd,help='Memphis'"
-	Memphis *ReadGroupMemphisOptions `protobuf:"bytes,120,opt,name=memphis,proto3" json:"memphis,omitempty"`
+	Memphis *ReadGroupMemphisOptions `protobuf:"bytes,120,opt,name=memphis,proto3" json:"memphis,omitempty" kong:"cmd,help='Memphis'"`
 }
 
 func (x *ReadOptions) Reset() {
@@ -633,9 +633,9 @@ type ReadGroupKafkaOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.KafkaConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.KafkaConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.KafkaReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.KafkaReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupKafkaOptions) Reset() {
@@ -690,9 +690,9 @@ type ReadGroupActiveMQOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.ActiveMQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.ActiveMQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.ActiveMQReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.ActiveMQReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupActiveMQOptions) Reset() {
@@ -747,9 +747,9 @@ type ReadGroupAWSSQSOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AWSSQSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AWSSQSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AWSSQSReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AWSSQSReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupAWSSQSOptions) Reset() {
@@ -804,9 +804,9 @@ type ReadGroupMongoOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.MongoConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.MongoConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.MongoReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.MongoReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupMongoOptions) Reset() {
@@ -861,9 +861,9 @@ type ReadGroupNatsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupNatsOptions) Reset() {
@@ -918,9 +918,9 @@ type ReadGroupNatsStreamingOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsStreamingConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsStreamingConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsStreamingReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsStreamingReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupNatsStreamingOptions) Reset() {
@@ -975,9 +975,9 @@ type ReadGroupNatsJetstreamOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsJetstreamConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsJetstreamConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsJetstreamReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsJetstreamReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupNatsJetstreamOptions) Reset() {
@@ -1032,9 +1032,9 @@ type ReadGroupNSQOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NSQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NSQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NSQReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NSQReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupNSQOptions) Reset() {
@@ -1089,9 +1089,9 @@ type ReadGroupPostgresOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.PostgresConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.PostgresConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.PostgresReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.PostgresReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupPostgresOptions) Reset() {
@@ -1146,9 +1146,9 @@ type ReadGroupPulsarOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.PulsarConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.PulsarConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.PulsarReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.PulsarReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupPulsarOptions) Reset() {
@@ -1203,9 +1203,9 @@ type ReadGroupRabbitOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RabbitConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RabbitConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RabbitReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RabbitReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupRabbitOptions) Reset() {
@@ -1260,9 +1260,9 @@ type ReadGroupRabbitStreamsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RabbitStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RabbitStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RabbitStreamsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RabbitStreamsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupRabbitStreamsOptions) Reset() {
@@ -1317,9 +1317,9 @@ type ReadGroupRedisPubSubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RedisPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RedisPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RedisPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RedisPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupRedisPubSubOptions) Reset() {
@@ -1374,9 +1374,9 @@ type ReadGroupRedisStreamsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RedisStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RedisStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RedisStreamsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RedisStreamsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupRedisStreamsOptions) Reset() {
@@ -1431,9 +1431,9 @@ type ReadGroupAzureEventHubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AzureEventHubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AzureEventHubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AzureEventHubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AzureEventHubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupAzureEventHubOptions) Reset() {
@@ -1488,9 +1488,9 @@ type ReadGroupAzureServiceBusOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AzureServiceBusConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AzureServiceBusConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AzureServiceBusReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AzureServiceBusReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupAzureServiceBusOptions) Reset() {
@@ -1545,9 +1545,9 @@ type ReadGroupMQTTOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.MQTTConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.MQTTConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.MQTTReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.MQTTReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupMQTTOptions) Reset() {
@@ -1602,9 +1602,9 @@ type ReadGroupGCPPubSubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.GCPPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.GCPPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.GCPPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.GCPPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupGCPPubSubOptions) Reset() {
@@ -1659,9 +1659,9 @@ type ReadGroupKubeMQQueueOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.KubeMQQueueConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.KubeMQQueueConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.KubeMQQueueReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.KubeMQQueueReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupKubeMQQueueOptions) Reset() {
@@ -1716,9 +1716,9 @@ type ReadGroupAWSKinesisOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AWSKinesisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AWSKinesisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AWSKinesisReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AWSKinesisReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupAWSKinesisOptions) Reset() {
@@ -1773,9 +1773,9 @@ type ReadGroupMemphisOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.MemphisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.MemphisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.MemphisReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.MemphisReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *ReadGroupMemphisOptions) Reset() {
@@ -1831,12 +1831,12 @@ type InferSchemaOptions struct {
 
 	// Type of schema to infer from the data
 	// @gotags: kong:"-"
-	Type InferSchemaOptions_Type `protobuf:"varint,1,opt,name=type,proto3,enum=protos.opts.InferSchemaOptions_Type" json:"type,omitempty"`
+	Type InferSchemaOptions_Type `protobuf:"varint,1,opt,name=type,proto3,enum=protos.opts.InferSchemaOptions_Type" json:"type,omitempty" kong:"-"`
 	// Existing schema ID. Can be filled out by end user, or by plumber
 	// If filled out by end user, plumber will pull the schema and evolve from it
 	// If empty, plumber will make a new schema, save and publish to other instances, and then evolve from it
 	// @gotags: kong:"-"
-	SchemaId string `protobuf:"bytes,2,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty"`
+	SchemaId string `protobuf:"bytes,2,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"-"`
 }
 
 func (x *InferSchemaOptions) Reset() {

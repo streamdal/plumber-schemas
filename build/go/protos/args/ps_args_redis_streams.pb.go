@@ -72,13 +72,13 @@ type RedisStreamsConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Address of redis server',default=localhost:6379,required,env='PLUMBER_RELAY_REDIS_STREAMS_ADDRESS'"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Address of redis server',default=localhost:6379,required,env='PLUMBER_RELAY_REDIS_STREAMS_ADDRESS'"`
 	// @gotags: kong:"help='Username (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_STREAMS_USERNAME'"
-	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty" kong:"help='Username (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_STREAMS_USERNAME'"`
 	// @gotags: kong:"help='Password (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_STREAMS_PASSWORD'"
-	Password string `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
+	Password string `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty" kong:"help='Password (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_STREAMS_PASSWORD'"`
 	// @gotags: kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"
-	Database uint32 `protobuf:"varint,4,opt,name=database,proto3" json:"database,omitempty"`
+	Database uint32 `protobuf:"varint,4,opt,name=database,proto3" json:"database,omitempty" kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"`
 }
 
 func (x *RedisStreamsConn) Reset() {
@@ -147,11 +147,11 @@ type CreateConsumerConfig struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Create the streams if creating a new consumer group',env='PLUMBER_RELAY_REDIS_STREAMS_CREATE_STREAMS'"
-	CreateStreams bool `protobuf:"varint,1,opt,name=create_streams,json=createStreams,proto3" json:"create_streams,omitempty"`
+	CreateStreams bool `protobuf:"varint,1,opt,name=create_streams,json=createStreams,proto3" json:"create_streams,omitempty" kong:"help='Create the streams if creating a new consumer group',env='PLUMBER_RELAY_REDIS_STREAMS_CREATE_STREAMS'"`
 	// @gotags: kong:"help='Recreate this consumer group if it does not exist',env='PLUMBER_RELAY_REDIS_STREAMS_RECREATE_CONSUMER_GROUP'"
-	RecreateConsumerGroup bool `protobuf:"varint,2,opt,name=recreate_consumer_group,json=recreateConsumerGroup,proto3" json:"recreate_consumer_group,omitempty"`
+	RecreateConsumerGroup bool `protobuf:"varint,2,opt,name=recreate_consumer_group,json=recreateConsumerGroup,proto3" json:"recreate_consumer_group,omitempty" kong:"help='Recreate this consumer group if it does not exist',env='PLUMBER_RELAY_REDIS_STREAMS_RECREATE_CONSUMER_GROUP'"`
 	// @gotags: kong:"help='What offset to start reading at (options: latest oldest)',default=latest,required,env='PLUMBER_RELAY_REDIS_STREAMS_START_ID',type=pbenum,pbenum_lowercase"
-	OffsetStart OffsetStart `protobuf:"varint,3,opt,name=offset_start,json=offsetStart,proto3,enum=protos.args.OffsetStart" json:"offset_start,omitempty"`
+	OffsetStart OffsetStart `protobuf:"varint,3,opt,name=offset_start,json=offsetStart,proto3,enum=protos.args.OffsetStart" json:"offset_start,omitempty" kong:"help='What offset to start reading at (options: latest oldest)',default=latest,required,env='PLUMBER_RELAY_REDIS_STREAMS_START_ID',type=pbenum,pbenum_lowercase"`
 }
 
 func (x *CreateConsumerConfig) Reset() {
@@ -213,15 +213,15 @@ type RedisStreamsReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Streams to read from',required,env='PLUMBER_RELAY_REDIS_STREAMS_STREAMS'"
-	Streams []string `protobuf:"bytes,1,rep,name=streams,proto3" json:"streams,omitempty"`
+	Streams []string `protobuf:"bytes,1,rep,name=streams,proto3" json:"streams,omitempty" kong:"help='Streams to read from',required,env='PLUMBER_RELAY_REDIS_STREAMS_STREAMS'"`
 	// @gotags: kong:"help='Consumer group name',env='PLUMBER_RELAY_REDIS_STREAMS_CONSUMER_GROUP',default=plumber"
-	ConsumerGroup string `protobuf:"bytes,2,opt,name=consumer_group,json=consumerGroup,proto3" json:"consumer_group,omitempty"`
+	ConsumerGroup string `protobuf:"bytes,2,opt,name=consumer_group,json=consumerGroup,proto3" json:"consumer_group,omitempty" kong:"help='Consumer group name',env='PLUMBER_RELAY_REDIS_STREAMS_CONSUMER_GROUP',default=plumber"`
 	// @gotags: kong:"help='Consumer name',env='PLUMBER_RELAY_REDIS_STREAMS_CONSUMER_NAME',default=plumber-consumer-1"
-	ConsumerName string `protobuf:"bytes,3,opt,name=consumer_name,json=consumerName,proto3" json:"consumer_name,omitempty"`
+	ConsumerName string `protobuf:"bytes,3,opt,name=consumer_name,json=consumerName,proto3" json:"consumer_name,omitempty" kong:"help='Consumer name',env='PLUMBER_RELAY_REDIS_STREAMS_CONSUMER_NAME',default=plumber-consumer-1"`
 	// @gotags: kong:"help='Number of records to read from stream(s) per read',env='PLUMBER_RELAY_REDIS_STREAMS_COUNT',default=10"
-	Count uint32 `protobuf:"varint,4,opt,name=count,proto3" json:"count,omitempty"`
+	Count uint32 `protobuf:"varint,4,opt,name=count,proto3" json:"count,omitempty" kong:"help='Number of records to read from stream(s) per read',env='PLUMBER_RELAY_REDIS_STREAMS_COUNT',default=10"`
 	// @gotags: kong:"embed"
-	CreateConsumerConfig *CreateConsumerConfig `protobuf:"bytes,5,opt,name=create_consumer_config,json=createConsumerConfig,proto3" json:"create_consumer_config,omitempty"`
+	CreateConsumerConfig *CreateConsumerConfig `protobuf:"bytes,5,opt,name=create_consumer_config,json=createConsumerConfig,proto3" json:"create_consumer_config,omitempty" kong:"embed"`
 }
 
 func (x *RedisStreamsReadArgs) Reset() {
@@ -297,11 +297,11 @@ type RedisStreamsWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='What redis ID to use for input data (* = auto-generate)',default='*'"
-	WriteId string `protobuf:"bytes,1,opt,name=write_id,json=writeId,proto3" json:"write_id,omitempty"`
+	WriteId string `protobuf:"bytes,1,opt,name=write_id,json=writeId,proto3" json:"write_id,omitempty" kong:"help='What redis ID to use for input data (* = auto-generate)',default='*'"`
 	// @gotags: kong:"help='Streams to write to'"
-	Streams []string `protobuf:"bytes,2,rep,name=streams,proto3" json:"streams,omitempty"`
+	Streams []string `protobuf:"bytes,2,rep,name=streams,proto3" json:"streams,omitempty" kong:"help='Streams to write to'"`
 	// @gotags: kong:"help='Key name to write input data to'"
-	Key string `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty"`
+	Key string `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty" kong:"help='Key name to write input data to'"`
 }
 
 func (x *RedisStreamsWriteArgs) Reset() {

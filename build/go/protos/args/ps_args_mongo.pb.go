@@ -26,7 +26,7 @@ type MongoConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Dial string for mongo server (Ex: mongodb://localhost:27017)',env='PLUMBER_RELAY_CDCMONGO_DSN',default='mongodb://localhost:27017'"
-	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty"`
+	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty" kong:"help='Dial string for mongo server (Ex: mongodb://localhost:27017)',env='PLUMBER_RELAY_CDCMONGO_DSN',default='mongodb://localhost:27017'"`
 }
 
 func (x *MongoConn) Reset() {
@@ -74,11 +74,11 @@ type MongoReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Database name',env='PLUMBER_RELAY_CDCMONGO_DATABASE'"
-	Database string `protobuf:"bytes,1,opt,name=database,proto3" json:"database,omitempty"`
+	Database string `protobuf:"bytes,1,opt,name=database,proto3" json:"database,omitempty" kong:"help='Database name',env='PLUMBER_RELAY_CDCMONGO_DATABASE'"`
 	// @gotags: kong:"help='Collection name',env='PLUMBER_RELAY_CDCMONGO_COLLECTION'"
-	Collection string `protobuf:"bytes,2,opt,name=collection,proto3" json:"collection,omitempty"`
+	Collection string `protobuf:"bytes,2,opt,name=collection,proto3" json:"collection,omitempty" kong:"help='Collection name',env='PLUMBER_RELAY_CDCMONGO_COLLECTION'"`
 	// @gotags: kong:"help='Include full document in update in update changes (default - return deltas only)',env='PLUMBER_RELAY_CDCMONGO_INCLUDE_FULL_DOC'"
-	IncludeFullDocument bool `protobuf:"varint,3,opt,name=include_full_document,json=includeFullDocument,proto3" json:"include_full_document,omitempty"`
+	IncludeFullDocument bool `protobuf:"varint,3,opt,name=include_full_document,json=includeFullDocument,proto3" json:"include_full_document,omitempty" kong:"help='Include full document in update in update changes (default - return deltas only)',env='PLUMBER_RELAY_CDCMONGO_INCLUDE_FULL_DOC'"`
 }
 
 func (x *MongoReadArgs) Reset() {

@@ -26,19 +26,19 @@ type PostgresConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Postgres server hostname',env='PLUMBER_RELAY_CDCPOSTGRES_HOSTNAME',required"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Postgres server hostname',env='PLUMBER_RELAY_CDCPOSTGRES_HOSTNAME',required"`
 	// @gotags: kong:"help='Postgres port',env='PLUMBER_RELAY_CDCPOSTGRES_PORT',default=5432,required"
-	Port uint32 `protobuf:"varint,2,opt,name=port,proto3" json:"port,omitempty"`
+	Port uint32 `protobuf:"varint,2,opt,name=port,proto3" json:"port,omitempty" kong:"help='Postgres port',env='PLUMBER_RELAY_CDCPOSTGRES_PORT',default=5432,required"`
 	// @gotags: kong:"help='Postgres username',env='PLUMBER_RELAY_CDCPOSTGRES_USERNAME',required"
-	Username string `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
+	Username string `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty" kong:"help='Postgres username',env='PLUMBER_RELAY_CDCPOSTGRES_USERNAME',required"`
 	// @gotags: kong:"help='Postgres server password',env='PLUMBER_RELAY_CDCPOSTGRES_PASSWORD'"
-	Password string `protobuf:"bytes,4,opt,name=password,proto3" json:"password,omitempty"`
+	Password string `protobuf:"bytes,4,opt,name=password,proto3" json:"password,omitempty" kong:"help='Postgres server password',env='PLUMBER_RELAY_CDCPOSTGRES_PASSWORD'"`
 	// @gotags: kong:"help='Postgres server database name',env='PLUMBER_RELAY_CDCPOSTGRES_DATABASE',required"
-	Database string `protobuf:"bytes,5,opt,name=database,proto3" json:"database,omitempty"`
+	Database string `protobuf:"bytes,5,opt,name=database,proto3" json:"database,omitempty" kong:"help='Postgres server database name',env='PLUMBER_RELAY_CDCPOSTGRES_DATABASE',required"`
 	// @gotags: kong:"help='Enable TLS usage',env='PLUMBER_RELAY_CDCPOSTGRES_USE_TLS'"
-	UseTls bool `protobuf:"varint,6,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty"`
+	UseTls bool `protobuf:"varint,6,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty" kong:"help='Enable TLS usage',env='PLUMBER_RELAY_CDCPOSTGRES_USE_TLS'"`
 	// @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_CDCPOSTGRES_SKIP_VERIFY_TLS'"
-	TlsSkipVerify bool `protobuf:"varint,7,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty"`
+	TlsSkipVerify bool `protobuf:"varint,7,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_CDCPOSTGRES_SKIP_VERIFY_TLS'"`
 }
 
 func (x *PostgresConn) Reset() {
@@ -128,9 +128,9 @@ type PostgresReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='CDC replication slot name',env='PLUMBER_RELAY_CDCPOSTGRES_SLOT',required"
-	ReplicationSlotName string `protobuf:"bytes,2,opt,name=replication_slot_name,json=replicationSlotName,proto3" json:"replication_slot_name,omitempty"`
+	ReplicationSlotName string `protobuf:"bytes,2,opt,name=replication_slot_name,json=replicationSlotName,proto3" json:"replication_slot_name,omitempty" kong:"help='CDC replication slot name',env='PLUMBER_RELAY_CDCPOSTGRES_SLOT',required"`
 	// @gotags: kong:"help='CDC publisher name',env='PLUMBER_RELAY_CDCPOSTGRES_PUBLISHER',required"
-	PublisherName string `protobuf:"bytes,3,opt,name=publisher_name,json=publisherName,proto3" json:"publisher_name,omitempty"`
+	PublisherName string `protobuf:"bytes,3,opt,name=publisher_name,json=publisherName,proto3" json:"publisher_name,omitempty" kong:"help='CDC publisher name',env='PLUMBER_RELAY_CDCPOSTGRES_PUBLISHER',required"`
 }
 
 func (x *PostgresReadArgs) Reset() {

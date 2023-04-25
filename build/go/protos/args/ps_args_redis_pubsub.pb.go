@@ -26,13 +26,13 @@ type RedisPubSubConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Address of redis server',env='PLUMBER_RELAY_REDIS_PUBSUB_ADDRESS',default=localhost:6379"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='Address of redis server',env='PLUMBER_RELAY_REDIS_PUBSUB_ADDRESS',default=localhost:6379"`
 	// @gotags: kong:"help='Optional username to auth with (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_PUBSUB_USERNAME'"
-	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty" kong:"help='Optional username to auth with (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_PUBSUB_USERNAME'"`
 	// @gotags: kong:"help='Optional password to auth with (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_PUBSUB_PASSWORD'"
-	Password string `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
+	Password string `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty" kong:"help='Optional password to auth with (redis >= v6.0.0)',env='PLUMBER_RELAY_REDIS_PUBSUB_PASSWORD'"`
 	// @gotags: kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"
-	Database uint32 `protobuf:"varint,4,opt,name=database,proto3" json:"database,omitempty"`
+	Database uint32 `protobuf:"varint,4,opt,name=database,proto3" json:"database,omitempty" kong:"help='Database (0-16)',env='PLUMBER_RELAY_REDIS_PUBSUB_DATABASE'"`
 }
 
 func (x *RedisPubSubConn) Reset() {
@@ -101,7 +101,7 @@ type RedisPubSubReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Comma separated list of channels to read from',env='PLUMBER_RELAY_REDIS_PUBSUB_CHANNELS',required"
-	Channels []string `protobuf:"bytes,1,rep,name=channels,proto3" json:"channels,omitempty"`
+	Channels []string `protobuf:"bytes,1,rep,name=channels,proto3" json:"channels,omitempty" kong:"help='Comma separated list of channels to read from',env='PLUMBER_RELAY_REDIS_PUBSUB_CHANNELS',required"`
 }
 
 func (x *RedisPubSubReadArgs) Reset() {
@@ -149,7 +149,7 @@ type RedisPubSubWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Comma separated list of channels to write to',required"
-	Channels []string `protobuf:"bytes,1,rep,name=channels,proto3" json:"channels,omitempty"`
+	Channels []string `protobuf:"bytes,1,rep,name=channels,proto3" json:"channels,omitempty" kong:"help='Comma separated list of channels to write to',required"`
 }
 
 func (x *RedisPubSubWriteArgs) Reset() {

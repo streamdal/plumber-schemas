@@ -26,7 +26,7 @@ type AzureEventHubConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Connection string',env='EVENTHUB_CONNECTION_STRING',required"
-	ConnectionString string `protobuf:"bytes,1,opt,name=connection_string,json=connectionString,proto3" json:"connection_string,omitempty"`
+	ConnectionString string `protobuf:"bytes,1,opt,name=connection_string,json=connectionString,proto3" json:"connection_string,omitempty" kong:"help='Connection string',env='EVENTHUB_CONNECTION_STRING',required"`
 }
 
 func (x *AzureEventHubConn) Reset() {
@@ -112,9 +112,9 @@ type AzureEventHubWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Send message with this ID'"
-	MessageId string `protobuf:"bytes,1,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
+	MessageId string `protobuf:"bytes,1,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty" kong:"help='Send message with this ID'"`
 	// @gotags: kong:"help='Send message with this partition key'"
-	PartitionKey string `protobuf:"bytes,2,opt,name=partition_key,json=partitionKey,proto3" json:"partition_key,omitempty"`
+	PartitionKey string `protobuf:"bytes,2,opt,name=partition_key,json=partitionKey,proto3" json:"partition_key,omitempty" kong:"help='Send message with this partition key'"`
 }
 
 func (x *AzureEventHubWriteArgs) Reset() {

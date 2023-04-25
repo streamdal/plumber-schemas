@@ -26,13 +26,13 @@ type AWSSQSConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"env=AWS_DEFAULT_REGION,hidden"
-	AwsRegion string `protobuf:"bytes,1,opt,name=aws_region,json=awsRegion,proto3" json:"aws_region,omitempty"`
+	AwsRegion string `protobuf:"bytes,1,opt,name=aws_region,json=awsRegion,proto3" json:"aws_region,omitempty" kong:"env=AWS_DEFAULT_REGION,hidden"`
 	// @gotags: kong:"env=AWS_ACCESS_KEY_ID,hidden"
-	AwsAccessKeyId string `protobuf:"bytes,2,opt,name=aws_access_key_id,json=awsAccessKeyId,proto3" json:"aws_access_key_id,omitempty"`
+	AwsAccessKeyId string `protobuf:"bytes,2,opt,name=aws_access_key_id,json=awsAccessKeyId,proto3" json:"aws_access_key_id,omitempty" kong:"env=AWS_ACCESS_KEY_ID,hidden"`
 	// @gotags: kong:"env=AWS_SECRET_ACCESS_KEY,hidden"
-	AwsSecretAccessKey string `protobuf:"bytes,3,opt,name=aws_secret_access_key,json=awsSecretAccessKey,proto3" json:"aws_secret_access_key,omitempty"`
+	AwsSecretAccessKey string `protobuf:"bytes,3,opt,name=aws_secret_access_key,json=awsSecretAccessKey,proto3" json:"aws_secret_access_key,omitempty" kong:"env=AWS_SECRET_ACCESS_KEY,hidden"`
 	// @gotags: kong:"env=AWS_PROFILE,hidden"
-	AwsProfile string `protobuf:"bytes,4,opt,name=aws_profile,json=awsProfile,proto3" json:"aws_profile,omitempty"`
+	AwsProfile string `protobuf:"bytes,4,opt,name=aws_profile,json=awsProfile,proto3" json:"aws_profile,omitempty" kong:"env=AWS_PROFILE,hidden"`
 }
 
 func (x *AWSSQSConn) Reset() {
@@ -101,17 +101,17 @@ type AWSSQSReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Queue name'"
-	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty"`
+	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty" kong:"help='Queue name'"`
 	// @gotags: kong:"help='Remote AWS account ID',optional"
-	RemoteAccountId string `protobuf:"bytes,2,opt,name=remote_account_id,json=remoteAccountId,proto3" json:"remote_account_id,omitempty"`
+	RemoteAccountId string `protobuf:"bytes,2,opt,name=remote_account_id,json=remoteAccountId,proto3" json:"remote_account_id,omitempty" kong:"help='Remote AWS account ID',optional"`
 	// @gotags: kong:"help='Max number of messages to read',default=1"
-	MaxNumMessages int64 `protobuf:"varint,3,opt,name=max_num_messages,json=maxNumMessages,proto3" json:"max_num_messages,omitempty"`
+	MaxNumMessages int64 `protobuf:"varint,3,opt,name=max_num_messages,json=maxNumMessages,proto3" json:"max_num_messages,omitempty" kong:"help='Max number of messages to read',default=1"`
 	// @gotags: kong:"help='An id to identify this read request by',default='plumber/relay'"
-	ReceiveRequestAttemptId string `protobuf:"bytes,4,opt,name=receive_request_attempt_id,json=receiveRequestAttemptId,proto3" json:"receive_request_attempt_id,omitempty"`
+	ReceiveRequestAttemptId string `protobuf:"bytes,4,opt,name=receive_request_attempt_id,json=receiveRequestAttemptId,proto3" json:"receive_request_attempt_id,omitempty" kong:"help='An id to identify this read request by',default='plumber/relay'"`
 	// @gotags: kong:"help='Auto-delete read/received message(s)'"
-	AutoDelete bool `protobuf:"varint,5,opt,name=auto_delete,json=autoDelete,proto3" json:"auto_delete,omitempty"`
+	AutoDelete bool `protobuf:"varint,5,opt,name=auto_delete,json=autoDelete,proto3" json:"auto_delete,omitempty" kong:"help='Auto-delete read/received message(s)'"`
 	// @gotags: kong:"help='Number of seconds to wait for messages (not used when using --continuous)',default=5"
-	WaitTimeSeconds int64 `protobuf:"varint,6,opt,name=wait_time_seconds,json=waitTimeSeconds,proto3" json:"wait_time_seconds,omitempty"`
+	WaitTimeSeconds int64 `protobuf:"varint,6,opt,name=wait_time_seconds,json=waitTimeSeconds,proto3" json:"wait_time_seconds,omitempty" kong:"help='Number of seconds to wait for messages (not used when using --continuous)',default=5"`
 }
 
 func (x *AWSSQSReadArgs) Reset() {
@@ -194,17 +194,17 @@ type AWSSQSWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Queue name'"
-	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty"`
+	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty" kong:"help='Queue name'"`
 	// @gotags: kong:"help='Remote AWS account ID',optional"
-	RemoteAccountId string `protobuf:"bytes,2,opt,name=remote_account_id,json=remoteAccountId,proto3" json:"remote_account_id,omitempty"`
+	RemoteAccountId string `protobuf:"bytes,2,opt,name=remote_account_id,json=remoteAccountId,proto3" json:"remote_account_id,omitempty" kong:"help='Remote AWS account ID',optional"`
 	// @gotags: kong:"help='How many seconds to delay message delivery by',default=0"
-	DelaySeconds int64 `protobuf:"varint,3,opt,name=delay_seconds,json=delaySeconds,proto3" json:"delay_seconds,omitempty"`
+	DelaySeconds int64 `protobuf:"varint,3,opt,name=delay_seconds,json=delaySeconds,proto3" json:"delay_seconds,omitempty" kong:"help='How many seconds to delay message delivery by',default=0"`
 	// @gotags: kong:"help='Add optional attributes to outgoing message (assign: k=v delimit: ;)'"
-	Attributes map[string]string `protobuf:"bytes,4,rep,name=attributes,proto3" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Attributes map[string]string `protobuf:"bytes,4,rep,name=attributes,proto3" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" kong:"help='Add optional attributes to outgoing message (assign: k=v delimit: ;)'"`
 	// @gotags: kong:"help='Message Group ID. For FIFO queues only'"
-	MessageGroupId string `protobuf:"bytes,5,opt,name=message_group_id,json=messageGroupId,proto3" json:"message_group_id,omitempty"`
+	MessageGroupId string `protobuf:"bytes,5,opt,name=message_group_id,json=messageGroupId,proto3" json:"message_group_id,omitempty" kong:"help='Message Group ID. For FIFO queues only'"`
 	// @gotags: kong:"help='Required when publishing to a FIFO queue that does not have content based deduplication enabled'"
-	MessageDeduplicationId string `protobuf:"bytes,6,opt,name=message_deduplication_id,json=messageDeduplicationId,proto3" json:"message_deduplication_id,omitempty"`
+	MessageDeduplicationId string `protobuf:"bytes,6,opt,name=message_deduplication_id,json=messageDeduplicationId,proto3" json:"message_deduplication_id,omitempty" kong:"help='Required when publishing to a FIFO queue that does not have content based deduplication enabled'"`
 }
 
 func (x *AWSSQSWriteArgs) Reset() {
@@ -288,17 +288,17 @@ type AWSSQSRelayArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Queue name',env=PLUMBER_RELAY_SQS_QUEUE_NAME"
-	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty"`
+	QueueName string `protobuf:"bytes,1,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty" kong:"help='Queue name',env=PLUMBER_RELAY_SQS_QUEUE_NAME"`
 	// @gotags: kong:"help='Remote AWS account ID',env=PLUMBER_RELAY_SQS_REMOTE_ACCOUNT_ID,optional"
-	RemoteAccountId string `protobuf:"bytes,2,opt,name=remote_account_id,json=remoteAccountId,proto3" json:"remote_account_id,omitempty"`
+	RemoteAccountId string `protobuf:"bytes,2,opt,name=remote_account_id,json=remoteAccountId,proto3" json:"remote_account_id,omitempty" kong:"help='Remote AWS account ID',env=PLUMBER_RELAY_SQS_REMOTE_ACCOUNT_ID,optional"`
 	// @gotags: kong:"help='Max number of messages to read',env=PLUMBER_RELAY_SQS_MAX_NUM_MESSAGES,default=1"
-	MaxNumMessages int64 `protobuf:"varint,3,opt,name=max_num_messages,json=maxNumMessages,proto3" json:"max_num_messages,omitempty"`
+	MaxNumMessages int64 `protobuf:"varint,3,opt,name=max_num_messages,json=maxNumMessages,proto3" json:"max_num_messages,omitempty" kong:"help='Max number of messages to read',env=PLUMBER_RELAY_SQS_MAX_NUM_MESSAGES,default=1"`
 	// @gotags: kong:"help='An id to identify this read request by',env=PLUMBER_RELAY_SQS_RECEIVE_REQUEST_ATTEMPT_ID,default='plumber/relay'"
-	ReceiveRequestAttemptId string `protobuf:"bytes,4,opt,name=receive_request_attempt_id,json=receiveRequestAttemptId,proto3" json:"receive_request_attempt_id,omitempty"`
+	ReceiveRequestAttemptId string `protobuf:"bytes,4,opt,name=receive_request_attempt_id,json=receiveRequestAttemptId,proto3" json:"receive_request_attempt_id,omitempty" kong:"help='An id to identify this read request by',env=PLUMBER_RELAY_SQS_RECEIVE_REQUEST_ATTEMPT_ID,default='plumber/relay'"`
 	// @gotags: kong:"help='Auto-delete read/received message(s)',env=PLUMBER_RELAY_SQS_AUTO_DELETE"
-	AutoDelete bool `protobuf:"varint,5,opt,name=auto_delete,json=autoDelete,proto3" json:"auto_delete,omitempty"`
+	AutoDelete bool `protobuf:"varint,5,opt,name=auto_delete,json=autoDelete,proto3" json:"auto_delete,omitempty" kong:"help='Auto-delete read/received message(s)',env=PLUMBER_RELAY_SQS_AUTO_DELETE"`
 	// @gotags: kong:"help='Number of seconds to wait for messages (not used when using --continuous)',env=PLUMBER_RELAY_SQS_WAIT_TIME_SECONDS,default=5"
-	WaitTimeSeconds int64 `protobuf:"varint,6,opt,name=wait_time_seconds,json=waitTimeSeconds,proto3" json:"wait_time_seconds,omitempty"`
+	WaitTimeSeconds int64 `protobuf:"varint,6,opt,name=wait_time_seconds,json=waitTimeSeconds,proto3" json:"wait_time_seconds,omitempty" kong:"help='Number of seconds to wait for messages (not used when using --continuous)',env=PLUMBER_RELAY_SQS_WAIT_TIME_SECONDS,default=5"`
 }
 
 func (x *AWSSQSRelayArgs) Reset() {

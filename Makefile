@@ -52,7 +52,7 @@ generate/all: generate/ts generate/go inject-tags
 
 .PHONY: local
 local: description = Compile protos for all languages and copy to local plumber
-local: generate/ts generate/go inject-tags
+local: generate/ts generate/go inject-tags/local
 local:
 	cp -R $(GO_PROTOS_DIR)/ ~/Code/plumber/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
 #	cp -R $(GO_PROTOS_DIR)/ ~/Code/foreman/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
@@ -151,6 +151,17 @@ generate/go:
 	go run generate-conn-opts-func.go
 	go run generate-merge-relay-opts.go
 	go run generate-merge-tunnel-opts.go
+
+.PHONY: inject-tags/local
+inject-tags/local: description = Inject tags for CLI
+inject-tags/local:
+	# Injecting tags into *.pb.go files...
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/common/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/encoding/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/opts/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/records/*.pb.go"
 
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI

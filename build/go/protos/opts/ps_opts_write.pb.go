@@ -29,11 +29,11 @@ type WriteCLIOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Write data from input file',existingfile,xor=input"
-	InputFile string `protobuf:"bytes,1,opt,name=input_file,json=inputFile,proto3" json:"input_file,omitempty"`
+	InputFile string `protobuf:"bytes,1,opt,name=input_file,json=inputFile,proto3" json:"input_file,omitempty" kong:"help='Write data from input file',existingfile,xor=input"`
 	// @gotags: kong:"help='Treat input as JSON array - each array element will be written as a separate message'"
-	InputAsJsonArray bool `protobuf:"varint,2,opt,name=input_as_json_array,json=inputAsJsonArray,proto3" json:"input_as_json_array,omitempty"`
+	InputAsJsonArray bool `protobuf:"varint,2,opt,name=input_as_json_array,json=inputAsJsonArray,proto3" json:"input_as_json_array,omitempty" kong:"help='Treat input as JSON array - each array element will be written as a separate message'"`
 	// @gotags: kong:"-"
-	InputStdin []string `protobuf:"bytes,3,rep,name=input_stdin,json=inputStdin,proto3" json:"input_stdin,omitempty"`
+	InputStdin []string `protobuf:"bytes,3,rep,name=input_stdin,json=inputStdin,proto3" json:"input_stdin,omitempty" kong:"-"`
 }
 
 func (x *WriteCLIOptions) Reset() {
@@ -98,54 +98,54 @@ type WriteOptions struct {
 
 	// Required for desktop; ignored in CLI.
 	// @gotags: kong:"-"
-	ConnectionId string `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
+	ConnectionId string `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"-"`
 	// @gotags: kong:"embed"
-	Record *records.WriteRecord `protobuf:"bytes,2,opt,name=record,proto3" json:"record,omitempty"`
+	Record *records.WriteRecord `protobuf:"bytes,2,opt,name=record,proto3" json:"record,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	EncodeOptions *encoding.EncodeOptions `protobuf:"bytes,3,opt,name=encode_options,json=encodeOptions,proto3" json:"encode_options,omitempty"`
+	EncodeOptions *encoding.EncodeOptions `protobuf:"bytes,3,opt,name=encode_options,json=encodeOptions,proto3" json:"encode_options,omitempty" kong:"embed"`
 	// Optional; CLI-specific and non-backend-specific options
 	// @gotags: kong:"embed"
-	XCliOptions *WriteCLIOptions `protobuf:"bytes,1000,opt,name=_cli_options,json=CliOptions,proto3" json:"_cli_options,omitempty"`
+	XCliOptions *WriteCLIOptions `protobuf:"bytes,1000,opt,name=_cli_options,json=CliOptions,proto3" json:"_cli_options,omitempty" kong:"embed"`
 	// @gotags: kong:"cmd,help='Apache Kafka'"
-	Kafka *WriteGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	Kafka *WriteGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
 	// @gotags: kong:"cmd,help='Apache ActiveMQ'"
-	Activemq *WriteGroupActiveMQOptions `protobuf:"bytes,101,opt,name=activemq,proto3" json:"activemq,omitempty"`
+	Activemq *WriteGroupActiveMQOptions `protobuf:"bytes,101,opt,name=activemq,proto3" json:"activemq,omitempty" kong:"cmd,help='Apache ActiveMQ'"`
 	// @gotags: kong:"cmd,help='AWS Simple Queue System'"
-	AwsSqs *WriteGroupAWSSQSOptions `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty"`
+	AwsSqs *WriteGroupAWSSQSOptions `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty" kong:"cmd,help='AWS Simple Queue System'"`
 	// @gotags: kong:"cmd,help='AWS Simple Notification System'"
-	AwsSns *WriteGroupAWSSNSOptions `protobuf:"bytes,103,opt,name=aws_sns,json=awsSns,proto3" json:"aws_sns,omitempty"`
+	AwsSns *WriteGroupAWSSNSOptions `protobuf:"bytes,103,opt,name=aws_sns,json=awsSns,proto3" json:"aws_sns,omitempty" kong:"cmd,help='AWS Simple Notification System'"`
 	// @gotags: kong:"cmd,help='NATS'"
-	Nats *WriteGroupNatsOptions `protobuf:"bytes,104,opt,name=nats,proto3" json:"nats,omitempty"`
+	Nats *WriteGroupNatsOptions `protobuf:"bytes,104,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd,help='NATS'"`
 	// @gotags: kong:"cmd,help='NATS Streaming'"
-	NatsStreaming *WriteGroupNatsStreamingOptions `protobuf:"bytes,105,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty"`
+	NatsStreaming *WriteGroupNatsStreamingOptions `protobuf:"bytes,105,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd,help='NATS Streaming'"`
 	// @gotags: kong:"cmd,help='NSQ'"
-	Nsq *WriteGroupNSQOptions `protobuf:"bytes,106,opt,name=nsq,proto3" json:"nsq,omitempty"`
+	Nsq *WriteGroupNSQOptions `protobuf:"bytes,106,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd,help='NSQ'"`
 	// @gotags: kong:"cmd,help='Apache Pulsar'"
-	Pulsar *WriteGroupPulsarOptions `protobuf:"bytes,107,opt,name=pulsar,proto3" json:"pulsar,omitempty"`
+	Pulsar *WriteGroupPulsarOptions `protobuf:"bytes,107,opt,name=pulsar,proto3" json:"pulsar,omitempty" kong:"cmd,help='Apache Pulsar'"`
 	// @gotags: kong:"cmd,help='RabbitMQ'"
-	Rabbit *WriteGroupRabbitOptions `protobuf:"bytes,108,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	Rabbit *WriteGroupRabbitOptions `protobuf:"bytes,108,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='RabbitMQ'"`
 	// @gotags: kong:"cmd,help='RabbitMQ Streams'"
-	RabbitStreams *WriteGroupRabbitStreamsOptions `protobuf:"bytes,109,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty"`
+	RabbitStreams *WriteGroupRabbitStreamsOptions `protobuf:"bytes,109,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty" kong:"cmd,help='RabbitMQ Streams'"`
 	// @gotags: kong:"cmd,help='MQTT'"
-	Mqtt *WriteGroupMQTTOptions `protobuf:"bytes,110,opt,name=mqtt,proto3" json:"mqtt,omitempty"`
+	Mqtt *WriteGroupMQTTOptions `protobuf:"bytes,110,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd,help='MQTT'"`
 	// @gotags: kong:"cmd,help='Azure Service Bus'"
-	AzureServiceBus *WriteGroupAzureServiceBusOptions `protobuf:"bytes,111,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty"`
+	AzureServiceBus *WriteGroupAzureServiceBusOptions `protobuf:"bytes,111,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd,help='Azure Service Bus'"`
 	// @gotags: kong:"cmd,help='Azure Event Hub'"
-	AzureEventHub *WriteGroupAzureEventHubOptions `protobuf:"bytes,112,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty"`
+	AzureEventHub *WriteGroupAzureEventHubOptions `protobuf:"bytes,112,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty" kong:"cmd,help='Azure Event Hub'"`
 	// @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-	GcpPubsub *WriteGroupGCPPubSubOptions `protobuf:"bytes,113,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty"`
+	GcpPubsub *WriteGroupGCPPubSubOptions `protobuf:"bytes,113,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd,help='Google Cloud Platform Pub/Sub'"`
 	// @gotags: kong:"cmd,help='KubeMQ Queue'"
-	KubemqQueue *WriteGroupKubeMQQueueOptions `protobuf:"bytes,114,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	KubemqQueue *WriteGroupKubeMQQueueOptions `protobuf:"bytes,114,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
 	// @gotags: kong:"cmd,help='Redis PubSub'"
-	RedisPubsub *WriteGroupRedisPubSubOptions `protobuf:"bytes,115,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty"`
+	RedisPubsub *WriteGroupRedisPubSubOptions `protobuf:"bytes,115,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd,help='Redis PubSub'"`
 	// @gotags: kong:"cmd,help='Redis Streams'"
-	RedisStreams *WriteGroupRedisStreamsOptions `protobuf:"bytes,116,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty"`
+	RedisStreams *WriteGroupRedisStreamsOptions `protobuf:"bytes,116,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd,help='Redis Streams'"`
 	// @gotags: kong:"cmd,help='NATS JetStream'"
-	NatsJetstream *WriteGroupNatsJetstreamOptions `protobuf:"bytes,117,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty"`
+	NatsJetstream *WriteGroupNatsJetstreamOptions `protobuf:"bytes,117,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty" kong:"cmd,help='NATS JetStream'"`
 	// @gotags: kong:"cmd,help='AWS Kinesis Streams'"
-	AwsKinesis *WriteGroupAWSKinesisOptions `protobuf:"bytes,118,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty"`
+	AwsKinesis *WriteGroupAWSKinesisOptions `protobuf:"bytes,118,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty" kong:"cmd,help='AWS Kinesis Streams'"`
 	// @gotags: kong:"cmd,help='Memphis'"
-	Memphis *WriteGroupMemphisOptions `protobuf:"bytes,119,opt,name=memphis,proto3" json:"memphis,omitempty"`
+	Memphis *WriteGroupMemphisOptions `protobuf:"bytes,119,opt,name=memphis,proto3" json:"memphis,omitempty" kong:"cmd,help='Memphis'"`
 }
 
 func (x *WriteOptions) Reset() {
@@ -354,9 +354,9 @@ type WriteGroupKafkaOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.KafkaConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.KafkaConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.KafkaWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.KafkaWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupKafkaOptions) Reset() {
@@ -411,9 +411,9 @@ type WriteGroupActiveMQOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.ActiveMQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.ActiveMQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.ActiveMQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.ActiveMQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupActiveMQOptions) Reset() {
@@ -468,9 +468,9 @@ type WriteGroupAWSSQSOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AWSSQSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AWSSQSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AWSSQSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AWSSQSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupAWSSQSOptions) Reset() {
@@ -525,9 +525,9 @@ type WriteGroupAWSSNSOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AWSSNSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AWSSNSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AWSSNSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AWSSNSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupAWSSNSOptions) Reset() {
@@ -582,9 +582,9 @@ type WriteGroupNatsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupNatsOptions) Reset() {
@@ -639,9 +639,9 @@ type WriteGroupNatsJetstreamOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsJetstreamConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsJetstreamConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsJetstreamWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsJetstreamWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupNatsJetstreamOptions) Reset() {
@@ -696,9 +696,9 @@ type WriteGroupNatsStreamingOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsStreamingConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsStreamingConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsStreamingWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsStreamingWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupNatsStreamingOptions) Reset() {
@@ -753,9 +753,9 @@ type WriteGroupNSQOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NSQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NSQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NSQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NSQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupNSQOptions) Reset() {
@@ -810,9 +810,9 @@ type WriteGroupPulsarOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.PulsarConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.PulsarConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.PulsarWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.PulsarWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupPulsarOptions) Reset() {
@@ -867,9 +867,9 @@ type WriteGroupRabbitOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RabbitConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RabbitConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RabbitWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RabbitWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupRabbitOptions) Reset() {
@@ -924,9 +924,9 @@ type WriteGroupRabbitStreamsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RabbitStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RabbitStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RabbitStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RabbitStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupRabbitStreamsOptions) Reset() {
@@ -981,9 +981,9 @@ type WriteGroupRedisPubSubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RedisPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RedisPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RedisPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RedisPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupRedisPubSubOptions) Reset() {
@@ -1038,9 +1038,9 @@ type WriteGroupRedisStreamsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RedisStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RedisStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RedisStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RedisStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupRedisStreamsOptions) Reset() {
@@ -1095,9 +1095,9 @@ type WriteGroupAzureEventHubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AzureEventHubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AzureEventHubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AzureEventHubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AzureEventHubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupAzureEventHubOptions) Reset() {
@@ -1152,9 +1152,9 @@ type WriteGroupAzureServiceBusOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"{
-	XConn *args.AzureServiceBusConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AzureServiceBusConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AzureServiceBusWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AzureServiceBusWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupAzureServiceBusOptions) Reset() {
@@ -1209,9 +1209,9 @@ type WriteGroupMQTTOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.MQTTConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.MQTTConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.MQTTWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.MQTTWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupMQTTOptions) Reset() {
@@ -1266,9 +1266,9 @@ type WriteGroupGCPPubSubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.GCPPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.GCPPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.GCPPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.GCPPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupGCPPubSubOptions) Reset() {
@@ -1323,9 +1323,9 @@ type WriteGroupKubeMQQueueOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.KubeMQQueueConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.KubeMQQueueConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.KubeMQQueueWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.KubeMQQueueWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupKubeMQQueueOptions) Reset() {
@@ -1380,9 +1380,9 @@ type WriteGroupAWSKinesisOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AWSKinesisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AWSKinesisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AWSKinesisWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AWSKinesisWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupAWSKinesisOptions) Reset() {
@@ -1437,9 +1437,9 @@ type WriteGroupMemphisOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.MemphisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.MemphisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.MemphisWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.MemphisWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *WriteGroupMemphisOptions) Reset() {

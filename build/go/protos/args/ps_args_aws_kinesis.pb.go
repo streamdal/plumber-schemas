@@ -26,13 +26,13 @@ type AWSKinesisConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"env=AWS_DEFAULT_REGION,hidden"
-	AwsRegion string `protobuf:"bytes,1,opt,name=aws_region,json=awsRegion,proto3" json:"aws_region,omitempty"`
+	AwsRegion string `protobuf:"bytes,1,opt,name=aws_region,json=awsRegion,proto3" json:"aws_region,omitempty" kong:"env=AWS_DEFAULT_REGION,hidden"`
 	// @gotags: kong:"env=AWS_ACCESS_KEY_ID,hidden"
-	AwsAccessKeyId string `protobuf:"bytes,2,opt,name=aws_access_key_id,json=awsAccessKeyId,proto3" json:"aws_access_key_id,omitempty"`
+	AwsAccessKeyId string `protobuf:"bytes,2,opt,name=aws_access_key_id,json=awsAccessKeyId,proto3" json:"aws_access_key_id,omitempty" kong:"env=AWS_ACCESS_KEY_ID,hidden"`
 	// @gotags: kong:"env=AWS_SECRET_ACCESS_KEY,hidden"
-	AwsSecretAccessKey string `protobuf:"bytes,3,opt,name=aws_secret_access_key,json=awsSecretAccessKey,proto3" json:"aws_secret_access_key,omitempty"`
+	AwsSecretAccessKey string `protobuf:"bytes,3,opt,name=aws_secret_access_key,json=awsSecretAccessKey,proto3" json:"aws_secret_access_key,omitempty" kong:"env=AWS_SECRET_ACCESS_KEY,hidden"`
 	// @gotags: kong:"env=AWS_PROFILE,hidden"
-	AwsProfile string `protobuf:"bytes,4,opt,name=aws_profile,json=awsProfile,proto3" json:"aws_profile,omitempty"`
+	AwsProfile string `protobuf:"bytes,4,opt,name=aws_profile,json=awsProfile,proto3" json:"aws_profile,omitempty" kong:"env=AWS_PROFILE,hidden"`
 }
 
 func (x *AWSKinesisConn) Reset() {
@@ -101,21 +101,21 @@ type AWSKinesisReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Stream Name',required"
-	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty"`
+	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty" kong:"help='Stream Name',required"`
 	// @gotags: kong:"help='Shard ID. If empty, will read from all shards'"
-	Shard string `protobuf:"bytes,2,opt,name=shard,proto3" json:"shard,omitempty"`
+	Shard string `protobuf:"bytes,2,opt,name=shard,proto3" json:"shard,omitempty" kong:"help='Shard ID. If empty, will read from all shards'"`
 	// @gotags: kong:"help='Maximum number of records to read from kinesis',default=1"
-	MaxRecords int64 `protobuf:"varint,3,opt,name=max_records,json=maxRecords,proto3" json:"max_records,omitempty"`
+	MaxRecords int64 `protobuf:"varint,3,opt,name=max_records,json=maxRecords,proto3" json:"max_records,omitempty" kong:"help='Maximum number of records to read from kinesis',default=1"`
 	// @gotags: kong:"help='Deliver starting at this timestamp',xor=kinesis_delivery_option"
-	ReadFromTimestamp int64 `protobuf:"varint,4,opt,name=read_from_timestamp,json=readFromTimestamp,proto3" json:"read_from_timestamp,omitempty"`
+	ReadFromTimestamp int64 `protobuf:"varint,4,opt,name=read_from_timestamp,json=readFromTimestamp,proto3" json:"read_from_timestamp,omitempty" kong:"help='Deliver starting at this timestamp',xor=kinesis_delivery_option"`
 	// @gotags: kong:"help='Deliver messages starting at sequence number',xor=kinesis_delivery_option"
-	ReadSequenceNumber string `protobuf:"bytes,5,opt,name=read_sequence_number,json=readSequenceNumber,proto3" json:"read_sequence_number,omitempty"`
+	ReadSequenceNumber string `protobuf:"bytes,5,opt,name=read_sequence_number,json=readSequenceNumber,proto3" json:"read_sequence_number,omitempty" kong:"help='Deliver messages starting at sequence number',xor=kinesis_delivery_option"`
 	// @gotags: kong:"help='Deliver messages starting after this sequence number',xor=kinesis_delivery_option"
-	ReadAfterSequenceNumber string `protobuf:"bytes,6,opt,name=read_after_sequence_number,json=readAfterSequenceNumber,proto3" json:"read_after_sequence_number,omitempty"`
+	ReadAfterSequenceNumber string `protobuf:"bytes,6,opt,name=read_after_sequence_number,json=readAfterSequenceNumber,proto3" json:"read_after_sequence_number,omitempty" kong:"help='Deliver messages starting after this sequence number',xor=kinesis_delivery_option"`
 	// @gotags: kong:"help='Deliver messages starting at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.',xor=kinesis_delivery_option"
-	ReadTrimHorizon bool `protobuf:"varint,7,opt,name=read_trim_horizon,json=readTrimHorizon,proto3" json:"read_trim_horizon,omitempty"`
+	ReadTrimHorizon bool `protobuf:"varint,7,opt,name=read_trim_horizon,json=readTrimHorizon,proto3" json:"read_trim_horizon,omitempty" kong:"help='Deliver messages starting at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.',xor=kinesis_delivery_option"`
 	// @gotags: kong:"help='Deliver messages after the most recent record',xor=kinesis_delivery_option"
-	ReadLatest bool `protobuf:"varint,8,opt,name=read_latest,json=readLatest,proto3" json:"read_latest,omitempty"`
+	ReadLatest bool `protobuf:"varint,8,opt,name=read_latest,json=readLatest,proto3" json:"read_latest,omitempty" kong:"help='Deliver messages after the most recent record',xor=kinesis_delivery_option"`
 }
 
 func (x *AWSKinesisReadArgs) Reset() {
@@ -212,11 +212,11 @@ type AWSKinesisWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Stream Name',required"
-	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty"`
+	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty" kong:"help='Stream Name',required"`
 	// @gotags: kong:"help='Partition Key',required"
-	PartitionKey string `protobuf:"bytes,2,opt,name=partition_key,json=partitionKey,proto3" json:"partition_key,omitempty"`
+	PartitionKey string `protobuf:"bytes,2,opt,name=partition_key,json=partitionKey,proto3" json:"partition_key,omitempty" kong:"help='Partition Key',required"`
 	// @gotags: kong:"help='Sequence number for ordering'"
-	SequenceNumber string `protobuf:"bytes,3,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty"`
+	SequenceNumber string `protobuf:"bytes,3,opt,name=sequence_number,json=sequenceNumber,proto3" json:"sequence_number,omitempty" kong:"help='Sequence number for ordering'"`
 }
 
 func (x *AWSKinesisWriteArgs) Reset() {

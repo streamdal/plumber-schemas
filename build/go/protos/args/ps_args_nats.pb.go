@@ -26,13 +26,13 @@ type NatsConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nats://localhost:4222',env='PLUMBER_RELAY_NATS_DSN'"
-	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty"`
+	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty" kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nats://localhost:4222',env='PLUMBER_RELAY_NATS_DSN'"`
 	// @gotags: kong:"help='NATS .creds file containing authentication credentials',env='PLUMBER_RELAY_NATS_CREDENTIALS'"
-	UserCredentials string `protobuf:"bytes,2,opt,name=user_credentials,json=userCredentials,proto3" json:"user_credentials,omitempty"`
+	UserCredentials string `protobuf:"bytes,2,opt,name=user_credentials,json=userCredentials,proto3" json:"user_credentials,omitempty" kong:"help='NATS .creds file containing authentication credentials',env='PLUMBER_RELAY_NATS_CREDENTIALS'"`
 	// @gotags: kong:"embed"
-	TlsOptions *NatsTLSOptions `protobuf:"bytes,3,opt,name=tls_options,json=tlsOptions,proto3" json:"tls_options,omitempty"`
+	TlsOptions *NatsTLSOptions `protobuf:"bytes,3,opt,name=tls_options,json=tlsOptions,proto3" json:"tls_options,omitempty" kong:"embed"`
 	// @gotags: kong:"help='File containing NATS NKey',env='PLUMBER_RELAY_NATS_NKEY'"
-	Nkey string `protobuf:"bytes,4,opt,name=nkey,proto3" json:"nkey,omitempty"`
+	Nkey string `protobuf:"bytes,4,opt,name=nkey,proto3" json:"nkey,omitempty" kong:"help='File containing NATS NKey',env='PLUMBER_RELAY_NATS_NKEY'"`
 }
 
 func (x *NatsConn) Reset() {
@@ -101,15 +101,15 @@ type NatsTLSOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NATS_SKIP_VERIFY_TLS'"
-	TlsSkipVerify bool `protobuf:"varint,1,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty"`
+	TlsSkipVerify bool `protobuf:"varint,1,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NATS_SKIP_VERIFY_TLS'"`
 	// @gotags: kong:"help='CA file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CA_CERT'"
-	TlsCaCert string `protobuf:"bytes,2,opt,name=tls_ca_cert,json=tlsCaCert,proto3" json:"tls_ca_cert,omitempty"`
+	TlsCaCert string `protobuf:"bytes,2,opt,name=tls_ca_cert,json=tlsCaCert,proto3" json:"tls_ca_cert,omitempty" kong:"help='CA file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CA_CERT'"`
 	// @gotags: kong:"help='Client cert file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CLIENT_CERT'"
-	TlsClientCert string `protobuf:"bytes,3,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty"`
+	TlsClientCert string `protobuf:"bytes,3,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty" kong:"help='Client cert file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CLIENT_CERT'"`
 	// @gotags: kong:"help='client key file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CLIENT_KEY'"
-	TlsClientKey string `protobuf:"bytes,4,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty"`
+	TlsClientKey string `protobuf:"bytes,4,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty" kong:"help='client key file (only needed if addr is tls://)',env='PLUMBER_RELAY_NATS_TLS_CLIENT_KEY'"`
 	// @gotags: kong:"help='Enable TLS',env='PLUMBER_RELAY_NATS_USE_TLS'"
-	UseTls bool `protobuf:"varint,5,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty"`
+	UseTls bool `protobuf:"varint,5,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty" kong:"help='Enable TLS',env='PLUMBER_RELAY_NATS_USE_TLS'"`
 }
 
 func (x *NatsTLSOptions) Reset() {
@@ -185,7 +185,7 @@ type NatsReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='NATS Subject. Ex: foo.bar.*',env='PLUMBER_RELAY_NATS_SUBJECT'"
-	Subject string `protobuf:"bytes,1,opt,name=subject,proto3" json:"subject,omitempty"`
+	Subject string `protobuf:"bytes,1,opt,name=subject,proto3" json:"subject,omitempty" kong:"help='NATS Subject. Ex: foo.bar.*',env='PLUMBER_RELAY_NATS_SUBJECT'"`
 }
 
 func (x *NatsReadArgs) Reset() {
@@ -233,7 +233,7 @@ type NatsWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='NATS Subject. Ex: foo.bar.*'"
-	Subject string `protobuf:"bytes,1,opt,name=subject,proto3" json:"subject,omitempty"`
+	Subject string `protobuf:"bytes,1,opt,name=subject,proto3" json:"subject,omitempty" kong:"help='NATS Subject. Ex: foo.bar.*'"`
 }
 
 func (x *NatsWriteArgs) Reset() {

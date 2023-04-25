@@ -27,7 +27,7 @@ type RelayCLIOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='What address to bind the built-in HTTP server to',env='PLUMBER_RELAY_HTTP_LISTEN_ADDRESS',default='localhost:9191'"
-	HttpListenAddress string `protobuf:"bytes,1,opt,name=http_listen_address,json=httpListenAddress,proto3" json:"http_listen_address,omitempty"`
+	HttpListenAddress string `protobuf:"bytes,1,opt,name=http_listen_address,json=httpListenAddress,proto3" json:"http_listen_address,omitempty" kong:"help='What address to bind the built-in HTTP server to',env='PLUMBER_RELAY_HTTP_LISTEN_ADDRESS',default='localhost:9191'"`
 }
 
 func (x *RelayCLIOptions) Reset() {
@@ -77,66 +77,66 @@ type RelayOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Secret collection token',env='PLUMBER_RELAY_TOKEN',name=token,required"
-	CollectionToken string `protobuf:"bytes,1,opt,name=collection_token,json=collectionToken,proto3" json:"collection_token,omitempty"`
+	CollectionToken string `protobuf:"bytes,1,opt,name=collection_token,json=collectionToken,proto3" json:"collection_token,omitempty" kong:"help='Secret collection token',env='PLUMBER_RELAY_TOKEN',name=token,required"`
 	// @gotags: kong:"help='How many messages to send in a single batch',env='PLUMBER_RELAY_BATCH_SIZE',default=1000"
-	BatchSize int32 `protobuf:"varint,2,opt,name=batch_size,json=batchSize,proto3" json:"batch_size,omitempty"`
+	BatchSize int32 `protobuf:"varint,2,opt,name=batch_size,json=batchSize,proto3" json:"batch_size,omitempty" kong:"help='How many messages to send in a single batch',env='PLUMBER_RELAY_BATCH_SIZE',default=1000"`
 	// @gotags: kong:"help='How many times plumber will try re-sending a batch',env='PLUMBER_RELAY_BATCH_MAX_RETRY',default=3"
-	BatchMaxRetry int32 `protobuf:"varint,3,opt,name=batch_max_retry,json=batchMaxRetry,proto3" json:"batch_max_retry,omitempty"`
+	BatchMaxRetry int32 `protobuf:"varint,3,opt,name=batch_max_retry,json=batchMaxRetry,proto3" json:"batch_max_retry,omitempty" kong:"help='How many times plumber will try re-sending a batch',env='PLUMBER_RELAY_BATCH_MAX_RETRY',default=3"`
 	// Required for desktop; ignored in CLI.
 	// @gotags: kong:"-"
-	ConnectionId string `protobuf:"bytes,4,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
+	ConnectionId string `protobuf:"bytes,4,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"-"`
 	// @gotags: kong:"help='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"
-	NumWorkers int32 `protobuf:"varint,5,opt,name=num_workers,json=numWorkers,proto3" json:"num_workers,omitempty"`
+	NumWorkers int32 `protobuf:"varint,5,opt,name=num_workers,json=numWorkers,proto3" json:"num_workers,omitempty" kong:"help='How many workers to launch per relay',env='PLUMBER_RELAY_NUM_WORKERS',default=10"`
 	// @gotags: kong:"group=stats,help='Display periodic read stats'"
-	StatsEnable bool `protobuf:"varint,6,opt,name=stats_enable,json=statsEnable,proto3" json:"stats_enable,omitempty"`
+	StatsEnable bool `protobuf:"varint,6,opt,name=stats_enable,json=statsEnable,proto3" json:"stats_enable,omitempty" kong:"group=stats,help='Display periodic read stats'"`
 	// @gotags: kong:"group=stats,help='How often to print stats',default=5"
-	StatsReportIntervalSec int32 `protobuf:"varint,7,opt,name=stats_report_interval_sec,json=statsReportIntervalSec,proto3" json:"stats_report_interval_sec,omitempty"`
+	StatsReportIntervalSec int32 `protobuf:"varint,7,opt,name=stats_report_interval_sec,json=statsReportIntervalSec,proto3" json:"stats_report_interval_sec,omitempty" kong:"group=stats,help='How often to print stats',default=5"`
 	// @gotags: kong:"help='Consumed messages are intended to be dead-lettered',env='PLUMBER_RELAY_DEAD_LETTER'"
-	DeadLetter bool `protobuf:"varint,8,opt,name=dead_letter,json=deadLetter,proto3" json:"dead_letter,omitempty"`
+	DeadLetter bool `protobuf:"varint,8,opt,name=dead_letter,json=deadLetter,proto3" json:"dead_letter,omitempty" kong:"help='Consumed messages are intended to be dead-lettered',env='PLUMBER_RELAY_DEAD_LETTER'"`
 	// @gotags: kong:"help='Alternative collector to relay events to',name='grpc-address',env='PLUMBER_RELAY_GRPC_ADDRESS',default='grpc-collector.streamdal.com:9000'"
-	XStreamdalGrpcAddress string `protobuf:"bytes,1000,opt,name=_streamdal_grpc_address,json=StreamdalGrpcAddress,proto3" json:"_streamdal_grpc_address,omitempty"`
+	XStreamdalGrpcAddress string `protobuf:"bytes,1000,opt,name=_streamdal_grpc_address,json=StreamdalGrpcAddress,proto3" json:"_streamdal_grpc_address,omitempty" kong:"help='Alternative collector to relay events to',name='grpc-address',env='PLUMBER_RELAY_GRPC_ADDRESS',default='grpc-collector.streamdal.com:9000'"`
 	// @gotags: kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,env='PLUMBER_RELAY_GRPC_DISABLE_TLS',default=false"
-	XStreamdalGrpcDisableTls bool `protobuf:"varint,1001,opt,name=_streamdal_grpc_disable_tls,json=StreamdalGrpcDisableTls,proto3" json:"_streamdal_grpc_disable_tls,omitempty"`
+	XStreamdalGrpcDisableTls bool `protobuf:"varint,1001,opt,name=_streamdal_grpc_disable_tls,json=StreamdalGrpcDisableTls,proto3" json:"_streamdal_grpc_disable_tls,omitempty" kong:"help='Whether to use TLS with collector',name=grpc-disable-tls,env='PLUMBER_RELAY_GRPC_DISABLE_TLS',default=false"`
 	// @gotags: kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds',env='PLUMBER_RELAY_GRPC_TIMEOUT',default=5"
-	XStreamdalGrpcTimeoutSeconds int32 `protobuf:"varint,1002,opt,name=_streamdal_grpc_timeout_seconds,json=StreamdalGrpcTimeoutSeconds,proto3" json:"_streamdal_grpc_timeout_seconds,omitempty"`
+	XStreamdalGrpcTimeoutSeconds int32 `protobuf:"varint,1002,opt,name=_streamdal_grpc_timeout_seconds,json=StreamdalGrpcTimeoutSeconds,proto3" json:"_streamdal_grpc_timeout_seconds,omitempty" kong:"help='How long to wait before giving up talking to the gRPC collector',name='grpc-timeout-seconds',env='PLUMBER_RELAY_GRPC_TIMEOUT',default=5"`
 	// ID of the created relay entry; populated by plumber.
 	// @gotags: kong:"-"
-	XRelayId string `protobuf:"bytes,1003,opt,name=_relay_id,json=RelayId,proto3" json:"_relay_id,omitempty"`
+	XRelayId string `protobuf:"bytes,1003,opt,name=_relay_id,json=RelayId,proto3" json:"_relay_id,omitempty" kong:"-"`
 	// @gotags: kong:"embed"
-	XCliOptions *RelayCLIOptions `protobuf:"bytes,1004,opt,name=_cli_options,json=CliOptions,proto3" json:"_cli_options,omitempty"`
+	XCliOptions *RelayCLIOptions `protobuf:"bytes,1004,opt,name=_cli_options,json=CliOptions,proto3" json:"_cli_options,omitempty" kong:"embed"`
 	// Populated by plumber server during GetRelay* methods
 	// @gotags: kong:"-"
-	XActive bool `protobuf:"varint,1005,opt,name=_active,json=Active,proto3" json:"_active,omitempty"`
+	XActive bool `protobuf:"varint,1005,opt,name=_active,json=Active,proto3" json:"_active,omitempty" kong:"-"`
 	// @gotags: kong:"cmd,help='Apache Kafka'"
-	Kafka *RelayGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	Kafka *RelayGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
 	// @gotags: kong:"cmd,help='AWS Simple Queue System'"
-	AwsSqs *RelayGroupAWSSQSOptions `protobuf:"bytes,101,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty"`
+	AwsSqs *RelayGroupAWSSQSOptions `protobuf:"bytes,101,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty" kong:"cmd,help='AWS Simple Queue System'"`
 	// @gotags: kong:"cmd,help='MongoDB (CDC)'"
-	Mongo *RelayGroupMongoOptions `protobuf:"bytes,102,opt,name=mongo,proto3" json:"mongo,omitempty"`
+	Mongo *RelayGroupMongoOptions `protobuf:"bytes,102,opt,name=mongo,proto3" json:"mongo,omitempty" kong:"cmd,help='MongoDB (CDC)'"`
 	// @gotags: kong:"cmd,help='NSQ'"
-	Nsq *RelayGroupNSQOptions `protobuf:"bytes,103,opt,name=nsq,proto3" json:"nsq,omitempty"`
+	Nsq *RelayGroupNSQOptions `protobuf:"bytes,103,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd,help='NSQ'"`
 	// @gotags: kong:"cmd,help='MQTT'"
-	Rabbit *RelayGroupRabbitOptions `protobuf:"bytes,104,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	Rabbit *RelayGroupRabbitOptions `protobuf:"bytes,104,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='MQTT'"`
 	// @gotags: kong:"cmd,help='MQTT'"
-	Mqtt *RelayGroupMQTTOptions `protobuf:"bytes,105,opt,name=mqtt,proto3" json:"mqtt,omitempty"`
+	Mqtt *RelayGroupMQTTOptions `protobuf:"bytes,105,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd,help='MQTT'"`
 	// @gotags: kong:"cmd,help='Azure Service Bus'"
-	AzureServiceBus *RelayGroupAzureServiceBusOptions `protobuf:"bytes,106,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty"`
+	AzureServiceBus *RelayGroupAzureServiceBusOptions `protobuf:"bytes,106,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd,help='Azure Service Bus'"`
 	// @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-	GcpPubsub *RelayGroupGCPPubSubOptions `protobuf:"bytes,107,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty"`
+	GcpPubsub *RelayGroupGCPPubSubOptions `protobuf:"bytes,107,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd,help='Google Cloud Platform Pub/Sub'"`
 	// @gotags: kong:"cmd,help='KubeMQ Queue'"
-	KubemqQueue *RelayGroupKubeMQQueueOptions `protobuf:"bytes,108,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	KubemqQueue *RelayGroupKubeMQQueueOptions `protobuf:"bytes,108,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
 	// @gotags: kong:"cmd,help='Redis PubSub'"
-	RedisPubsub *RelayGroupRedisPubSubOptions `protobuf:"bytes,109,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty"`
+	RedisPubsub *RelayGroupRedisPubSubOptions `protobuf:"bytes,109,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd,help='Redis PubSub'"`
 	// @gotags: kong:"cmd,help='Redis Streams'"
-	RedisStreams *RelayGroupRedisStreamsOptions `protobuf:"bytes,111,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty"`
+	RedisStreams *RelayGroupRedisStreamsOptions `protobuf:"bytes,111,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd,help='Redis Streams'"`
 	// @gotags: kong:"cmd,help='PostgreSQL (CDC)'"
-	Postgres *RelayGroupPostgresOptions `protobuf:"bytes,112,opt,name=postgres,proto3" json:"postgres,omitempty"`
+	Postgres *RelayGroupPostgresOptions `protobuf:"bytes,112,opt,name=postgres,proto3" json:"postgres,omitempty" kong:"cmd,help='PostgreSQL (CDC)'"`
 	// @gotags: kong:"cmd,help='NATS'"
-	Nats *RelayGroupNatsOptions `protobuf:"bytes,113,opt,name=nats,proto3" json:"nats,omitempty"`
+	Nats *RelayGroupNatsOptions `protobuf:"bytes,113,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd,help='NATS'"`
 	// @gotags: kong:"cmd,help='NATS Streaming'"
-	NatsStreaming *RelayGroupNatsStreamingOptions `protobuf:"bytes,114,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty"`
+	NatsStreaming *RelayGroupNatsStreamingOptions `protobuf:"bytes,114,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd,help='NATS Streaming'"`
 	// @gotags: kong:"cmd,help='NATS JetStream'"
-	NatsJetstream *RelayGroupNatsJetStreamOptions `protobuf:"bytes,115,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty"`
+	NatsJetstream *RelayGroupNatsJetStreamOptions `protobuf:"bytes,115,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty" kong:"cmd,help='NATS JetStream'"`
 }
 
 func (x *RelayOptions) Reset() {
@@ -380,9 +380,9 @@ type RelayGroupKafkaOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.KafkaConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.KafkaConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.KafkaRelayArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.KafkaRelayArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupKafkaOptions) Reset() {
@@ -437,9 +437,9 @@ type RelayGroupAWSSQSOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AWSSQSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AWSSQSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AWSSQSRelayArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AWSSQSRelayArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupAWSSQSOptions) Reset() {
@@ -494,9 +494,9 @@ type RelayGroupMongoOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.MongoConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.MongoConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.MongoReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.MongoReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupMongoOptions) Reset() {
@@ -551,9 +551,9 @@ type RelayGroupNSQOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NSQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NSQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NSQReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NSQReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupNSQOptions) Reset() {
@@ -608,9 +608,9 @@ type RelayGroupPostgresOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.PostgresConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.PostgresConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.PostgresReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.PostgresReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupPostgresOptions) Reset() {
@@ -665,9 +665,9 @@ type RelayGroupRabbitOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RabbitConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RabbitConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RabbitReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RabbitReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupRabbitOptions) Reset() {
@@ -722,9 +722,9 @@ type RelayGroupRedisPubSubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RedisPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RedisPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RedisPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RedisPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupRedisPubSubOptions) Reset() {
@@ -779,9 +779,9 @@ type RelayGroupRedisStreamsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RedisStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RedisStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RedisStreamsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RedisStreamsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupRedisStreamsOptions) Reset() {
@@ -836,9 +836,9 @@ type RelayGroupAzureServiceBusOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AzureServiceBusConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AzureServiceBusConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AzureServiceBusReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AzureServiceBusReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupAzureServiceBusOptions) Reset() {
@@ -893,9 +893,9 @@ type RelayGroupMQTTOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.MQTTConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.MQTTConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.MQTTReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.MQTTReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupMQTTOptions) Reset() {
@@ -950,9 +950,9 @@ type RelayGroupGCPPubSubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.GCPPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.GCPPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.GCPPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.GCPPubSubReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupGCPPubSubOptions) Reset() {
@@ -1007,9 +1007,9 @@ type RelayGroupKubeMQQueueOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.KubeMQQueueConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.KubeMQQueueConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.KubeMQQueueReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.KubeMQQueueReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupKubeMQQueueOptions) Reset() {
@@ -1064,9 +1064,9 @@ type RelayGroupNatsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupNatsOptions) Reset() {
@@ -1121,9 +1121,9 @@ type RelayGroupNatsStreamingOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsStreamingConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsStreamingConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsStreamingReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsStreamingReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupNatsStreamingOptions) Reset() {
@@ -1178,9 +1178,9 @@ type RelayGroupNatsJetStreamOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsJetstreamConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsJetstreamConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsJetstreamReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsJetstreamReadArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *RelayGroupNatsJetStreamOptions) Reset() {

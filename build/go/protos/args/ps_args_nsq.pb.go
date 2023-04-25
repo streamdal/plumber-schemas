@@ -26,23 +26,23 @@ type NSQConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Address of NSQ server (Ex: localhost:4150)',env='PLUMBER_RELAY_NSQ_NSQD_ADDRESS',default='localhost:4150',xor=nsq_addressZ"
-	NsqdAddress string `protobuf:"bytes,1,opt,name=nsqd_address,json=nsqdAddress,proto3" json:"nsqd_address,omitempty"`
+	NsqdAddress string `protobuf:"bytes,1,opt,name=nsqd_address,json=nsqdAddress,proto3" json:"nsqd_address,omitempty" kong:"help='Address of NSQ server (Ex: localhost:4150)',env='PLUMBER_RELAY_NSQ_NSQD_ADDRESS',default='localhost:4150',xor=nsq_addressZ"`
 	// @gotags: kong:"help='Address of LookupD server (Ex: localhost:4161)',env='PLUMBER_RELAY_NSQ_LOOKUPD_ADDRESS',xor=nsq_address"
-	LookupdAddress string `protobuf:"bytes,2,opt,name=lookupd_address,json=lookupdAddress,proto3" json:"lookupd_address,omitempty"`
+	LookupdAddress string `protobuf:"bytes,2,opt,name=lookupd_address,json=lookupdAddress,proto3" json:"lookupd_address,omitempty" kong:"help='Address of LookupD server (Ex: localhost:4161)',env='PLUMBER_RELAY_NSQ_LOOKUPD_ADDRESS',xor=nsq_address"`
 	// @gotags: kong:"help='Enable TLS usage',env='PLUMBER_RELAY_NSQ_USE_TLS'"
-	UseTls bool `protobuf:"varint,3,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty"`
+	UseTls bool `protobuf:"varint,3,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty" kong:"help='Enable TLS usage',env='PLUMBER_RELAY_NSQ_USE_TLS'"`
 	// @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NSQ_SKIP_VERIFY_TLS'"
-	TlsSkipVerify bool `protobuf:"varint,4,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty"`
+	TlsSkipVerify bool `protobuf:"varint,4,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NSQ_SKIP_VERIFY_TLS'"`
 	// @gotags: kong:"help='CA file',env='PLUMBER_RELAY_NSQ_TLS_CA_CERT'"
-	TlsCaCert string `protobuf:"bytes,5,opt,name=tls_ca_cert,json=tlsCaCert,proto3" json:"tls_ca_cert,omitempty"`
+	TlsCaCert string `protobuf:"bytes,5,opt,name=tls_ca_cert,json=tlsCaCert,proto3" json:"tls_ca_cert,omitempty" kong:"help='CA file',env='PLUMBER_RELAY_NSQ_TLS_CA_CERT'"`
 	// @gotags: kong:"help='Client cert file',env='PLUMBER_RELAY_NSQ_TLS_CLIENT_CERT'"
-	TlsClientCert string `protobuf:"bytes,6,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty"`
+	TlsClientCert string `protobuf:"bytes,6,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty" kong:"help='Client cert file',env='PLUMBER_RELAY_NSQ_TLS_CLIENT_CERT'"`
 	// @gotags: kong:"help='Client key file',env='PLUMBER_RELAY_NSQ_TLS_CLIENT_KEY'"
-	TlsClientKey string `protobuf:"bytes,7,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty"`
+	TlsClientKey string `protobuf:"bytes,7,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty" kong:"help='Client key file',env='PLUMBER_RELAY_NSQ_TLS_CLIENT_KEY'"`
 	// @gotags: kong:"help='Authentication secret',env='PLUMBER_RELAY_NSQ_AUTH_SECRET'"
-	AuthSecret string `protobuf:"bytes,8,opt,name=auth_secret,json=authSecret,proto3" json:"auth_secret,omitempty"`
+	AuthSecret string `protobuf:"bytes,8,opt,name=auth_secret,json=authSecret,proto3" json:"auth_secret,omitempty" kong:"help='Authentication secret',env='PLUMBER_RELAY_NSQ_AUTH_SECRET'"`
 	// @gotags: kong:"help='Client ID to identify as',env='PLUMBER_RELAY_NSQ_CLIENT_ID',default=plumber"
-	ClientId string `protobuf:"bytes,9,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
+	ClientId string `protobuf:"bytes,9,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty" kong:"help='Client ID to identify as',env='PLUMBER_RELAY_NSQ_CLIENT_ID',default=plumber"`
 }
 
 func (x *NSQConn) Reset() {
@@ -146,9 +146,9 @@ type NSQReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='NSQ topic to read from',env='PLUMBER_RELAY_NSQ_TOPIC',required"
-	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='NSQ topic to read from',env='PLUMBER_RELAY_NSQ_TOPIC',required"`
 	// @gotags: kong:"help='Output channel',env='PLUMBER_RELAY_NSQ_CHANNEL',required"
-	Channel string `protobuf:"bytes,2,opt,name=channel,proto3" json:"channel,omitempty"`
+	Channel string `protobuf:"bytes,2,opt,name=channel,proto3" json:"channel,omitempty" kong:"help='Output channel',env='PLUMBER_RELAY_NSQ_CHANNEL',required"`
 }
 
 func (x *NSQReadArgs) Reset() {
@@ -203,7 +203,7 @@ type NSQWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='NSQ topic to write to',required"
-	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='NSQ topic to write to',required"`
 }
 
 func (x *NSQWriteArgs) Reset() {

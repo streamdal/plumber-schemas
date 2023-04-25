@@ -26,15 +26,15 @@ type NatsJetstreamTLSOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='CA file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_JETSTREAM_TLS_CA_CERT'"
-	TlsCaCert string `protobuf:"bytes,1,opt,name=tls_ca_cert,json=tlsCaCert,proto3" json:"tls_ca_cert,omitempty"`
+	TlsCaCert string `protobuf:"bytes,1,opt,name=tls_ca_cert,json=tlsCaCert,proto3" json:"tls_ca_cert,omitempty" kong:"help='CA file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_JETSTREAM_TLS_CA_CERT'"`
 	// @gotags: kong:"help='Client cert file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_JETSTREAM_TLS_CLIENT_CERT'"
-	TlsClientCert string `protobuf:"bytes,2,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty"`
+	TlsClientCert string `protobuf:"bytes,2,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty" kong:"help='Client cert file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_JETSTREAM_TLS_CLIENT_CERT'"`
 	// @gotags: kong:"help='Client key file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_JETSTREAM_TLS_CLIENT_KEY'"
-	TlsClientKey string `protobuf:"bytes,3,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty"`
+	TlsClientKey string `protobuf:"bytes,3,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty" kong:"help='Client key file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_JETSTREAM_TLS_CLIENT_KEY'"`
 	// @gotags: kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NATS_JETSTREAM_SKIP_VERIFY_TLS'"
-	TlsSkipVerify bool `protobuf:"varint,4,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty"`
+	TlsSkipVerify bool `protobuf:"varint,4,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Whether to verify server certificate',env='PLUMBER_RELAY_NATS_JETSTREAM_SKIP_VERIFY_TLS'"`
 	// @gotags: kong:"help='Enable TLS',env='PLUMBER_RELAY_NATS_JETSTREAM_USE_TLS'"
-	UseTls bool `protobuf:"varint,5,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty"`
+	UseTls bool `protobuf:"varint,5,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty" kong:"help='Enable TLS',env='PLUMBER_RELAY_NATS_JETSTREAM_USE_TLS'"`
 }
 
 func (x *NatsJetstreamTLSOptions) Reset() {
@@ -110,15 +110,15 @@ type NatsJetstreamConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nats://localhost:4222',env='PLUMBER_RELAY_NATS_JETSTREAM_DSN'"
-	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty"`
+	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty" kong:"help='Dial string for NATS server. Ex: nats://localhost:4222',default='nats://localhost:4222',env='PLUMBER_RELAY_NATS_JETSTREAM_DSN'"`
 	// @gotags: kong:"help='NATS .creds file containing authentication credentials',env='PLUMBER_RELAY_NATS_JETSTREAM_CREDENTIALS'"
-	UserCredentials string `protobuf:"bytes,2,opt,name=user_credentials,json=userCredentials,proto3" json:"user_credentials,omitempty"`
+	UserCredentials string `protobuf:"bytes,2,opt,name=user_credentials,json=userCredentials,proto3" json:"user_credentials,omitempty" kong:"help='NATS .creds file containing authentication credentials',env='PLUMBER_RELAY_NATS_JETSTREAM_CREDENTIALS'"`
 	// @gotags: kong:"help='User specified client ID to connect with',default=plumber,env='PLUMBER_RELAY_NATS_JETSTREAM_CLIENT_ID'"
-	ClientId string `protobuf:"bytes,3,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
+	ClientId string `protobuf:"bytes,3,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty" kong:"help='User specified client ID to connect with',default=plumber,env='PLUMBER_RELAY_NATS_JETSTREAM_CLIENT_ID'"`
 	// @gotags: kong:"embed"
-	TlsOptions *NatsJetstreamTLSOptions `protobuf:"bytes,4,opt,name=tls_options,json=tlsOptions,proto3" json:"tls_options,omitempty"`
+	TlsOptions *NatsJetstreamTLSOptions `protobuf:"bytes,4,opt,name=tls_options,json=tlsOptions,proto3" json:"tls_options,omitempty" kong:"embed"`
 	// @gotags: kong:"help='File containing NATS NKey',env='PLUMBER_RELAY_NATS_JETSTREAM_NKEY'"
-	Nkey string `protobuf:"bytes,5,opt,name=nkey,proto3" json:"nkey,omitempty"`
+	Nkey string `protobuf:"bytes,5,opt,name=nkey,proto3" json:"nkey,omitempty" kong:"help='File containing NATS NKey',env='PLUMBER_RELAY_NATS_JETSTREAM_NKEY'"`
 }
 
 func (x *NatsJetstreamConn) Reset() {
@@ -194,21 +194,21 @@ type NatsJetstreamReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='NATS JetStream stream name. Ex: orders.>',env='PLUMBER_RELAY_NATS_JETSTREAM_STREAM'"
-	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty"`
+	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty" kong:"help='NATS JetStream stream name. Ex: orders.>',env='PLUMBER_RELAY_NATS_JETSTREAM_STREAM'"`
 	// @gotags: kong:"help='Consumer name (default: random consumer name; has no effect if create_durable_consumer or existing_durable_consumer is not set)',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_NAME'"
-	ConsumerName string `protobuf:"bytes,2,opt,name=consumer_name,json=consumerName,proto3" json:"consumer_name,omitempty"`
+	ConsumerName string `protobuf:"bytes,2,opt,name=consumer_name,json=consumerName,proto3" json:"consumer_name,omitempty" kong:"help='Consumer name (default: random consumer name; has no effect if create_durable_consumer or existing_durable_consumer is not set)',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_NAME'"`
 	// @gotags: kong:"help='Create a new durable consumer (default: use ephemeral consumer)',env='PLUMBER_RELAY_NATS_JETSTREAM_CREATE_DURABLE_CONSUMER'"
-	CreateDurableConsumer bool `protobuf:"varint,3,opt,name=create_durable_consumer,json=createDurableConsumer,proto3" json:"create_durable_consumer,omitempty"`
+	CreateDurableConsumer bool `protobuf:"varint,3,opt,name=create_durable_consumer,json=createDurableConsumer,proto3" json:"create_durable_consumer,omitempty" kong:"help='Create a new durable consumer (default: use ephemeral consumer)',env='PLUMBER_RELAY_NATS_JETSTREAM_CREATE_DURABLE_CONSUMER'"`
 	// @gotags: kong:"help='Use an existing durable consumer (default: use ephemeral consumer)',env='PLUMBER_RELAY_NATS_JETSTREAM_EXISTING_DURABLE_CONSUMER'"
-	ExistingDurableConsumer bool `protobuf:"varint,4,opt,name=existing_durable_consumer,json=existingDurableConsumer,proto3" json:"existing_durable_consumer,omitempty"`
+	ExistingDurableConsumer bool `protobuf:"varint,4,opt,name=existing_durable_consumer,json=existingDurableConsumer,proto3" json:"existing_durable_consumer,omitempty" kong:"help='Use an existing durable consumer (default: use ephemeral consumer)',env='PLUMBER_RELAY_NATS_JETSTREAM_EXISTING_DURABLE_CONSUMER'"`
 	// @gotags: kong:"help='Do not delete consumer after operation is done (default: delete on exit)',env='PLUMBER_RELAY_NATS_JETSTREAM_KEEP_CONSUMER'"
-	KeepConsumer bool `protobuf:"varint,5,opt,name=keep_consumer,json=keepConsumer,proto3" json:"keep_consumer,omitempty"`
+	KeepConsumer bool `protobuf:"varint,5,opt,name=keep_consumer,json=keepConsumer,proto3" json:"keep_consumer,omitempty" kong:"help='Do not delete consumer after operation is done (default: delete on exit)',env='PLUMBER_RELAY_NATS_JETSTREAM_KEEP_CONSUMER'"`
 	// @gotags: kong:"help='Where to start read in stream (default: from start)',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_START_SEQUENCE'"
-	ConsumerStartSequence int64 `protobuf:"varint,6,opt,name=consumer_start_sequence,json=consumerStartSequence,proto3" json:"consumer_start_sequence,omitempty"`
+	ConsumerStartSequence int64 `protobuf:"varint,6,opt,name=consumer_start_sequence,json=consumerStartSequence,proto3" json:"consumer_start_sequence,omitempty" kong:"help='Where to start read in stream (default: from start)',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_START_SEQUENCE'"`
 	// @gotags: kong:"help='At what time to start stream (RFC3339 format, Ex: 2016-06-20T12:41:45.14Z)',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_START_TIME'"
-	ConsumerStartTime string `protobuf:"bytes,7,opt,name=consumer_start_time,json=consumerStartTime,proto3" json:"consumer_start_time,omitempty"`
+	ConsumerStartTime string `protobuf:"bytes,7,opt,name=consumer_start_time,json=consumerStartTime,proto3" json:"consumer_start_time,omitempty" kong:"help='At what time to start stream (RFC3339 format, Ex: 2016-06-20T12:41:45.14Z)',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_START_TIME'"`
 	// @gotags: kong:"help='Only receive a subset of messages from the Stream based on the subject',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_FILTER_SUBJECT'"
-	ConsumerFilterSubject string `protobuf:"bytes,8,opt,name=consumer_filter_subject,json=consumerFilterSubject,proto3" json:"consumer_filter_subject,omitempty"`
+	ConsumerFilterSubject string `protobuf:"bytes,8,opt,name=consumer_filter_subject,json=consumerFilterSubject,proto3" json:"consumer_filter_subject,omitempty" kong:"help='Only receive a subset of messages from the Stream based on the subject',env='PLUMBER_RELAY_NATS_JETSTREAM_CONSUMER_FILTER_SUBJECT'"`
 }
 
 func (x *NatsJetstreamReadArgs) Reset() {
@@ -305,7 +305,7 @@ type NatsJetstreamWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='NATS JetStream subject name to write to. Ex: orders.>'"
-	Subject string `protobuf:"bytes,1,opt,name=subject,proto3" json:"subject,omitempty"`
+	Subject string `protobuf:"bytes,1,opt,name=subject,proto3" json:"subject,omitempty" kong:"help='NATS JetStream subject name to write to. Ex: orders.>'"`
 }
 
 func (x *NatsJetstreamWriteArgs) Reset() {

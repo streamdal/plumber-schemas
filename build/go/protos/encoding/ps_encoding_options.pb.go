@@ -186,30 +186,30 @@ type ProtobufSettings struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Input message(s) should be encoded with this message envelope'"
-	ProtobufRootMessage string `protobuf:"bytes,1,opt,name=protobuf_root_message,json=protobufRootMessage,proto3" json:"protobuf_root_message,omitempty"`
+	ProtobufRootMessage string `protobuf:"bytes,1,opt,name=protobuf_root_message,json=protobufRootMessage,proto3" json:"protobuf_root_message,omitempty" kong:"help='Input message(s) should be encoded with this message envelope'"`
 	// Desktop/server should not use this.
 	// @gotags: kong:"help='One or more directories which contains protobuf schemas',existingdir"
-	ProtobufDirs []string `protobuf:"bytes,2,rep,name=protobuf_dirs,json=protobufDirs,proto3" json:"protobuf_dirs,omitempty"`
+	ProtobufDirs []string `protobuf:"bytes,2,rep,name=protobuf_dirs,json=protobufDirs,proto3" json:"protobuf_dirs,omitempty" kong:"help='One or more directories which contains protobuf schemas',existingdir"`
 	// Directory where protos are stored (used for github import)
 	// @gotags: kong:"-"
-	XProtobufRootDir string `protobuf:"bytes,3,opt,name=_protobuf_root_dir,json=ProtobufRootDir,proto3" json:"_protobuf_root_dir,omitempty"`
+	XProtobufRootDir string `protobuf:"bytes,3,opt,name=_protobuf_root_dir,json=ProtobufRootDir,proto3" json:"_protobuf_root_dir,omitempty" kong:"-"`
 	// Used by server/desktop when creating a read without an existing schema
 	// @gotags: kong:"-"
-	Archive []byte `protobuf:"bytes,4,opt,name=archive,proto3" json:"archive,omitempty"`
+	Archive []byte `protobuf:"bytes,4,opt,name=archive,proto3" json:"archive,omitempty" kong:"-"`
 	// Used internally by the server
 	// @gotags: kong:"-"
-	XMessageDescriptor []byte `protobuf:"bytes,5,opt,name=_message_descriptor,json=MessageDescriptor,proto3" json:"_message_descriptor,omitempty"`
+	XMessageDescriptor []byte `protobuf:"bytes,5,opt,name=_message_descriptor,json=MessageDescriptor,proto3" json:"_message_descriptor,omitempty" kong:"-"`
 	// @gotags: kong:"help='Envelope type (options: deep, shallow)',type=pbenum,pbenum_strip_prefix=ENVELOPE_TYPE_,pbenum_lowercase,default=deep"
-	ProtobufEnvelopeType EnvelopeType `protobuf:"varint,6,opt,name=protobuf_envelope_type,json=protobufEnvelopeType,proto3,enum=protos.encoding.EnvelopeType" json:"protobuf_envelope_type,omitempty"`
+	ProtobufEnvelopeType EnvelopeType `protobuf:"varint,6,opt,name=protobuf_envelope_type,json=protobufEnvelopeType,proto3,enum=protos.encoding.EnvelopeType" json:"protobuf_envelope_type,omitempty" kong:"help='Envelope type (options: deep, shallow)',type=pbenum,pbenum_strip_prefix=ENVELOPE_TYPE_,pbenum_lowercase,default=deep"`
 	// @gotags: kong:"help='For shallow envelope messages, the payload field should be encoded with this message name'"
-	ShallowEnvelopeMessage string `protobuf:"bytes,7,opt,name=shallow_envelope_message,json=shallowEnvelopeMessage,proto3" json:"shallow_envelope_message,omitempty"`
+	ShallowEnvelopeMessage string `protobuf:"bytes,7,opt,name=shallow_envelope_message,json=shallowEnvelopeMessage,proto3" json:"shallow_envelope_message,omitempty" kong:"help='For shallow envelope messages, the payload field should be encoded with this message name'"`
 	// @gotags: kong:"help='For shallow envelope messages, the field number of the root message that contains the shallow envelope payload'"
-	ShallowEnvelopeFieldNumber int32 `protobuf:"varint,8,opt,name=shallow_envelope_field_number,json=shallowEnvelopeFieldNumber,proto3" json:"shallow_envelope_field_number,omitempty"`
+	ShallowEnvelopeFieldNumber int32 `protobuf:"varint,8,opt,name=shallow_envelope_field_number,json=shallowEnvelopeFieldNumber,proto3" json:"shallow_envelope_field_number,omitempty" kong:"help='For shallow envelope messages, the field number of the root message that contains the shallow envelope payload'"`
 	// Used internally by the server
 	// @gotags: kong:"-"
-	XShallowEnvelopeMessageDescriptor []byte `protobuf:"bytes,9,opt,name=_shallow_envelope_message_descriptor,json=ShallowEnvelopeMessageDescriptor,proto3" json:"_shallow_envelope_message_descriptor,omitempty"`
+	XShallowEnvelopeMessageDescriptor []byte `protobuf:"bytes,9,opt,name=_shallow_envelope_message_descriptor,json=ShallowEnvelopeMessageDescriptor,proto3" json:"_shallow_envelope_message_descriptor,omitempty" kong:"-"`
 	// @gotags: kong:"help='Protobuf descriptor set(.protoset or .fds file)'"
-	ProtobufDescriptorSet string `protobuf:"bytes,10,opt,name=protobuf_descriptor_set,json=protobufDescriptorSet,proto3" json:"protobuf_descriptor_set,omitempty"`
+	ProtobufDescriptorSet string `protobuf:"bytes,10,opt,name=protobuf_descriptor_set,json=protobufDescriptorSet,proto3" json:"protobuf_descriptor_set,omitempty" kong:"help='Protobuf descriptor set(.protoset or .fds file)'"`
 }
 
 func (x *ProtobufSettings) Reset() {
@@ -321,10 +321,10 @@ type AvroSettings struct {
 
 	// Used by CLI; desktop should not set/use this.
 	// @gotags: kong:"help='If encode-type is set to avro, must specify avro schema file',existingfile"
-	AvroSchemaFile string `protobuf:"bytes,1,opt,name=avro_schema_file,json=avroSchemaFile,proto3" json:"avro_schema_file,omitempty"`
+	AvroSchemaFile string `protobuf:"bytes,1,opt,name=avro_schema_file,json=avroSchemaFile,proto3" json:"avro_schema_file,omitempty" kong:"help='If encode-type is set to avro, must specify avro schema file',existingfile"`
 	// Used by desktop; CLI should not set/use this.
 	// @gotags: kong:"-"
-	Schema []byte `protobuf:"bytes,2,opt,name=schema,proto3" json:"schema,omitempty"`
+	Schema []byte `protobuf:"bytes,2,opt,name=schema,proto3" json:"schema,omitempty" kong:"-"`
 }
 
 func (x *AvroSettings) Reset() {
@@ -379,9 +379,9 @@ type ThriftSettings struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='One or more directories containing Thrift IDL files'"
-	ThriftDirs []string `protobuf:"bytes,1,rep,name=thrift_dirs,json=thriftDirs,proto3" json:"thrift_dirs,omitempty"`
+	ThriftDirs []string `protobuf:"bytes,1,rep,name=thrift_dirs,json=thriftDirs,proto3" json:"thrift_dirs,omitempty" kong:"help='One or more directories containing Thrift IDL files'"`
 	// @gotags: kong:"help='Namespace and struct name to decode the message with. Ex: com.mycompany.Account'"
-	ThriftStruct string `protobuf:"bytes,2,opt,name=thrift_struct,json=thriftStruct,proto3" json:"thrift_struct,omitempty"`
+	ThriftStruct string `protobuf:"bytes,2,opt,name=thrift_struct,json=thriftStruct,proto3" json:"thrift_struct,omitempty" kong:"help='Namespace and struct name to decode the message with. Ex: com.mycompany.Account'"`
 }
 
 func (x *ThriftSettings) Reset() {
@@ -437,7 +437,7 @@ type JSONSchemaSettings struct {
 
 	// Used by desktop; CLI should not set/use this.
 	// @gotags: kong:"-"
-	Schema []byte `protobuf:"bytes,1,opt,name=schema,proto3" json:"schema,omitempty"`
+	Schema []byte `protobuf:"bytes,1,opt,name=schema,proto3" json:"schema,omitempty" kong:"-"`
 }
 
 func (x *JSONSchemaSettings) Reset() {
@@ -485,19 +485,19 @@ type CloudEventSettings struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID to give cloud event. If left blank, plumber will auto-generate a random UUIDv4'"
-	CeId string `protobuf:"bytes,1,opt,name=ce_id,json=ceId,proto3" json:"ce_id,omitempty"`
+	CeId string `protobuf:"bytes,1,opt,name=ce_id,json=ceId,proto3" json:"ce_id,omitempty" kong:"help='ID to give cloud event. If left blank, plumber will auto-generate a random UUIDv4'"`
 	// @gotags: kong:"help='Source for cloud event',default='plumber'"
-	CeSource string `protobuf:"bytes,2,opt,name=ce_source,json=ceSource,proto3" json:"ce_source,omitempty"`
+	CeSource string `protobuf:"bytes,2,opt,name=ce_source,json=ceSource,proto3" json:"ce_source,omitempty" kong:"help='Source for cloud event',default='plumber'"`
 	// @gotags: kong:"help='Cloud event type'"
-	CeType string `protobuf:"bytes,3,opt,name=ce_type,json=ceType,proto3" json:"ce_type,omitempty"`
+	CeType string `protobuf:"bytes,3,opt,name=ce_type,json=ceType,proto3" json:"ce_type,omitempty" kong:"help='Cloud event type'"`
 	// @gotags: kong:"help='Cloud event subject'"
-	CeSubject string `protobuf:"bytes,4,opt,name=ce_subject,json=ceSubject,proto3" json:"ce_subject,omitempty"`
+	CeSubject string `protobuf:"bytes,4,opt,name=ce_subject,json=ceSubject,proto3" json:"ce_subject,omitempty" kong:"help='Cloud event subject'"`
 	// @gotags: kong:"help='Cloud event specification version, ex: 0.1, 0.2, 0.3, 1.0',default='1.0'"
-	CeSpecVersion string `protobuf:"bytes,5,opt,name=ce_spec_version,json=ceSpecVersion,proto3" json:"ce_spec_version,omitempty"`
+	CeSpecVersion string `protobuf:"bytes,5,opt,name=ce_spec_version,json=ceSpecVersion,proto3" json:"ce_spec_version,omitempty" kong:"help='Cloud event specification version, ex: 0.1, 0.2, 0.3, 1.0',default='1.0'"`
 	// @gotags: kong:"help='Type of encoding of the event data',default='application/json; charset=utf-8'"
-	CeDataContentType string `protobuf:"bytes,6,opt,name=ce_data_content_type,json=ceDataContentType,proto3" json:"ce_data_content_type,omitempty"`
+	CeDataContentType string `protobuf:"bytes,6,opt,name=ce_data_content_type,json=ceDataContentType,proto3" json:"ce_data_content_type,omitempty" kong:"help='Type of encoding of the event data',default='application/json; charset=utf-8'"`
 	// @gotags: kong:"help='Path to JSON schema file for the cloud event'"
-	CeDataSchema string `protobuf:"bytes,7,opt,name=ce_data_schema,json=ceDataSchema,proto3" json:"ce_data_schema,omitempty"`
+	CeDataSchema string `protobuf:"bytes,7,opt,name=ce_data_schema,json=ceDataSchema,proto3" json:"ce_data_schema,omitempty" kong:"help='Path to JSON schema file for the cloud event'"`
 }
 
 func (x *CloudEventSettings) Reset() {
@@ -588,15 +588,15 @@ type EncodeOptions struct {
 
 	// Use an existing schema for encoding (and ignore all other encode settings)
 	// @gotags: kong:"-"
-	SchemaId string `protobuf:"bytes,1,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty"`
+	SchemaId string `protobuf:"bytes,1,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"-"`
 	// @gotags: kong:"help='Encode type (options: unset, jsonpb, avro)',default=unset,type=pbenum,pbenum_strip_prefix=ENCODE_TYPE_,pbenum_lowercase"
-	EncodeType EncodeType `protobuf:"varint,2,opt,name=encode_type,json=encodeType,proto3,enum=protos.encoding.EncodeType" json:"encode_type,omitempty"`
+	EncodeType EncodeType `protobuf:"varint,2,opt,name=encode_type,json=encodeType,proto3,enum=protos.encoding.EncodeType" json:"encode_type,omitempty" kong:"help='Encode type (options: unset, jsonpb, avro)',default=unset,type=pbenum,pbenum_strip_prefix=ENCODE_TYPE_,pbenum_lowercase"`
 	// @gotags: kong:"embed,group=protobuf"
-	ProtobufSettings *ProtobufSettings `protobuf:"bytes,3,opt,name=protobuf_settings,json=protobufSettings,proto3" json:"protobuf_settings,omitempty"`
+	ProtobufSettings *ProtobufSettings `protobuf:"bytes,3,opt,name=protobuf_settings,json=protobufSettings,proto3" json:"protobuf_settings,omitempty" kong:"embed,group=protobuf"`
 	// @gotags: kong:"embed,group=avro"
-	AvroSettings *AvroSettings `protobuf:"bytes,4,opt,name=avro_settings,json=avroSettings,proto3" json:"avro_settings,omitempty"`
+	AvroSettings *AvroSettings `protobuf:"bytes,4,opt,name=avro_settings,json=avroSettings,proto3" json:"avro_settings,omitempty" kong:"embed,group=avro"`
 	// @gotags: kong:"embed,group=cloudevent"
-	CloudeventSettings *CloudEventSettings `protobuf:"bytes,5,opt,name=cloudevent_settings,json=cloudeventSettings,proto3" json:"cloudevent_settings,omitempty"`
+	CloudeventSettings *CloudEventSettings `protobuf:"bytes,5,opt,name=cloudevent_settings,json=cloudeventSettings,proto3" json:"cloudevent_settings,omitempty" kong:"embed,group=cloudevent"`
 }
 
 func (x *EncodeOptions) Reset() {
@@ -673,15 +673,15 @@ type DecodeOptions struct {
 
 	// Use an existing schema for decoding (and ignore all other decode settings)
 	// @gotags: kong:"-"
-	SchemaId string `protobuf:"bytes,1,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty"`
+	SchemaId string `protobuf:"bytes,1,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"-"`
 	// @gotags: kong:"help='Decode type (options: unset, protobuf, avro, thrift, flatbuffer)',type=pbenum,pbenum_strip_prefix=DECODE_TYPE_,pbenum_lowercase,default=unset"
-	DecodeType DecodeType `protobuf:"varint,2,opt,name=decode_type,json=decodeType,proto3,enum=protos.encoding.DecodeType" json:"decode_type,omitempty"`
+	DecodeType DecodeType `protobuf:"varint,2,opt,name=decode_type,json=decodeType,proto3,enum=protos.encoding.DecodeType" json:"decode_type,omitempty" kong:"help='Decode type (options: unset, protobuf, avro, thrift, flatbuffer)',type=pbenum,pbenum_strip_prefix=DECODE_TYPE_,pbenum_lowercase,default=unset"`
 	// @gotags: kong:"embed,group=protobuf"
-	ProtobufSettings *ProtobufSettings `protobuf:"bytes,3,opt,name=protobuf_settings,json=protobufSettings,proto3" json:"protobuf_settings,omitempty"`
+	ProtobufSettings *ProtobufSettings `protobuf:"bytes,3,opt,name=protobuf_settings,json=protobufSettings,proto3" json:"protobuf_settings,omitempty" kong:"embed,group=protobuf"`
 	// @gotags: kong:"embed,group=avro"
-	AvroSettings *AvroSettings `protobuf:"bytes,4,opt,name=avro_settings,json=avroSettings,proto3" json:"avro_settings,omitempty"`
+	AvroSettings *AvroSettings `protobuf:"bytes,4,opt,name=avro_settings,json=avroSettings,proto3" json:"avro_settings,omitempty" kong:"embed,group=avro"`
 	// @gotags: kong:"embed,group=thrift"
-	ThriftSettings *ThriftSettings `protobuf:"bytes,5,opt,name=thrift_settings,json=thriftSettings,proto3" json:"thrift_settings,omitempty"`
+	ThriftSettings *ThriftSettings `protobuf:"bytes,5,opt,name=thrift_settings,json=thriftSettings,proto3" json:"thrift_settings,omitempty" kong:"embed,group=thrift"`
 }
 
 func (x *DecodeOptions) Reset() {

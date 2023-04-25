@@ -26,13 +26,13 @@ type AWSSNSConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"env=AWS_DEFAULT_REGION,hidden"
-	AwsRegion string `protobuf:"bytes,1,opt,name=aws_region,json=awsRegion,proto3" json:"aws_region,omitempty"`
+	AwsRegion string `protobuf:"bytes,1,opt,name=aws_region,json=awsRegion,proto3" json:"aws_region,omitempty" kong:"env=AWS_DEFAULT_REGION,hidden"`
 	// @gotags: kong:"env=AWS_ACCESS_KEY_ID,hidden"
-	AwsAccessKeyId string `protobuf:"bytes,2,opt,name=aws_access_key_id,json=awsAccessKeyId,proto3" json:"aws_access_key_id,omitempty"`
+	AwsAccessKeyId string `protobuf:"bytes,2,opt,name=aws_access_key_id,json=awsAccessKeyId,proto3" json:"aws_access_key_id,omitempty" kong:"env=AWS_ACCESS_KEY_ID,hidden"`
 	// @gotags: kong:"env=AWS_SECRET_ACCESS_KEY,hidden"
-	AwsSecretAccessKey string `protobuf:"bytes,3,opt,name=aws_secret_access_key,json=awsSecretAccessKey,proto3" json:"aws_secret_access_key,omitempty"`
+	AwsSecretAccessKey string `protobuf:"bytes,3,opt,name=aws_secret_access_key,json=awsSecretAccessKey,proto3" json:"aws_secret_access_key,omitempty" kong:"env=AWS_SECRET_ACCESS_KEY,hidden"`
 	// @gotags: kong:"env=AWS_PROFILE,hidden"
-	AwsProfile string `protobuf:"bytes,4,opt,name=aws_profile,json=awsProfile,proto3" json:"aws_profile,omitempty"`
+	AwsProfile string `protobuf:"bytes,4,opt,name=aws_profile,json=awsProfile,proto3" json:"aws_profile,omitempty" kong:"env=AWS_PROFILE,hidden"`
 }
 
 func (x *AWSSNSConn) Reset() {
@@ -101,7 +101,7 @@ type AWSSNSWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Topic ARN',required"
-	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='Topic ARN',required"`
 }
 
 func (x *AWSSNSWriteArgs) Reset() {

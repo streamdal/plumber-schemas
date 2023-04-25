@@ -75,20 +75,20 @@ type KafkaConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Kafka broker address (you may specify this flag multiple times)',env=PLUMBER_RELAY_KAFKA_ADDRESS,default='localhost:9092',required"
-	Address []string `protobuf:"bytes,1,rep,name=address,proto3" json:"address,omitempty"`
+	Address []string `protobuf:"bytes,1,rep,name=address,proto3" json:"address,omitempty" kong:"help='Kafka broker address (you may specify this flag multiple times)',env=PLUMBER_RELAY_KAFKA_ADDRESS,default='localhost:9092',required"`
 	// @gotags: kong:"help='Connect timeout',env=PLUMBER_RELAY_TIMEOUT_SECONDS,default=10"
-	TimeoutSeconds int32 `protobuf:"varint,2,opt,name=timeout_seconds,json=timeoutSeconds,proto3" json:"timeout_seconds,omitempty"`
+	TimeoutSeconds int32 `protobuf:"varint,2,opt,name=timeout_seconds,json=timeoutSeconds,proto3" json:"timeout_seconds,omitempty" kong:"help='Connect timeout',env=PLUMBER_RELAY_TIMEOUT_SECONDS,default=10"`
 	// @gotags: kong:"help='Enable TLS usage',env=PLUMBER_RELAY_USE_TLS"
-	UseTls bool `protobuf:"varint,3,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty"`
+	UseTls bool `protobuf:"varint,3,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty" kong:"help='Enable TLS usage',env=PLUMBER_RELAY_USE_TLS"`
 	// @gotags: kong:"help='Allow insecure TLS usage',env=PLUMBER_RELAY_KAFKA_INSECURE_TLS"
-	TlsSkipVerify bool `protobuf:"varint,4,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty"`
+	TlsSkipVerify bool `protobuf:"varint,4,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Allow insecure TLS usage',env=PLUMBER_RELAY_KAFKA_INSECURE_TLS"`
 	// @gotags: kong:"help='SASL authentication type (options: none plain scram)',env=PLUMBER_RELAY_KAFKA_SASL_TYPE,type=pbenum,pbenum_lowercase,default=none"
-	SaslType SASLType `protobuf:"varint,5,opt,name=sasl_type,json=saslType,proto3,enum=protos.args.SASLType" json:"sasl_type,omitempty"`
+	SaslType SASLType `protobuf:"varint,5,opt,name=sasl_type,json=saslType,proto3,enum=protos.args.SASLType" json:"sasl_type,omitempty" kong:"help='SASL authentication type (options: none plain scram)',env=PLUMBER_RELAY_KAFKA_SASL_TYPE,type=pbenum,pbenum_lowercase,default=none"`
 	// @gotags: kong:"help='SASL Username',env=PLUMBER_RELAY_KAFKA_USERNAME"
-	SaslUsername string `protobuf:"bytes,6,opt,name=sasl_username,json=saslUsername,proto3" json:"sasl_username,omitempty"`
+	SaslUsername string `protobuf:"bytes,6,opt,name=sasl_username,json=saslUsername,proto3" json:"sasl_username,omitempty" kong:"help='SASL Username',env=PLUMBER_RELAY_KAFKA_USERNAME"`
 	// Required if sasl_type is not NONE
 	// @gotags: kong:"help='SASL Password. You will be prompted for the password if omitted',env=PLUMBER_RELAY_KAFKA_PASSWORD"
-	SaslPassword string `protobuf:"bytes,7,opt,name=sasl_password,json=saslPassword,proto3" json:"sasl_password,omitempty"`
+	SaslPassword string `protobuf:"bytes,7,opt,name=sasl_password,json=saslPassword,proto3" json:"sasl_password,omitempty" kong:"help='SASL Password. You will be prompted for the password if omitted',env=PLUMBER_RELAY_KAFKA_PASSWORD"`
 }
 
 func (x *KafkaConn) Reset() {
@@ -178,31 +178,31 @@ type KafkaReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Topic(s) to read from',required"
-	Topics []string `protobuf:"bytes,1,rep,name=topics,proto3" json:"topics,omitempty"`
+	Topics []string `protobuf:"bytes,1,rep,name=topics,proto3" json:"topics,omitempty" kong:"help='Topic(s) to read from',required"`
 	// @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',default=0"
-	ReadOffset int64 `protobuf:"varint,2,opt,name=read_offset,json=readOffset,proto3" json:"read_offset,omitempty"`
+	ReadOffset int64 `protobuf:"varint,2,opt,name=read_offset,json=readOffset,proto3" json:"read_offset,omitempty" kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',default=0"`
 	// @gotags: kong:"help='Whether plumber should use a consumer group',default=true"
-	UseConsumerGroup bool `protobuf:"varint,3,opt,name=use_consumer_group,json=useConsumerGroup,proto3" json:"use_consumer_group,omitempty"`
+	UseConsumerGroup bool `protobuf:"varint,3,opt,name=use_consumer_group,json=useConsumerGroup,proto3" json:"use_consumer_group,omitempty" kong:"help='Whether plumber should use a consumer group',default=true"`
 	// @gotags: kong:"help='Specify a specific group-id to use when reading from kafka',default=plumber"
-	ConsumerGroupName string `protobuf:"bytes,4,opt,name=consumer_group_name,json=consumerGroupName,proto3" json:"consumer_group_name,omitempty"`
+	ConsumerGroupName string `protobuf:"bytes,4,opt,name=consumer_group_name,json=consumerGroupName,proto3" json:"consumer_group_name,omitempty" kong:"help='Specify a specific group-id to use when reading from kafka',default=plumber"`
 	// @gotags: kong:"help='How long to wait for new data when reading batches of messages',default=1"
-	MaxWaitSeconds int32 `protobuf:"varint,5,opt,name=max_wait_seconds,json=maxWaitSeconds,proto3" json:"max_wait_seconds,omitempty"`
+	MaxWaitSeconds int32 `protobuf:"varint,5,opt,name=max_wait_seconds,json=maxWaitSeconds,proto3" json:"max_wait_seconds,omitempty" kong:"help='How long to wait for new data when reading batches of messages',default=1"`
 	// @gotags: kong:"help='Minimum number of bytes to fetch in a single kafka request (throughput optimization)',default=1"
-	MinBytes int32 `protobuf:"varint,6,opt,name=min_bytes,json=minBytes,proto3" json:"min_bytes,omitempty"`
+	MinBytes int32 `protobuf:"varint,6,opt,name=min_bytes,json=minBytes,proto3" json:"min_bytes,omitempty" kong:"help='Minimum number of bytes to fetch in a single kafka request (throughput optimization)',default=1"`
 	// @gotags: kong:"help='Maximum number of bytes to fetch in a single kafka request (throughput optimization)',default=1"
-	MaxBytes int32 `protobuf:"varint,7,opt,name=max_bytes,json=maxBytes,proto3" json:"max_bytes,omitempty"`
+	MaxBytes int32 `protobuf:"varint,7,opt,name=max_bytes,json=maxBytes,proto3" json:"max_bytes,omitempty" kong:"help='Maximum number of bytes to fetch in a single kafka request (throughput optimization)',default=1"`
 	// @gotags: kong:"help='How often to commit offsets to broker (0 = synchronous)',default=5"
-	CommitIntervalSeconds int32 `protobuf:"varint,8,opt,name=commit_interval_seconds,json=commitIntervalSeconds,proto3" json:"commit_interval_seconds,omitempty"`
+	CommitIntervalSeconds int32 `protobuf:"varint,8,opt,name=commit_interval_seconds,json=commitIntervalSeconds,proto3" json:"commit_interval_seconds,omitempty" kong:"help='How often to commit offsets to broker (0 = synchronous)',default=5"`
 	// @gotags: kong:"help='How long a coordinator will wait for member joins as part of a rebalance',default=0"
-	RebalanceTimeoutSeconds int32 `protobuf:"varint,9,opt,name=rebalance_timeout_seconds,json=rebalanceTimeoutSeconds,proto3" json:"rebalance_timeout_seconds,omitempty"`
+	RebalanceTimeoutSeconds int32 `protobuf:"varint,9,opt,name=rebalance_timeout_seconds,json=rebalanceTimeoutSeconds,proto3" json:"rebalance_timeout_seconds,omitempty" kong:"help='How long a coordinator will wait for member joins as part of a rebalance',default=0"`
 	// @gotags: kong:"help='Internal library queue capacity (throughput optimization)',default=1"
-	QueueCapacity int32 `protobuf:"varint,10,opt,name=queue_capacity,json=queueCapacity,proto3" json:"queue_capacity,omitempty"`
+	QueueCapacity int32 `protobuf:"varint,10,opt,name=queue_capacity,json=queueCapacity,proto3" json:"queue_capacity,omitempty" kong:"help='Internal library queue capacity (throughput optimization)',default=1"`
 	// @gotags: kong:"help='Display consumer offset stats during read'"
-	IncludeOffsetInfo bool `protobuf:"varint,11,opt,name=include_offset_info,json=includeOffsetInfo,proto3" json:"include_offset_info,omitempty"`
+	IncludeOffsetInfo bool `protobuf:"varint,11,opt,name=include_offset_info,json=includeOffsetInfo,proto3" json:"include_offset_info,omitempty" kong:"help='Display consumer offset stats during read'"`
 	// @gotags: kong:"help='Only lookup consumer group lag',group=lag"
-	Lag bool `protobuf:"varint,12,opt,name=lag,proto3" json:"lag,omitempty"`
+	Lag bool `protobuf:"varint,12,opt,name=lag,proto3" json:"lag,omitempty" kong:"help='Only lookup consumer group lag',group=lag"`
 	// @gotags: kong:"help='What consumer group to lookup lag for (required if --lag is set)',group=lag"
-	LagConsumerGroup string `protobuf:"bytes,13,opt,name=lag_consumer_group,json=lagConsumerGroup,proto3" json:"lag_consumer_group,omitempty"`
+	LagConsumerGroup string `protobuf:"bytes,13,opt,name=lag_consumer_group,json=lagConsumerGroup,proto3" json:"lag_consumer_group,omitempty" kong:"help='What consumer group to lookup lag for (required if --lag is set)',group=lag"`
 }
 
 func (x *KafkaReadArgs) Reset() {
@@ -334,11 +334,11 @@ type KafkaWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Key to write to kafka (optional)'"
-	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty" kong:"help='Key to write to kafka (optional)'"`
 	// @gotags: kong:"help='Add one or more headers (optional; repeat flags to specify multiple)'"
-	Headers map[string]string `protobuf:"bytes,2,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Headers map[string]string `protobuf:"bytes,2,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" kong:"help='Add one or more headers (optional; repeat flags to specify multiple)'"`
 	// @gotags: kong:"help='Topic(s) to write to',required"
-	Topics []string `protobuf:"bytes,3,rep,name=topics,proto3" json:"topics,omitempty"`
+	Topics []string `protobuf:"bytes,3,rep,name=topics,proto3" json:"topics,omitempty" kong:"help='Topic(s) to write to',required"`
 }
 
 func (x *KafkaWriteArgs) Reset() {
@@ -400,25 +400,25 @@ type KafkaRelayArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Topic(s) to read, write or get lag stats for',env=PLUMBER_RELAY_KAFKA_TOPIC,required"
-	Topics []string `protobuf:"bytes,1,rep,name=topics,proto3" json:"topics,omitempty"`
+	Topics []string `protobuf:"bytes,1,rep,name=topics,proto3" json:"topics,omitempty" kong:"help='Topic(s) to read, write or get lag stats for',env=PLUMBER_RELAY_KAFKA_TOPIC,required"`
 	// @gotags: kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',env=PLUMBER_RELAY_KAFKA_READ_OFFSET,default=0"
-	ReadOffset int64 `protobuf:"varint,2,opt,name=read_offset,json=readOffset,proto3" json:"read_offset,omitempty"`
+	ReadOffset int64 `protobuf:"varint,2,opt,name=read_offset,json=readOffset,proto3" json:"read_offset,omitempty" kong:"help='Specify what offset the consumer should read from (only works if --use-consumer-group is false)',env=PLUMBER_RELAY_KAFKA_READ_OFFSET,default=0"`
 	// @gotags: kong:"help='Whether plumber should use a consumer group',env=PLUMBER_RELAY_KAFKA_USE_CONSUMER_GROUP,default=true"
-	UseConsumerGroup bool `protobuf:"varint,3,opt,name=use_consumer_group,json=useConsumerGroup,proto3" json:"use_consumer_group,omitempty"`
+	UseConsumerGroup bool `protobuf:"varint,3,opt,name=use_consumer_group,json=useConsumerGroup,proto3" json:"use_consumer_group,omitempty" kong:"help='Whether plumber should use a consumer group',env=PLUMBER_RELAY_KAFKA_USE_CONSUMER_GROUP,default=true"`
 	// @gotags: kong:"help='Specify a specific group-id to use when reading from kafka',env=PLUMBER_RELAY_KAFKA_GROUP_ID,default=plumber"
-	ConsumerGroupName string `protobuf:"bytes,4,opt,name=consumer_group_name,json=consumerGroupName,proto3" json:"consumer_group_name,omitempty"`
+	ConsumerGroupName string `protobuf:"bytes,4,opt,name=consumer_group_name,json=consumerGroupName,proto3" json:"consumer_group_name,omitempty" kong:"help='Specify a specific group-id to use when reading from kafka',env=PLUMBER_RELAY_KAFKA_GROUP_ID,default=plumber"`
 	// @gotags: kong:"help='How long to wait for new data when reading batches of messages',env=PLUMBER_RELAY_KAFKA_MAX_WAIT,default=5"
-	MaxWaitSeconds int32 `protobuf:"varint,5,opt,name=max_wait_seconds,json=maxWaitSeconds,proto3" json:"max_wait_seconds,omitempty"`
+	MaxWaitSeconds int32 `protobuf:"varint,5,opt,name=max_wait_seconds,json=maxWaitSeconds,proto3" json:"max_wait_seconds,omitempty" kong:"help='How long to wait for new data when reading batches of messages',env=PLUMBER_RELAY_KAFKA_MAX_WAIT,default=5"`
 	// @gotags: kong:"help='Minimum number of bytes to fetch in a single kafka request (throughput optimization)',env=PLUMBER_RELAY_KAFKA_MIN_BYTES,default=1048576"
-	MinBytes int32 `protobuf:"varint,6,opt,name=min_bytes,json=minBytes,proto3" json:"min_bytes,omitempty"`
+	MinBytes int32 `protobuf:"varint,6,opt,name=min_bytes,json=minBytes,proto3" json:"min_bytes,omitempty" kong:"help='Minimum number of bytes to fetch in a single kafka request (throughput optimization)',env=PLUMBER_RELAY_KAFKA_MIN_BYTES,default=1048576"`
 	// @gotags: kong:"help='Maximum number of bytes to fetch in a single kafka request (throughput optimization)',env=PLUMBER_RELAY_KAFKA_MAX_BYTES,default=1048576"
-	MaxBytes int32 `protobuf:"varint,7,opt,name=max_bytes,json=maxBytes,proto3" json:"max_bytes,omitempty"`
+	MaxBytes int32 `protobuf:"varint,7,opt,name=max_bytes,json=maxBytes,proto3" json:"max_bytes,omitempty" kong:"help='Maximum number of bytes to fetch in a single kafka request (throughput optimization)',env=PLUMBER_RELAY_KAFKA_MAX_BYTES,default=1048576"`
 	// @gotags: kong:"help='How often to commit offsets to broker (0 = synchronous)',env=PLUMBER_RELAY_KAFKA_COMMIT_INTERVAL,default=5"
-	CommitIntervalSeconds int32 `protobuf:"varint,8,opt,name=commit_interval_seconds,json=commitIntervalSeconds,proto3" json:"commit_interval_seconds,omitempty"`
+	CommitIntervalSeconds int32 `protobuf:"varint,8,opt,name=commit_interval_seconds,json=commitIntervalSeconds,proto3" json:"commit_interval_seconds,omitempty" kong:"help='How often to commit offsets to broker (0 = synchronous)',env=PLUMBER_RELAY_KAFKA_COMMIT_INTERVAL,default=5"`
 	// @gotags: kong:"help='How long a coordinator will wait for member joins as part of a rebalance',env=PLUMBER_RELAY_KAFKA_REBALANCE_TIMEOUT,default=5"
-	RebalanceTimeoutSeconds int32 `protobuf:"varint,9,opt,name=rebalance_timeout_seconds,json=rebalanceTimeoutSeconds,proto3" json:"rebalance_timeout_seconds,omitempty"`
+	RebalanceTimeoutSeconds int32 `protobuf:"varint,9,opt,name=rebalance_timeout_seconds,json=rebalanceTimeoutSeconds,proto3" json:"rebalance_timeout_seconds,omitempty" kong:"help='How long a coordinator will wait for member joins as part of a rebalance',env=PLUMBER_RELAY_KAFKA_REBALANCE_TIMEOUT,default=5"`
 	// @gotags: kong:"help='Internal library queue capacity (throughput optimization)',env=PLUMBER_RELAY_KAFKA_QUEUE_CAPACITY,default=1000"
-	QueueCapacity int32 `protobuf:"varint,10,opt,name=queue_capacity,json=queueCapacity,proto3" json:"queue_capacity,omitempty"`
+	QueueCapacity int32 `protobuf:"varint,10,opt,name=queue_capacity,json=queueCapacity,proto3" json:"queue_capacity,omitempty" kong:"help='Internal library queue capacity (throughput optimization)',env=PLUMBER_RELAY_KAFKA_QUEUE_CAPACITY,default=1000"`
 }
 
 func (x *KafkaRelayArgs) Reset() {

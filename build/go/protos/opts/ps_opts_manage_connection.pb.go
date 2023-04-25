@@ -27,7 +27,7 @@ type GetConnectionOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the connection to get (leave empty to get all)'"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the connection to get (leave empty to get all)'"`
 }
 
 func (x *GetConnectionOptions) Reset() {
@@ -75,51 +75,51 @@ type CreateConnectionOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Friendly name for the connection', required"
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" kong:"help='Friendly name for the connection', required"`
 	// @gotags: kong:"help='Optional notes to associate with the connection'"
-	Notes string `protobuf:"bytes,2,opt,name=notes,proto3" json:"notes,omitempty"`
+	Notes string `protobuf:"bytes,2,opt,name=notes,proto3" json:"notes,omitempty" kong:"help='Optional notes to associate with the connection'"`
 	// @gotags: kong:"cmd,help='Apache Kafka'"
-	Kafka *args.KafkaConn `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	Kafka *args.KafkaConn `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
 	// @gotags: kong:"cmd,help='ActiveMQ'"
-	ActiveMq *args.ActiveMQConn `protobuf:"bytes,101,opt,name=active_mq,json=activeMq,proto3" json:"active_mq,omitempty"`
+	ActiveMq *args.ActiveMQConn `protobuf:"bytes,101,opt,name=active_mq,json=activeMq,proto3" json:"active_mq,omitempty" kong:"cmd,help='ActiveMQ'"`
 	// @gotags: kong:"cmd,help='AWS Simple Queue Service'"
-	AwsSqs *args.AWSSQSConn `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty"`
+	AwsSqs *args.AWSSQSConn `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty" kong:"cmd,help='AWS Simple Queue Service'"`
 	// @gotags: kong:"cmd,help='AWS Simple Notification Service'"
-	AwsSns *args.AWSSNSConn `protobuf:"bytes,103,opt,name=aws_sns,json=awsSns,proto3" json:"aws_sns,omitempty"`
+	AwsSns *args.AWSSNSConn `protobuf:"bytes,103,opt,name=aws_sns,json=awsSns,proto3" json:"aws_sns,omitempty" kong:"cmd,help='AWS Simple Notification Service'"`
 	// @gotags: kong:"cmd,help='Mongo (CDC)'"
-	Mongo *args.MongoConn `protobuf:"bytes,104,opt,name=mongo,proto3" json:"mongo,omitempty"`
+	Mongo *args.MongoConn `protobuf:"bytes,104,opt,name=mongo,proto3" json:"mongo,omitempty" kong:"cmd,help='Mongo (CDC)'"`
 	// @gotags: kong:"cmd,help='NATS PubSub'"
-	Nats *args.NatsConn `protobuf:"bytes,105,opt,name=nats,proto3" json:"nats,omitempty"`
+	Nats *args.NatsConn `protobuf:"bytes,105,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd,help='NATS PubSub'"`
 	// @gotags: kong:"cmd,help='NATS Streaming (deprecated)'"
-	NatsStreaming *args.NatsStreamingConn `protobuf:"bytes,106,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty"`
+	NatsStreaming *args.NatsStreamingConn `protobuf:"bytes,106,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd,help='NATS Streaming (deprecated)'"`
 	// @gotags: kong:"cmd,help='NSQ'"
-	Nsq *args.NSQConn `protobuf:"bytes,107,opt,name=nsq,proto3" json:"nsq,omitempty"`
+	Nsq *args.NSQConn `protobuf:"bytes,107,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd,help='NSQ'"`
 	// @gotags: kong:"cmd,help='PostgreSQL (CDC)'"
-	Postgres *args.PostgresConn `protobuf:"bytes,108,opt,name=postgres,proto3" json:"postgres,omitempty"`
+	Postgres *args.PostgresConn `protobuf:"bytes,108,opt,name=postgres,proto3" json:"postgres,omitempty" kong:"cmd,help='PostgreSQL (CDC)'"`
 	// @gotags: kong:"cmd,help='Pulsar'"
-	Pulsar *args.PulsarConn `protobuf:"bytes,109,opt,name=pulsar,proto3" json:"pulsar,omitempty"`
+	Pulsar *args.PulsarConn `protobuf:"bytes,109,opt,name=pulsar,proto3" json:"pulsar,omitempty" kong:"cmd,help='Pulsar'"`
 	// @gotags: kong:"cmd,help='Rabbit'"
-	Rabbit *args.RabbitConn `protobuf:"bytes,110,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	Rabbit *args.RabbitConn `protobuf:"bytes,110,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='Rabbit'"`
 	// @gotags: kong:"cmd,help='Rabbit Streams'"
-	RabbitStreams *args.RabbitStreamsConn `protobuf:"bytes,111,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty"`
+	RabbitStreams *args.RabbitStreamsConn `protobuf:"bytes,111,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty" kong:"cmd,help='Rabbit Streams'"`
 	// @gotags: kong:"cmd,help='Redis PubSub'"
-	RedisPubsub *args.RedisPubSubConn `protobuf:"bytes,112,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty"`
+	RedisPubsub *args.RedisPubSubConn `protobuf:"bytes,112,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd,help='Redis PubSub'"`
 	// @gotags: kong:"cmd,help='Redis Streams'"
-	RedisStreams *args.RedisStreamsConn `protobuf:"bytes,113,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty"`
+	RedisStreams *args.RedisStreamsConn `protobuf:"bytes,113,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd,help='Redis Streams'"`
 	// @gotags: kong:"cmd,help='Azure Event Hub'"
-	AzureEventHub *args.AzureEventHubConn `protobuf:"bytes,114,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty"`
+	AzureEventHub *args.AzureEventHubConn `protobuf:"bytes,114,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty" kong:"cmd,help='Azure Event Hub'"`
 	// @gotags: kong:"cmd,help='Azure Service Bus'"
-	AzureServiceBus *args.AzureServiceBusConn `protobuf:"bytes,115,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty"`
+	AzureServiceBus *args.AzureServiceBusConn `protobuf:"bytes,115,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd,help='Azure Service Bus'"`
 	// @gotags: kong:"cmd,help='MQTT'"
-	Mqtt *args.MQTTConn `protobuf:"bytes,116,opt,name=mqtt,proto3" json:"mqtt,omitempty"`
+	Mqtt *args.MQTTConn `protobuf:"bytes,116,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd,help='MQTT'"`
 	// @gotags: kong:"cmd,help='KubeMQ Queue'"
-	KubemqQueue *args.KubeMQQueueConn `protobuf:"bytes,117,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	KubemqQueue *args.KubeMQQueueConn `protobuf:"bytes,117,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
 	// @gotags: kong:"cmd,help='Google Cloud Pub/Sub'"
-	GcpPubsub *args.GCPPubSubConn `protobuf:"bytes,118,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty"`
+	GcpPubsub *args.GCPPubSubConn `protobuf:"bytes,118,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd,help='Google Cloud Pub/Sub'"`
 	// @gotags: kong:"cmd,help='NATS JetStream'"
-	NatsJetstream *args.NatsJetstreamConn `protobuf:"bytes,119,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty"`
+	NatsJetstream *args.NatsJetstreamConn `protobuf:"bytes,119,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty" kong:"cmd,help='NATS JetStream'"`
 	// @gotags: kong:"cmd,help='AWS Kinesis'"
-	AwsKinesis *args.AWSKinesisConn `protobuf:"bytes,120,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty"`
+	AwsKinesis *args.AWSKinesisConn `protobuf:"bytes,120,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty" kong:"cmd,help='AWS Kinesis'"`
 }
 
 func (x *CreateConnectionOptions) Reset() {
@@ -321,7 +321,7 @@ type DeleteConnectionOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the connection to delete',required=true"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the connection to delete',required=true"`
 }
 
 func (x *DeleteConnectionOptions) Reset() {

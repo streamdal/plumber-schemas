@@ -27,7 +27,7 @@ type GetTunnelOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the tunnel to get (leave empty to get all)'"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the tunnel to get (leave empty to get all)'"`
 }
 
 func (x *GetTunnelOptions) Reset() {
@@ -75,59 +75,59 @@ type CreateTunnelOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Connection ID for the tunnel to use',required=true"
-	ConnectionId string `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
+	ConnectionId string `protobuf:"bytes,1,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"help='Connection ID for the tunnel to use',required=true"`
 	// @gotags: kong:"help='Streamdal API token (create in settings -> security)',required=true"
-	TunnelToken string `protobuf:"bytes,3,opt,name=tunnel_token,json=tunnelToken,proto3" json:"tunnel_token,omitempty"`
+	TunnelToken string `protobuf:"bytes,3,opt,name=tunnel_token,json=tunnelToken,proto3" json:"tunnel_token,omitempty" kong:"help='Streamdal API token (create in settings -> security)',required=true"`
 	// @gotags: kong:"help='Name for the tunnel (auto-generated if left empty)'"
-	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty" kong:"help='Name for the tunnel (auto-generated if left empty)'"`
 	// @gotags: kong:"help='Notes associated with the tunnel'"
-	Notes string `protobuf:"bytes,5,opt,name=notes,proto3" json:"notes,omitempty"`
+	Notes string `protobuf:"bytes,5,opt,name=notes,proto3" json:"notes,omitempty" kong:"help='Notes associated with the tunnel'"`
 	// @gotags: kong:"help='Tunnel API address',default='dproxy.streamdal.com:443'"
-	XTunnelAddress string `protobuf:"bytes,6,opt,name=_tunnel_address,json=TunnelAddress,proto3" json:"_tunnel_address,omitempty"`
+	XTunnelAddress string `protobuf:"bytes,6,opt,name=_tunnel_address,json=TunnelAddress,proto3" json:"_tunnel_address,omitempty" kong:"help='Tunnel API address',default='dproxy.streamdal.com:443'"`
 	// @gotags: kong:"help='Tunnel API initial connection timeout',default=5"
-	XTunnelTimeoutSeconds uint32 `protobuf:"varint,7,opt,name=_tunnel_timeout_seconds,json=TunnelTimeoutSeconds,proto3" json:"_tunnel_timeout_seconds,omitempty"`
+	XTunnelTimeoutSeconds uint32 `protobuf:"varint,7,opt,name=_tunnel_timeout_seconds,json=TunnelTimeoutSeconds,proto3" json:"_tunnel_timeout_seconds,omitempty" kong:"help='Tunnel API initial connection timeout',default=5"`
 	// @gotags: kong:"help='Use gRPC insecure mode when talking to Streamdal Tunnel API'"
-	XTunnelInsecure bool `protobuf:"varint,8,opt,name=_tunnel_insecure,json=TunnelInsecure,proto3" json:"_tunnel_insecure,omitempty"`
+	XTunnelInsecure bool `protobuf:"varint,8,opt,name=_tunnel_insecure,json=TunnelInsecure,proto3" json:"_tunnel_insecure,omitempty" kong:"help='Use gRPC insecure mode when talking to Streamdal Tunnel API'"`
 	// @gotags: kong:"cmd,help='Apache Kafka'"
-	Kafka *args.KafkaWriteArgs `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	Kafka *args.KafkaWriteArgs `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
 	// @gotags: kong:"cmd,help='Apache ActiveMQ'"
-	Activemq *args.ActiveMQWriteArgs `protobuf:"bytes,101,opt,name=activemq,proto3" json:"activemq,omitempty"`
+	Activemq *args.ActiveMQWriteArgs `protobuf:"bytes,101,opt,name=activemq,proto3" json:"activemq,omitempty" kong:"cmd,help='Apache ActiveMQ'"`
 	// @gotags: kong:"cmd,help='AWS Simple Queue System'"
-	AwsSqs *args.AWSSQSWriteArgs `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty"`
+	AwsSqs *args.AWSSQSWriteArgs `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty" kong:"cmd,help='AWS Simple Queue System'"`
 	// @gotags: kong:"cmd,help='AWS Simple Notification System'"
-	AwsSns *args.AWSSNSWriteArgs `protobuf:"bytes,103,opt,name=aws_sns,json=awsSns,proto3" json:"aws_sns,omitempty"`
+	AwsSns *args.AWSSNSWriteArgs `protobuf:"bytes,103,opt,name=aws_sns,json=awsSns,proto3" json:"aws_sns,omitempty" kong:"cmd,help='AWS Simple Notification System'"`
 	// @gotags: kong:"cmd,help='NATS'"
-	Nats *args.NatsWriteArgs `protobuf:"bytes,104,opt,name=nats,proto3" json:"nats,omitempty"`
+	Nats *args.NatsWriteArgs `protobuf:"bytes,104,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd,help='NATS'"`
 	// @gotags: kong:"cmd,help='NATS Streaming'"
-	NatsStreaming *args.NatsStreamingWriteArgs `protobuf:"bytes,105,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty"`
+	NatsStreaming *args.NatsStreamingWriteArgs `protobuf:"bytes,105,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd,help='NATS Streaming'"`
 	// @gotags: kong:"cmd,help='NSQ'"
-	Nsq *args.NSQWriteArgs `protobuf:"bytes,106,opt,name=nsq,proto3" json:"nsq,omitempty"`
+	Nsq *args.NSQWriteArgs `protobuf:"bytes,106,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd,help='NSQ'"`
 	// @gotags: kong:"cmd,help='RabbitMQ'"
-	Rabbit *args.RabbitWriteArgs `protobuf:"bytes,107,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	Rabbit *args.RabbitWriteArgs `protobuf:"bytes,107,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='RabbitMQ'"`
 	// @gotags: kong:"cmd,help='MQTT'"
-	Mqtt *args.MQTTWriteArgs `protobuf:"bytes,108,opt,name=mqtt,proto3" json:"mqtt,omitempty"`
+	Mqtt *args.MQTTWriteArgs `protobuf:"bytes,108,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd,help='MQTT'"`
 	// @gotags: kong:"cmd,help='Azure Service Bus'"
-	AzureServiceBus *args.AzureServiceBusWriteArgs `protobuf:"bytes,109,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty"`
+	AzureServiceBus *args.AzureServiceBusWriteArgs `protobuf:"bytes,109,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd,help='Azure Service Bus'"`
 	// @gotags: kong:"cmd,help='Azure Event Hub'"
-	AzureEventHub *args.AzureEventHubWriteArgs `protobuf:"bytes,110,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty"`
+	AzureEventHub *args.AzureEventHubWriteArgs `protobuf:"bytes,110,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty" kong:"cmd,help='Azure Event Hub'"`
 	// @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-	GcpPubsub *args.GCPPubSubWriteArgs `protobuf:"bytes,111,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty"`
+	GcpPubsub *args.GCPPubSubWriteArgs `protobuf:"bytes,111,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd,help='Google Cloud Platform Pub/Sub'"`
 	// @gotags: kong:"cmd,help='KubeMQ Queue'"
-	KubemqQueue *args.KubeMQQueueWriteArgs `protobuf:"bytes,112,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	KubemqQueue *args.KubeMQQueueWriteArgs `protobuf:"bytes,112,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
 	// @gotags: kong:"cmd,help='Redis PubSub'"
-	RedisPubsub *args.RedisPubSubWriteArgs `protobuf:"bytes,113,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty"`
+	RedisPubsub *args.RedisPubSubWriteArgs `protobuf:"bytes,113,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd,help='Redis PubSub'"`
 	// @gotags: kong:"cmd,help='Redis Streams'"
-	RedisStreams *args.RedisStreamsWriteArgs `protobuf:"bytes,114,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty"`
+	RedisStreams *args.RedisStreamsWriteArgs `protobuf:"bytes,114,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd,help='Redis Streams'"`
 	// @gotags: kong:"cmd,help='Apache Pulsar'"
-	Pulsar *args.PulsarWriteArgs `protobuf:"bytes,115,opt,name=pulsar,proto3" json:"pulsar,omitempty"`
+	Pulsar *args.PulsarWriteArgs `protobuf:"bytes,115,opt,name=pulsar,proto3" json:"pulsar,omitempty" kong:"cmd,help='Apache Pulsar'"`
 	// @gotags: kong:"cmd,help='RabbitMQ Streams'"
-	RabbitStreams *args.RabbitStreamsWriteArgs `protobuf:"bytes,116,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty"`
+	RabbitStreams *args.RabbitStreamsWriteArgs `protobuf:"bytes,116,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty" kong:"cmd,help='RabbitMQ Streams'"`
 	// @gotags: kong:"cmd,help='NATS JetStream'"
-	NatsJetstream *args.NatsJetstreamWriteArgs `protobuf:"bytes,117,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty"`
+	NatsJetstream *args.NatsJetstreamWriteArgs `protobuf:"bytes,117,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty" kong:"cmd,help='NATS JetStream'"`
 	// @gotags: kong:"cmd,help='AWS Kinesis Streams'"
-	AwsKinesis *args.AWSKinesisWriteArgs `protobuf:"bytes,118,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty"`
+	AwsKinesis *args.AWSKinesisWriteArgs `protobuf:"bytes,118,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty" kong:"cmd,help='AWS Kinesis Streams'"`
 	// @gotags: kong:"cmd,help='Memphis'"
-	Memphis *args.MemphisWriteArgs `protobuf:"bytes,119,opt,name=memphis,proto3" json:"memphis,omitempty"`
+	Memphis *args.MemphisWriteArgs `protobuf:"bytes,119,opt,name=memphis,proto3" json:"memphis,omitempty" kong:"cmd,help='Memphis'"`
 }
 
 func (x *CreateTunnelOptions) Reset() {
@@ -357,7 +357,7 @@ type DeleteTunnelOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the tunnel to delete',required=true"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the tunnel to delete',required=true"`
 }
 
 func (x *DeleteTunnelOptions) Reset() {
@@ -405,7 +405,7 @@ type StopTunnelOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the tunnel to stop',required=true"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the tunnel to stop',required=true"`
 }
 
 func (x *StopTunnelOptions) Reset() {
@@ -453,7 +453,7 @@ type ResumeTunnelOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='ID of the tunnel to resume',required=true"
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty" kong:"help='ID of the tunnel to resume',required=true"`
 }
 
 func (x *ResumeTunnelOptions) Reset() {

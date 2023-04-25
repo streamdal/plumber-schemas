@@ -26,19 +26,19 @@ type GlobalCLIOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Enable debug output',short=d"
-	Debug bool `protobuf:"varint,1,opt,name=debug,proto3" json:"debug,omitempty"`
+	Debug bool `protobuf:"varint,1,opt,name=debug,proto3" json:"debug,omitempty" kong:"help='Enable debug output',short=d"`
 	// @gotags: kong:"help='Disable fancy output (like curl -s)',short=q"
-	Quiet bool `protobuf:"varint,2,opt,name=quiet,proto3" json:"quiet,omitempty"`
+	Quiet bool `protobuf:"varint,2,opt,name=quiet,proto3" json:"quiet,omitempty" kong:"help='Disable fancy output (like curl -s)',short=q"`
 	// @gotags: kong:"help='Display plumber version'"
-	Version bool `protobuf:"varint,3,opt,name=version,proto3" json:"version,omitempty"`
+	Version bool `protobuf:"varint,3,opt,name=version,proto3" json:"version,omitempty" kong:"help='Display plumber version'"`
 	// @gotags: kong:"-"
-	XFullCommand string `protobuf:"bytes,1000,opt,name=_full_command,json=FullCommand,proto3" json:"_full_command,omitempty"`
+	XFullCommand string `protobuf:"bytes,1000,opt,name=_full_command,json=FullCommand,proto3" json:"_full_command,omitempty" kong:"-"`
 	// @gotags: kong:"-"
-	XAction string `protobuf:"bytes,1001,opt,name=_action,json=Action,proto3" json:"_action,omitempty"`
+	XAction string `protobuf:"bytes,1001,opt,name=_action,json=Action,proto3" json:"_action,omitempty" kong:"-"`
 	// @gotags: kong:"-"
-	XBackend string `protobuf:"bytes,1002,opt,name=_backend,json=Backend,proto3" json:"_backend,omitempty"`
+	XBackend string `protobuf:"bytes,1002,opt,name=_backend,json=Backend,proto3" json:"_backend,omitempty" kong:"-"`
 	// @gotags: kong:"-"
-	XCommands []string `protobuf:"bytes,1003,rep,name=_commands,json=Commands,proto3" json:"_commands,omitempty"`
+	XCommands []string `protobuf:"bytes,1003,rep,name=_commands,json=Commands,proto3" json:"_commands,omitempty" kong:"-"`
 }
 
 func (x *GlobalCLIOptions) Reset() {
@@ -134,21 +134,21 @@ type CLIOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	Global *GlobalCLIOptions `protobuf:"bytes,1,opt,name=global,proto3" json:"global,omitempty"`
+	Global *GlobalCLIOptions `protobuf:"bytes,1,opt,name=global,proto3" json:"global,omitempty" kong:"embed"`
 	// @gotags: kong:"cmd,help='Read message(s) from messaging system'"
-	Read *ReadOptions `protobuf:"bytes,2,opt,name=read,proto3" json:"read,omitempty"`
+	Read *ReadOptions `protobuf:"bytes,2,opt,name=read,proto3" json:"read,omitempty" kong:"cmd,help='Read message(s) from messaging system'"`
 	// @gotags: kong:"cmd,help='Write message(s) to messaging system'"
-	Write *WriteOptions `protobuf:"bytes,3,opt,name=write,proto3" json:"write,omitempty"`
+	Write *WriteOptions `protobuf:"bytes,3,opt,name=write,proto3" json:"write,omitempty" kong:"cmd,help='Write message(s) to messaging system'"`
 	// @gotags: kong:"cmd,help='Relay message(s) from messaging system to Streamdal'"
-	Relay *RelayOptions `protobuf:"bytes,4,opt,name=relay,proto3" json:"relay,omitempty"`
+	Relay *RelayOptions `protobuf:"bytes,4,opt,name=relay,proto3" json:"relay,omitempty" kong:"cmd,help='Relay message(s) from messaging system to Streamdal'"`
 	// @gotags: kong:"cmd,help='Use plumber as a destination tunnel in Streamdal'"
-	Tunnel *TunnelOptions `protobuf:"bytes,5,opt,name=tunnel,proto3" json:"tunnel,omitempty"`
+	Tunnel *TunnelOptions `protobuf:"bytes,5,opt,name=tunnel,proto3" json:"tunnel,omitempty" kong:"cmd,help='Use plumber as a destination tunnel in Streamdal'"`
 	// @gotags: kong:"cmd,help='Control your Streamdal resources via the public API'"
-	Streamdal *StreamdalOptions `protobuf:"bytes,6,opt,name=streamdal,proto3" json:"streamdal,omitempty"`
+	Streamdal *StreamdalOptions `protobuf:"bytes,6,opt,name=streamdal,proto3" json:"streamdal,omitempty" kong:"cmd,help='Control your Streamdal resources via the public API'"`
 	// @gotags: kong:"cmd,help='Run plumber in server mode'"
-	Server *ServerOptions `protobuf:"bytes,7,opt,name=server,proto3" json:"server,omitempty"`
+	Server *ServerOptions `protobuf:"bytes,7,opt,name=server,proto3" json:"server,omitempty" kong:"cmd,help='Run plumber in server mode'"`
 	// @gotags: kong:"cmd,help='Manage plumber server'"
-	Manage *ManageOptions `protobuf:"bytes,8,opt,name=manage,proto3" json:"manage,omitempty"`
+	Manage *ManageOptions `protobuf:"bytes,8,opt,name=manage,proto3" json:"manage,omitempty" kong:"cmd,help='Manage plumber server'"`
 }
 
 func (x *CLIOptions) Reset() {

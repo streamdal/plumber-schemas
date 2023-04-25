@@ -118,21 +118,21 @@ type StreamdalOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='How to output results (options: table json)',default=table,type=pbenum,pbenum_lowercase"
-	OutputType StreamdalOutputType `protobuf:"varint,1,opt,name=output_type,json=outputType,proto3,enum=protos.opts.StreamdalOutputType" json:"output_type,omitempty"`
+	OutputType StreamdalOutputType `protobuf:"varint,1,opt,name=output_type,json=outputType,proto3,enum=protos.opts.StreamdalOutputType" json:"output_type,omitempty" kong:"help='How to output results (options: table json)',default=table,type=pbenum,pbenum_lowercase"`
 	// @gotags: kong:"help='Alternative URL to use for Streamdal API',default='https://api.streamdal.com'"
-	ApiUrl string `protobuf:"bytes,2,opt,name=api_url,json=apiUrl,proto3" json:"api_url,omitempty"`
+	ApiUrl string `protobuf:"bytes,2,opt,name=api_url,json=apiUrl,proto3" json:"api_url,omitempty" kong:"help='Alternative URL to use for Streamdal API',default='https://api.streamdal.com'"`
 	// @gotags: kong:"cmd,help='Login to the Streamdal platform'"
-	Login *StreamdalLoginOptions `protobuf:"bytes,3,opt,name=login,proto3" json:"login,omitempty"`
+	Login *StreamdalLoginOptions `protobuf:"bytes,3,opt,name=login,proto3" json:"login,omitempty" kong:"cmd,help='Login to the Streamdal platform'"`
 	// @gotags: kong:"cmd,help='Login to Streamdal'"
-	Logout *StreamdalLogoutOptions `protobuf:"bytes,4,opt,name=logout,proto3" json:"logout,omitempty"`
+	Logout *StreamdalLogoutOptions `protobuf:"bytes,4,opt,name=logout,proto3" json:"logout,omitempty" kong:"cmd,help='Login to Streamdal'"`
 	// @gotags: kong:"cmd,help='List Streamdal resources'"
-	List *StreamdalListOptions `protobuf:"bytes,5,opt,name=list,proto3" json:"list,omitempty"`
+	List *StreamdalListOptions `protobuf:"bytes,5,opt,name=list,proto3" json:"list,omitempty" kong:"cmd,help='List Streamdal resources'"`
 	// @gotags: kong:"cmd,help='Create operations'"
-	Create *StreamdalCreateOptions `protobuf:"bytes,6,opt,name=create,proto3" json:"create,omitempty"`
+	Create *StreamdalCreateOptions `protobuf:"bytes,6,opt,name=create,proto3" json:"create,omitempty" kong:"cmd,help='Create operations'"`
 	// @gotags: kong:"cmd,help='Search operations'"
-	Search *StreamdalSearchOptions `protobuf:"bytes,7,opt,name=search,proto3" json:"search,omitempty"`
+	Search *StreamdalSearchOptions `protobuf:"bytes,7,opt,name=search,proto3" json:"search,omitempty" kong:"cmd,help='Search operations'"`
 	// @gotags: kong:"cmd,help='Archive a resource'"
-	Archive *StreamdalArchiveOptions `protobuf:"bytes,8,opt,name=archive,proto3" json:"archive,omitempty"`
+	Archive *StreamdalArchiveOptions `protobuf:"bytes,8,opt,name=archive,proto3" json:"archive,omitempty" kong:"cmd,help='Archive a resource'"`
 }
 
 func (x *StreamdalOptions) Reset() {
@@ -457,7 +457,7 @@ type StreamdalArchiveOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed,cmd,help='Archive a replay'"
-	Replay *StreamdalArchiveReplayOptions `protobuf:"bytes,1,opt,name=replay,proto3" json:"replay,omitempty"`
+	Replay *StreamdalArchiveReplayOptions `protobuf:"bytes,1,opt,name=replay,proto3" json:"replay,omitempty" kong:"embed,cmd,help='Archive a replay'"`
 }
 
 func (x *StreamdalArchiveOptions) Reset() {
@@ -505,7 +505,7 @@ type StreamdalArchiveReplayOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Replay ID to archive',required"
-	ReplayId string `protobuf:"bytes,1,opt,name=replay_id,json=replayId,proto3" json:"replay_id,omitempty"`
+	ReplayId string `protobuf:"bytes,1,opt,name=replay_id,json=replayId,proto3" json:"replay_id,omitempty" kong:"help='Replay ID to archive',required"`
 }
 
 func (x *StreamdalArchiveReplayOptions) Reset() {
@@ -553,13 +553,13 @@ type StreamdalListOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"cmd,help='List all collections'"
-	Collection *StreamdalListCollectionOptions `protobuf:"bytes,1,opt,name=collection,proto3" json:"collection,omitempty"`
+	Collection *StreamdalListCollectionOptions `protobuf:"bytes,1,opt,name=collection,proto3" json:"collection,omitempty" kong:"cmd,help='List all collections'"`
 	// @gotags: kong:"cmd,help='List all destinations'"
-	Destination *StreamdalListDestinationOptions `protobuf:"bytes,2,opt,name=destination,proto3" json:"destination,omitempty"`
+	Destination *StreamdalListDestinationOptions `protobuf:"bytes,2,opt,name=destination,proto3" json:"destination,omitempty" kong:"cmd,help='List all destinations'"`
 	// @gotags: kong:"cmd,help='List all replays'"
-	Replay *StreamdalListReplayOptions `protobuf:"bytes,3,opt,name=replay,proto3" json:"replay,omitempty"`
+	Replay *StreamdalListReplayOptions `protobuf:"bytes,3,opt,name=replay,proto3" json:"replay,omitempty" kong:"cmd,help='List all replays'"`
 	// @gotags: kong:"cmd,help='List all schemas'"
-	Schema *StreamdalListSchemaOptions `protobuf:"bytes,4,opt,name=schema,proto3" json:"schema,omitempty"`
+	Schema *StreamdalListSchemaOptions `protobuf:"bytes,4,opt,name=schema,proto3" json:"schema,omitempty" kong:"cmd,help='List all schemas'"`
 }
 
 func (x *StreamdalListOptions) Reset() {
@@ -628,11 +628,11 @@ type StreamdalCreateOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"cmd,help='Create a collection'"
-	Collection *StreamdalCreateCollectionOptions `protobuf:"bytes,1,opt,name=collection,proto3" json:"collection,omitempty"`
+	Collection *StreamdalCreateCollectionOptions `protobuf:"bytes,1,opt,name=collection,proto3" json:"collection,omitempty" kong:"cmd,help='Create a collection'"`
 	// @gotags: kong:"cmd,help='Create a replay'"
-	Replay *StreamdalCreateReplayOptions `protobuf:"bytes,2,opt,name=replay,proto3" json:"replay,omitempty"`
+	Replay *StreamdalCreateReplayOptions `protobuf:"bytes,2,opt,name=replay,proto3" json:"replay,omitempty" kong:"cmd,help='Create a replay'"`
 	// @gotags: kong:"cmd,help='Create a destination'"
-	Destination *StreamdalCreateDestinationOptions `protobuf:"bytes,3,opt,name=destination,proto3" json:"destination,omitempty"`
+	Destination *StreamdalCreateDestinationOptions `protobuf:"bytes,3,opt,name=destination,proto3" json:"destination,omitempty" kong:"cmd,help='Create a destination'"`
 }
 
 func (x *StreamdalCreateOptions) Reset() {
@@ -694,11 +694,11 @@ type StreamdalSearchOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Query to perform',default='*'"
-	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty" kong:"help='Query to perform',default='*'"`
 	// @gotags: kong:"help='Collection id to query',required"
-	CollectionId string `protobuf:"bytes,2,opt,name=collection_id,json=collectionId,proto3" json:"collection_id,omitempty"`
+	CollectionId string `protobuf:"bytes,2,opt,name=collection_id,json=collectionId,proto3" json:"collection_id,omitempty" kong:"help='Collection id to query',required"`
 	// @gotags: kong:"help='Which page to display',default=1"
-	Page int32 `protobuf:"varint,3,opt,name=page,proto3" json:"page,omitempty"`
+	Page int32 `protobuf:"varint,3,opt,name=page,proto3" json:"page,omitempty" kong:"help='Which page to display',default=1"`
 }
 
 func (x *StreamdalSearchOptions) Reset() {
@@ -760,19 +760,19 @@ type StreamdalCreateCollectionOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Friendly name for the collection',required"
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" kong:"help='Friendly name for the collection',required"`
 	// @gotags: kong:"help='Schema the collection will use (can be obtained running _plumber streamdal list schema_)',required"
-	SchemaId string `protobuf:"bytes,2,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty"`
+	SchemaId string `protobuf:"bytes,2,opt,name=schema_id,json=schemaId,proto3" json:"schema_id,omitempty" kong:"help='Schema the collection will use (can be obtained running _plumber streamdal list schema_)',required"`
 	// @gotags: kong:"help='Optional notes for the collection'"
-	Notes string `protobuf:"bytes,3,opt,name=notes,proto3" json:"notes,omitempty"`
+	Notes string `protobuf:"bytes,3,opt,name=notes,proto3" json:"notes,omitempty" kong:"help='Optional notes for the collection'"`
 	// @gotags: kong:"help='(Protobuf Schemas Only) Envelope Type (deep or shallow)',default='deep'"
-	EnvelopeType string `protobuf:"bytes,4,opt,name=envelope_type,json=envelopeType,proto3" json:"envelope_type,omitempty"`
+	EnvelopeType string `protobuf:"bytes,4,opt,name=envelope_type,json=envelopeType,proto3" json:"envelope_type,omitempty" kong:"help='(Protobuf Schemas Only) Envelope Type (deep or shallow)',default='deep'"`
 	// @gotags: kong:"help='(Protobuf Schemas Only) Envelope Message Name (Ex: events.MessageEnvelope)'"
-	EnvelopeRootMessage string `protobuf:"bytes,5,opt,name=envelope_root_message,json=envelopeRootMessage,proto3" json:"envelope_root_message,omitempty"`
+	EnvelopeRootMessage string `protobuf:"bytes,5,opt,name=envelope_root_message,json=envelopeRootMessage,proto3" json:"envelope_root_message,omitempty" kong:"help='(Protobuf Schemas Only) Envelope Message Name (Ex: events.MessageEnvelope)'"`
 	// @gotags: kong:"help='(Shallow Envelope Protobuf Schemas Only) Payload Message Name (Ex: events.ShallowPayload)'"
-	PayloadFieldMessage string `protobuf:"bytes,6,opt,name=payload_field_message,json=payloadFieldMessage,proto3" json:"payload_field_message,omitempty"`
+	PayloadFieldMessage string `protobuf:"bytes,6,opt,name=payload_field_message,json=payloadFieldMessage,proto3" json:"payload_field_message,omitempty" kong:"help='(Shallow Envelope Protobuf Schemas Only) Payload Message Name (Ex: events.ShallowPayload)'"`
 	// @gotags: kong:"help='(Shallow Envelope Protobuf Schemas Only) Field ID containing the message encoded with Payload Message'"
-	PayloadFieldId string `protobuf:"bytes,7,opt,name=payload_field_id,json=payloadFieldId,proto3" json:"payload_field_id,omitempty"`
+	PayloadFieldId string `protobuf:"bytes,7,opt,name=payload_field_id,json=payloadFieldId,proto3" json:"payload_field_id,omitempty" kong:"help='(Shallow Envelope Protobuf Schemas Only) Field ID containing the message encoded with Payload Message'"`
 }
 
 func (x *StreamdalCreateCollectionOptions) Reset() {
@@ -862,21 +862,21 @@ type StreamdalCreateReplayOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Friendly name to assign to the replay',required"
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" kong:"help='Friendly name to assign to the replay',required"`
 	// @gotags: kong:"help='One-time/single or continuous replay (options: single, continuous)',type=pbenum,pbenum_lowercase,default=single"
-	Type StreamdalReplayType `protobuf:"varint,2,opt,name=type,proto3,enum=protos.opts.StreamdalReplayType" json:"type,omitempty"`
+	Type StreamdalReplayType `protobuf:"varint,2,opt,name=type,proto3,enum=protos.opts.StreamdalReplayType" json:"type,omitempty" kong:"help='One-time/single or continuous replay (options: single, continuous)',type=pbenum,pbenum_lowercase,default=single"`
 	// @gotags: kong:"help='Notes to attach to the replay'"
-	Notes string `protobuf:"bytes,3,opt,name=notes,proto3" json:"notes,omitempty"`
+	Notes string `protobuf:"bytes,3,opt,name=notes,proto3" json:"notes,omitempty" kong:"help='Notes to attach to the replay'"`
 	// @gotags: kong:"help='Collection ID to replay from',required"
-	CollectionId string `protobuf:"bytes,4,opt,name=collection_id,json=collectionId,proto3" json:"collection_id,omitempty"`
+	CollectionId string `protobuf:"bytes,4,opt,name=collection_id,json=collectionId,proto3" json:"collection_id,omitempty" kong:"help='Collection ID to replay from',required"`
 	// @gotags: kong:"help='Destination ID to replay to',required"
-	DestinationId string `protobuf:"bytes,5,opt,name=destination_id,json=destinationId,proto3" json:"destination_id,omitempty"`
+	DestinationId string `protobuf:"bytes,5,opt,name=destination_id,json=destinationId,proto3" json:"destination_id,omitempty" kong:"help='Destination ID to replay to',required"`
 	// @gotags: kong:"help='Search query',default='*'"
-	Query string `protobuf:"bytes,6,opt,name=query,proto3" json:"query,omitempty"`
+	Query string `protobuf:"bytes,6,opt,name=query,proto3" json:"query,omitempty" kong:"help='Search query',default='*'"`
 	// @gotags: kong:"help='Where to begin search (RFC3339 timestamp)',required"
-	FromTimestamp string `protobuf:"bytes,7,opt,name=from_timestamp,json=fromTimestamp,proto3" json:"from_timestamp,omitempty"`
+	FromTimestamp string `protobuf:"bytes,7,opt,name=from_timestamp,json=fromTimestamp,proto3" json:"from_timestamp,omitempty" kong:"help='Where to begin search (RFC3339 timestamp)',required"`
 	// @gotags: kong:"help='Where to end search (RFC3339 timestamp)',required"
-	ToTimestamp string `protobuf:"bytes,8,opt,name=to_timestamp,json=toTimestamp,proto3" json:"to_timestamp,omitempty"`
+	ToTimestamp string `protobuf:"bytes,8,opt,name=to_timestamp,json=toTimestamp,proto3" json:"to_timestamp,omitempty" kong:"help='Where to end search (RFC3339 timestamp)',required"`
 }
 
 func (x *StreamdalCreateReplayOptions) Reset() {
@@ -973,22 +973,22 @@ type StreamdalCreateDestinationOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Friendly name to assign to the destination',required"
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty" kong:"help='Friendly name to assign to the destination',required"`
 	// @gotags: kong:"help='Any notes to include with the destination'"
-	Notes string `protobuf:"bytes,2,opt,name=notes,proto3" json:"notes,omitempty"`
+	Notes string `protobuf:"bytes,2,opt,name=notes,proto3" json:"notes,omitempty" kong:"help='Any notes to include with the destination'"`
 	// Used internally by CLI
 	// @gotags: kong:"-"
-	XApiDestinationType string `protobuf:"bytes,1000,opt,name=_api_destination_type,json=ApiDestinationType,proto3" json:"_api_destination_type,omitempty"`
+	XApiDestinationType string `protobuf:"bytes,1000,opt,name=_api_destination_type,json=ApiDestinationType,proto3" json:"_api_destination_type,omitempty" kong:"-"`
 	// @gotags: kong:"cmd,help='Apache Kafka'"
-	Kafka *WriteGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	Kafka *WriteGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
 	// @gotags: kong:"cmd,help='RabbitMQ'"
-	Rabbit *WriteGroupRabbitOptions `protobuf:"bytes,101,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	Rabbit *WriteGroupRabbitOptions `protobuf:"bytes,101,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='RabbitMQ'"`
 	// @gotags: kong:"cmd,help='KubeMQ Queue'"
-	KubemqQueue *WriteGroupKubeMQQueueOptions `protobuf:"bytes,102,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	KubemqQueue *WriteGroupKubeMQQueueOptions `protobuf:"bytes,102,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
 	// @gotags: kong:"cmd,help='AWS Simple Queue System'"
-	AwsSqs *WriteGroupAWSSQSOptions `protobuf:"bytes,103,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty"`
+	AwsSqs *WriteGroupAWSSQSOptions `protobuf:"bytes,103,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty" kong:"cmd,help='AWS Simple Queue System'"`
 	// @gotags: kong:"cmd,help='HTTP Destination (POST)'"
-	Http *HTTPDestination `protobuf:"bytes,104,opt,name=http,proto3" json:"http,omitempty"`
+	Http *HTTPDestination `protobuf:"bytes,104,opt,name=http,proto3" json:"http,omitempty" kong:"cmd,help='HTTP Destination (POST)'"`
 }
 
 func (x *StreamdalCreateDestinationOptions) Reset() {
@@ -1085,9 +1085,9 @@ type HTTPDestination struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Full URL to HTTP server (ex: https://example.com/some/path)',required"
-	Url string `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+	Url string `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty" kong:"help='Full URL to HTTP server (ex: https://example.com/some/path)',required"`
 	// @gotags: kong:"help='Optional map of headers to pass on replay (--headers key1=value1,key2=value2..)'"
-	Headers map[string]string `protobuf:"bytes,2,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Headers map[string]string `protobuf:"bytes,2,rep,name=headers,proto3" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3" kong:"help='Optional map of headers to pass on replay (--headers key1=value1,key2=value2..)'"`
 }
 
 func (x *HTTPDestination) Reset() {

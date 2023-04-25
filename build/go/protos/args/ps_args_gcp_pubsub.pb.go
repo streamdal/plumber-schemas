@@ -26,11 +26,11 @@ type GCPPubSubConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Project ID',env='PLUMBER_RELAY_GCP_PROJECT_ID',required"
-	ProjectId string `protobuf:"bytes,1,opt,name=project_id,json=projectId,proto3" json:"project_id,omitempty"`
+	ProjectId string `protobuf:"bytes,1,opt,name=project_id,json=projectId,proto3" json:"project_id,omitempty" kong:"help='Project ID',env='PLUMBER_RELAY_GCP_PROJECT_ID',required"`
 	// @gotags: kong:"help='GCP Credentials in JSON format',env='PLUMBER_RELAY_GCP_CREDENTIALS'"
-	CredentialsJson string `protobuf:"bytes,2,opt,name=credentials_json,json=credentialsJson,proto3" json:"credentials_json,omitempty"`
+	CredentialsJson string `protobuf:"bytes,2,opt,name=credentials_json,json=credentialsJson,proto3" json:"credentials_json,omitempty" kong:"help='GCP Credentials in JSON format',env='PLUMBER_RELAY_GCP_CREDENTIALS'"`
 	// @gotags: kong:"help='Path to GCP credentials JSON file',env='GOOGLE_APPLICATION_CREDENTIALS'"
-	CredentialsFile string `protobuf:"bytes,3,opt,name=credentials_file,json=credentialsFile,proto3" json:"credentials_file,omitempty"`
+	CredentialsFile string `protobuf:"bytes,3,opt,name=credentials_file,json=credentialsFile,proto3" json:"credentials_file,omitempty" kong:"help='Path to GCP credentials JSON file',env='GOOGLE_APPLICATION_CREDENTIALS'"`
 }
 
 func (x *GCPPubSubConn) Reset() {
@@ -92,9 +92,9 @@ type GCPPubSubReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"
-	SubscriptionId string `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId,proto3" json:"subscription_id,omitempty"`
+	SubscriptionId string `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId,proto3" json:"subscription_id,omitempty" kong:"help='Subscription ID',env='PLUMBER_RELAY_GCP_SUBSCRIPTION_ID',required"`
 	// @gotags: kong:"help='Whether to acknowledge message receive',env='PLUMBER_RELAY_GCP_ACK_MESSAGE',default=true"
-	AckMessages bool `protobuf:"varint,2,opt,name=ack_messages,json=ackMessages,proto3" json:"ack_messages,omitempty"`
+	AckMessages bool `protobuf:"varint,2,opt,name=ack_messages,json=ackMessages,proto3" json:"ack_messages,omitempty" kong:"help='Whether to acknowledge message receive',env='PLUMBER_RELAY_GCP_ACK_MESSAGE',default=true"`
 }
 
 func (x *GCPPubSubReadArgs) Reset() {
@@ -149,7 +149,7 @@ type GCPPubSubWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Topic ID to publish message(s) to',required"
-	TopicId string `protobuf:"bytes,1,opt,name=topic_id,json=topicId,proto3" json:"topic_id,omitempty"`
+	TopicId string `protobuf:"bytes,1,opt,name=topic_id,json=topicId,proto3" json:"topic_id,omitempty" kong:"help='Topic ID to publish message(s) to',required"`
 }
 
 func (x *GCPPubSubWriteArgs) Reset() {

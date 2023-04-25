@@ -27,65 +27,65 @@ type TunnelOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='API token to use for tunnel (create here: https://console.streamdal.com/account/security)',required"
-	ApiToken string `protobuf:"bytes,1,opt,name=api_token,json=apiToken,proto3" json:"api_token,omitempty"`
+	ApiToken string `protobuf:"bytes,1,opt,name=api_token,json=apiToken,proto3" json:"api_token,omitempty" kong:"help='API token to use for tunnel (create here: https://console.streamdal.com/account/security)',required"`
 	// @gotags: kong:"-"
-	ConnectionId string `protobuf:"bytes,2,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty"`
+	ConnectionId string `protobuf:"bytes,2,opt,name=connection_id,json=connectionId,proto3" json:"connection_id,omitempty" kong:"-"`
 	// @gotags: kong:"help='Tunnel API address',default='dproxy.streamdal.com:443'"
-	XGrpcAddress string `protobuf:"bytes,3,opt,name=_grpc_address,json=GrpcAddress,proto3" json:"_grpc_address,omitempty"`
+	XGrpcAddress string `protobuf:"bytes,3,opt,name=_grpc_address,json=GrpcAddress,proto3" json:"_grpc_address,omitempty" kong:"help='Tunnel API address',default='dproxy.streamdal.com:443'"`
 	// @gotags: kong:"help='Tunnel API initial connection timeout',default=5"
-	XGrpcTimeoutSeconds uint32 `protobuf:"varint,4,opt,name=_grpc_timeout_seconds,json=GrpcTimeoutSeconds,proto3" json:"_grpc_timeout_seconds,omitempty"`
+	XGrpcTimeoutSeconds uint32 `protobuf:"varint,4,opt,name=_grpc_timeout_seconds,json=GrpcTimeoutSeconds,proto3" json:"_grpc_timeout_seconds,omitempty" kong:"help='Tunnel API initial connection timeout',default=5"`
 	// @gotags: kong:"help='Use gRPC insecure mode when talking to Streamdal'"
-	XGrpcInsecure bool `protobuf:"varint,5,opt,name=_grpc_insecure,json=GrpcInsecure,proto3" json:"_grpc_insecure,omitempty"`
+	XGrpcInsecure bool `protobuf:"varint,5,opt,name=_grpc_insecure,json=GrpcInsecure,proto3" json:"_grpc_insecure,omitempty" kong:"help='Use gRPC insecure mode when talking to Streamdal'"`
 	// Optional for server and CLI
 	// NOTE: CLI-based tunnels will be treated as ephemeral.
 	// @gotags: kong:"help='Name to identify tunnel in Streamdal console. If omitted, your IP address will be used'"
-	Name string `protobuf:"bytes,6,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,6,opt,name=name,proto3" json:"name,omitempty" kong:"help='Name to identify tunnel in Streamdal console. If omitted, your IP address will be used'"`
 	// ID of the created tunnel; populated by plumber.
 	// @gotags: kong:"-"
-	XTunnelId string `protobuf:"bytes,1000,opt,name=_tunnel_id,json=TunnelId,proto3" json:"_tunnel_id,omitempty"`
+	XTunnelId string `protobuf:"bytes,1000,opt,name=_tunnel_id,json=TunnelId,proto3" json:"_tunnel_id,omitempty" kong:"-"`
 	// Set by CreateTunnel() StopTunnel() and ResumeTunnel() methods in Plumber
 	// @gotags: kong:"-"
-	XActive bool `protobuf:"varint,1001,opt,name=_active,json=Active,proto3" json:"_active,omitempty"`
+	XActive bool `protobuf:"varint,1001,opt,name=_active,json=Active,proto3" json:"_active,omitempty" kong:"-"`
 	// @gotags: kong:"cmd,help='Apache Kafka'"
-	Kafka *TunnelGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty"`
+	Kafka *TunnelGroupKafkaOptions `protobuf:"bytes,100,opt,name=kafka,proto3" json:"kafka,omitempty" kong:"cmd,help='Apache Kafka'"`
 	// @gotags: kong:"cmd,help='Apache ActiveMQ'"
-	Activemq *TunnelGroupActiveMQOptions `protobuf:"bytes,101,opt,name=activemq,proto3" json:"activemq,omitempty"`
+	Activemq *TunnelGroupActiveMQOptions `protobuf:"bytes,101,opt,name=activemq,proto3" json:"activemq,omitempty" kong:"cmd,help='Apache ActiveMQ'"`
 	// @gotags: kong:"cmd,help='AWS Simple Queue System'"
-	AwsSqs *TunnelGroupAWSSQSOptions `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty"`
+	AwsSqs *TunnelGroupAWSSQSOptions `protobuf:"bytes,102,opt,name=aws_sqs,json=awsSqs,proto3" json:"aws_sqs,omitempty" kong:"cmd,help='AWS Simple Queue System'"`
 	// @gotags: kong:"cmd,help='AWS Simple Notification System'"
-	AwsSns *TunnelGroupAWSSNSOptions `protobuf:"bytes,103,opt,name=aws_sns,json=awsSns,proto3" json:"aws_sns,omitempty"`
+	AwsSns *TunnelGroupAWSSNSOptions `protobuf:"bytes,103,opt,name=aws_sns,json=awsSns,proto3" json:"aws_sns,omitempty" kong:"cmd,help='AWS Simple Notification System'"`
 	// @gotags: kong:"cmd,help='NATS'"
-	Nats *TunnelGroupNatsOptions `protobuf:"bytes,104,opt,name=nats,proto3" json:"nats,omitempty"`
+	Nats *TunnelGroupNatsOptions `protobuf:"bytes,104,opt,name=nats,proto3" json:"nats,omitempty" kong:"cmd,help='NATS'"`
 	// @gotags: kong:"cmd,help='NATS Streaming'"
-	NatsStreaming *TunnelGroupNatsStreamingOptions `protobuf:"bytes,105,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty"`
+	NatsStreaming *TunnelGroupNatsStreamingOptions `protobuf:"bytes,105,opt,name=nats_streaming,json=natsStreaming,proto3" json:"nats_streaming,omitempty" kong:"cmd,help='NATS Streaming'"`
 	// @gotags: kong:"cmd,help='NSQ'"
-	Nsq *TunnelGroupNSQOptions `protobuf:"bytes,106,opt,name=nsq,proto3" json:"nsq,omitempty"`
+	Nsq *TunnelGroupNSQOptions `protobuf:"bytes,106,opt,name=nsq,proto3" json:"nsq,omitempty" kong:"cmd,help='NSQ'"`
 	// @gotags: kong:"cmd,help='RabbitMQ'"
-	Rabbit *TunnelGroupRabbitOptions `protobuf:"bytes,107,opt,name=rabbit,proto3" json:"rabbit,omitempty"`
+	Rabbit *TunnelGroupRabbitOptions `protobuf:"bytes,107,opt,name=rabbit,proto3" json:"rabbit,omitempty" kong:"cmd,help='RabbitMQ'"`
 	// @gotags: kong:"cmd,help='MQTT'"
-	Mqtt *TunnelGroupMQTTOptions `protobuf:"bytes,108,opt,name=mqtt,proto3" json:"mqtt,omitempty"`
+	Mqtt *TunnelGroupMQTTOptions `protobuf:"bytes,108,opt,name=mqtt,proto3" json:"mqtt,omitempty" kong:"cmd,help='MQTT'"`
 	// @gotags: kong:"cmd,help='Azure Service Bus'"
-	AzureServiceBus *TunnelGroupAzureServiceBusOptions `protobuf:"bytes,109,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty"`
+	AzureServiceBus *TunnelGroupAzureServiceBusOptions `protobuf:"bytes,109,opt,name=azure_service_bus,json=azureServiceBus,proto3" json:"azure_service_bus,omitempty" kong:"cmd,help='Azure Service Bus'"`
 	// @gotags: kong:"cmd,help='Azure Event Hub'"
-	AzureEventHub *TunnelGroupAzureEventHubOptions `protobuf:"bytes,110,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty"`
+	AzureEventHub *TunnelGroupAzureEventHubOptions `protobuf:"bytes,110,opt,name=azure_event_hub,json=azureEventHub,proto3" json:"azure_event_hub,omitempty" kong:"cmd,help='Azure Event Hub'"`
 	// @gotags: kong:"cmd,help='Google Cloud Platform Pub/Sub'"
-	GcpPubsub *TunnelGroupGCPPubSubOptions `protobuf:"bytes,111,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty"`
+	GcpPubsub *TunnelGroupGCPPubSubOptions `protobuf:"bytes,111,opt,name=gcp_pubsub,json=gcpPubsub,proto3" json:"gcp_pubsub,omitempty" kong:"cmd,help='Google Cloud Platform Pub/Sub'"`
 	// @gotags: kong:"cmd,help='KubeMQ Queue'"
-	KubemqQueue *TunnelGroupKubeMQQueueOptions `protobuf:"bytes,112,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty"`
+	KubemqQueue *TunnelGroupKubeMQQueueOptions `protobuf:"bytes,112,opt,name=kubemq_queue,json=kubemqQueue,proto3" json:"kubemq_queue,omitempty" kong:"cmd,help='KubeMQ Queue'"`
 	// @gotags: kong:"cmd,help='Redis PubSub'"
-	RedisPubsub *TunnelGroupRedisPubSubOptions `protobuf:"bytes,113,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty"`
+	RedisPubsub *TunnelGroupRedisPubSubOptions `protobuf:"bytes,113,opt,name=redis_pubsub,json=redisPubsub,proto3" json:"redis_pubsub,omitempty" kong:"cmd,help='Redis PubSub'"`
 	// @gotags: kong:"cmd,help='Redis Streams'"
-	RedisStreams *TunnelGroupRedisStreamsOptions `protobuf:"bytes,114,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty"`
+	RedisStreams *TunnelGroupRedisStreamsOptions `protobuf:"bytes,114,opt,name=redis_streams,json=redisStreams,proto3" json:"redis_streams,omitempty" kong:"cmd,help='Redis Streams'"`
 	// @gotags: kong:"cmd,help='Apache Pulsar'"
-	Pulsar *TunnelGroupPulsarOptions `protobuf:"bytes,115,opt,name=pulsar,proto3" json:"pulsar,omitempty"`
+	Pulsar *TunnelGroupPulsarOptions `protobuf:"bytes,115,opt,name=pulsar,proto3" json:"pulsar,omitempty" kong:"cmd,help='Apache Pulsar'"`
 	// @gotags: kong:"cmd,help='RabbitMQ Streams'"
-	RabbitStreams *TunnelGroupRabbitStreamsOptions `protobuf:"bytes,116,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty"`
+	RabbitStreams *TunnelGroupRabbitStreamsOptions `protobuf:"bytes,116,opt,name=rabbit_streams,json=rabbitStreams,proto3" json:"rabbit_streams,omitempty" kong:"cmd,help='RabbitMQ Streams'"`
 	// @gotags: kong:"cmd,help='NATS JetStream'"
-	NatsJetstream *TunnelGroupNatsJetstreamOptions `protobuf:"bytes,117,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty"`
+	NatsJetstream *TunnelGroupNatsJetstreamOptions `protobuf:"bytes,117,opt,name=nats_jetstream,json=natsJetstream,proto3" json:"nats_jetstream,omitempty" kong:"cmd,help='NATS JetStream'"`
 	// @gotags: kong:"cmd,help='AWS Kinesis Streams'"
-	AwsKinesis *TunnelGroupAWSKinesisOptions `protobuf:"bytes,118,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty"`
+	AwsKinesis *TunnelGroupAWSKinesisOptions `protobuf:"bytes,118,opt,name=aws_kinesis,json=awsKinesis,proto3" json:"aws_kinesis,omitempty" kong:"cmd,help='AWS Kinesis Streams'"`
 	// @gotags: kong:"cmd,help='Memphis'"
-	Memphis *TunnelGroupMemphisOptions `protobuf:"bytes,119,opt,name=memphis,proto3" json:"memphis,omitempty"`
+	Memphis *TunnelGroupMemphisOptions `protobuf:"bytes,119,opt,name=memphis,proto3" json:"memphis,omitempty" kong:"cmd,help='Memphis'"`
 }
 
 func (x *TunnelOptions) Reset() {
@@ -322,9 +322,9 @@ type TunnelGroupKafkaOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.KafkaConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.KafkaConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.KafkaWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.KafkaWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupKafkaOptions) Reset() {
@@ -379,9 +379,9 @@ type TunnelGroupActiveMQOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.ActiveMQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.ActiveMQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.ActiveMQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.ActiveMQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupActiveMQOptions) Reset() {
@@ -436,9 +436,9 @@ type TunnelGroupAWSSQSOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AWSSQSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AWSSQSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AWSSQSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AWSSQSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupAWSSQSOptions) Reset() {
@@ -493,9 +493,9 @@ type TunnelGroupAWSSNSOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AWSSNSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AWSSNSConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AWSSNSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AWSSNSWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupAWSSNSOptions) Reset() {
@@ -550,9 +550,9 @@ type TunnelGroupNatsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupNatsOptions) Reset() {
@@ -607,9 +607,9 @@ type TunnelGroupNatsJetstreamOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsJetstreamConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsJetstreamConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsJetstreamWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsJetstreamWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupNatsJetstreamOptions) Reset() {
@@ -664,9 +664,9 @@ type TunnelGroupNatsStreamingOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NatsStreamingConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NatsStreamingConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NatsStreamingWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NatsStreamingWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupNatsStreamingOptions) Reset() {
@@ -721,9 +721,9 @@ type TunnelGroupNSQOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.NSQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.NSQConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.NSQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.NSQWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupNSQOptions) Reset() {
@@ -778,9 +778,9 @@ type TunnelGroupRabbitOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RabbitConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RabbitConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RabbitWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RabbitWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupRabbitOptions) Reset() {
@@ -835,9 +835,9 @@ type TunnelGroupRabbitStreamsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RabbitStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RabbitStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RabbitStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RabbitStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupRabbitStreamsOptions) Reset() {
@@ -892,9 +892,9 @@ type TunnelGroupRedisPubSubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RedisPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RedisPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RedisPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RedisPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupRedisPubSubOptions) Reset() {
@@ -949,9 +949,9 @@ type TunnelGroupRedisStreamsOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.RedisStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.RedisStreamsConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.RedisStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.RedisStreamsWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupRedisStreamsOptions) Reset() {
@@ -1006,9 +1006,9 @@ type TunnelGroupAzureEventHubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AzureEventHubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AzureEventHubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AzureEventHubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AzureEventHubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupAzureEventHubOptions) Reset() {
@@ -1063,9 +1063,9 @@ type TunnelGroupAzureServiceBusOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"{
-	XConn *args.AzureServiceBusConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AzureServiceBusConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AzureServiceBusWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AzureServiceBusWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupAzureServiceBusOptions) Reset() {
@@ -1120,9 +1120,9 @@ type TunnelGroupMQTTOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.MQTTConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.MQTTConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.MQTTWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.MQTTWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupMQTTOptions) Reset() {
@@ -1177,9 +1177,9 @@ type TunnelGroupGCPPubSubOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.GCPPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.GCPPubSubConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.GCPPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.GCPPubSubWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupGCPPubSubOptions) Reset() {
@@ -1234,9 +1234,9 @@ type TunnelGroupKubeMQQueueOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.KubeMQQueueConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.KubeMQQueueConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.KubeMQQueueWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.KubeMQQueueWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupKubeMQQueueOptions) Reset() {
@@ -1291,9 +1291,9 @@ type TunnelGroupPulsarOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.PulsarConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.PulsarConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.PulsarWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.PulsarWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupPulsarOptions) Reset() {
@@ -1348,9 +1348,9 @@ type TunnelGroupAWSKinesisOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.AWSKinesisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.AWSKinesisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.AWSKinesisWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.AWSKinesisWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupAWSKinesisOptions) Reset() {
@@ -1405,9 +1405,9 @@ type TunnelGroupMemphisOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"embed"
-	XConn *args.MemphisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty"`
+	XConn *args.MemphisConn `protobuf:"bytes,1,opt,name=_conn,json=Conn,proto3" json:"_conn,omitempty" kong:"embed"`
 	// @gotags: kong:"embed"
-	Args *args.MemphisWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty"`
+	Args *args.MemphisWriteArgs `protobuf:"bytes,2,opt,name=args,proto3" json:"args,omitempty" kong:"embed"`
 }
 
 func (x *TunnelGroupMemphisOptions) Reset() {

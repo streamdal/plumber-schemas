@@ -75,13 +75,13 @@ type MQTTTLSOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='CA cert (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CA_CERT"
-	TlsCaCert string `protobuf:"bytes,1,opt,name=tls_ca_cert,json=tlsCaCert,proto3" json:"tls_ca_cert,omitempty"`
+	TlsCaCert string `protobuf:"bytes,1,opt,name=tls_ca_cert,json=tlsCaCert,proto3" json:"tls_ca_cert,omitempty" kong:"help='CA cert (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CA_CERT"`
 	// @gotags: kong:"help='Client cert file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_CERT"
-	TlsClientCert string `protobuf:"bytes,2,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty"`
+	TlsClientCert string `protobuf:"bytes,2,opt,name=tls_client_cert,json=tlsClientCert,proto3" json:"tls_client_cert,omitempty" kong:"help='Client cert file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_CERT"`
 	// @gotags: kong:"help='Client key file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_KEY"
-	TlsClientKey string `protobuf:"bytes,3,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty"`
+	TlsClientKey string `protobuf:"bytes,3,opt,name=tls_client_key,json=tlsClientKey,proto3" json:"tls_client_key,omitempty" kong:"help='Client key file (only needed if addr is ssl://)',env=PLUMBER_RELAY_MQTT_TLS_CLIENT_KEY"`
 	// @gotags: kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_MQTT_SKIP_VERIFY_TLS"
-	TlsSkipVerify bool `protobuf:"varint,4,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty"`
+	TlsSkipVerify bool `protobuf:"varint,4,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Whether to verify server certificate',env=PLUMBER_RELAY_MQTT_SKIP_VERIFY_TLS"`
 }
 
 func (x *MQTTTLSOptions) Reset() {
@@ -150,15 +150,15 @@ type MQTTConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='MQTT address',default='tcp://localhost:1883',env='PLUMBER_RELAY_MQTT_ADDRESS',required"
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty" kong:"help='MQTT address',default='tcp://localhost:1883',env='PLUMBER_RELAY_MQTT_ADDRESS',required"`
 	// @gotags: kong:"help='How long to attempt to connect for',env='PLUMBER_RELAY_MQTT_CONNECT_TIMEOUT',default=5"
-	ConnTimeoutSeconds uint32 `protobuf:"varint,3,opt,name=conn_timeout_seconds,json=connTimeoutSeconds,proto3" json:"conn_timeout_seconds,omitempty"`
+	ConnTimeoutSeconds uint32 `protobuf:"varint,3,opt,name=conn_timeout_seconds,json=connTimeoutSeconds,proto3" json:"conn_timeout_seconds,omitempty" kong:"help='How long to attempt to connect for',env='PLUMBER_RELAY_MQTT_CONNECT_TIMEOUT',default=5"`
 	// @gotags: kong:"help='Client id presented to MQTT broker',env='PLUMBER_RELAY_MQTT_CLIENT_ID',default=plumber"
-	ClientId string `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
+	ClientId string `protobuf:"bytes,4,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty" kong:"help='Client id presented to MQTT broker',env='PLUMBER_RELAY_MQTT_CLIENT_ID',default=plumber"`
 	// @gotags: kong:"help='QoS level to use for pub/sub (options: at_most_once, at_least_once, exactly_once)',env=PLUMBER_RELAY_MQTT_QOS,type=pbenum,pbenum_strip_prefix=MQTT_QOS_LEVEL_,pbenum_lowercase,default=at_most_once"
-	QosLevel MQTTQoSLevel `protobuf:"varint,5,opt,name=qos_level,json=qosLevel,proto3,enum=protos.args.MQTTQoSLevel" json:"qos_level,omitempty"`
+	QosLevel MQTTQoSLevel `protobuf:"varint,5,opt,name=qos_level,json=qosLevel,proto3,enum=protos.args.MQTTQoSLevel" json:"qos_level,omitempty" kong:"help='QoS level to use for pub/sub (options: at_most_once, at_least_once, exactly_once)',env=PLUMBER_RELAY_MQTT_QOS,type=pbenum,pbenum_strip_prefix=MQTT_QOS_LEVEL_,pbenum_lowercase,default=at_most_once"`
 	// @gotags: kong:"embed"
-	TlsOptions *MQTTTLSOptions `protobuf:"bytes,6,opt,name=tls_options,json=tlsOptions,proto3" json:"tls_options,omitempty"`
+	TlsOptions *MQTTTLSOptions `protobuf:"bytes,6,opt,name=tls_options,json=tlsOptions,proto3" json:"tls_options,omitempty" kong:"embed"`
 }
 
 func (x *MQTTConn) Reset() {
@@ -234,9 +234,9 @@ type MQTTReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Topic to read message(s) from',env='PLUMBER_RELAY_MQTT_TOPIC',required"
-	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='Topic to read message(s) from',env='PLUMBER_RELAY_MQTT_TOPIC',required"`
 	// @gotags: kong:"help='How long to attempt to read message(s)',default=0,env='PLUMBER_RELAY_MQTT_READ_TIMEOUT_SECONDS'"
-	ReadTimeoutSeconds uint32 `protobuf:"varint,2,opt,name=read_timeout_seconds,json=readTimeoutSeconds,proto3" json:"read_timeout_seconds,omitempty"`
+	ReadTimeoutSeconds uint32 `protobuf:"varint,2,opt,name=read_timeout_seconds,json=readTimeoutSeconds,proto3" json:"read_timeout_seconds,omitempty" kong:"help='How long to attempt to read message(s)',default=0,env='PLUMBER_RELAY_MQTT_READ_TIMEOUT_SECONDS'"`
 }
 
 func (x *MQTTReadArgs) Reset() {
@@ -291,9 +291,9 @@ type MQTTWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Topic to write message(s) to',required"
-	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty" kong:"help='Topic to write message(s) to',required"`
 	// @gotags: kong:"help='How long to attempt to publish message(s)',default=5"
-	WriteTimeoutSeconds uint32 `protobuf:"varint,2,opt,name=write_timeout_seconds,json=writeTimeoutSeconds,proto3" json:"write_timeout_seconds,omitempty"`
+	WriteTimeoutSeconds uint32 `protobuf:"varint,2,opt,name=write_timeout_seconds,json=writeTimeoutSeconds,proto3" json:"write_timeout_seconds,omitempty" kong:"help='How long to attempt to publish message(s)',default=5"`
 }
 
 func (x *MQTTWriteArgs) Reset() {

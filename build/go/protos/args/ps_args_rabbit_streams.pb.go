@@ -26,17 +26,17 @@ type RabbitStreamsConn struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='DSN used to connect to RabbitMQ',default='rabbitmq-stream://guest:guest@localhost:5552',required"
-	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty"`
+	Dsn string `protobuf:"bytes,1,opt,name=dsn,proto3" json:"dsn,omitempty" kong:"help='DSN used to connect to RabbitMQ',default='rabbitmq-stream://guest:guest@localhost:5552',required"`
 	// @gotags: kong:"help='Enable TLS usage (regardless of DSN)'"
-	UseTls bool `protobuf:"varint,2,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty"`
+	UseTls bool `protobuf:"varint,2,opt,name=use_tls,json=useTls,proto3" json:"use_tls,omitempty" kong:"help='Enable TLS usage (regardless of DSN)'"`
 	// @gotags: kong:"help='Whether to verify server certificate'"
-	TlsSkipVerify bool `protobuf:"varint,3,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty"`
+	TlsSkipVerify bool `protobuf:"varint,3,opt,name=tls_skip_verify,json=tlsSkipVerify,proto3" json:"tls_skip_verify,omitempty" kong:"help='Whether to verify server certificate'"`
 	// @gotags: kong:"help='Username to authenticate to server with',default=guest"
-	Username string `protobuf:"bytes,4,opt,name=username,proto3" json:"username,omitempty"`
+	Username string `protobuf:"bytes,4,opt,name=username,proto3" json:"username,omitempty" kong:"help='Username to authenticate to server with',default=guest"`
 	// @gotags: kong:"help='Password used to authenticate to server with',default=guest"
-	Password string `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty"`
+	Password string `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty" kong:"help='Password used to authenticate to server with',default=guest"`
 	// @gotags: kong:"help='Consumer or producer name to identify as to RabbitMQ',default=plumber,required"
-	ClientName string `protobuf:"bytes,6,opt,name=client_name,json=clientName,proto3" json:"client_name,omitempty"`
+	ClientName string `protobuf:"bytes,6,opt,name=client_name,json=clientName,proto3" json:"client_name,omitempty" kong:"help='Consumer or producer name to identify as to RabbitMQ',default=plumber,required"`
 }
 
 func (x *RabbitStreamsConn) Reset() {
@@ -119,15 +119,15 @@ type RabbitStreamsOffsetOptions struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"group=offset,xor=offset"
-	SpecificOffset int64 `protobuf:"varint,1,opt,name=specific_offset,json=specificOffset,proto3" json:"specific_offset,omitempty"`
+	SpecificOffset int64 `protobuf:"varint,1,opt,name=specific_offset,json=specificOffset,proto3" json:"specific_offset,omitempty" kong:"group=offset,xor=offset"`
 	// @gotags: kong:"group=offset,xor=offset"
-	LastOffset bool `protobuf:"varint,2,opt,name=last_offset,json=lastOffset,proto3" json:"last_offset,omitempty"`
+	LastOffset bool `protobuf:"varint,2,opt,name=last_offset,json=lastOffset,proto3" json:"last_offset,omitempty" kong:"group=offset,xor=offset"`
 	// @gotags: kong:"group=offset,xor=offset"
-	LastConsumed bool `protobuf:"varint,3,opt,name=last_consumed,json=lastConsumed,proto3" json:"last_consumed,omitempty"`
+	LastConsumed bool `protobuf:"varint,3,opt,name=last_consumed,json=lastConsumed,proto3" json:"last_consumed,omitempty" kong:"group=offset,xor=offset"`
 	// @gotags: kong:"group=offset,xor=offset"
-	FirstOffset bool `protobuf:"varint,4,opt,name=first_offset,json=firstOffset,proto3" json:"first_offset,omitempty"`
+	FirstOffset bool `protobuf:"varint,4,opt,name=first_offset,json=firstOffset,proto3" json:"first_offset,omitempty" kong:"group=offset,xor=offset"`
 	// @gotags: kong:"group=offset,xor=offset"
-	NextOffset bool `protobuf:"varint,5,opt,name=next_offset,json=nextOffset,proto3" json:"next_offset,omitempty"`
+	NextOffset bool `protobuf:"varint,5,opt,name=next_offset,json=nextOffset,proto3" json:"next_offset,omitempty" kong:"group=offset,xor=offset"`
 }
 
 func (x *RabbitStreamsOffsetOptions) Reset() {
@@ -203,14 +203,14 @@ type RabbitStreamsReadArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Stream name',required"
-	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty"`
+	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty" kong:"help='Stream name',required"`
 	// @gotags: kong:"help='Declare the stream if it does not exist'"
-	DeclareStream bool `protobuf:"varint,2,opt,name=declare_stream,json=declareStream,proto3" json:"declare_stream,omitempty"`
+	DeclareStream bool `protobuf:"varint,2,opt,name=declare_stream,json=declareStream,proto3" json:"declare_stream,omitempty" kong:"help='Declare the stream if it does not exist'"`
 	// @gotags: kong:"help='Stream capacity to declare (required if declare_stream is true; ex: 1024k; 10mb; 3gb)'"
-	DeclareStreamSize string `protobuf:"bytes,3,opt,name=declare_stream_size,json=declareStreamSize,proto3" json:"declare_stream_size,omitempty"`
+	DeclareStreamSize string `protobuf:"bytes,3,opt,name=declare_stream_size,json=declareStreamSize,proto3" json:"declare_stream_size,omitempty" kong:"help='Stream capacity to declare (required if declare_stream is true; ex: 1024k; 10mb; 3gb)'"`
 	// TODO: Will this break? Might just need to be a string.
 	// @gotags: kong:"help='Offset to start reading at',embed"
-	OffsetOptions *RabbitStreamsOffsetOptions `protobuf:"bytes,4,opt,name=offset_options,json=offsetOptions,proto3" json:"offset_options,omitempty"`
+	OffsetOptions *RabbitStreamsOffsetOptions `protobuf:"bytes,4,opt,name=offset_options,json=offsetOptions,proto3" json:"offset_options,omitempty" kong:"help='Offset to start reading at',embed"`
 }
 
 func (x *RabbitStreamsReadArgs) Reset() {
@@ -279,11 +279,11 @@ type RabbitStreamsWriteArgs struct {
 	unknownFields protoimpl.UnknownFields
 
 	// @gotags: kong:"help='Stream name',required"
-	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty"`
+	Stream string `protobuf:"bytes,1,opt,name=stream,proto3" json:"stream,omitempty" kong:"help='Stream name',required"`
 	// @gotags: kong:"help='Declare the stream if it does not exist'"
-	DeclareStream bool `protobuf:"varint,2,opt,name=declare_stream,json=declareStream,proto3" json:"declare_stream,omitempty"`
+	DeclareStream bool `protobuf:"varint,2,opt,name=declare_stream,json=declareStream,proto3" json:"declare_stream,omitempty" kong:"help='Declare the stream if it does not exist'"`
 	// @gotags: kong:"help='Stream capacity to declare (required if declare_stream is true; ex: 1024k, 10mb, 3gb',default=10mb"
-	DeclareStreamSize string `protobuf:"bytes,3,opt,name=declare_stream_size,json=declareStreamSize,proto3" json:"declare_stream_size,omitempty"`
+	DeclareStreamSize string `protobuf:"bytes,3,opt,name=declare_stream_size,json=declareStreamSize,proto3" json:"declare_stream_size,omitempty" kong:"help='Stream capacity to declare (required if declare_stream is true; ex: 1024k, 10mb, 3gb',default=10mb"`
 }
 
 func (x *RabbitStreamsWriteArgs) Reset() {
