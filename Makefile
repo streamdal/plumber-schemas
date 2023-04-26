@@ -52,7 +52,7 @@ generate/all: generate/ts generate/go inject-tags
 
 .PHONY: local
 local: description = Compile protos for all languages and copy to local plumber
-local: generate/ts generate/go inject-tags
+local: generate/ts generate/go inject-tags/local
 local:
 	cp -R $(GO_PROTOS_DIR)/ ~/Code/plumber/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
 #	cp -R $(GO_PROTOS_DIR)/ ~/Code/foreman/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
@@ -89,53 +89,61 @@ generate/go:
 	mkdir -p $(GO_PROTOS_DIR)/opts
 	mkdir -p $(GO_PROTOS_DIR)/records
 
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos \
-	--proto_path=./protos/args \
-	--proto_path=./protos/common \
-	--proto_path=./protos/encoding \
-	--proto_path=./protos/records \
-	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
-	--go_opt=paths=source_relative \
-	-o ./$(GO_DESCRIPTOR_SET_DIR)/protos.fds \
-	--include_imports \
-	--include_source_info \
-	protos/*.proto
+	docker run --platform linux/amd64 -w $(PWD) -v $(PWD):/defs namely/protoc-all:1.51_1 \
+		-d /defs/protos \
+		-l descriptor_set \
+		--go-source-relative \
+		-o /defs/build/go/descriptor-sets/ \
+		--descr-include-imports \
+		--descr-include-source-info \
+		--descr-filename protos.fds \
+		protos/*.proto
 
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos/args \
-	--go_out=plugins=grpc:$(GO_PROTOS_DIR)/args \
-	--go_opt=paths=source_relative \
-	-o ./$(GO_DESCRIPTOR_SET_DIR)/args.fds \
-	--include_imports \
-	--include_source_info \
-	protos/args/*.proto
+	docker run --platform linux/amd64 --rm -w $(PWD) -v $(PWD):/defs -w${PWD} namely/protoc-all:1.51_1 \
+		-d /defs/protos \
+		--go-source-relative \
+		-o /defs/build/go/protos \
+		-l go \
+		protos/*.proto
 
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos/common \
-	--go_out=plugins=grpc:$(GO_PROTOS_DIR)/common \
-	--go_opt=paths=source_relative \
-	protos/common/*.proto
+	docker run --platform linux/amd64 --rm -w $(PWD) -v $(PWD):/defs -w${PWD} namely/protoc-all:1.51_1 \
+		-d /defs/protos/args \
+		--go-source-relative \
+		-o /defs/build/go/protos/args \
+		-l go \
+		protos/args/*.proto
 
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos/encoding \
-	--go_out=plugins=grpc:$(GO_PROTOS_DIR)/encoding \
-	--go_opt=paths=source_relative \
-	protos/encoding/*.proto
+	docker run --platform linux/amd64 --rm -w $(PWD) -v $(PWD):/defs -w${PWD} namely/protoc-all:1.51_1 \
+		-d /defs/protos/common \
+		--go-source-relative \
+		-o /defs/build/go/protos/common \
+		-l go \
+		protos/common/*.proto
+
+	docker run --platform linux/amd64 --rm -w $(PWD) -v $(PWD):/defs -w${PWD} namely/protoc-all:1.51_1 \
+		-d /defs/protos/encoding \
+		--go-source-relative \
+		-o /defs/build/go/protos/encoding \
+		-l go \
+		protos/encoding/*.proto
 
 # Because opts imports from base /protos, we have to specify --proto_path=./protos
 # This means that output location will be _inferred_ as '$(GO_PROTOS_DIR)/opts'
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos \
-	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
-	--go_opt=paths=source_relative \
-	protos/opts/*.proto
+	docker run --platform linux/amd64 --rm -w $(PWD) -v $(PWD):/defs -w${PWD} namely/protoc-all:1.51_1 \
+		-d /defs/protos/opts \
+		--go-source-relative \
+		-o /defs/build/go/protos \
+		-l go \
+		-i /defs/protos \
+		protos/opts/*.proto
 
-	docker run --rm -w $(PWD) -v $(PWD):$(PWD) -w${PWD} jaegertracing/protobuf:0.2.0 \
-	--proto_path=./protos \
-	--go_out=plugins=grpc:$(GO_PROTOS_DIR) \
-	--go_opt=paths=source_relative \
-	protos/records/*.proto
+	docker run --platform linux/amd64 --rm -w $(PWD) -v $(PWD):/defs -w${PWD} namely/protoc-all:1.51_1 \
+		-d /defs/protos/records \
+		--go-source-relative \
+		-o /defs/build/go/protos \
+		-l go \
+		-i /defs/protos \
+		protos/records/*.proto
 
 # Perform any extra steps as part of codegen
 	# Running code generation tasks
@@ -143,6 +151,17 @@ generate/go:
 	go run generate-conn-opts-func.go
 	go run generate-merge-relay-opts.go
 	go run generate-merge-tunnel-opts.go
+
+.PHONY: inject-tags/local
+inject-tags/local: description = Inject tags for CLI
+inject-tags/local:
+	# Injecting tags into *.pb.go files...
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/common/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/encoding/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/opts/*.pb.go"
+	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/records/*.pb.go"
 
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI

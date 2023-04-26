@@ -17,7 +17,7 @@ const (
 
 type BackendMapping struct {
 	WrapperStructName string
-	ConnArgsName string // *args.ActiveMqConn
+	ConnArgsName      string // *args.ActiveMqConn
 }
 
 func main() {
@@ -26,10 +26,10 @@ func main() {
 		log.Fatalf("unable to get working dir: %s", err)
 	}
 
-	grepArgs := []string{"-R", `func (m \*ConnectionOptions) Get.\+() \*args\.`, path + "/build/go/protos/opts"}
+	grepArgs := []string{"-R", `func (x \*ConnectionOptions) Get.\+() \*args\.`, path + "/build/go/protos/opts"}
 
 	// Build list of all *.pb.go's files that contain a private interface
-	out, err := exec.Command("grep", grepArgs ... ).CombinedOutput()
+	out, err := exec.Command("grep", grepArgs...).CombinedOutput()
 	if err != nil {
 		log.Fatalf("unable to exec grep\nOutput: %s\nError: %s", string(out), err)
 	}
@@ -41,29 +41,29 @@ func main() {
 
 	// Generate mappings
 	for _, line := range lines {
-			if len(line) == 0 {
-				continue
-			}
+		if len(line) == 0 {
+			continue
+		}
 
-			// Looking for: func (m *ConnectionOptions) GetKubemqQueue() *args.KubeMQQueueConn {
-			r, err := regexp.Compile(`func \(m \*ConnectionOptions\) Get([a-zA-Z_]+)\(\) \*(args\.[a-zA-Z_]+) {`)
-			if err != nil {
-				log.Fatalf("unable to compile regex: %s", err)
-			}
+		// Looking for: func (m *ConnectionOptions) GetKubemqQueue() *args.KubeMQQueueConn {
+		r, err := regexp.Compile(`func \(x \*ConnectionOptions\) Get([a-zA-Z_]+)\(\) \*(args\.[a-zA-Z_]+) {`)
+		if err != nil {
+			log.Fatalf("unable to compile regex: %s", err)
+		}
 
-			found := r.FindStringSubmatch(line)
+		found := r.FindStringSubmatch(line)
 
-			if len(found) != 3 {
-				log.Fatalf("unexpected number of regex matches '%d'", len(found))
-			}
+		if len(found) != 3 {
+			log.Fatalf("unexpected number of regex matches '%d'", len(found))
+		}
 
-			loweredBackendName := strings.ToLower(found[1])
-			bm := BackendMapping{
-				WrapperStructName: found[1],
-				ConnArgsName:      found[2],
-			}
+		loweredBackendName := strings.ToLower(found[1])
+		bm := BackendMapping{
+			WrapperStructName: found[1],
+			ConnArgsName:      found[2],
+		}
 
-			mappings[loweredBackendName] = bm
+		mappings[loweredBackendName] = bm
 	}
 
 	if len(mappings) == 0 {
