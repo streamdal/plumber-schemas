@@ -7,7 +7,7 @@ import "ps_relay.proto";
 import "ps_server.proto";
 import "ps_tunnel.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos";
 
 service ForemanServer {
   // IMPORTANT!

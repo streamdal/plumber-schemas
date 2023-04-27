@@ -26,7 +26,7 @@ import "records/ps_records_redis_pubsub.proto";
 import "records/ps_records_redis_streams.proto";
 
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/records";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/records";
 
 // Returned for read requests (server & cli)
 message ReadRecord {

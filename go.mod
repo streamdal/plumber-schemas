@@ -1,4 +1,4 @@
-module github.com/batchcorp/plumber-schemas
+module github.com/streamdal/plumber-schemas
 
 go 1.16
 

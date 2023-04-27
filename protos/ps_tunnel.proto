@@ -6,7 +6,7 @@ import "common/ps_common_auth.proto";
 import "common/ps_common_status.proto";
 import "opts/ps_opts_tunnel.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos";
 
 message GetAllTunnelsRequest {
   // Every gRPC request must have a valid auth config

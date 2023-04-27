@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/args";
 
 message NSQConn {
   // @gotags: kong:"help='Address of NSQ server (Ex: localhost:4150)',env='PLUMBER_RELAY_NSQ_NSQD_ADDRESS',default='localhost:4150',xor=nsq_addressZ"

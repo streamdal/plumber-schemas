@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/args";
 
 message RabbitStreamsConn {
   // @gotags: kong:"help='DSN used to connect to RabbitMQ',default='rabbitmq-stream://guest:guest@localhost:5552',required"

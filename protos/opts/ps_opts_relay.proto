@@ -18,7 +18,7 @@ import "args/ps_args_rabbit.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/opts";
 
 message RelayCLIOptions {
   // @gotags: kong:"help='What address to bind the built-in HTTP server to',env='PLUMBER_RELAY_HTTP_LISTEN_ADDRESS',default='localhost:9191'"

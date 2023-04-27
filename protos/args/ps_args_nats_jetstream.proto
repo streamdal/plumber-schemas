@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/args";
 
 message NatsJetstreamTLSOptions {
   // @gotags: kong:"help='CA file (only needed if addr is tls://*)',env='PLUMBER_RELAY_NATS_JETSTREAM_TLS_CA_CERT'"

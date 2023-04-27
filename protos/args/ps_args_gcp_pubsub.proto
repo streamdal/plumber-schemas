@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/args";
 
 message GCPPubSubConn {
   // @gotags: kong:"help='Project ID',env='PLUMBER_RELAY_GCP_PROJECT_ID',required"

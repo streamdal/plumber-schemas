@@ -105,7 +105,7 @@ func createFileContents(mappings map[string]BackendMapping) ([]byte, error) {
 package opts
 
 import (
-	"github.com/batchcorp/plumber-schemas/build/go/protos/args"
+	"github.com/streamdal/plumber-schemas/build/go/protos/args"
 )
 
 func GenerateConnOpts(backend string, connArgs interface{}) (IsConnectionOptions_Conn, bool) {

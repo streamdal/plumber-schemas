@@ -8,17 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/batchcorp/plumber-schemas.git"
+    "url": "git+https://github.com/streamdal/plumber-schemas.git"
   },
   "keywords": [
     "Protobuf"
   ],
-  "author": "Batchcorp",
+  "author": "Streamdal",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/batchcorp/plumber-schemas/issues"
+    "url": "https://github.com/streamdal/plumber-schemas/issues"
   },
-  "homepage": "https://github.com/batchcorp/plumber-schemas#readme",
+  "homepage": "https://github.com/streamdal/plumber-schemas#readme",
   "dependencies": {
     "protobufjs": "^6.11.3"
   },

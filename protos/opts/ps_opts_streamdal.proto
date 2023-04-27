@@ -4,7 +4,7 @@ package protos.opts;
 
 import "opts/ps_opts_write.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/opts";
 
 enum StreamdalOutputType {
   TABLE = 0;

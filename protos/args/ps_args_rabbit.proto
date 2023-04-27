@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/args";
 
 message RabbitConn {
   // @gotags: kong:"help='Destination host address (full DSN)',env='PLUMBER_RELAY_RABBIT_ADDRESS',default='amqp://localhost',required"

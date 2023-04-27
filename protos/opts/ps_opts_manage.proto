@@ -6,7 +6,7 @@ import "opts/ps_opts_manage_connection.proto";
 import "opts/ps_opts_manage_relay.proto";
 import "opts/ps_opts_manage_tunnel.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/opts";
 
 message ManageOptions {
   // Probably will be used for "update" in the future

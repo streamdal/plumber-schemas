@@ -2,14 +2,14 @@ syntax = "proto3";
 
 package protos.common;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/common";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/common";
 
 message Validation {
   message Field {
     // path in our jsonquery filter syntax
     string path = 1;
 
-    // https://github.com/batchcorp/lucene2x/blob/55f43862dfc294d5594758cba6a5c0ba088c0040/jsonquery/validate.go#L22
+    // https://github.com/streamdal/lucene2x/blob/55f43862dfc294d5594758cba6a5c0ba088c0040/jsonquery/validate.go#L22
     string validation_type = 2;
 
     // For Regex / HasPrefix / HasSuffix / StringContains validation types only. Ignored for all others

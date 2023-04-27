@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.common;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/common";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/common";
 
 message Foreman {
   string auth_token = 1;

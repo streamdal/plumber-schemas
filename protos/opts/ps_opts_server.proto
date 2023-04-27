@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.opts;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/opts";
 
 message ServerOptions {
   // @gotags: kong:"default=plumber1,help='Unique ID that identifies this plumber node',env='PLUMBER_SERVER_NODE_ID',required"

@@ -25,7 +25,7 @@ import "args/ps_args_redis_streams.proto";
 import "encoding/ps_encoding_options.proto";
 import "records/ps_records_base.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/opts";
 
 message WriteCLIOptions {
   // @gotags: kong:"help='Write data from input file',existingfile,xor=input"

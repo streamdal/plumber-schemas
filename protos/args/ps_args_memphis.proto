@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/args";
 
 message MemphisConn {
   // @gotags: kong:"help='Address of Memphis broker (Ex: localhost:6666)',default='localhost:6666'"

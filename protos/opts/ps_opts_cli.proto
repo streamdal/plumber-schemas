@@ -10,7 +10,7 @@ import "opts/ps_opts_streamdal.proto";
 import "opts/ps_opts_tunnel.proto";
 import "opts/ps_opts_write.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/opts";
 
 message GlobalCLIOptions {
   // @gotags: kong:"help='Enable debug output',short=d"

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/args";
 
 message MongoConn {
   // @gotags: kong:"help='Dial string for mongo server (Ex: mongodb://localhost:27017)',env='PLUMBER_RELAY_CDCMONGO_DSN',default='mongodb://localhost:27017'"

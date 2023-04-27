@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protos.args;
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/args";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/args";
 
 message RedisPubSubConn {
   // @gotags: kong:"help='Address of redis server',env='PLUMBER_RELAY_REDIS_PUBSUB_ADDRESS',default=localhost:6379"

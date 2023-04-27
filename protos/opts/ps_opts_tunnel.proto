@@ -23,7 +23,7 @@ import "args/ps_args_rabbit_streams.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
 
-option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
+option go_package = "github.com/streamdal/plumber-schemas/build/go/protos/opts";
 
 message TunnelOptions {
   // @gotags: kong:"help='API token to use for tunnel (create here: https://console.streamdal.com/account/security)',required"

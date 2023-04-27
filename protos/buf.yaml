@@ -1,5 +1,5 @@
 version: v1
-name: buf.build/batchcorp/plumber-schemas
+name: buf.build/streamdal/plumber-schemas
 breaking:
   use:
     - FILE
