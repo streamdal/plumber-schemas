@@ -1,0 +1,94 @@
+// ps_common_dataquality.proto contains data quality rule structures
+syntax = "proto3";
+
+package protos.common;
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/common";
+
+message RuleSet {
+  string name = 1;
+  repeated Rule rules = 2;
+}
+
+enum RuleType {
+  RULE_TYPE_UNSET = 0;
+  RULE_TYPE_MATCH = 1;
+  RULE_TYPE_TRANSFORM = 2;
+  RULE_TYPE_CUSTOM = 3;
+}
+
+enum RuleMode {
+  RULE_MODE_UNSET = 0;
+  RULE_MODE_PUBLISH = 1;
+  RULE_MODE_CONSUME = 2;
+  RULE_MODE_BOTH = 3;
+}
+
+enum RuleFailureMode {
+  RULE_FAILURE_MODE_UNSET = 0;
+
+  // Reject message on publish, ignore message on consume
+  RULE_FAILURE_MODE_REJECT = 1;
+
+  // Send message to Streamdal DLQ
+  RULE_FAILURE_MODE_DLQ = 2;
+
+  // Run a transform on the message
+  RULE_FAILURE_MODE_TRANSFORM = 3;
+
+  // Send an alert to slack
+  RULE_FAILURE_MODE_ALERT_SLACK = 4;
+}
+
+message Rule {
+  // Defines which kind of wasm function we're executing
+  RuleType type = 1;
+
+  // Determines when this rule is ran
+  RuleMode mode = 2;
+
+  // TODO: should this be an enum?
+  string bus = 3;
+
+  // What key to run these rules on
+  // Kafka:
+  //   - Key is the topic being published to, or read from
+  // RabbitMQ
+  //   - Key is the binding/routing key depending on publish or consume
+  repeated string key = 4;
+
+  // The failure mode to use if the rule fails
+  RuleFailureMode failure_mode = 5;
+
+  // The failure mode configuration
+  oneof failure_mode_config {
+    FailureModeReject reject = 100;
+    FailureModeDLQ dlq = 101;
+    FailureModeTransform transform = 102;
+    FailureModeAlertSlack alert_slack = 103;
+  }
+}
+
+// TODO: some kind of rule config for transform and matcher
+
+message FailureModeReject {
+  // Purposefully blank
+}
+
+
+message FailureModeDLQ {
+  string streamdal_token = 1;
+}
+
+message FailureModeTransform {
+  // The key we are replacing
+  string path = 1;
+
+  // The value we are replacing it with
+  string value = 2;
+}
+
+message FailureModeAlertSlack {
+  string slack_token = 1; // TODO: should this be in here or configured somewhere else?
+  string slack_channel = 2;
+}
