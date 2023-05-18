@@ -11,7 +11,8 @@ message UploadWasmFileRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
-  bytes data = 1;
+  string name = 1;
+  bytes data = 2;
 }
 
 message UploadWasmFileResponse {
