@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package protos;
+
+import "common/ps_common_auth.proto";
+import "common/ps_common_status.proto";
+
+option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
+
+message UploadWasmFileRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  bytes data = 1;
+}
+
+message UploadWasmFileResponse {
+  common.Status status = 1000;
+}
+
+message DownloadWasmFileRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string name = 1;
+}
+
+message DownloadWasmFileResponse {
+  common.Status status = 1000;
+
+  bytes data = 1;
+}
+
+message ListWasmFilesRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+}
+
+message ListWasmFilesResponse {
+  common.Status status = 1000;
+
+  repeated string names = 1;
+}
+
+message DeleteWasmFileRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string name = 1;
+}
+
+message DeleteWasmFileResponse {
+  common.Status status = 1000;
+}

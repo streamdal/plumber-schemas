@@ -3,9 +3,11 @@ syntax = "proto3";
 package protos;
 
 import "ps_connect.proto";
+import "ps_dataquality.proto";
 import "ps_relay.proto";
 import "ps_server.proto";
 import "ps_tunnel.proto";
+import "ps_wasm.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -65,6 +67,20 @@ service PlumberServer {
   rpc UpdateTunnel(UpdateTunnelRequest) returns (UpdateTunnelResponse);
 
   rpc DeleteTunnel(DeleteTunnelRequest) returns (DeleteTunnelResponse);
+
+  // ----------------- WASM Files -----------------
+
+  rpc ListWasmFiles(ListWasmFilesRequest) returns (ListWasmFilesResponse);
+
+  rpc UploadWasmFile(UploadWasmFileRequest) returns (UploadWasmFileResponse);
+
+  rpc DownloadWasmFile(DownloadWasmFileRequest) returns (DownloadWasmFileResponse);
+
+  rpc DeleteWasmFile(DeleteWasmFileRequest) returns (DeleteWasmFileResponse);
+
+  // --------------- Data Quality Rules ------------
+
+  rpc GetRules(GetDataQualityRulesRequest) returns (GetDataQualityRulesResponse);
 
   // ------------------- Server -------------------
 
