@@ -21,6 +21,9 @@ message RuleSet {
 
   // The bus this rule set is associated with
   string bus = 4;
+
+  // Incrementing number to track rule set versions. Set by plumber
+  int32 version = 5;
 }
 
 enum RuleType {
