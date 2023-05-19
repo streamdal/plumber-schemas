@@ -711,6 +711,171 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#listWasmFiles}.
+         * @memberof protos.PlumberServer
+         * @typedef ListWasmFilesCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.ListWasmFilesResponse} [response] ListWasmFilesResponse
+         */
+
+        /**
+         * Calls ListWasmFiles.
+         * @function listWasmFiles
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IListWasmFilesRequest} request ListWasmFilesRequest message or plain object
+         * @param {protos.PlumberServer.ListWasmFilesCallback} callback Node-style callback called with the error, if any, and ListWasmFilesResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.listWasmFiles = function listWasmFiles(request, callback) {
+            return this.rpcCall(listWasmFiles, $root.protos.ListWasmFilesRequest, $root.protos.ListWasmFilesResponse, request, callback);
+        }, "name", { value: "ListWasmFiles" });
+
+        /**
+         * Calls ListWasmFiles.
+         * @function listWasmFiles
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IListWasmFilesRequest} request ListWasmFilesRequest message or plain object
+         * @returns {Promise<protos.ListWasmFilesResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#uploadWasmFile}.
+         * @memberof protos.PlumberServer
+         * @typedef UploadWasmFileCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.UploadWasmFileResponse} [response] UploadWasmFileResponse
+         */
+
+        /**
+         * Calls UploadWasmFile.
+         * @function uploadWasmFile
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUploadWasmFileRequest} request UploadWasmFileRequest message or plain object
+         * @param {protos.PlumberServer.UploadWasmFileCallback} callback Node-style callback called with the error, if any, and UploadWasmFileResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.uploadWasmFile = function uploadWasmFile(request, callback) {
+            return this.rpcCall(uploadWasmFile, $root.protos.UploadWasmFileRequest, $root.protos.UploadWasmFileResponse, request, callback);
+        }, "name", { value: "UploadWasmFile" });
+
+        /**
+         * Calls UploadWasmFile.
+         * @function uploadWasmFile
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IUploadWasmFileRequest} request UploadWasmFileRequest message or plain object
+         * @returns {Promise<protos.UploadWasmFileResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#downloadWasmFile}.
+         * @memberof protos.PlumberServer
+         * @typedef DownloadWasmFileCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DownloadWasmFileResponse} [response] DownloadWasmFileResponse
+         */
+
+        /**
+         * Calls DownloadWasmFile.
+         * @function downloadWasmFile
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDownloadWasmFileRequest} request DownloadWasmFileRequest message or plain object
+         * @param {protos.PlumberServer.DownloadWasmFileCallback} callback Node-style callback called with the error, if any, and DownloadWasmFileResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.downloadWasmFile = function downloadWasmFile(request, callback) {
+            return this.rpcCall(downloadWasmFile, $root.protos.DownloadWasmFileRequest, $root.protos.DownloadWasmFileResponse, request, callback);
+        }, "name", { value: "DownloadWasmFile" });
+
+        /**
+         * Calls DownloadWasmFile.
+         * @function downloadWasmFile
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDownloadWasmFileRequest} request DownloadWasmFileRequest message or plain object
+         * @returns {Promise<protos.DownloadWasmFileResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteWasmFile}.
+         * @memberof protos.PlumberServer
+         * @typedef DeleteWasmFileCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.DeleteWasmFileResponse} [response] DeleteWasmFileResponse
+         */
+
+        /**
+         * Calls DeleteWasmFile.
+         * @function deleteWasmFile
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteWasmFileRequest} request DeleteWasmFileRequest message or plain object
+         * @param {protos.PlumberServer.DeleteWasmFileCallback} callback Node-style callback called with the error, if any, and DeleteWasmFileResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.deleteWasmFile = function deleteWasmFile(request, callback) {
+            return this.rpcCall(deleteWasmFile, $root.protos.DeleteWasmFileRequest, $root.protos.DeleteWasmFileResponse, request, callback);
+        }, "name", { value: "DeleteWasmFile" });
+
+        /**
+         * Calls DeleteWasmFile.
+         * @function deleteWasmFile
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IDeleteWasmFileRequest} request DeleteWasmFileRequest message or plain object
+         * @returns {Promise<protos.DeleteWasmFileResponse>} Promise
+         * @variation 2
+         */
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRules}.
+         * @memberof protos.PlumberServer
+         * @typedef GetRulesCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.GetDataQualityRulesResponse} [response] GetDataQualityRulesResponse
+         */
+
+        /**
+         * Calls GetRules.
+         * @function getRules
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetDataQualityRulesRequest} request GetDataQualityRulesRequest message or plain object
+         * @param {protos.PlumberServer.GetRulesCallback} callback Node-style callback called with the error, if any, and GetDataQualityRulesResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.getRules = function getRules(request, callback) {
+            return this.rpcCall(getRules, $root.protos.GetDataQualityRulesRequest, $root.protos.GetDataQualityRulesResponse, request, callback);
+        }, "name", { value: "GetRules" });
+
+        /**
+         * Calls GetRules.
+         * @function getRules
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.IGetDataQualityRulesRequest} request GetDataQualityRulesRequest message or plain object
+         * @returns {Promise<protos.GetDataQualityRulesResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#getServerOptions}.
          * @memberof protos.PlumberServer
          * @typedef GetServerOptionsCallback
@@ -4268,6 +4433,2512 @@ $root.protos = (function() {
             };
 
             return Status;
+        })();
+
+        common.RuleSet = (function() {
+
+            /**
+             * Properties of a RuleSet.
+             * @memberof protos.common
+             * @interface IRuleSet
+             * @property {string|null} [name] RuleSet name
+             * @property {protos.common.RuleMode|null} [mode] RuleSet mode
+             * @property {Object.<string,protos.common.IRules>|null} [rules] RuleSet rules
+             * @property {string|null} [bus] RuleSet bus
+             * @property {number|null} [version] RuleSet version
+             */
+
+            /**
+             * Constructs a new RuleSet.
+             * @memberof protos.common
+             * @classdesc Represents a RuleSet.
+             * @implements IRuleSet
+             * @constructor
+             * @param {protos.common.IRuleSet=} [properties] Properties to set
+             */
+            function RuleSet(properties) {
+                this.rules = {};
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RuleSet name.
+             * @member {string} name
+             * @memberof protos.common.RuleSet
+             * @instance
+             */
+            RuleSet.prototype.name = "";
+
+            /**
+             * RuleSet mode.
+             * @member {protos.common.RuleMode} mode
+             * @memberof protos.common.RuleSet
+             * @instance
+             */
+            RuleSet.prototype.mode = 0;
+
+            /**
+             * RuleSet rules.
+             * @member {Object.<string,protos.common.IRules>} rules
+             * @memberof protos.common.RuleSet
+             * @instance
+             */
+            RuleSet.prototype.rules = $util.emptyObject;
+
+            /**
+             * RuleSet bus.
+             * @member {string} bus
+             * @memberof protos.common.RuleSet
+             * @instance
+             */
+            RuleSet.prototype.bus = "";
+
+            /**
+             * RuleSet version.
+             * @member {number} version
+             * @memberof protos.common.RuleSet
+             * @instance
+             */
+            RuleSet.prototype.version = 0;
+
+            /**
+             * Creates a new RuleSet instance using the specified properties.
+             * @function create
+             * @memberof protos.common.RuleSet
+             * @static
+             * @param {protos.common.IRuleSet=} [properties] Properties to set
+             * @returns {protos.common.RuleSet} RuleSet instance
+             */
+            RuleSet.create = function create(properties) {
+                return new RuleSet(properties);
+            };
+
+            /**
+             * Encodes the specified RuleSet message. Does not implicitly {@link protos.common.RuleSet.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.RuleSet
+             * @static
+             * @param {protos.common.IRuleSet} message RuleSet message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RuleSet.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                if (message.mode != null && Object.hasOwnProperty.call(message, "mode"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.mode);
+                if (message.rules != null && Object.hasOwnProperty.call(message, "rules"))
+                    for (var keys = Object.keys(message.rules), i = 0; i < keys.length; ++i) {
+                        writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                        $root.protos.common.Rules.encode(message.rules[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                    }
+                if (message.bus != null && Object.hasOwnProperty.call(message, "bus"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.bus);
+                if (message.version != null && Object.hasOwnProperty.call(message, "version"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.version);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RuleSet message, length delimited. Does not implicitly {@link protos.common.RuleSet.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.RuleSet
+             * @static
+             * @param {protos.common.IRuleSet} message RuleSet message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RuleSet.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RuleSet message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.RuleSet
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.RuleSet} RuleSet
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RuleSet.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.RuleSet(), key, value;
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.name = reader.string();
+                        break;
+                    case 2:
+                        message.mode = reader.int32();
+                        break;
+                    case 3:
+                        if (message.rules === $util.emptyObject)
+                            message.rules = {};
+                        var end2 = reader.uint32() + reader.pos;
+                        key = "";
+                        value = null;
+                        while (reader.pos < end2) {
+                            var tag2 = reader.uint32();
+                            switch (tag2 >>> 3) {
+                            case 1:
+                                key = reader.string();
+                                break;
+                            case 2:
+                                value = $root.protos.common.Rules.decode(reader, reader.uint32());
+                                break;
+                            default:
+                                reader.skipType(tag2 & 7);
+                                break;
+                            }
+                        }
+                        message.rules[key] = value;
+                        break;
+                    case 4:
+                        message.bus = reader.string();
+                        break;
+                    case 5:
+                        message.version = reader.int32();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RuleSet message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.RuleSet
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.RuleSet} RuleSet
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RuleSet.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RuleSet message.
+             * @function verify
+             * @memberof protos.common.RuleSet
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RuleSet.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.name != null && message.hasOwnProperty("name"))
+                    if (!$util.isString(message.name))
+                        return "name: string expected";
+                if (message.mode != null && message.hasOwnProperty("mode"))
+                    switch (message.mode) {
+                    default:
+                        return "mode: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                        break;
+                    }
+                if (message.rules != null && message.hasOwnProperty("rules")) {
+                    if (!$util.isObject(message.rules))
+                        return "rules: object expected";
+                    var key = Object.keys(message.rules);
+                    for (var i = 0; i < key.length; ++i) {
+                        var error = $root.protos.common.Rules.verify(message.rules[key[i]]);
+                        if (error)
+                            return "rules." + error;
+                    }
+                }
+                if (message.bus != null && message.hasOwnProperty("bus"))
+                    if (!$util.isString(message.bus))
+                        return "bus: string expected";
+                if (message.version != null && message.hasOwnProperty("version"))
+                    if (!$util.isInteger(message.version))
+                        return "version: integer expected";
+                return null;
+            };
+
+            /**
+             * Creates a RuleSet message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.RuleSet
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.RuleSet} RuleSet
+             */
+            RuleSet.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.RuleSet)
+                    return object;
+                var message = new $root.protos.common.RuleSet();
+                if (object.name != null)
+                    message.name = String(object.name);
+                switch (object.mode) {
+                case "RULE_MODE_UNSET":
+                case 0:
+                    message.mode = 0;
+                    break;
+                case "RULE_MODE_PUBLISH":
+                case 1:
+                    message.mode = 1;
+                    break;
+                case "RULE_MODE_CONSUME":
+                case 2:
+                    message.mode = 2;
+                    break;
+                }
+                if (object.rules) {
+                    if (typeof object.rules !== "object")
+                        throw TypeError(".protos.common.RuleSet.rules: object expected");
+                    message.rules = {};
+                    for (var keys = Object.keys(object.rules), i = 0; i < keys.length; ++i) {
+                        if (typeof object.rules[keys[i]] !== "object")
+                            throw TypeError(".protos.common.RuleSet.rules: object expected");
+                        message.rules[keys[i]] = $root.protos.common.Rules.fromObject(object.rules[keys[i]]);
+                    }
+                }
+                if (object.bus != null)
+                    message.bus = String(object.bus);
+                if (object.version != null)
+                    message.version = object.version | 0;
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RuleSet message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.RuleSet
+             * @static
+             * @param {protos.common.RuleSet} message RuleSet
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RuleSet.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.objects || options.defaults)
+                    object.rules = {};
+                if (options.defaults) {
+                    object.name = "";
+                    object.mode = options.enums === String ? "RULE_MODE_UNSET" : 0;
+                    object.bus = "";
+                    object.version = 0;
+                }
+                if (message.name != null && message.hasOwnProperty("name"))
+                    object.name = message.name;
+                if (message.mode != null && message.hasOwnProperty("mode"))
+                    object.mode = options.enums === String ? $root.protos.common.RuleMode[message.mode] : message.mode;
+                var keys2;
+                if (message.rules && (keys2 = Object.keys(message.rules)).length) {
+                    object.rules = {};
+                    for (var j = 0; j < keys2.length; ++j)
+                        object.rules[keys2[j]] = $root.protos.common.Rules.toObject(message.rules[keys2[j]], options);
+                }
+                if (message.bus != null && message.hasOwnProperty("bus"))
+                    object.bus = message.bus;
+                if (message.version != null && message.hasOwnProperty("version"))
+                    object.version = message.version;
+                return object;
+            };
+
+            /**
+             * Converts this RuleSet to JSON.
+             * @function toJSON
+             * @memberof protos.common.RuleSet
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RuleSet.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RuleSet;
+        })();
+
+        /**
+         * RuleType enum.
+         * @name protos.common.RuleType
+         * @enum {number}
+         * @property {number} RULE_TYPE_UNSET=0 RULE_TYPE_UNSET value
+         * @property {number} RULE_TYPE_MATCH=1 RULE_TYPE_MATCH value
+         * @property {number} RULE_TYPE_TRANSFORM=2 RULE_TYPE_TRANSFORM value
+         * @property {number} RULE_TYPE_CUSTOM=3 RULE_TYPE_CUSTOM value
+         */
+        common.RuleType = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "RULE_TYPE_UNSET"] = 0;
+            values[valuesById[1] = "RULE_TYPE_MATCH"] = 1;
+            values[valuesById[2] = "RULE_TYPE_TRANSFORM"] = 2;
+            values[valuesById[3] = "RULE_TYPE_CUSTOM"] = 3;
+            return values;
+        })();
+
+        /**
+         * RuleMode enum.
+         * @name protos.common.RuleMode
+         * @enum {number}
+         * @property {number} RULE_MODE_UNSET=0 RULE_MODE_UNSET value
+         * @property {number} RULE_MODE_PUBLISH=1 RULE_MODE_PUBLISH value
+         * @property {number} RULE_MODE_CONSUME=2 RULE_MODE_CONSUME value
+         */
+        common.RuleMode = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "RULE_MODE_UNSET"] = 0;
+            values[valuesById[1] = "RULE_MODE_PUBLISH"] = 1;
+            values[valuesById[2] = "RULE_MODE_CONSUME"] = 2;
+            return values;
+        })();
+
+        /**
+         * RuleFailureMode enum.
+         * @name protos.common.RuleFailureMode
+         * @enum {number}
+         * @property {number} RULE_FAILURE_MODE_UNSET=0 RULE_FAILURE_MODE_UNSET value
+         * @property {number} RULE_FAILURE_MODE_REJECT=1 RULE_FAILURE_MODE_REJECT value
+         * @property {number} RULE_FAILURE_MODE_DLQ=2 RULE_FAILURE_MODE_DLQ value
+         * @property {number} RULE_FAILURE_MODE_TRANSFORM=3 RULE_FAILURE_MODE_TRANSFORM value
+         * @property {number} RULE_FAILURE_MODE_ALERT_SLACK=4 RULE_FAILURE_MODE_ALERT_SLACK value
+         */
+        common.RuleFailureMode = (function() {
+            var valuesById = {}, values = Object.create(valuesById);
+            values[valuesById[0] = "RULE_FAILURE_MODE_UNSET"] = 0;
+            values[valuesById[1] = "RULE_FAILURE_MODE_REJECT"] = 1;
+            values[valuesById[2] = "RULE_FAILURE_MODE_DLQ"] = 2;
+            values[valuesById[3] = "RULE_FAILURE_MODE_TRANSFORM"] = 3;
+            values[valuesById[4] = "RULE_FAILURE_MODE_ALERT_SLACK"] = 4;
+            return values;
+        })();
+
+        common.Rules = (function() {
+
+            /**
+             * Properties of a Rules.
+             * @memberof protos.common
+             * @interface IRules
+             * @property {Array.<protos.common.IRule>|null} [rules] Rules rules
+             */
+
+            /**
+             * Constructs a new Rules.
+             * @memberof protos.common
+             * @classdesc Represents a Rules.
+             * @implements IRules
+             * @constructor
+             * @param {protos.common.IRules=} [properties] Properties to set
+             */
+            function Rules(properties) {
+                this.rules = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Rules rules.
+             * @member {Array.<protos.common.IRule>} rules
+             * @memberof protos.common.Rules
+             * @instance
+             */
+            Rules.prototype.rules = $util.emptyArray;
+
+            /**
+             * Creates a new Rules instance using the specified properties.
+             * @function create
+             * @memberof protos.common.Rules
+             * @static
+             * @param {protos.common.IRules=} [properties] Properties to set
+             * @returns {protos.common.Rules} Rules instance
+             */
+            Rules.create = function create(properties) {
+                return new Rules(properties);
+            };
+
+            /**
+             * Encodes the specified Rules message. Does not implicitly {@link protos.common.Rules.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.Rules
+             * @static
+             * @param {protos.common.IRules} message Rules message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Rules.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.rules != null && message.rules.length)
+                    for (var i = 0; i < message.rules.length; ++i)
+                        $root.protos.common.Rule.encode(message.rules[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Rules message, length delimited. Does not implicitly {@link protos.common.Rules.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.Rules
+             * @static
+             * @param {protos.common.IRules} message Rules message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Rules.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Rules message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.Rules
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.Rules} Rules
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Rules.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.Rules();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.rules && message.rules.length))
+                            message.rules = [];
+                        message.rules.push($root.protos.common.Rule.decode(reader, reader.uint32()));
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Rules message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.Rules
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.Rules} Rules
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Rules.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Rules message.
+             * @function verify
+             * @memberof protos.common.Rules
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Rules.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.rules != null && message.hasOwnProperty("rules")) {
+                    if (!Array.isArray(message.rules))
+                        return "rules: array expected";
+                    for (var i = 0; i < message.rules.length; ++i) {
+                        var error = $root.protos.common.Rule.verify(message.rules[i]);
+                        if (error)
+                            return "rules." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a Rules message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.Rules
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.Rules} Rules
+             */
+            Rules.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.Rules)
+                    return object;
+                var message = new $root.protos.common.Rules();
+                if (object.rules) {
+                    if (!Array.isArray(object.rules))
+                        throw TypeError(".protos.common.Rules.rules: array expected");
+                    message.rules = [];
+                    for (var i = 0; i < object.rules.length; ++i) {
+                        if (typeof object.rules[i] !== "object")
+                            throw TypeError(".protos.common.Rules.rules: object expected");
+                        message.rules[i] = $root.protos.common.Rule.fromObject(object.rules[i]);
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Rules message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.Rules
+             * @static
+             * @param {protos.common.Rules} message Rules
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Rules.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.rules = [];
+                if (message.rules && message.rules.length) {
+                    object.rules = [];
+                    for (var j = 0; j < message.rules.length; ++j)
+                        object.rules[j] = $root.protos.common.Rule.toObject(message.rules[j], options);
+                }
+                return object;
+            };
+
+            /**
+             * Converts this Rules to JSON.
+             * @function toJSON
+             * @memberof protos.common.Rules
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Rules.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Rules;
+        })();
+
+        common.Rule = (function() {
+
+            /**
+             * Properties of a Rule.
+             * @memberof protos.common
+             * @interface IRule
+             * @property {protos.common.RuleType|null} [type] Rule type
+             * @property {protos.common.RuleFailureMode|null} [failureMode] Rule failureMode
+             * @property {protos.common.IRuleConfigMatch|null} [matchConfig] Rule matchConfig
+             * @property {protos.common.IRuleConfigTransform|null} [transformConfig] Rule transformConfig
+             * @property {protos.common.IRuleConfigCustom|null} [customConfig] Rule customConfig
+             * @property {protos.common.IFailureModeReject|null} [reject] Rule reject
+             * @property {protos.common.IFailureModeDLQ|null} [dlq] Rule dlq
+             * @property {protos.common.IFailureModeTransform|null} [transform] Rule transform
+             * @property {protos.common.IFailureModeAlertSlack|null} [alertSlack] Rule alertSlack
+             */
+
+            /**
+             * Constructs a new Rule.
+             * @memberof protos.common
+             * @classdesc Represents a Rule.
+             * @implements IRule
+             * @constructor
+             * @param {protos.common.IRule=} [properties] Properties to set
+             */
+            function Rule(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Rule type.
+             * @member {protos.common.RuleType} type
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.type = 0;
+
+            /**
+             * Rule failureMode.
+             * @member {protos.common.RuleFailureMode} failureMode
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.failureMode = 0;
+
+            /**
+             * Rule matchConfig.
+             * @member {protos.common.IRuleConfigMatch|null|undefined} matchConfig
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.matchConfig = null;
+
+            /**
+             * Rule transformConfig.
+             * @member {protos.common.IRuleConfigTransform|null|undefined} transformConfig
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.transformConfig = null;
+
+            /**
+             * Rule customConfig.
+             * @member {protos.common.IRuleConfigCustom|null|undefined} customConfig
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.customConfig = null;
+
+            /**
+             * Rule reject.
+             * @member {protos.common.IFailureModeReject|null|undefined} reject
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.reject = null;
+
+            /**
+             * Rule dlq.
+             * @member {protos.common.IFailureModeDLQ|null|undefined} dlq
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.dlq = null;
+
+            /**
+             * Rule transform.
+             * @member {protos.common.IFailureModeTransform|null|undefined} transform
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.transform = null;
+
+            /**
+             * Rule alertSlack.
+             * @member {protos.common.IFailureModeAlertSlack|null|undefined} alertSlack
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.alertSlack = null;
+
+            // OneOf field names bound to virtual getters and setters
+            var $oneOfFields;
+
+            /**
+             * Rule ruleConfig.
+             * @member {"matchConfig"|"transformConfig"|"customConfig"|undefined} ruleConfig
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Object.defineProperty(Rule.prototype, "ruleConfig", {
+                get: $util.oneOfGetter($oneOfFields = ["matchConfig", "transformConfig", "customConfig"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Rule failureModeConfig.
+             * @member {"reject"|"dlq"|"transform"|"alertSlack"|undefined} failureModeConfig
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Object.defineProperty(Rule.prototype, "failureModeConfig", {
+                get: $util.oneOfGetter($oneOfFields = ["reject", "dlq", "transform", "alertSlack"]),
+                set: $util.oneOfSetter($oneOfFields)
+            });
+
+            /**
+             * Creates a new Rule instance using the specified properties.
+             * @function create
+             * @memberof protos.common.Rule
+             * @static
+             * @param {protos.common.IRule=} [properties] Properties to set
+             * @returns {protos.common.Rule} Rule instance
+             */
+            Rule.create = function create(properties) {
+                return new Rule(properties);
+            };
+
+            /**
+             * Encodes the specified Rule message. Does not implicitly {@link protos.common.Rule.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.Rule
+             * @static
+             * @param {protos.common.IRule} message Rule message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Rule.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                if (message.failureMode != null && Object.hasOwnProperty.call(message, "failureMode"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.failureMode);
+                if (message.matchConfig != null && Object.hasOwnProperty.call(message, "matchConfig"))
+                    $root.protos.common.RuleConfigMatch.encode(message.matchConfig, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+                if (message.transformConfig != null && Object.hasOwnProperty.call(message, "transformConfig"))
+                    $root.protos.common.RuleConfigTransform.encode(message.transformConfig, writer.uint32(/* id 1001, wireType 2 =*/8010).fork()).ldelim();
+                if (message.customConfig != null && Object.hasOwnProperty.call(message, "customConfig"))
+                    $root.protos.common.RuleConfigCustom.encode(message.customConfig, writer.uint32(/* id 1002, wireType 2 =*/8018).fork()).ldelim();
+                if (message.reject != null && Object.hasOwnProperty.call(message, "reject"))
+                    $root.protos.common.FailureModeReject.encode(message.reject, writer.uint32(/* id 2000, wireType 2 =*/16002).fork()).ldelim();
+                if (message.dlq != null && Object.hasOwnProperty.call(message, "dlq"))
+                    $root.protos.common.FailureModeDLQ.encode(message.dlq, writer.uint32(/* id 2001, wireType 2 =*/16010).fork()).ldelim();
+                if (message.transform != null && Object.hasOwnProperty.call(message, "transform"))
+                    $root.protos.common.FailureModeTransform.encode(message.transform, writer.uint32(/* id 2002, wireType 2 =*/16018).fork()).ldelim();
+                if (message.alertSlack != null && Object.hasOwnProperty.call(message, "alertSlack"))
+                    $root.protos.common.FailureModeAlertSlack.encode(message.alertSlack, writer.uint32(/* id 2003, wireType 2 =*/16026).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Rule message, length delimited. Does not implicitly {@link protos.common.Rule.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.Rule
+             * @static
+             * @param {protos.common.IRule} message Rule message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Rule.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a Rule message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.Rule
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.Rule} Rule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Rule.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.Rule();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.type = reader.int32();
+                        break;
+                    case 5:
+                        message.failureMode = reader.int32();
+                        break;
+                    case 1000:
+                        message.matchConfig = $root.protos.common.RuleConfigMatch.decode(reader, reader.uint32());
+                        break;
+                    case 1001:
+                        message.transformConfig = $root.protos.common.RuleConfigTransform.decode(reader, reader.uint32());
+                        break;
+                    case 1002:
+                        message.customConfig = $root.protos.common.RuleConfigCustom.decode(reader, reader.uint32());
+                        break;
+                    case 2000:
+                        message.reject = $root.protos.common.FailureModeReject.decode(reader, reader.uint32());
+                        break;
+                    case 2001:
+                        message.dlq = $root.protos.common.FailureModeDLQ.decode(reader, reader.uint32());
+                        break;
+                    case 2002:
+                        message.transform = $root.protos.common.FailureModeTransform.decode(reader, reader.uint32());
+                        break;
+                    case 2003:
+                        message.alertSlack = $root.protos.common.FailureModeAlertSlack.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a Rule message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.Rule
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.Rule} Rule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Rule.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a Rule message.
+             * @function verify
+             * @memberof protos.common.Rule
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Rule.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                var properties = {};
+                if (message.type != null && message.hasOwnProperty("type"))
+                    switch (message.type) {
+                    default:
+                        return "type: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                        break;
+                    }
+                if (message.failureMode != null && message.hasOwnProperty("failureMode"))
+                    switch (message.failureMode) {
+                    default:
+                        return "failureMode: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        break;
+                    }
+                if (message.matchConfig != null && message.hasOwnProperty("matchConfig")) {
+                    properties.ruleConfig = 1;
+                    {
+                        var error = $root.protos.common.RuleConfigMatch.verify(message.matchConfig);
+                        if (error)
+                            return "matchConfig." + error;
+                    }
+                }
+                if (message.transformConfig != null && message.hasOwnProperty("transformConfig")) {
+                    if (properties.ruleConfig === 1)
+                        return "ruleConfig: multiple values";
+                    properties.ruleConfig = 1;
+                    {
+                        var error = $root.protos.common.RuleConfigTransform.verify(message.transformConfig);
+                        if (error)
+                            return "transformConfig." + error;
+                    }
+                }
+                if (message.customConfig != null && message.hasOwnProperty("customConfig")) {
+                    if (properties.ruleConfig === 1)
+                        return "ruleConfig: multiple values";
+                    properties.ruleConfig = 1;
+                    {
+                        var error = $root.protos.common.RuleConfigCustom.verify(message.customConfig);
+                        if (error)
+                            return "customConfig." + error;
+                    }
+                }
+                if (message.reject != null && message.hasOwnProperty("reject")) {
+                    properties.failureModeConfig = 1;
+                    {
+                        var error = $root.protos.common.FailureModeReject.verify(message.reject);
+                        if (error)
+                            return "reject." + error;
+                    }
+                }
+                if (message.dlq != null && message.hasOwnProperty("dlq")) {
+                    if (properties.failureModeConfig === 1)
+                        return "failureModeConfig: multiple values";
+                    properties.failureModeConfig = 1;
+                    {
+                        var error = $root.protos.common.FailureModeDLQ.verify(message.dlq);
+                        if (error)
+                            return "dlq." + error;
+                    }
+                }
+                if (message.transform != null && message.hasOwnProperty("transform")) {
+                    if (properties.failureModeConfig === 1)
+                        return "failureModeConfig: multiple values";
+                    properties.failureModeConfig = 1;
+                    {
+                        var error = $root.protos.common.FailureModeTransform.verify(message.transform);
+                        if (error)
+                            return "transform." + error;
+                    }
+                }
+                if (message.alertSlack != null && message.hasOwnProperty("alertSlack")) {
+                    if (properties.failureModeConfig === 1)
+                        return "failureModeConfig: multiple values";
+                    properties.failureModeConfig = 1;
+                    {
+                        var error = $root.protos.common.FailureModeAlertSlack.verify(message.alertSlack);
+                        if (error)
+                            return "alertSlack." + error;
+                    }
+                }
+                return null;
+            };
+
+            /**
+             * Creates a Rule message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.Rule
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.Rule} Rule
+             */
+            Rule.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.Rule)
+                    return object;
+                var message = new $root.protos.common.Rule();
+                switch (object.type) {
+                case "RULE_TYPE_UNSET":
+                case 0:
+                    message.type = 0;
+                    break;
+                case "RULE_TYPE_MATCH":
+                case 1:
+                    message.type = 1;
+                    break;
+                case "RULE_TYPE_TRANSFORM":
+                case 2:
+                    message.type = 2;
+                    break;
+                case "RULE_TYPE_CUSTOM":
+                case 3:
+                    message.type = 3;
+                    break;
+                }
+                switch (object.failureMode) {
+                case "RULE_FAILURE_MODE_UNSET":
+                case 0:
+                    message.failureMode = 0;
+                    break;
+                case "RULE_FAILURE_MODE_REJECT":
+                case 1:
+                    message.failureMode = 1;
+                    break;
+                case "RULE_FAILURE_MODE_DLQ":
+                case 2:
+                    message.failureMode = 2;
+                    break;
+                case "RULE_FAILURE_MODE_TRANSFORM":
+                case 3:
+                    message.failureMode = 3;
+                    break;
+                case "RULE_FAILURE_MODE_ALERT_SLACK":
+                case 4:
+                    message.failureMode = 4;
+                    break;
+                }
+                if (object.matchConfig != null) {
+                    if (typeof object.matchConfig !== "object")
+                        throw TypeError(".protos.common.Rule.matchConfig: object expected");
+                    message.matchConfig = $root.protos.common.RuleConfigMatch.fromObject(object.matchConfig);
+                }
+                if (object.transformConfig != null) {
+                    if (typeof object.transformConfig !== "object")
+                        throw TypeError(".protos.common.Rule.transformConfig: object expected");
+                    message.transformConfig = $root.protos.common.RuleConfigTransform.fromObject(object.transformConfig);
+                }
+                if (object.customConfig != null) {
+                    if (typeof object.customConfig !== "object")
+                        throw TypeError(".protos.common.Rule.customConfig: object expected");
+                    message.customConfig = $root.protos.common.RuleConfigCustom.fromObject(object.customConfig);
+                }
+                if (object.reject != null) {
+                    if (typeof object.reject !== "object")
+                        throw TypeError(".protos.common.Rule.reject: object expected");
+                    message.reject = $root.protos.common.FailureModeReject.fromObject(object.reject);
+                }
+                if (object.dlq != null) {
+                    if (typeof object.dlq !== "object")
+                        throw TypeError(".protos.common.Rule.dlq: object expected");
+                    message.dlq = $root.protos.common.FailureModeDLQ.fromObject(object.dlq);
+                }
+                if (object.transform != null) {
+                    if (typeof object.transform !== "object")
+                        throw TypeError(".protos.common.Rule.transform: object expected");
+                    message.transform = $root.protos.common.FailureModeTransform.fromObject(object.transform);
+                }
+                if (object.alertSlack != null) {
+                    if (typeof object.alertSlack !== "object")
+                        throw TypeError(".protos.common.Rule.alertSlack: object expected");
+                    message.alertSlack = $root.protos.common.FailureModeAlertSlack.fromObject(object.alertSlack);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a Rule message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.Rule
+             * @static
+             * @param {protos.common.Rule} message Rule
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Rule.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.type = options.enums === String ? "RULE_TYPE_UNSET" : 0;
+                    object.failureMode = options.enums === String ? "RULE_FAILURE_MODE_UNSET" : 0;
+                }
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = options.enums === String ? $root.protos.common.RuleType[message.type] : message.type;
+                if (message.failureMode != null && message.hasOwnProperty("failureMode"))
+                    object.failureMode = options.enums === String ? $root.protos.common.RuleFailureMode[message.failureMode] : message.failureMode;
+                if (message.matchConfig != null && message.hasOwnProperty("matchConfig")) {
+                    object.matchConfig = $root.protos.common.RuleConfigMatch.toObject(message.matchConfig, options);
+                    if (options.oneofs)
+                        object.ruleConfig = "matchConfig";
+                }
+                if (message.transformConfig != null && message.hasOwnProperty("transformConfig")) {
+                    object.transformConfig = $root.protos.common.RuleConfigTransform.toObject(message.transformConfig, options);
+                    if (options.oneofs)
+                        object.ruleConfig = "transformConfig";
+                }
+                if (message.customConfig != null && message.hasOwnProperty("customConfig")) {
+                    object.customConfig = $root.protos.common.RuleConfigCustom.toObject(message.customConfig, options);
+                    if (options.oneofs)
+                        object.ruleConfig = "customConfig";
+                }
+                if (message.reject != null && message.hasOwnProperty("reject")) {
+                    object.reject = $root.protos.common.FailureModeReject.toObject(message.reject, options);
+                    if (options.oneofs)
+                        object.failureModeConfig = "reject";
+                }
+                if (message.dlq != null && message.hasOwnProperty("dlq")) {
+                    object.dlq = $root.protos.common.FailureModeDLQ.toObject(message.dlq, options);
+                    if (options.oneofs)
+                        object.failureModeConfig = "dlq";
+                }
+                if (message.transform != null && message.hasOwnProperty("transform")) {
+                    object.transform = $root.protos.common.FailureModeTransform.toObject(message.transform, options);
+                    if (options.oneofs)
+                        object.failureModeConfig = "transform";
+                }
+                if (message.alertSlack != null && message.hasOwnProperty("alertSlack")) {
+                    object.alertSlack = $root.protos.common.FailureModeAlertSlack.toObject(message.alertSlack, options);
+                    if (options.oneofs)
+                        object.failureModeConfig = "alertSlack";
+                }
+                return object;
+            };
+
+            /**
+             * Converts this Rule to JSON.
+             * @function toJSON
+             * @memberof protos.common.Rule
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Rule.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Rule;
+        })();
+
+        common.RuleConfigMatch = (function() {
+
+            /**
+             * Properties of a RuleConfigMatch.
+             * @memberof protos.common
+             * @interface IRuleConfigMatch
+             * @property {string|null} [path] RuleConfigMatch path
+             * @property {string|null} [type] RuleConfigMatch type
+             * @property {Array.<string>|null} [args] RuleConfigMatch args
+             */
+
+            /**
+             * Constructs a new RuleConfigMatch.
+             * @memberof protos.common
+             * @classdesc Represents a RuleConfigMatch.
+             * @implements IRuleConfigMatch
+             * @constructor
+             * @param {protos.common.IRuleConfigMatch=} [properties] Properties to set
+             */
+            function RuleConfigMatch(properties) {
+                this.args = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RuleConfigMatch path.
+             * @member {string} path
+             * @memberof protos.common.RuleConfigMatch
+             * @instance
+             */
+            RuleConfigMatch.prototype.path = "";
+
+            /**
+             * RuleConfigMatch type.
+             * @member {string} type
+             * @memberof protos.common.RuleConfigMatch
+             * @instance
+             */
+            RuleConfigMatch.prototype.type = "";
+
+            /**
+             * RuleConfigMatch args.
+             * @member {Array.<string>} args
+             * @memberof protos.common.RuleConfigMatch
+             * @instance
+             */
+            RuleConfigMatch.prototype.args = $util.emptyArray;
+
+            /**
+             * Creates a new RuleConfigMatch instance using the specified properties.
+             * @function create
+             * @memberof protos.common.RuleConfigMatch
+             * @static
+             * @param {protos.common.IRuleConfigMatch=} [properties] Properties to set
+             * @returns {protos.common.RuleConfigMatch} RuleConfigMatch instance
+             */
+            RuleConfigMatch.create = function create(properties) {
+                return new RuleConfigMatch(properties);
+            };
+
+            /**
+             * Encodes the specified RuleConfigMatch message. Does not implicitly {@link protos.common.RuleConfigMatch.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.RuleConfigMatch
+             * @static
+             * @param {protos.common.IRuleConfigMatch} message RuleConfigMatch message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RuleConfigMatch.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.path != null && Object.hasOwnProperty.call(message, "path"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.type);
+                if (message.args != null && message.args.length)
+                    for (var i = 0; i < message.args.length; ++i)
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.args[i]);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RuleConfigMatch message, length delimited. Does not implicitly {@link protos.common.RuleConfigMatch.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.RuleConfigMatch
+             * @static
+             * @param {protos.common.IRuleConfigMatch} message RuleConfigMatch message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RuleConfigMatch.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RuleConfigMatch message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.RuleConfigMatch
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.RuleConfigMatch} RuleConfigMatch
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RuleConfigMatch.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.RuleConfigMatch();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.path = reader.string();
+                        break;
+                    case 2:
+                        message.type = reader.string();
+                        break;
+                    case 3:
+                        if (!(message.args && message.args.length))
+                            message.args = [];
+                        message.args.push(reader.string());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RuleConfigMatch message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.RuleConfigMatch
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.RuleConfigMatch} RuleConfigMatch
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RuleConfigMatch.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RuleConfigMatch message.
+             * @function verify
+             * @memberof protos.common.RuleConfigMatch
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RuleConfigMatch.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.path != null && message.hasOwnProperty("path"))
+                    if (!$util.isString(message.path))
+                        return "path: string expected";
+                if (message.type != null && message.hasOwnProperty("type"))
+                    if (!$util.isString(message.type))
+                        return "type: string expected";
+                if (message.args != null && message.hasOwnProperty("args")) {
+                    if (!Array.isArray(message.args))
+                        return "args: array expected";
+                    for (var i = 0; i < message.args.length; ++i)
+                        if (!$util.isString(message.args[i]))
+                            return "args: string[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a RuleConfigMatch message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.RuleConfigMatch
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.RuleConfigMatch} RuleConfigMatch
+             */
+            RuleConfigMatch.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.RuleConfigMatch)
+                    return object;
+                var message = new $root.protos.common.RuleConfigMatch();
+                if (object.path != null)
+                    message.path = String(object.path);
+                if (object.type != null)
+                    message.type = String(object.type);
+                if (object.args) {
+                    if (!Array.isArray(object.args))
+                        throw TypeError(".protos.common.RuleConfigMatch.args: array expected");
+                    message.args = [];
+                    for (var i = 0; i < object.args.length; ++i)
+                        message.args[i] = String(object.args[i]);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RuleConfigMatch message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.RuleConfigMatch
+             * @static
+             * @param {protos.common.RuleConfigMatch} message RuleConfigMatch
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RuleConfigMatch.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.args = [];
+                if (options.defaults) {
+                    object.path = "";
+                    object.type = "";
+                }
+                if (message.path != null && message.hasOwnProperty("path"))
+                    object.path = message.path;
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = message.type;
+                if (message.args && message.args.length) {
+                    object.args = [];
+                    for (var j = 0; j < message.args.length; ++j)
+                        object.args[j] = message.args[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this RuleConfigMatch to JSON.
+             * @function toJSON
+             * @memberof protos.common.RuleConfigMatch
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RuleConfigMatch.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RuleConfigMatch;
+        })();
+
+        common.RuleConfigTransform = (function() {
+
+            /**
+             * Properties of a RuleConfigTransform.
+             * @memberof protos.common
+             * @interface IRuleConfigTransform
+             * @property {string|null} [path] RuleConfigTransform path
+             * @property {string|null} [value] RuleConfigTransform value
+             */
+
+            /**
+             * Constructs a new RuleConfigTransform.
+             * @memberof protos.common
+             * @classdesc Represents a RuleConfigTransform.
+             * @implements IRuleConfigTransform
+             * @constructor
+             * @param {protos.common.IRuleConfigTransform=} [properties] Properties to set
+             */
+            function RuleConfigTransform(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * RuleConfigTransform path.
+             * @member {string} path
+             * @memberof protos.common.RuleConfigTransform
+             * @instance
+             */
+            RuleConfigTransform.prototype.path = "";
+
+            /**
+             * RuleConfigTransform value.
+             * @member {string} value
+             * @memberof protos.common.RuleConfigTransform
+             * @instance
+             */
+            RuleConfigTransform.prototype.value = "";
+
+            /**
+             * Creates a new RuleConfigTransform instance using the specified properties.
+             * @function create
+             * @memberof protos.common.RuleConfigTransform
+             * @static
+             * @param {protos.common.IRuleConfigTransform=} [properties] Properties to set
+             * @returns {protos.common.RuleConfigTransform} RuleConfigTransform instance
+             */
+            RuleConfigTransform.create = function create(properties) {
+                return new RuleConfigTransform(properties);
+            };
+
+            /**
+             * Encodes the specified RuleConfigTransform message. Does not implicitly {@link protos.common.RuleConfigTransform.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.RuleConfigTransform
+             * @static
+             * @param {protos.common.IRuleConfigTransform} message RuleConfigTransform message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RuleConfigTransform.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.path != null && Object.hasOwnProperty.call(message, "path"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RuleConfigTransform message, length delimited. Does not implicitly {@link protos.common.RuleConfigTransform.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.RuleConfigTransform
+             * @static
+             * @param {protos.common.IRuleConfigTransform} message RuleConfigTransform message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RuleConfigTransform.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RuleConfigTransform message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.RuleConfigTransform
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.RuleConfigTransform} RuleConfigTransform
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RuleConfigTransform.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.RuleConfigTransform();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.path = reader.string();
+                        break;
+                    case 2:
+                        message.value = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RuleConfigTransform message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.RuleConfigTransform
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.RuleConfigTransform} RuleConfigTransform
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RuleConfigTransform.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RuleConfigTransform message.
+             * @function verify
+             * @memberof protos.common.RuleConfigTransform
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RuleConfigTransform.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.path != null && message.hasOwnProperty("path"))
+                    if (!$util.isString(message.path))
+                        return "path: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!$util.isString(message.value))
+                        return "value: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a RuleConfigTransform message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.RuleConfigTransform
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.RuleConfigTransform} RuleConfigTransform
+             */
+            RuleConfigTransform.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.RuleConfigTransform)
+                    return object;
+                var message = new $root.protos.common.RuleConfigTransform();
+                if (object.path != null)
+                    message.path = String(object.path);
+                if (object.value != null)
+                    message.value = String(object.value);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a RuleConfigTransform message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.RuleConfigTransform
+             * @static
+             * @param {protos.common.RuleConfigTransform} message RuleConfigTransform
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RuleConfigTransform.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.path = "";
+                    object.value = "";
+                }
+                if (message.path != null && message.hasOwnProperty("path"))
+                    object.path = message.path;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = message.value;
+                return object;
+            };
+
+            /**
+             * Converts this RuleConfigTransform to JSON.
+             * @function toJSON
+             * @memberof protos.common.RuleConfigTransform
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RuleConfigTransform.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RuleConfigTransform;
+        })();
+
+        common.RuleConfigCustom = (function() {
+
+            /**
+             * Properties of a RuleConfigCustom.
+             * @memberof protos.common
+             * @interface IRuleConfigCustom
+             */
+
+            /**
+             * Constructs a new RuleConfigCustom.
+             * @memberof protos.common
+             * @classdesc Represents a RuleConfigCustom.
+             * @implements IRuleConfigCustom
+             * @constructor
+             * @param {protos.common.IRuleConfigCustom=} [properties] Properties to set
+             */
+            function RuleConfigCustom(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new RuleConfigCustom instance using the specified properties.
+             * @function create
+             * @memberof protos.common.RuleConfigCustom
+             * @static
+             * @param {protos.common.IRuleConfigCustom=} [properties] Properties to set
+             * @returns {protos.common.RuleConfigCustom} RuleConfigCustom instance
+             */
+            RuleConfigCustom.create = function create(properties) {
+                return new RuleConfigCustom(properties);
+            };
+
+            /**
+             * Encodes the specified RuleConfigCustom message. Does not implicitly {@link protos.common.RuleConfigCustom.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.RuleConfigCustom
+             * @static
+             * @param {protos.common.IRuleConfigCustom} message RuleConfigCustom message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RuleConfigCustom.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified RuleConfigCustom message, length delimited. Does not implicitly {@link protos.common.RuleConfigCustom.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.RuleConfigCustom
+             * @static
+             * @param {protos.common.IRuleConfigCustom} message RuleConfigCustom message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            RuleConfigCustom.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a RuleConfigCustom message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.RuleConfigCustom
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.RuleConfigCustom} RuleConfigCustom
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RuleConfigCustom.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.RuleConfigCustom();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a RuleConfigCustom message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.RuleConfigCustom
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.RuleConfigCustom} RuleConfigCustom
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            RuleConfigCustom.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a RuleConfigCustom message.
+             * @function verify
+             * @memberof protos.common.RuleConfigCustom
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            RuleConfigCustom.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a RuleConfigCustom message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.RuleConfigCustom
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.RuleConfigCustom} RuleConfigCustom
+             */
+            RuleConfigCustom.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.RuleConfigCustom)
+                    return object;
+                return new $root.protos.common.RuleConfigCustom();
+            };
+
+            /**
+             * Creates a plain object from a RuleConfigCustom message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.RuleConfigCustom
+             * @static
+             * @param {protos.common.RuleConfigCustom} message RuleConfigCustom
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            RuleConfigCustom.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this RuleConfigCustom to JSON.
+             * @function toJSON
+             * @memberof protos.common.RuleConfigCustom
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            RuleConfigCustom.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return RuleConfigCustom;
+        })();
+
+        common.FailureModeReject = (function() {
+
+            /**
+             * Properties of a FailureModeReject.
+             * @memberof protos.common
+             * @interface IFailureModeReject
+             */
+
+            /**
+             * Constructs a new FailureModeReject.
+             * @memberof protos.common
+             * @classdesc Represents a FailureModeReject.
+             * @implements IFailureModeReject
+             * @constructor
+             * @param {protos.common.IFailureModeReject=} [properties] Properties to set
+             */
+            function FailureModeReject(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new FailureModeReject instance using the specified properties.
+             * @function create
+             * @memberof protos.common.FailureModeReject
+             * @static
+             * @param {protos.common.IFailureModeReject=} [properties] Properties to set
+             * @returns {protos.common.FailureModeReject} FailureModeReject instance
+             */
+            FailureModeReject.create = function create(properties) {
+                return new FailureModeReject(properties);
+            };
+
+            /**
+             * Encodes the specified FailureModeReject message. Does not implicitly {@link protos.common.FailureModeReject.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.FailureModeReject
+             * @static
+             * @param {protos.common.IFailureModeReject} message FailureModeReject message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FailureModeReject.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified FailureModeReject message, length delimited. Does not implicitly {@link protos.common.FailureModeReject.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.FailureModeReject
+             * @static
+             * @param {protos.common.IFailureModeReject} message FailureModeReject message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FailureModeReject.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a FailureModeReject message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.FailureModeReject
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.FailureModeReject} FailureModeReject
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FailureModeReject.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.FailureModeReject();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a FailureModeReject message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.FailureModeReject
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.FailureModeReject} FailureModeReject
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FailureModeReject.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a FailureModeReject message.
+             * @function verify
+             * @memberof protos.common.FailureModeReject
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            FailureModeReject.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a FailureModeReject message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.FailureModeReject
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.FailureModeReject} FailureModeReject
+             */
+            FailureModeReject.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.FailureModeReject)
+                    return object;
+                return new $root.protos.common.FailureModeReject();
+            };
+
+            /**
+             * Creates a plain object from a FailureModeReject message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.FailureModeReject
+             * @static
+             * @param {protos.common.FailureModeReject} message FailureModeReject
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            FailureModeReject.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this FailureModeReject to JSON.
+             * @function toJSON
+             * @memberof protos.common.FailureModeReject
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            FailureModeReject.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return FailureModeReject;
+        })();
+
+        common.FailureModeDLQ = (function() {
+
+            /**
+             * Properties of a FailureModeDLQ.
+             * @memberof protos.common
+             * @interface IFailureModeDLQ
+             * @property {string|null} [streamdalToken] FailureModeDLQ streamdalToken
+             */
+
+            /**
+             * Constructs a new FailureModeDLQ.
+             * @memberof protos.common
+             * @classdesc Represents a FailureModeDLQ.
+             * @implements IFailureModeDLQ
+             * @constructor
+             * @param {protos.common.IFailureModeDLQ=} [properties] Properties to set
+             */
+            function FailureModeDLQ(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * FailureModeDLQ streamdalToken.
+             * @member {string} streamdalToken
+             * @memberof protos.common.FailureModeDLQ
+             * @instance
+             */
+            FailureModeDLQ.prototype.streamdalToken = "";
+
+            /**
+             * Creates a new FailureModeDLQ instance using the specified properties.
+             * @function create
+             * @memberof protos.common.FailureModeDLQ
+             * @static
+             * @param {protos.common.IFailureModeDLQ=} [properties] Properties to set
+             * @returns {protos.common.FailureModeDLQ} FailureModeDLQ instance
+             */
+            FailureModeDLQ.create = function create(properties) {
+                return new FailureModeDLQ(properties);
+            };
+
+            /**
+             * Encodes the specified FailureModeDLQ message. Does not implicitly {@link protos.common.FailureModeDLQ.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.FailureModeDLQ
+             * @static
+             * @param {protos.common.IFailureModeDLQ} message FailureModeDLQ message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FailureModeDLQ.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.streamdalToken != null && Object.hasOwnProperty.call(message, "streamdalToken"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.streamdalToken);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified FailureModeDLQ message, length delimited. Does not implicitly {@link protos.common.FailureModeDLQ.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.FailureModeDLQ
+             * @static
+             * @param {protos.common.IFailureModeDLQ} message FailureModeDLQ message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FailureModeDLQ.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a FailureModeDLQ message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.FailureModeDLQ
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.FailureModeDLQ} FailureModeDLQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FailureModeDLQ.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.FailureModeDLQ();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.streamdalToken = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a FailureModeDLQ message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.FailureModeDLQ
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.FailureModeDLQ} FailureModeDLQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FailureModeDLQ.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a FailureModeDLQ message.
+             * @function verify
+             * @memberof protos.common.FailureModeDLQ
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            FailureModeDLQ.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.streamdalToken != null && message.hasOwnProperty("streamdalToken"))
+                    if (!$util.isString(message.streamdalToken))
+                        return "streamdalToken: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a FailureModeDLQ message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.FailureModeDLQ
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.FailureModeDLQ} FailureModeDLQ
+             */
+            FailureModeDLQ.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.FailureModeDLQ)
+                    return object;
+                var message = new $root.protos.common.FailureModeDLQ();
+                if (object.streamdalToken != null)
+                    message.streamdalToken = String(object.streamdalToken);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a FailureModeDLQ message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.FailureModeDLQ
+             * @static
+             * @param {protos.common.FailureModeDLQ} message FailureModeDLQ
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            FailureModeDLQ.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.streamdalToken = "";
+                if (message.streamdalToken != null && message.hasOwnProperty("streamdalToken"))
+                    object.streamdalToken = message.streamdalToken;
+                return object;
+            };
+
+            /**
+             * Converts this FailureModeDLQ to JSON.
+             * @function toJSON
+             * @memberof protos.common.FailureModeDLQ
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            FailureModeDLQ.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return FailureModeDLQ;
+        })();
+
+        common.FailureModeTransform = (function() {
+
+            /**
+             * Properties of a FailureModeTransform.
+             * @memberof protos.common
+             * @interface IFailureModeTransform
+             * @property {string|null} [path] FailureModeTransform path
+             * @property {string|null} [value] FailureModeTransform value
+             */
+
+            /**
+             * Constructs a new FailureModeTransform.
+             * @memberof protos.common
+             * @classdesc Represents a FailureModeTransform.
+             * @implements IFailureModeTransform
+             * @constructor
+             * @param {protos.common.IFailureModeTransform=} [properties] Properties to set
+             */
+            function FailureModeTransform(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * FailureModeTransform path.
+             * @member {string} path
+             * @memberof protos.common.FailureModeTransform
+             * @instance
+             */
+            FailureModeTransform.prototype.path = "";
+
+            /**
+             * FailureModeTransform value.
+             * @member {string} value
+             * @memberof protos.common.FailureModeTransform
+             * @instance
+             */
+            FailureModeTransform.prototype.value = "";
+
+            /**
+             * Creates a new FailureModeTransform instance using the specified properties.
+             * @function create
+             * @memberof protos.common.FailureModeTransform
+             * @static
+             * @param {protos.common.IFailureModeTransform=} [properties] Properties to set
+             * @returns {protos.common.FailureModeTransform} FailureModeTransform instance
+             */
+            FailureModeTransform.create = function create(properties) {
+                return new FailureModeTransform(properties);
+            };
+
+            /**
+             * Encodes the specified FailureModeTransform message. Does not implicitly {@link protos.common.FailureModeTransform.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.FailureModeTransform
+             * @static
+             * @param {protos.common.IFailureModeTransform} message FailureModeTransform message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FailureModeTransform.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.path != null && Object.hasOwnProperty.call(message, "path"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
+                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.value);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified FailureModeTransform message, length delimited. Does not implicitly {@link protos.common.FailureModeTransform.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.FailureModeTransform
+             * @static
+             * @param {protos.common.IFailureModeTransform} message FailureModeTransform message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FailureModeTransform.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a FailureModeTransform message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.FailureModeTransform
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.FailureModeTransform} FailureModeTransform
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FailureModeTransform.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.FailureModeTransform();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.path = reader.string();
+                        break;
+                    case 2:
+                        message.value = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a FailureModeTransform message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.FailureModeTransform
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.FailureModeTransform} FailureModeTransform
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FailureModeTransform.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a FailureModeTransform message.
+             * @function verify
+             * @memberof protos.common.FailureModeTransform
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            FailureModeTransform.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.path != null && message.hasOwnProperty("path"))
+                    if (!$util.isString(message.path))
+                        return "path: string expected";
+                if (message.value != null && message.hasOwnProperty("value"))
+                    if (!$util.isString(message.value))
+                        return "value: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a FailureModeTransform message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.FailureModeTransform
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.FailureModeTransform} FailureModeTransform
+             */
+            FailureModeTransform.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.FailureModeTransform)
+                    return object;
+                var message = new $root.protos.common.FailureModeTransform();
+                if (object.path != null)
+                    message.path = String(object.path);
+                if (object.value != null)
+                    message.value = String(object.value);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a FailureModeTransform message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.FailureModeTransform
+             * @static
+             * @param {protos.common.FailureModeTransform} message FailureModeTransform
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            FailureModeTransform.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.path = "";
+                    object.value = "";
+                }
+                if (message.path != null && message.hasOwnProperty("path"))
+                    object.path = message.path;
+                if (message.value != null && message.hasOwnProperty("value"))
+                    object.value = message.value;
+                return object;
+            };
+
+            /**
+             * Converts this FailureModeTransform to JSON.
+             * @function toJSON
+             * @memberof protos.common.FailureModeTransform
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            FailureModeTransform.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return FailureModeTransform;
+        })();
+
+        common.FailureModeAlertSlack = (function() {
+
+            /**
+             * Properties of a FailureModeAlertSlack.
+             * @memberof protos.common
+             * @interface IFailureModeAlertSlack
+             * @property {string|null} [slackToken] FailureModeAlertSlack slackToken
+             * @property {string|null} [slackChannel] FailureModeAlertSlack slackChannel
+             */
+
+            /**
+             * Constructs a new FailureModeAlertSlack.
+             * @memberof protos.common
+             * @classdesc Represents a FailureModeAlertSlack.
+             * @implements IFailureModeAlertSlack
+             * @constructor
+             * @param {protos.common.IFailureModeAlertSlack=} [properties] Properties to set
+             */
+            function FailureModeAlertSlack(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * FailureModeAlertSlack slackToken.
+             * @member {string} slackToken
+             * @memberof protos.common.FailureModeAlertSlack
+             * @instance
+             */
+            FailureModeAlertSlack.prototype.slackToken = "";
+
+            /**
+             * FailureModeAlertSlack slackChannel.
+             * @member {string} slackChannel
+             * @memberof protos.common.FailureModeAlertSlack
+             * @instance
+             */
+            FailureModeAlertSlack.prototype.slackChannel = "";
+
+            /**
+             * Creates a new FailureModeAlertSlack instance using the specified properties.
+             * @function create
+             * @memberof protos.common.FailureModeAlertSlack
+             * @static
+             * @param {protos.common.IFailureModeAlertSlack=} [properties] Properties to set
+             * @returns {protos.common.FailureModeAlertSlack} FailureModeAlertSlack instance
+             */
+            FailureModeAlertSlack.create = function create(properties) {
+                return new FailureModeAlertSlack(properties);
+            };
+
+            /**
+             * Encodes the specified FailureModeAlertSlack message. Does not implicitly {@link protos.common.FailureModeAlertSlack.verify|verify} messages.
+             * @function encode
+             * @memberof protos.common.FailureModeAlertSlack
+             * @static
+             * @param {protos.common.IFailureModeAlertSlack} message FailureModeAlertSlack message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FailureModeAlertSlack.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.slackToken != null && Object.hasOwnProperty.call(message, "slackToken"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.slackToken);
+                if (message.slackChannel != null && Object.hasOwnProperty.call(message, "slackChannel"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.slackChannel);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified FailureModeAlertSlack message, length delimited. Does not implicitly {@link protos.common.FailureModeAlertSlack.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.common.FailureModeAlertSlack
+             * @static
+             * @param {protos.common.IFailureModeAlertSlack} message FailureModeAlertSlack message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            FailureModeAlertSlack.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a FailureModeAlertSlack message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.common.FailureModeAlertSlack
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.common.FailureModeAlertSlack} FailureModeAlertSlack
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FailureModeAlertSlack.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.FailureModeAlertSlack();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.slackToken = reader.string();
+                        break;
+                    case 2:
+                        message.slackChannel = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a FailureModeAlertSlack message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.common.FailureModeAlertSlack
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.common.FailureModeAlertSlack} FailureModeAlertSlack
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            FailureModeAlertSlack.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a FailureModeAlertSlack message.
+             * @function verify
+             * @memberof protos.common.FailureModeAlertSlack
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            FailureModeAlertSlack.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.slackToken != null && message.hasOwnProperty("slackToken"))
+                    if (!$util.isString(message.slackToken))
+                        return "slackToken: string expected";
+                if (message.slackChannel != null && message.hasOwnProperty("slackChannel"))
+                    if (!$util.isString(message.slackChannel))
+                        return "slackChannel: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a FailureModeAlertSlack message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.common.FailureModeAlertSlack
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.common.FailureModeAlertSlack} FailureModeAlertSlack
+             */
+            FailureModeAlertSlack.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.common.FailureModeAlertSlack)
+                    return object;
+                var message = new $root.protos.common.FailureModeAlertSlack();
+                if (object.slackToken != null)
+                    message.slackToken = String(object.slackToken);
+                if (object.slackChannel != null)
+                    message.slackChannel = String(object.slackChannel);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a FailureModeAlertSlack message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.common.FailureModeAlertSlack
+             * @static
+             * @param {protos.common.FailureModeAlertSlack} message FailureModeAlertSlack
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            FailureModeAlertSlack.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.slackToken = "";
+                    object.slackChannel = "";
+                }
+                if (message.slackToken != null && message.hasOwnProperty("slackToken"))
+                    object.slackToken = message.slackToken;
+                if (message.slackChannel != null && message.hasOwnProperty("slackChannel"))
+                    object.slackChannel = message.slackChannel;
+                return object;
+            };
+
+            /**
+             * Converts this FailureModeAlertSlack to JSON.
+             * @function toJSON
+             * @memberof protos.common.FailureModeAlertSlack
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            FailureModeAlertSlack.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return FailureModeAlertSlack;
         })();
 
         /**
@@ -56996,6 +59667,457 @@ $root.protos = (function() {
         return args;
     })();
 
+    protos.GetDataQualityRulesRequest = (function() {
+
+        /**
+         * Properties of a GetDataQualityRulesRequest.
+         * @memberof protos
+         * @interface IGetDataQualityRulesRequest
+         * @property {protos.common.IAuth|null} [auth] GetDataQualityRulesRequest auth
+         * @property {string|null} [bus] GetDataQualityRulesRequest bus
+         */
+
+        /**
+         * Constructs a new GetDataQualityRulesRequest.
+         * @memberof protos
+         * @classdesc Represents a GetDataQualityRulesRequest.
+         * @implements IGetDataQualityRulesRequest
+         * @constructor
+         * @param {protos.IGetDataQualityRulesRequest=} [properties] Properties to set
+         */
+        function GetDataQualityRulesRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetDataQualityRulesRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.GetDataQualityRulesRequest
+         * @instance
+         */
+        GetDataQualityRulesRequest.prototype.auth = null;
+
+        /**
+         * GetDataQualityRulesRequest bus.
+         * @member {string} bus
+         * @memberof protos.GetDataQualityRulesRequest
+         * @instance
+         */
+        GetDataQualityRulesRequest.prototype.bus = "";
+
+        /**
+         * Creates a new GetDataQualityRulesRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.GetDataQualityRulesRequest
+         * @static
+         * @param {protos.IGetDataQualityRulesRequest=} [properties] Properties to set
+         * @returns {protos.GetDataQualityRulesRequest} GetDataQualityRulesRequest instance
+         */
+        GetDataQualityRulesRequest.create = function create(properties) {
+            return new GetDataQualityRulesRequest(properties);
+        };
+
+        /**
+         * Encodes the specified GetDataQualityRulesRequest message. Does not implicitly {@link protos.GetDataQualityRulesRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetDataQualityRulesRequest
+         * @static
+         * @param {protos.IGetDataQualityRulesRequest} message GetDataQualityRulesRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetDataQualityRulesRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.bus != null && Object.hasOwnProperty.call(message, "bus"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.bus);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetDataQualityRulesRequest message, length delimited. Does not implicitly {@link protos.GetDataQualityRulesRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetDataQualityRulesRequest
+         * @static
+         * @param {protos.IGetDataQualityRulesRequest} message GetDataQualityRulesRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetDataQualityRulesRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetDataQualityRulesRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetDataQualityRulesRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetDataQualityRulesRequest} GetDataQualityRulesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetDataQualityRulesRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetDataQualityRulesRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.bus = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetDataQualityRulesRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetDataQualityRulesRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetDataQualityRulesRequest} GetDataQualityRulesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetDataQualityRulesRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetDataQualityRulesRequest message.
+         * @function verify
+         * @memberof protos.GetDataQualityRulesRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetDataQualityRulesRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.bus != null && message.hasOwnProperty("bus"))
+                if (!$util.isString(message.bus))
+                    return "bus: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a GetDataQualityRulesRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetDataQualityRulesRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetDataQualityRulesRequest} GetDataQualityRulesRequest
+         */
+        GetDataQualityRulesRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetDataQualityRulesRequest)
+                return object;
+            var message = new $root.protos.GetDataQualityRulesRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.GetDataQualityRulesRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.bus != null)
+                message.bus = String(object.bus);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetDataQualityRulesRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetDataQualityRulesRequest
+         * @static
+         * @param {protos.GetDataQualityRulesRequest} message GetDataQualityRulesRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetDataQualityRulesRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.bus = "";
+                object.auth = null;
+            }
+            if (message.bus != null && message.hasOwnProperty("bus"))
+                object.bus = message.bus;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetDataQualityRulesRequest to JSON.
+         * @function toJSON
+         * @memberof protos.GetDataQualityRulesRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetDataQualityRulesRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetDataQualityRulesRequest;
+    })();
+
+    protos.GetDataQualityRulesResponse = (function() {
+
+        /**
+         * Properties of a GetDataQualityRulesResponse.
+         * @memberof protos
+         * @interface IGetDataQualityRulesResponse
+         * @property {protos.common.IStatus|null} [status] GetDataQualityRulesResponse status
+         * @property {Array.<protos.common.IRuleSet>|null} [ruleSets] GetDataQualityRulesResponse ruleSets
+         */
+
+        /**
+         * Constructs a new GetDataQualityRulesResponse.
+         * @memberof protos
+         * @classdesc Represents a GetDataQualityRulesResponse.
+         * @implements IGetDataQualityRulesResponse
+         * @constructor
+         * @param {protos.IGetDataQualityRulesResponse=} [properties] Properties to set
+         */
+        function GetDataQualityRulesResponse(properties) {
+            this.ruleSets = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * GetDataQualityRulesResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.GetDataQualityRulesResponse
+         * @instance
+         */
+        GetDataQualityRulesResponse.prototype.status = null;
+
+        /**
+         * GetDataQualityRulesResponse ruleSets.
+         * @member {Array.<protos.common.IRuleSet>} ruleSets
+         * @memberof protos.GetDataQualityRulesResponse
+         * @instance
+         */
+        GetDataQualityRulesResponse.prototype.ruleSets = $util.emptyArray;
+
+        /**
+         * Creates a new GetDataQualityRulesResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.GetDataQualityRulesResponse
+         * @static
+         * @param {protos.IGetDataQualityRulesResponse=} [properties] Properties to set
+         * @returns {protos.GetDataQualityRulesResponse} GetDataQualityRulesResponse instance
+         */
+        GetDataQualityRulesResponse.create = function create(properties) {
+            return new GetDataQualityRulesResponse(properties);
+        };
+
+        /**
+         * Encodes the specified GetDataQualityRulesResponse message. Does not implicitly {@link protos.GetDataQualityRulesResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.GetDataQualityRulesResponse
+         * @static
+         * @param {protos.IGetDataQualityRulesResponse} message GetDataQualityRulesResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetDataQualityRulesResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.ruleSets != null && message.ruleSets.length)
+                for (var i = 0; i < message.ruleSets.length; ++i)
+                    $root.protos.common.RuleSet.encode(message.ruleSets[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified GetDataQualityRulesResponse message, length delimited. Does not implicitly {@link protos.GetDataQualityRulesResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.GetDataQualityRulesResponse
+         * @static
+         * @param {protos.IGetDataQualityRulesResponse} message GetDataQualityRulesResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        GetDataQualityRulesResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a GetDataQualityRulesResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.GetDataQualityRulesResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.GetDataQualityRulesResponse} GetDataQualityRulesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetDataQualityRulesResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.GetDataQualityRulesResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    if (!(message.ruleSets && message.ruleSets.length))
+                        message.ruleSets = [];
+                    message.ruleSets.push($root.protos.common.RuleSet.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a GetDataQualityRulesResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.GetDataQualityRulesResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.GetDataQualityRulesResponse} GetDataQualityRulesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        GetDataQualityRulesResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a GetDataQualityRulesResponse message.
+         * @function verify
+         * @memberof protos.GetDataQualityRulesResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        GetDataQualityRulesResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.ruleSets != null && message.hasOwnProperty("ruleSets")) {
+                if (!Array.isArray(message.ruleSets))
+                    return "ruleSets: array expected";
+                for (var i = 0; i < message.ruleSets.length; ++i) {
+                    var error = $root.protos.common.RuleSet.verify(message.ruleSets[i]);
+                    if (error)
+                        return "ruleSets." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates a GetDataQualityRulesResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.GetDataQualityRulesResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.GetDataQualityRulesResponse} GetDataQualityRulesResponse
+         */
+        GetDataQualityRulesResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.GetDataQualityRulesResponse)
+                return object;
+            var message = new $root.protos.GetDataQualityRulesResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.GetDataQualityRulesResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.ruleSets) {
+                if (!Array.isArray(object.ruleSets))
+                    throw TypeError(".protos.GetDataQualityRulesResponse.ruleSets: array expected");
+                message.ruleSets = [];
+                for (var i = 0; i < object.ruleSets.length; ++i) {
+                    if (typeof object.ruleSets[i] !== "object")
+                        throw TypeError(".protos.GetDataQualityRulesResponse.ruleSets: object expected");
+                    message.ruleSets[i] = $root.protos.common.RuleSet.fromObject(object.ruleSets[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a GetDataQualityRulesResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.GetDataQualityRulesResponse
+         * @static
+         * @param {protos.GetDataQualityRulesResponse} message GetDataQualityRulesResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        GetDataQualityRulesResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.ruleSets = [];
+            if (options.defaults)
+                object.status = null;
+            if (message.ruleSets && message.ruleSets.length) {
+                object.ruleSets = [];
+                for (var j = 0; j < message.ruleSets.length; ++j)
+                    object.ruleSets[j] = $root.protos.common.RuleSet.toObject(message.ruleSets[j], options);
+            }
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this GetDataQualityRulesResponse to JSON.
+         * @function toJSON
+         * @memberof protos.GetDataQualityRulesResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        GetDataQualityRulesResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return GetDataQualityRulesResponse;
+    })();
+
     protos.GetAllRelaysRequest = (function() {
 
         /**
@@ -63284,6 +66406,1713 @@ $root.protos = (function() {
         };
 
         return DeleteTunnelResponse;
+    })();
+
+    protos.UploadWasmFileRequest = (function() {
+
+        /**
+         * Properties of an UploadWasmFileRequest.
+         * @memberof protos
+         * @interface IUploadWasmFileRequest
+         * @property {protos.common.IAuth|null} [auth] UploadWasmFileRequest auth
+         * @property {string|null} [name] UploadWasmFileRequest name
+         * @property {Uint8Array|null} [data] UploadWasmFileRequest data
+         */
+
+        /**
+         * Constructs a new UploadWasmFileRequest.
+         * @memberof protos
+         * @classdesc Represents an UploadWasmFileRequest.
+         * @implements IUploadWasmFileRequest
+         * @constructor
+         * @param {protos.IUploadWasmFileRequest=} [properties] Properties to set
+         */
+        function UploadWasmFileRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UploadWasmFileRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.UploadWasmFileRequest
+         * @instance
+         */
+        UploadWasmFileRequest.prototype.auth = null;
+
+        /**
+         * UploadWasmFileRequest name.
+         * @member {string} name
+         * @memberof protos.UploadWasmFileRequest
+         * @instance
+         */
+        UploadWasmFileRequest.prototype.name = "";
+
+        /**
+         * UploadWasmFileRequest data.
+         * @member {Uint8Array} data
+         * @memberof protos.UploadWasmFileRequest
+         * @instance
+         */
+        UploadWasmFileRequest.prototype.data = $util.newBuffer([]);
+
+        /**
+         * Creates a new UploadWasmFileRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.UploadWasmFileRequest
+         * @static
+         * @param {protos.IUploadWasmFileRequest=} [properties] Properties to set
+         * @returns {protos.UploadWasmFileRequest} UploadWasmFileRequest instance
+         */
+        UploadWasmFileRequest.create = function create(properties) {
+            return new UploadWasmFileRequest(properties);
+        };
+
+        /**
+         * Encodes the specified UploadWasmFileRequest message. Does not implicitly {@link protos.UploadWasmFileRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UploadWasmFileRequest
+         * @static
+         * @param {protos.IUploadWasmFileRequest} message UploadWasmFileRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UploadWasmFileRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
+                writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.data);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UploadWasmFileRequest message, length delimited. Does not implicitly {@link protos.UploadWasmFileRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UploadWasmFileRequest
+         * @static
+         * @param {protos.IUploadWasmFileRequest} message UploadWasmFileRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UploadWasmFileRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UploadWasmFileRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UploadWasmFileRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UploadWasmFileRequest} UploadWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UploadWasmFileRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UploadWasmFileRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.name = reader.string();
+                    break;
+                case 2:
+                    message.data = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UploadWasmFileRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UploadWasmFileRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UploadWasmFileRequest} UploadWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UploadWasmFileRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UploadWasmFileRequest message.
+         * @function verify
+         * @memberof protos.UploadWasmFileRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UploadWasmFileRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            if (message.data != null && message.hasOwnProperty("data"))
+                if (!(message.data && typeof message.data.length === "number" || $util.isString(message.data)))
+                    return "data: buffer expected";
+            return null;
+        };
+
+        /**
+         * Creates an UploadWasmFileRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UploadWasmFileRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UploadWasmFileRequest} UploadWasmFileRequest
+         */
+        UploadWasmFileRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UploadWasmFileRequest)
+                return object;
+            var message = new $root.protos.UploadWasmFileRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.UploadWasmFileRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.name != null)
+                message.name = String(object.name);
+            if (object.data != null)
+                if (typeof object.data === "string")
+                    $util.base64.decode(object.data, message.data = $util.newBuffer($util.base64.length(object.data)), 0);
+                else if (object.data.length)
+                    message.data = object.data;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UploadWasmFileRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UploadWasmFileRequest
+         * @static
+         * @param {protos.UploadWasmFileRequest} message UploadWasmFileRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UploadWasmFileRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.name = "";
+                if (options.bytes === String)
+                    object.data = "";
+                else {
+                    object.data = [];
+                    if (options.bytes !== Array)
+                        object.data = $util.newBuffer(object.data);
+                }
+                object.auth = null;
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            if (message.data != null && message.hasOwnProperty("data"))
+                object.data = options.bytes === String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === Array ? Array.prototype.slice.call(message.data) : message.data;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this UploadWasmFileRequest to JSON.
+         * @function toJSON
+         * @memberof protos.UploadWasmFileRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UploadWasmFileRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UploadWasmFileRequest;
+    })();
+
+    protos.UploadWasmFileResponse = (function() {
+
+        /**
+         * Properties of an UploadWasmFileResponse.
+         * @memberof protos
+         * @interface IUploadWasmFileResponse
+         * @property {protos.common.IStatus|null} [status] UploadWasmFileResponse status
+         */
+
+        /**
+         * Constructs a new UploadWasmFileResponse.
+         * @memberof protos
+         * @classdesc Represents an UploadWasmFileResponse.
+         * @implements IUploadWasmFileResponse
+         * @constructor
+         * @param {protos.IUploadWasmFileResponse=} [properties] Properties to set
+         */
+        function UploadWasmFileResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * UploadWasmFileResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.UploadWasmFileResponse
+         * @instance
+         */
+        UploadWasmFileResponse.prototype.status = null;
+
+        /**
+         * Creates a new UploadWasmFileResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.UploadWasmFileResponse
+         * @static
+         * @param {protos.IUploadWasmFileResponse=} [properties] Properties to set
+         * @returns {protos.UploadWasmFileResponse} UploadWasmFileResponse instance
+         */
+        UploadWasmFileResponse.create = function create(properties) {
+            return new UploadWasmFileResponse(properties);
+        };
+
+        /**
+         * Encodes the specified UploadWasmFileResponse message. Does not implicitly {@link protos.UploadWasmFileResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.UploadWasmFileResponse
+         * @static
+         * @param {protos.IUploadWasmFileResponse} message UploadWasmFileResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UploadWasmFileResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified UploadWasmFileResponse message, length delimited. Does not implicitly {@link protos.UploadWasmFileResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.UploadWasmFileResponse
+         * @static
+         * @param {protos.IUploadWasmFileResponse} message UploadWasmFileResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        UploadWasmFileResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an UploadWasmFileResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.UploadWasmFileResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.UploadWasmFileResponse} UploadWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UploadWasmFileResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.UploadWasmFileResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an UploadWasmFileResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.UploadWasmFileResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.UploadWasmFileResponse} UploadWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        UploadWasmFileResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an UploadWasmFileResponse message.
+         * @function verify
+         * @memberof protos.UploadWasmFileResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        UploadWasmFileResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an UploadWasmFileResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.UploadWasmFileResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.UploadWasmFileResponse} UploadWasmFileResponse
+         */
+        UploadWasmFileResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.UploadWasmFileResponse)
+                return object;
+            var message = new $root.protos.UploadWasmFileResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.UploadWasmFileResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an UploadWasmFileResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.UploadWasmFileResponse
+         * @static
+         * @param {protos.UploadWasmFileResponse} message UploadWasmFileResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        UploadWasmFileResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this UploadWasmFileResponse to JSON.
+         * @function toJSON
+         * @memberof protos.UploadWasmFileResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        UploadWasmFileResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return UploadWasmFileResponse;
+    })();
+
+    protos.DownloadWasmFileRequest = (function() {
+
+        /**
+         * Properties of a DownloadWasmFileRequest.
+         * @memberof protos
+         * @interface IDownloadWasmFileRequest
+         * @property {protos.common.IAuth|null} [auth] DownloadWasmFileRequest auth
+         * @property {string|null} [name] DownloadWasmFileRequest name
+         */
+
+        /**
+         * Constructs a new DownloadWasmFileRequest.
+         * @memberof protos
+         * @classdesc Represents a DownloadWasmFileRequest.
+         * @implements IDownloadWasmFileRequest
+         * @constructor
+         * @param {protos.IDownloadWasmFileRequest=} [properties] Properties to set
+         */
+        function DownloadWasmFileRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DownloadWasmFileRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.DownloadWasmFileRequest
+         * @instance
+         */
+        DownloadWasmFileRequest.prototype.auth = null;
+
+        /**
+         * DownloadWasmFileRequest name.
+         * @member {string} name
+         * @memberof protos.DownloadWasmFileRequest
+         * @instance
+         */
+        DownloadWasmFileRequest.prototype.name = "";
+
+        /**
+         * Creates a new DownloadWasmFileRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.DownloadWasmFileRequest
+         * @static
+         * @param {protos.IDownloadWasmFileRequest=} [properties] Properties to set
+         * @returns {protos.DownloadWasmFileRequest} DownloadWasmFileRequest instance
+         */
+        DownloadWasmFileRequest.create = function create(properties) {
+            return new DownloadWasmFileRequest(properties);
+        };
+
+        /**
+         * Encodes the specified DownloadWasmFileRequest message. Does not implicitly {@link protos.DownloadWasmFileRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DownloadWasmFileRequest
+         * @static
+         * @param {protos.IDownloadWasmFileRequest} message DownloadWasmFileRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DownloadWasmFileRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DownloadWasmFileRequest message, length delimited. Does not implicitly {@link protos.DownloadWasmFileRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DownloadWasmFileRequest
+         * @static
+         * @param {protos.IDownloadWasmFileRequest} message DownloadWasmFileRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DownloadWasmFileRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DownloadWasmFileRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DownloadWasmFileRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DownloadWasmFileRequest} DownloadWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DownloadWasmFileRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DownloadWasmFileRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.name = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DownloadWasmFileRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DownloadWasmFileRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DownloadWasmFileRequest} DownloadWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DownloadWasmFileRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DownloadWasmFileRequest message.
+         * @function verify
+         * @memberof protos.DownloadWasmFileRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DownloadWasmFileRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a DownloadWasmFileRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DownloadWasmFileRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DownloadWasmFileRequest} DownloadWasmFileRequest
+         */
+        DownloadWasmFileRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DownloadWasmFileRequest)
+                return object;
+            var message = new $root.protos.DownloadWasmFileRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.DownloadWasmFileRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.name != null)
+                message.name = String(object.name);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DownloadWasmFileRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DownloadWasmFileRequest
+         * @static
+         * @param {protos.DownloadWasmFileRequest} message DownloadWasmFileRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DownloadWasmFileRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.name = "";
+                object.auth = null;
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this DownloadWasmFileRequest to JSON.
+         * @function toJSON
+         * @memberof protos.DownloadWasmFileRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DownloadWasmFileRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DownloadWasmFileRequest;
+    })();
+
+    protos.DownloadWasmFileResponse = (function() {
+
+        /**
+         * Properties of a DownloadWasmFileResponse.
+         * @memberof protos
+         * @interface IDownloadWasmFileResponse
+         * @property {protos.common.IStatus|null} [status] DownloadWasmFileResponse status
+         * @property {Uint8Array|null} [data] DownloadWasmFileResponse data
+         */
+
+        /**
+         * Constructs a new DownloadWasmFileResponse.
+         * @memberof protos
+         * @classdesc Represents a DownloadWasmFileResponse.
+         * @implements IDownloadWasmFileResponse
+         * @constructor
+         * @param {protos.IDownloadWasmFileResponse=} [properties] Properties to set
+         */
+        function DownloadWasmFileResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DownloadWasmFileResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.DownloadWasmFileResponse
+         * @instance
+         */
+        DownloadWasmFileResponse.prototype.status = null;
+
+        /**
+         * DownloadWasmFileResponse data.
+         * @member {Uint8Array} data
+         * @memberof protos.DownloadWasmFileResponse
+         * @instance
+         */
+        DownloadWasmFileResponse.prototype.data = $util.newBuffer([]);
+
+        /**
+         * Creates a new DownloadWasmFileResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.DownloadWasmFileResponse
+         * @static
+         * @param {protos.IDownloadWasmFileResponse=} [properties] Properties to set
+         * @returns {protos.DownloadWasmFileResponse} DownloadWasmFileResponse instance
+         */
+        DownloadWasmFileResponse.create = function create(properties) {
+            return new DownloadWasmFileResponse(properties);
+        };
+
+        /**
+         * Encodes the specified DownloadWasmFileResponse message. Does not implicitly {@link protos.DownloadWasmFileResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DownloadWasmFileResponse
+         * @static
+         * @param {protos.IDownloadWasmFileResponse} message DownloadWasmFileResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DownloadWasmFileResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.data);
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DownloadWasmFileResponse message, length delimited. Does not implicitly {@link protos.DownloadWasmFileResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DownloadWasmFileResponse
+         * @static
+         * @param {protos.IDownloadWasmFileResponse} message DownloadWasmFileResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DownloadWasmFileResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DownloadWasmFileResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DownloadWasmFileResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DownloadWasmFileResponse} DownloadWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DownloadWasmFileResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DownloadWasmFileResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.data = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DownloadWasmFileResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DownloadWasmFileResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DownloadWasmFileResponse} DownloadWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DownloadWasmFileResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DownloadWasmFileResponse message.
+         * @function verify
+         * @memberof protos.DownloadWasmFileResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DownloadWasmFileResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.data != null && message.hasOwnProperty("data"))
+                if (!(message.data && typeof message.data.length === "number" || $util.isString(message.data)))
+                    return "data: buffer expected";
+            return null;
+        };
+
+        /**
+         * Creates a DownloadWasmFileResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DownloadWasmFileResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DownloadWasmFileResponse} DownloadWasmFileResponse
+         */
+        DownloadWasmFileResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DownloadWasmFileResponse)
+                return object;
+            var message = new $root.protos.DownloadWasmFileResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.DownloadWasmFileResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.data != null)
+                if (typeof object.data === "string")
+                    $util.base64.decode(object.data, message.data = $util.newBuffer($util.base64.length(object.data)), 0);
+                else if (object.data.length)
+                    message.data = object.data;
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DownloadWasmFileResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DownloadWasmFileResponse
+         * @static
+         * @param {protos.DownloadWasmFileResponse} message DownloadWasmFileResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DownloadWasmFileResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.data = "";
+                else {
+                    object.data = [];
+                    if (options.bytes !== Array)
+                        object.data = $util.newBuffer(object.data);
+                }
+                object.status = null;
+            }
+            if (message.data != null && message.hasOwnProperty("data"))
+                object.data = options.bytes === String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === Array ? Array.prototype.slice.call(message.data) : message.data;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this DownloadWasmFileResponse to JSON.
+         * @function toJSON
+         * @memberof protos.DownloadWasmFileResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DownloadWasmFileResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DownloadWasmFileResponse;
+    })();
+
+    protos.ListWasmFilesRequest = (function() {
+
+        /**
+         * Properties of a ListWasmFilesRequest.
+         * @memberof protos
+         * @interface IListWasmFilesRequest
+         * @property {protos.common.IAuth|null} [auth] ListWasmFilesRequest auth
+         */
+
+        /**
+         * Constructs a new ListWasmFilesRequest.
+         * @memberof protos
+         * @classdesc Represents a ListWasmFilesRequest.
+         * @implements IListWasmFilesRequest
+         * @constructor
+         * @param {protos.IListWasmFilesRequest=} [properties] Properties to set
+         */
+        function ListWasmFilesRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ListWasmFilesRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.ListWasmFilesRequest
+         * @instance
+         */
+        ListWasmFilesRequest.prototype.auth = null;
+
+        /**
+         * Creates a new ListWasmFilesRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.ListWasmFilesRequest
+         * @static
+         * @param {protos.IListWasmFilesRequest=} [properties] Properties to set
+         * @returns {protos.ListWasmFilesRequest} ListWasmFilesRequest instance
+         */
+        ListWasmFilesRequest.create = function create(properties) {
+            return new ListWasmFilesRequest(properties);
+        };
+
+        /**
+         * Encodes the specified ListWasmFilesRequest message. Does not implicitly {@link protos.ListWasmFilesRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ListWasmFilesRequest
+         * @static
+         * @param {protos.IListWasmFilesRequest} message ListWasmFilesRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ListWasmFilesRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ListWasmFilesRequest message, length delimited. Does not implicitly {@link protos.ListWasmFilesRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ListWasmFilesRequest
+         * @static
+         * @param {protos.IListWasmFilesRequest} message ListWasmFilesRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ListWasmFilesRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a ListWasmFilesRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ListWasmFilesRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ListWasmFilesRequest} ListWasmFilesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ListWasmFilesRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ListWasmFilesRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a ListWasmFilesRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ListWasmFilesRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ListWasmFilesRequest} ListWasmFilesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ListWasmFilesRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a ListWasmFilesRequest message.
+         * @function verify
+         * @memberof protos.ListWasmFilesRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ListWasmFilesRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a ListWasmFilesRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ListWasmFilesRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ListWasmFilesRequest} ListWasmFilesRequest
+         */
+        ListWasmFilesRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ListWasmFilesRequest)
+                return object;
+            var message = new $root.protos.ListWasmFilesRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.ListWasmFilesRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a ListWasmFilesRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ListWasmFilesRequest
+         * @static
+         * @param {protos.ListWasmFilesRequest} message ListWasmFilesRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ListWasmFilesRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.auth = null;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this ListWasmFilesRequest to JSON.
+         * @function toJSON
+         * @memberof protos.ListWasmFilesRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ListWasmFilesRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ListWasmFilesRequest;
+    })();
+
+    protos.ListWasmFilesResponse = (function() {
+
+        /**
+         * Properties of a ListWasmFilesResponse.
+         * @memberof protos
+         * @interface IListWasmFilesResponse
+         * @property {protos.common.IStatus|null} [status] ListWasmFilesResponse status
+         * @property {Array.<string>|null} [names] ListWasmFilesResponse names
+         */
+
+        /**
+         * Constructs a new ListWasmFilesResponse.
+         * @memberof protos
+         * @classdesc Represents a ListWasmFilesResponse.
+         * @implements IListWasmFilesResponse
+         * @constructor
+         * @param {protos.IListWasmFilesResponse=} [properties] Properties to set
+         */
+        function ListWasmFilesResponse(properties) {
+            this.names = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ListWasmFilesResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.ListWasmFilesResponse
+         * @instance
+         */
+        ListWasmFilesResponse.prototype.status = null;
+
+        /**
+         * ListWasmFilesResponse names.
+         * @member {Array.<string>} names
+         * @memberof protos.ListWasmFilesResponse
+         * @instance
+         */
+        ListWasmFilesResponse.prototype.names = $util.emptyArray;
+
+        /**
+         * Creates a new ListWasmFilesResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.ListWasmFilesResponse
+         * @static
+         * @param {protos.IListWasmFilesResponse=} [properties] Properties to set
+         * @returns {protos.ListWasmFilesResponse} ListWasmFilesResponse instance
+         */
+        ListWasmFilesResponse.create = function create(properties) {
+            return new ListWasmFilesResponse(properties);
+        };
+
+        /**
+         * Encodes the specified ListWasmFilesResponse message. Does not implicitly {@link protos.ListWasmFilesResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.ListWasmFilesResponse
+         * @static
+         * @param {protos.IListWasmFilesResponse} message ListWasmFilesResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ListWasmFilesResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.names != null && message.names.length)
+                for (var i = 0; i < message.names.length; ++i)
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.names[i]);
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ListWasmFilesResponse message, length delimited. Does not implicitly {@link protos.ListWasmFilesResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.ListWasmFilesResponse
+         * @static
+         * @param {protos.IListWasmFilesResponse} message ListWasmFilesResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ListWasmFilesResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a ListWasmFilesResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.ListWasmFilesResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.ListWasmFilesResponse} ListWasmFilesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ListWasmFilesResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ListWasmFilesResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    if (!(message.names && message.names.length))
+                        message.names = [];
+                    message.names.push(reader.string());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a ListWasmFilesResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.ListWasmFilesResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.ListWasmFilesResponse} ListWasmFilesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ListWasmFilesResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a ListWasmFilesResponse message.
+         * @function verify
+         * @memberof protos.ListWasmFilesResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ListWasmFilesResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            if (message.names != null && message.hasOwnProperty("names")) {
+                if (!Array.isArray(message.names))
+                    return "names: array expected";
+                for (var i = 0; i < message.names.length; ++i)
+                    if (!$util.isString(message.names[i]))
+                        return "names: string[] expected";
+            }
+            return null;
+        };
+
+        /**
+         * Creates a ListWasmFilesResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.ListWasmFilesResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.ListWasmFilesResponse} ListWasmFilesResponse
+         */
+        ListWasmFilesResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ListWasmFilesResponse)
+                return object;
+            var message = new $root.protos.ListWasmFilesResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.ListWasmFilesResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            if (object.names) {
+                if (!Array.isArray(object.names))
+                    throw TypeError(".protos.ListWasmFilesResponse.names: array expected");
+                message.names = [];
+                for (var i = 0; i < object.names.length; ++i)
+                    message.names[i] = String(object.names[i]);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a ListWasmFilesResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.ListWasmFilesResponse
+         * @static
+         * @param {protos.ListWasmFilesResponse} message ListWasmFilesResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ListWasmFilesResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.arrays || options.defaults)
+                object.names = [];
+            if (options.defaults)
+                object.status = null;
+            if (message.names && message.names.length) {
+                object.names = [];
+                for (var j = 0; j < message.names.length; ++j)
+                    object.names[j] = message.names[j];
+            }
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this ListWasmFilesResponse to JSON.
+         * @function toJSON
+         * @memberof protos.ListWasmFilesResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ListWasmFilesResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ListWasmFilesResponse;
+    })();
+
+    protos.DeleteWasmFileRequest = (function() {
+
+        /**
+         * Properties of a DeleteWasmFileRequest.
+         * @memberof protos
+         * @interface IDeleteWasmFileRequest
+         * @property {protos.common.IAuth|null} [auth] DeleteWasmFileRequest auth
+         * @property {string|null} [name] DeleteWasmFileRequest name
+         */
+
+        /**
+         * Constructs a new DeleteWasmFileRequest.
+         * @memberof protos
+         * @classdesc Represents a DeleteWasmFileRequest.
+         * @implements IDeleteWasmFileRequest
+         * @constructor
+         * @param {protos.IDeleteWasmFileRequest=} [properties] Properties to set
+         */
+        function DeleteWasmFileRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteWasmFileRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.DeleteWasmFileRequest
+         * @instance
+         */
+        DeleteWasmFileRequest.prototype.auth = null;
+
+        /**
+         * DeleteWasmFileRequest name.
+         * @member {string} name
+         * @memberof protos.DeleteWasmFileRequest
+         * @instance
+         */
+        DeleteWasmFileRequest.prototype.name = "";
+
+        /**
+         * Creates a new DeleteWasmFileRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteWasmFileRequest
+         * @static
+         * @param {protos.IDeleteWasmFileRequest=} [properties] Properties to set
+         * @returns {protos.DeleteWasmFileRequest} DeleteWasmFileRequest instance
+         */
+        DeleteWasmFileRequest.create = function create(properties) {
+            return new DeleteWasmFileRequest(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteWasmFileRequest message. Does not implicitly {@link protos.DeleteWasmFileRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteWasmFileRequest
+         * @static
+         * @param {protos.IDeleteWasmFileRequest} message DeleteWasmFileRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteWasmFileRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteWasmFileRequest message, length delimited. Does not implicitly {@link protos.DeleteWasmFileRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteWasmFileRequest
+         * @static
+         * @param {protos.IDeleteWasmFileRequest} message DeleteWasmFileRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteWasmFileRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteWasmFileRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteWasmFileRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteWasmFileRequest} DeleteWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteWasmFileRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteWasmFileRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.name = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteWasmFileRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteWasmFileRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteWasmFileRequest} DeleteWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteWasmFileRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteWasmFileRequest message.
+         * @function verify
+         * @memberof protos.DeleteWasmFileRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteWasmFileRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a DeleteWasmFileRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteWasmFileRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteWasmFileRequest} DeleteWasmFileRequest
+         */
+        DeleteWasmFileRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteWasmFileRequest)
+                return object;
+            var message = new $root.protos.DeleteWasmFileRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.DeleteWasmFileRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.name != null)
+                message.name = String(object.name);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteWasmFileRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteWasmFileRequest
+         * @static
+         * @param {protos.DeleteWasmFileRequest} message DeleteWasmFileRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteWasmFileRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                object.name = "";
+                object.auth = null;
+            }
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteWasmFileRequest to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteWasmFileRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteWasmFileRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteWasmFileRequest;
+    })();
+
+    protos.DeleteWasmFileResponse = (function() {
+
+        /**
+         * Properties of a DeleteWasmFileResponse.
+         * @memberof protos
+         * @interface IDeleteWasmFileResponse
+         * @property {protos.common.IStatus|null} [status] DeleteWasmFileResponse status
+         */
+
+        /**
+         * Constructs a new DeleteWasmFileResponse.
+         * @memberof protos
+         * @classdesc Represents a DeleteWasmFileResponse.
+         * @implements IDeleteWasmFileResponse
+         * @constructor
+         * @param {protos.IDeleteWasmFileResponse=} [properties] Properties to set
+         */
+        function DeleteWasmFileResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * DeleteWasmFileResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.DeleteWasmFileResponse
+         * @instance
+         */
+        DeleteWasmFileResponse.prototype.status = null;
+
+        /**
+         * Creates a new DeleteWasmFileResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.DeleteWasmFileResponse
+         * @static
+         * @param {protos.IDeleteWasmFileResponse=} [properties] Properties to set
+         * @returns {protos.DeleteWasmFileResponse} DeleteWasmFileResponse instance
+         */
+        DeleteWasmFileResponse.create = function create(properties) {
+            return new DeleteWasmFileResponse(properties);
+        };
+
+        /**
+         * Encodes the specified DeleteWasmFileResponse message. Does not implicitly {@link protos.DeleteWasmFileResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.DeleteWasmFileResponse
+         * @static
+         * @param {protos.IDeleteWasmFileResponse} message DeleteWasmFileResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteWasmFileResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified DeleteWasmFileResponse message, length delimited. Does not implicitly {@link protos.DeleteWasmFileResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.DeleteWasmFileResponse
+         * @static
+         * @param {protos.IDeleteWasmFileResponse} message DeleteWasmFileResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        DeleteWasmFileResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a DeleteWasmFileResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.DeleteWasmFileResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.DeleteWasmFileResponse} DeleteWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteWasmFileResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.DeleteWasmFileResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a DeleteWasmFileResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.DeleteWasmFileResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.DeleteWasmFileResponse} DeleteWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        DeleteWasmFileResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a DeleteWasmFileResponse message.
+         * @function verify
+         * @memberof protos.DeleteWasmFileResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        DeleteWasmFileResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a DeleteWasmFileResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.DeleteWasmFileResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.DeleteWasmFileResponse} DeleteWasmFileResponse
+         */
+        DeleteWasmFileResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.DeleteWasmFileResponse)
+                return object;
+            var message = new $root.protos.DeleteWasmFileResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.DeleteWasmFileResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a DeleteWasmFileResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.DeleteWasmFileResponse
+         * @static
+         * @param {protos.DeleteWasmFileResponse} message DeleteWasmFileResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        DeleteWasmFileResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this DeleteWasmFileResponse to JSON.
+         * @function toJSON
+         * @memberof protos.DeleteWasmFileResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        DeleteWasmFileResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return DeleteWasmFileResponse;
     })();
 
     protos.ForemanClient = (function() {

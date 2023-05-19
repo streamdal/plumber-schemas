@@ -303,6 +303,76 @@ export namespace protos {
         public deleteTunnel(request: protos.IDeleteTunnelRequest): Promise<protos.DeleteTunnelResponse>;
 
         /**
+         * Calls ListWasmFiles.
+         * @param request ListWasmFilesRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ListWasmFilesResponse
+         */
+        public listWasmFiles(request: protos.IListWasmFilesRequest, callback: protos.PlumberServer.ListWasmFilesCallback): void;
+
+        /**
+         * Calls ListWasmFiles.
+         * @param request ListWasmFilesRequest message or plain object
+         * @returns Promise
+         */
+        public listWasmFiles(request: protos.IListWasmFilesRequest): Promise<protos.ListWasmFilesResponse>;
+
+        /**
+         * Calls UploadWasmFile.
+         * @param request UploadWasmFileRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UploadWasmFileResponse
+         */
+        public uploadWasmFile(request: protos.IUploadWasmFileRequest, callback: protos.PlumberServer.UploadWasmFileCallback): void;
+
+        /**
+         * Calls UploadWasmFile.
+         * @param request UploadWasmFileRequest message or plain object
+         * @returns Promise
+         */
+        public uploadWasmFile(request: protos.IUploadWasmFileRequest): Promise<protos.UploadWasmFileResponse>;
+
+        /**
+         * Calls DownloadWasmFile.
+         * @param request DownloadWasmFileRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DownloadWasmFileResponse
+         */
+        public downloadWasmFile(request: protos.IDownloadWasmFileRequest, callback: protos.PlumberServer.DownloadWasmFileCallback): void;
+
+        /**
+         * Calls DownloadWasmFile.
+         * @param request DownloadWasmFileRequest message or plain object
+         * @returns Promise
+         */
+        public downloadWasmFile(request: protos.IDownloadWasmFileRequest): Promise<protos.DownloadWasmFileResponse>;
+
+        /**
+         * Calls DeleteWasmFile.
+         * @param request DeleteWasmFileRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteWasmFileResponse
+         */
+        public deleteWasmFile(request: protos.IDeleteWasmFileRequest, callback: protos.PlumberServer.DeleteWasmFileCallback): void;
+
+        /**
+         * Calls DeleteWasmFile.
+         * @param request DeleteWasmFileRequest message or plain object
+         * @returns Promise
+         */
+        public deleteWasmFile(request: protos.IDeleteWasmFileRequest): Promise<protos.DeleteWasmFileResponse>;
+
+        /**
+         * Calls GetRules.
+         * @param request GetDataQualityRulesRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetDataQualityRulesResponse
+         */
+        public getRules(request: protos.IGetDataQualityRulesRequest, callback: protos.PlumberServer.GetRulesCallback): void;
+
+        /**
+         * Calls GetRules.
+         * @param request GetDataQualityRulesRequest message or plain object
+         * @returns Promise
+         */
+        public getRules(request: protos.IGetDataQualityRulesRequest): Promise<protos.GetDataQualityRulesResponse>;
+
+        /**
          * Calls GetServerOptions.
          * @param request GetServerOptionsRequest message or plain object
          * @param callback Node-style callback called with the error, if any, and GetServerOptionsResponse
@@ -458,6 +528,41 @@ export namespace protos {
          * @param [response] DeleteTunnelResponse
          */
         type DeleteTunnelCallback = (error: (Error|null), response?: protos.DeleteTunnelResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#listWasmFiles}.
+         * @param error Error, if any
+         * @param [response] ListWasmFilesResponse
+         */
+        type ListWasmFilesCallback = (error: (Error|null), response?: protos.ListWasmFilesResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#uploadWasmFile}.
+         * @param error Error, if any
+         * @param [response] UploadWasmFileResponse
+         */
+        type UploadWasmFileCallback = (error: (Error|null), response?: protos.UploadWasmFileResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#downloadWasmFile}.
+         * @param error Error, if any
+         * @param [response] DownloadWasmFileResponse
+         */
+        type DownloadWasmFileCallback = (error: (Error|null), response?: protos.DownloadWasmFileResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteWasmFile}.
+         * @param error Error, if any
+         * @param [response] DeleteWasmFileResponse
+         */
+        type DeleteWasmFileCallback = (error: (Error|null), response?: protos.DeleteWasmFileResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRules}.
+         * @param error Error, if any
+         * @param [response] GetDataQualityRulesResponse
+         */
+        type GetRulesCallback = (error: (Error|null), response?: protos.GetDataQualityRulesResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#getServerOptions}.
@@ -2004,6 +2109,1026 @@ export namespace protos {
 
             /**
              * Converts this Status to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RuleSet. */
+        interface IRuleSet {
+
+            /** RuleSet name */
+            name?: (string|null);
+
+            /** RuleSet mode */
+            mode?: (protos.common.RuleMode|null);
+
+            /** RuleSet rules */
+            rules?: ({ [k: string]: protos.common.IRules }|null);
+
+            /** RuleSet bus */
+            bus?: (string|null);
+
+            /** RuleSet version */
+            version?: (number|null);
+        }
+
+        /** Represents a RuleSet. */
+        class RuleSet implements IRuleSet {
+
+            /**
+             * Constructs a new RuleSet.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IRuleSet);
+
+            /** RuleSet name. */
+            public name: string;
+
+            /** RuleSet mode. */
+            public mode: protos.common.RuleMode;
+
+            /** RuleSet rules. */
+            public rules: { [k: string]: protos.common.IRules };
+
+            /** RuleSet bus. */
+            public bus: string;
+
+            /** RuleSet version. */
+            public version: number;
+
+            /**
+             * Creates a new RuleSet instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RuleSet instance
+             */
+            public static create(properties?: protos.common.IRuleSet): protos.common.RuleSet;
+
+            /**
+             * Encodes the specified RuleSet message. Does not implicitly {@link protos.common.RuleSet.verify|verify} messages.
+             * @param message RuleSet message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IRuleSet, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RuleSet message, length delimited. Does not implicitly {@link protos.common.RuleSet.verify|verify} messages.
+             * @param message RuleSet message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IRuleSet, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RuleSet message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RuleSet
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.RuleSet;
+
+            /**
+             * Decodes a RuleSet message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RuleSet
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.RuleSet;
+
+            /**
+             * Verifies a RuleSet message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RuleSet message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RuleSet
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.RuleSet;
+
+            /**
+             * Creates a plain object from a RuleSet message. Also converts values to other types if specified.
+             * @param message RuleSet
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.RuleSet, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RuleSet to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** RuleType enum. */
+        enum RuleType {
+            RULE_TYPE_UNSET = 0,
+            RULE_TYPE_MATCH = 1,
+            RULE_TYPE_TRANSFORM = 2,
+            RULE_TYPE_CUSTOM = 3
+        }
+
+        /** RuleMode enum. */
+        enum RuleMode {
+            RULE_MODE_UNSET = 0,
+            RULE_MODE_PUBLISH = 1,
+            RULE_MODE_CONSUME = 2
+        }
+
+        /** RuleFailureMode enum. */
+        enum RuleFailureMode {
+            RULE_FAILURE_MODE_UNSET = 0,
+            RULE_FAILURE_MODE_REJECT = 1,
+            RULE_FAILURE_MODE_DLQ = 2,
+            RULE_FAILURE_MODE_TRANSFORM = 3,
+            RULE_FAILURE_MODE_ALERT_SLACK = 4
+        }
+
+        /** Properties of a Rules. */
+        interface IRules {
+
+            /** Rules rules */
+            rules?: (protos.common.IRule[]|null);
+        }
+
+        /** Represents a Rules. */
+        class Rules implements IRules {
+
+            /**
+             * Constructs a new Rules.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IRules);
+
+            /** Rules rules. */
+            public rules: protos.common.IRule[];
+
+            /**
+             * Creates a new Rules instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Rules instance
+             */
+            public static create(properties?: protos.common.IRules): protos.common.Rules;
+
+            /**
+             * Encodes the specified Rules message. Does not implicitly {@link protos.common.Rules.verify|verify} messages.
+             * @param message Rules message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IRules, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Rules message, length delimited. Does not implicitly {@link protos.common.Rules.verify|verify} messages.
+             * @param message Rules message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IRules, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Rules message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Rules
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.Rules;
+
+            /**
+             * Decodes a Rules message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Rules
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.Rules;
+
+            /**
+             * Verifies a Rules message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Rules message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Rules
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.Rules;
+
+            /**
+             * Creates a plain object from a Rules message. Also converts values to other types if specified.
+             * @param message Rules
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.Rules, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Rules to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a Rule. */
+        interface IRule {
+
+            /** Rule type */
+            type?: (protos.common.RuleType|null);
+
+            /** Rule failureMode */
+            failureMode?: (protos.common.RuleFailureMode|null);
+
+            /** Rule matchConfig */
+            matchConfig?: (protos.common.IRuleConfigMatch|null);
+
+            /** Rule transformConfig */
+            transformConfig?: (protos.common.IRuleConfigTransform|null);
+
+            /** Rule customConfig */
+            customConfig?: (protos.common.IRuleConfigCustom|null);
+
+            /** Rule reject */
+            reject?: (protos.common.IFailureModeReject|null);
+
+            /** Rule dlq */
+            dlq?: (protos.common.IFailureModeDLQ|null);
+
+            /** Rule transform */
+            transform?: (protos.common.IFailureModeTransform|null);
+
+            /** Rule alertSlack */
+            alertSlack?: (protos.common.IFailureModeAlertSlack|null);
+        }
+
+        /** Represents a Rule. */
+        class Rule implements IRule {
+
+            /**
+             * Constructs a new Rule.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IRule);
+
+            /** Rule type. */
+            public type: protos.common.RuleType;
+
+            /** Rule failureMode. */
+            public failureMode: protos.common.RuleFailureMode;
+
+            /** Rule matchConfig. */
+            public matchConfig?: (protos.common.IRuleConfigMatch|null);
+
+            /** Rule transformConfig. */
+            public transformConfig?: (protos.common.IRuleConfigTransform|null);
+
+            /** Rule customConfig. */
+            public customConfig?: (protos.common.IRuleConfigCustom|null);
+
+            /** Rule reject. */
+            public reject?: (protos.common.IFailureModeReject|null);
+
+            /** Rule dlq. */
+            public dlq?: (protos.common.IFailureModeDLQ|null);
+
+            /** Rule transform. */
+            public transform?: (protos.common.IFailureModeTransform|null);
+
+            /** Rule alertSlack. */
+            public alertSlack?: (protos.common.IFailureModeAlertSlack|null);
+
+            /** Rule ruleConfig. */
+            public ruleConfig?: ("matchConfig"|"transformConfig"|"customConfig");
+
+            /** Rule failureModeConfig. */
+            public failureModeConfig?: ("reject"|"dlq"|"transform"|"alertSlack");
+
+            /**
+             * Creates a new Rule instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns Rule instance
+             */
+            public static create(properties?: protos.common.IRule): protos.common.Rule;
+
+            /**
+             * Encodes the specified Rule message. Does not implicitly {@link protos.common.Rule.verify|verify} messages.
+             * @param message Rule message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IRule, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified Rule message, length delimited. Does not implicitly {@link protos.common.Rule.verify|verify} messages.
+             * @param message Rule message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IRule, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a Rule message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns Rule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.Rule;
+
+            /**
+             * Decodes a Rule message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns Rule
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.Rule;
+
+            /**
+             * Verifies a Rule message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a Rule message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns Rule
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.Rule;
+
+            /**
+             * Creates a plain object from a Rule message. Also converts values to other types if specified.
+             * @param message Rule
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.Rule, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this Rule to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RuleConfigMatch. */
+        interface IRuleConfigMatch {
+
+            /** RuleConfigMatch path */
+            path?: (string|null);
+
+            /** RuleConfigMatch type */
+            type?: (string|null);
+
+            /** RuleConfigMatch args */
+            args?: (string[]|null);
+        }
+
+        /** Represents a RuleConfigMatch. */
+        class RuleConfigMatch implements IRuleConfigMatch {
+
+            /**
+             * Constructs a new RuleConfigMatch.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IRuleConfigMatch);
+
+            /** RuleConfigMatch path. */
+            public path: string;
+
+            /** RuleConfigMatch type. */
+            public type: string;
+
+            /** RuleConfigMatch args. */
+            public args: string[];
+
+            /**
+             * Creates a new RuleConfigMatch instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RuleConfigMatch instance
+             */
+            public static create(properties?: protos.common.IRuleConfigMatch): protos.common.RuleConfigMatch;
+
+            /**
+             * Encodes the specified RuleConfigMatch message. Does not implicitly {@link protos.common.RuleConfigMatch.verify|verify} messages.
+             * @param message RuleConfigMatch message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IRuleConfigMatch, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RuleConfigMatch message, length delimited. Does not implicitly {@link protos.common.RuleConfigMatch.verify|verify} messages.
+             * @param message RuleConfigMatch message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IRuleConfigMatch, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RuleConfigMatch message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RuleConfigMatch
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.RuleConfigMatch;
+
+            /**
+             * Decodes a RuleConfigMatch message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RuleConfigMatch
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.RuleConfigMatch;
+
+            /**
+             * Verifies a RuleConfigMatch message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RuleConfigMatch message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RuleConfigMatch
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.RuleConfigMatch;
+
+            /**
+             * Creates a plain object from a RuleConfigMatch message. Also converts values to other types if specified.
+             * @param message RuleConfigMatch
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.RuleConfigMatch, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RuleConfigMatch to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RuleConfigTransform. */
+        interface IRuleConfigTransform {
+
+            /** RuleConfigTransform path */
+            path?: (string|null);
+
+            /** RuleConfigTransform value */
+            value?: (string|null);
+        }
+
+        /** Represents a RuleConfigTransform. */
+        class RuleConfigTransform implements IRuleConfigTransform {
+
+            /**
+             * Constructs a new RuleConfigTransform.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IRuleConfigTransform);
+
+            /** RuleConfigTransform path. */
+            public path: string;
+
+            /** RuleConfigTransform value. */
+            public value: string;
+
+            /**
+             * Creates a new RuleConfigTransform instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RuleConfigTransform instance
+             */
+            public static create(properties?: protos.common.IRuleConfigTransform): protos.common.RuleConfigTransform;
+
+            /**
+             * Encodes the specified RuleConfigTransform message. Does not implicitly {@link protos.common.RuleConfigTransform.verify|verify} messages.
+             * @param message RuleConfigTransform message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IRuleConfigTransform, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RuleConfigTransform message, length delimited. Does not implicitly {@link protos.common.RuleConfigTransform.verify|verify} messages.
+             * @param message RuleConfigTransform message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IRuleConfigTransform, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RuleConfigTransform message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RuleConfigTransform
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.RuleConfigTransform;
+
+            /**
+             * Decodes a RuleConfigTransform message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RuleConfigTransform
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.RuleConfigTransform;
+
+            /**
+             * Verifies a RuleConfigTransform message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RuleConfigTransform message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RuleConfigTransform
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.RuleConfigTransform;
+
+            /**
+             * Creates a plain object from a RuleConfigTransform message. Also converts values to other types if specified.
+             * @param message RuleConfigTransform
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.RuleConfigTransform, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RuleConfigTransform to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a RuleConfigCustom. */
+        interface IRuleConfigCustom {
+        }
+
+        /** Represents a RuleConfigCustom. */
+        class RuleConfigCustom implements IRuleConfigCustom {
+
+            /**
+             * Constructs a new RuleConfigCustom.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IRuleConfigCustom);
+
+            /**
+             * Creates a new RuleConfigCustom instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns RuleConfigCustom instance
+             */
+            public static create(properties?: protos.common.IRuleConfigCustom): protos.common.RuleConfigCustom;
+
+            /**
+             * Encodes the specified RuleConfigCustom message. Does not implicitly {@link protos.common.RuleConfigCustom.verify|verify} messages.
+             * @param message RuleConfigCustom message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IRuleConfigCustom, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified RuleConfigCustom message, length delimited. Does not implicitly {@link protos.common.RuleConfigCustom.verify|verify} messages.
+             * @param message RuleConfigCustom message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IRuleConfigCustom, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a RuleConfigCustom message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns RuleConfigCustom
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.RuleConfigCustom;
+
+            /**
+             * Decodes a RuleConfigCustom message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns RuleConfigCustom
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.RuleConfigCustom;
+
+            /**
+             * Verifies a RuleConfigCustom message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a RuleConfigCustom message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns RuleConfigCustom
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.RuleConfigCustom;
+
+            /**
+             * Creates a plain object from a RuleConfigCustom message. Also converts values to other types if specified.
+             * @param message RuleConfigCustom
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.RuleConfigCustom, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this RuleConfigCustom to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a FailureModeReject. */
+        interface IFailureModeReject {
+        }
+
+        /** Represents a FailureModeReject. */
+        class FailureModeReject implements IFailureModeReject {
+
+            /**
+             * Constructs a new FailureModeReject.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IFailureModeReject);
+
+            /**
+             * Creates a new FailureModeReject instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns FailureModeReject instance
+             */
+            public static create(properties?: protos.common.IFailureModeReject): protos.common.FailureModeReject;
+
+            /**
+             * Encodes the specified FailureModeReject message. Does not implicitly {@link protos.common.FailureModeReject.verify|verify} messages.
+             * @param message FailureModeReject message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IFailureModeReject, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified FailureModeReject message, length delimited. Does not implicitly {@link protos.common.FailureModeReject.verify|verify} messages.
+             * @param message FailureModeReject message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IFailureModeReject, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a FailureModeReject message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns FailureModeReject
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.FailureModeReject;
+
+            /**
+             * Decodes a FailureModeReject message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns FailureModeReject
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.FailureModeReject;
+
+            /**
+             * Verifies a FailureModeReject message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a FailureModeReject message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns FailureModeReject
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.FailureModeReject;
+
+            /**
+             * Creates a plain object from a FailureModeReject message. Also converts values to other types if specified.
+             * @param message FailureModeReject
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.FailureModeReject, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this FailureModeReject to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a FailureModeDLQ. */
+        interface IFailureModeDLQ {
+
+            /** FailureModeDLQ streamdalToken */
+            streamdalToken?: (string|null);
+        }
+
+        /** Represents a FailureModeDLQ. */
+        class FailureModeDLQ implements IFailureModeDLQ {
+
+            /**
+             * Constructs a new FailureModeDLQ.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IFailureModeDLQ);
+
+            /** FailureModeDLQ streamdalToken. */
+            public streamdalToken: string;
+
+            /**
+             * Creates a new FailureModeDLQ instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns FailureModeDLQ instance
+             */
+            public static create(properties?: protos.common.IFailureModeDLQ): protos.common.FailureModeDLQ;
+
+            /**
+             * Encodes the specified FailureModeDLQ message. Does not implicitly {@link protos.common.FailureModeDLQ.verify|verify} messages.
+             * @param message FailureModeDLQ message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IFailureModeDLQ, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified FailureModeDLQ message, length delimited. Does not implicitly {@link protos.common.FailureModeDLQ.verify|verify} messages.
+             * @param message FailureModeDLQ message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IFailureModeDLQ, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a FailureModeDLQ message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns FailureModeDLQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.FailureModeDLQ;
+
+            /**
+             * Decodes a FailureModeDLQ message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns FailureModeDLQ
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.FailureModeDLQ;
+
+            /**
+             * Verifies a FailureModeDLQ message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a FailureModeDLQ message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns FailureModeDLQ
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.FailureModeDLQ;
+
+            /**
+             * Creates a plain object from a FailureModeDLQ message. Also converts values to other types if specified.
+             * @param message FailureModeDLQ
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.FailureModeDLQ, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this FailureModeDLQ to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a FailureModeTransform. */
+        interface IFailureModeTransform {
+
+            /** FailureModeTransform path */
+            path?: (string|null);
+
+            /** FailureModeTransform value */
+            value?: (string|null);
+        }
+
+        /** Represents a FailureModeTransform. */
+        class FailureModeTransform implements IFailureModeTransform {
+
+            /**
+             * Constructs a new FailureModeTransform.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IFailureModeTransform);
+
+            /** FailureModeTransform path. */
+            public path: string;
+
+            /** FailureModeTransform value. */
+            public value: string;
+
+            /**
+             * Creates a new FailureModeTransform instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns FailureModeTransform instance
+             */
+            public static create(properties?: protos.common.IFailureModeTransform): protos.common.FailureModeTransform;
+
+            /**
+             * Encodes the specified FailureModeTransform message. Does not implicitly {@link protos.common.FailureModeTransform.verify|verify} messages.
+             * @param message FailureModeTransform message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IFailureModeTransform, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified FailureModeTransform message, length delimited. Does not implicitly {@link protos.common.FailureModeTransform.verify|verify} messages.
+             * @param message FailureModeTransform message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IFailureModeTransform, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a FailureModeTransform message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns FailureModeTransform
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.FailureModeTransform;
+
+            /**
+             * Decodes a FailureModeTransform message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns FailureModeTransform
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.FailureModeTransform;
+
+            /**
+             * Verifies a FailureModeTransform message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a FailureModeTransform message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns FailureModeTransform
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.FailureModeTransform;
+
+            /**
+             * Creates a plain object from a FailureModeTransform message. Also converts values to other types if specified.
+             * @param message FailureModeTransform
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.FailureModeTransform, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this FailureModeTransform to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a FailureModeAlertSlack. */
+        interface IFailureModeAlertSlack {
+
+            /** FailureModeAlertSlack slackToken */
+            slackToken?: (string|null);
+
+            /** FailureModeAlertSlack slackChannel */
+            slackChannel?: (string|null);
+        }
+
+        /** Represents a FailureModeAlertSlack. */
+        class FailureModeAlertSlack implements IFailureModeAlertSlack {
+
+            /**
+             * Constructs a new FailureModeAlertSlack.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IFailureModeAlertSlack);
+
+            /** FailureModeAlertSlack slackToken. */
+            public slackToken: string;
+
+            /** FailureModeAlertSlack slackChannel. */
+            public slackChannel: string;
+
+            /**
+             * Creates a new FailureModeAlertSlack instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns FailureModeAlertSlack instance
+             */
+            public static create(properties?: protos.common.IFailureModeAlertSlack): protos.common.FailureModeAlertSlack;
+
+            /**
+             * Encodes the specified FailureModeAlertSlack message. Does not implicitly {@link protos.common.FailureModeAlertSlack.verify|verify} messages.
+             * @param message FailureModeAlertSlack message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IFailureModeAlertSlack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified FailureModeAlertSlack message, length delimited. Does not implicitly {@link protos.common.FailureModeAlertSlack.verify|verify} messages.
+             * @param message FailureModeAlertSlack message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IFailureModeAlertSlack, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a FailureModeAlertSlack message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns FailureModeAlertSlack
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.FailureModeAlertSlack;
+
+            /**
+             * Decodes a FailureModeAlertSlack message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns FailureModeAlertSlack
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.FailureModeAlertSlack;
+
+            /**
+             * Verifies a FailureModeAlertSlack message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a FailureModeAlertSlack message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns FailureModeAlertSlack
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.FailureModeAlertSlack;
+
+            /**
+             * Creates a plain object from a FailureModeAlertSlack message. Also converts values to other types if specified.
+             * @param message FailureModeAlertSlack
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.FailureModeAlertSlack, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this FailureModeAlertSlack to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
@@ -23423,6 +24548,198 @@ export namespace protos {
         }
     }
 
+    /** Properties of a GetDataQualityRulesRequest. */
+    interface IGetDataQualityRulesRequest {
+
+        /** GetDataQualityRulesRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetDataQualityRulesRequest bus */
+        bus?: (string|null);
+    }
+
+    /** Represents a GetDataQualityRulesRequest. */
+    class GetDataQualityRulesRequest implements IGetDataQualityRulesRequest {
+
+        /**
+         * Constructs a new GetDataQualityRulesRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetDataQualityRulesRequest);
+
+        /** GetDataQualityRulesRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetDataQualityRulesRequest bus. */
+        public bus: string;
+
+        /**
+         * Creates a new GetDataQualityRulesRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetDataQualityRulesRequest instance
+         */
+        public static create(properties?: protos.IGetDataQualityRulesRequest): protos.GetDataQualityRulesRequest;
+
+        /**
+         * Encodes the specified GetDataQualityRulesRequest message. Does not implicitly {@link protos.GetDataQualityRulesRequest.verify|verify} messages.
+         * @param message GetDataQualityRulesRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetDataQualityRulesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetDataQualityRulesRequest message, length delimited. Does not implicitly {@link protos.GetDataQualityRulesRequest.verify|verify} messages.
+         * @param message GetDataQualityRulesRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetDataQualityRulesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetDataQualityRulesRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetDataQualityRulesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRulesRequest;
+
+        /**
+         * Decodes a GetDataQualityRulesRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetDataQualityRulesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRulesRequest;
+
+        /**
+         * Verifies a GetDataQualityRulesRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetDataQualityRulesRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetDataQualityRulesRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRulesRequest;
+
+        /**
+         * Creates a plain object from a GetDataQualityRulesRequest message. Also converts values to other types if specified.
+         * @param message GetDataQualityRulesRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetDataQualityRulesRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetDataQualityRulesRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetDataQualityRulesResponse. */
+    interface IGetDataQualityRulesResponse {
+
+        /** GetDataQualityRulesResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** GetDataQualityRulesResponse ruleSets */
+        ruleSets?: (protos.common.IRuleSet[]|null);
+    }
+
+    /** Represents a GetDataQualityRulesResponse. */
+    class GetDataQualityRulesResponse implements IGetDataQualityRulesResponse {
+
+        /**
+         * Constructs a new GetDataQualityRulesResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetDataQualityRulesResponse);
+
+        /** GetDataQualityRulesResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** GetDataQualityRulesResponse ruleSets. */
+        public ruleSets: protos.common.IRuleSet[];
+
+        /**
+         * Creates a new GetDataQualityRulesResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetDataQualityRulesResponse instance
+         */
+        public static create(properties?: protos.IGetDataQualityRulesResponse): protos.GetDataQualityRulesResponse;
+
+        /**
+         * Encodes the specified GetDataQualityRulesResponse message. Does not implicitly {@link protos.GetDataQualityRulesResponse.verify|verify} messages.
+         * @param message GetDataQualityRulesResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetDataQualityRulesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetDataQualityRulesResponse message, length delimited. Does not implicitly {@link protos.GetDataQualityRulesResponse.verify|verify} messages.
+         * @param message GetDataQualityRulesResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetDataQualityRulesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetDataQualityRulesResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetDataQualityRulesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRulesResponse;
+
+        /**
+         * Decodes a GetDataQualityRulesResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetDataQualityRulesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRulesResponse;
+
+        /**
+         * Verifies a GetDataQualityRulesResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetDataQualityRulesResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetDataQualityRulesResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRulesResponse;
+
+        /**
+         * Creates a plain object from a GetDataQualityRulesResponse message. Also converts values to other types if specified.
+         * @param message GetDataQualityRulesResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetDataQualityRulesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetDataQualityRulesResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
     /** Properties of a GetAllRelaysRequest. */
     interface IGetAllRelaysRequest {
 
@@ -26238,6 +27555,762 @@ export namespace protos {
 
         /**
          * Converts this DeleteTunnelResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UploadWasmFileRequest. */
+    interface IUploadWasmFileRequest {
+
+        /** UploadWasmFileRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UploadWasmFileRequest name */
+        name?: (string|null);
+
+        /** UploadWasmFileRequest data */
+        data?: (Uint8Array|null);
+    }
+
+    /** Represents an UploadWasmFileRequest. */
+    class UploadWasmFileRequest implements IUploadWasmFileRequest {
+
+        /**
+         * Constructs a new UploadWasmFileRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUploadWasmFileRequest);
+
+        /** UploadWasmFileRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UploadWasmFileRequest name. */
+        public name: string;
+
+        /** UploadWasmFileRequest data. */
+        public data: Uint8Array;
+
+        /**
+         * Creates a new UploadWasmFileRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UploadWasmFileRequest instance
+         */
+        public static create(properties?: protos.IUploadWasmFileRequest): protos.UploadWasmFileRequest;
+
+        /**
+         * Encodes the specified UploadWasmFileRequest message. Does not implicitly {@link protos.UploadWasmFileRequest.verify|verify} messages.
+         * @param message UploadWasmFileRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUploadWasmFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UploadWasmFileRequest message, length delimited. Does not implicitly {@link protos.UploadWasmFileRequest.verify|verify} messages.
+         * @param message UploadWasmFileRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUploadWasmFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UploadWasmFileRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UploadWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UploadWasmFileRequest;
+
+        /**
+         * Decodes an UploadWasmFileRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UploadWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UploadWasmFileRequest;
+
+        /**
+         * Verifies an UploadWasmFileRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UploadWasmFileRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UploadWasmFileRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UploadWasmFileRequest;
+
+        /**
+         * Creates a plain object from an UploadWasmFileRequest message. Also converts values to other types if specified.
+         * @param message UploadWasmFileRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UploadWasmFileRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UploadWasmFileRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UploadWasmFileResponse. */
+    interface IUploadWasmFileResponse {
+
+        /** UploadWasmFileResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UploadWasmFileResponse. */
+    class UploadWasmFileResponse implements IUploadWasmFileResponse {
+
+        /**
+         * Constructs a new UploadWasmFileResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUploadWasmFileResponse);
+
+        /** UploadWasmFileResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UploadWasmFileResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UploadWasmFileResponse instance
+         */
+        public static create(properties?: protos.IUploadWasmFileResponse): protos.UploadWasmFileResponse;
+
+        /**
+         * Encodes the specified UploadWasmFileResponse message. Does not implicitly {@link protos.UploadWasmFileResponse.verify|verify} messages.
+         * @param message UploadWasmFileResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUploadWasmFileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UploadWasmFileResponse message, length delimited. Does not implicitly {@link protos.UploadWasmFileResponse.verify|verify} messages.
+         * @param message UploadWasmFileResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUploadWasmFileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UploadWasmFileResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UploadWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UploadWasmFileResponse;
+
+        /**
+         * Decodes an UploadWasmFileResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UploadWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UploadWasmFileResponse;
+
+        /**
+         * Verifies an UploadWasmFileResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UploadWasmFileResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UploadWasmFileResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UploadWasmFileResponse;
+
+        /**
+         * Creates a plain object from an UploadWasmFileResponse message. Also converts values to other types if specified.
+         * @param message UploadWasmFileResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UploadWasmFileResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UploadWasmFileResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DownloadWasmFileRequest. */
+    interface IDownloadWasmFileRequest {
+
+        /** DownloadWasmFileRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DownloadWasmFileRequest name */
+        name?: (string|null);
+    }
+
+    /** Represents a DownloadWasmFileRequest. */
+    class DownloadWasmFileRequest implements IDownloadWasmFileRequest {
+
+        /**
+         * Constructs a new DownloadWasmFileRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDownloadWasmFileRequest);
+
+        /** DownloadWasmFileRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DownloadWasmFileRequest name. */
+        public name: string;
+
+        /**
+         * Creates a new DownloadWasmFileRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DownloadWasmFileRequest instance
+         */
+        public static create(properties?: protos.IDownloadWasmFileRequest): protos.DownloadWasmFileRequest;
+
+        /**
+         * Encodes the specified DownloadWasmFileRequest message. Does not implicitly {@link protos.DownloadWasmFileRequest.verify|verify} messages.
+         * @param message DownloadWasmFileRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDownloadWasmFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DownloadWasmFileRequest message, length delimited. Does not implicitly {@link protos.DownloadWasmFileRequest.verify|verify} messages.
+         * @param message DownloadWasmFileRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDownloadWasmFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DownloadWasmFileRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DownloadWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DownloadWasmFileRequest;
+
+        /**
+         * Decodes a DownloadWasmFileRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DownloadWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DownloadWasmFileRequest;
+
+        /**
+         * Verifies a DownloadWasmFileRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DownloadWasmFileRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DownloadWasmFileRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DownloadWasmFileRequest;
+
+        /**
+         * Creates a plain object from a DownloadWasmFileRequest message. Also converts values to other types if specified.
+         * @param message DownloadWasmFileRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DownloadWasmFileRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DownloadWasmFileRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DownloadWasmFileResponse. */
+    interface IDownloadWasmFileResponse {
+
+        /** DownloadWasmFileResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** DownloadWasmFileResponse data */
+        data?: (Uint8Array|null);
+    }
+
+    /** Represents a DownloadWasmFileResponse. */
+    class DownloadWasmFileResponse implements IDownloadWasmFileResponse {
+
+        /**
+         * Constructs a new DownloadWasmFileResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDownloadWasmFileResponse);
+
+        /** DownloadWasmFileResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** DownloadWasmFileResponse data. */
+        public data: Uint8Array;
+
+        /**
+         * Creates a new DownloadWasmFileResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DownloadWasmFileResponse instance
+         */
+        public static create(properties?: protos.IDownloadWasmFileResponse): protos.DownloadWasmFileResponse;
+
+        /**
+         * Encodes the specified DownloadWasmFileResponse message. Does not implicitly {@link protos.DownloadWasmFileResponse.verify|verify} messages.
+         * @param message DownloadWasmFileResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDownloadWasmFileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DownloadWasmFileResponse message, length delimited. Does not implicitly {@link protos.DownloadWasmFileResponse.verify|verify} messages.
+         * @param message DownloadWasmFileResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDownloadWasmFileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DownloadWasmFileResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DownloadWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DownloadWasmFileResponse;
+
+        /**
+         * Decodes a DownloadWasmFileResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DownloadWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DownloadWasmFileResponse;
+
+        /**
+         * Verifies a DownloadWasmFileResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DownloadWasmFileResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DownloadWasmFileResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DownloadWasmFileResponse;
+
+        /**
+         * Creates a plain object from a DownloadWasmFileResponse message. Also converts values to other types if specified.
+         * @param message DownloadWasmFileResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DownloadWasmFileResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DownloadWasmFileResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ListWasmFilesRequest. */
+    interface IListWasmFilesRequest {
+
+        /** ListWasmFilesRequest auth */
+        auth?: (protos.common.IAuth|null);
+    }
+
+    /** Represents a ListWasmFilesRequest. */
+    class ListWasmFilesRequest implements IListWasmFilesRequest {
+
+        /**
+         * Constructs a new ListWasmFilesRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IListWasmFilesRequest);
+
+        /** ListWasmFilesRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /**
+         * Creates a new ListWasmFilesRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ListWasmFilesRequest instance
+         */
+        public static create(properties?: protos.IListWasmFilesRequest): protos.ListWasmFilesRequest;
+
+        /**
+         * Encodes the specified ListWasmFilesRequest message. Does not implicitly {@link protos.ListWasmFilesRequest.verify|verify} messages.
+         * @param message ListWasmFilesRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IListWasmFilesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ListWasmFilesRequest message, length delimited. Does not implicitly {@link protos.ListWasmFilesRequest.verify|verify} messages.
+         * @param message ListWasmFilesRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IListWasmFilesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ListWasmFilesRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ListWasmFilesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ListWasmFilesRequest;
+
+        /**
+         * Decodes a ListWasmFilesRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ListWasmFilesRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ListWasmFilesRequest;
+
+        /**
+         * Verifies a ListWasmFilesRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ListWasmFilesRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ListWasmFilesRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ListWasmFilesRequest;
+
+        /**
+         * Creates a plain object from a ListWasmFilesRequest message. Also converts values to other types if specified.
+         * @param message ListWasmFilesRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ListWasmFilesRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ListWasmFilesRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a ListWasmFilesResponse. */
+    interface IListWasmFilesResponse {
+
+        /** ListWasmFilesResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** ListWasmFilesResponse names */
+        names?: (string[]|null);
+    }
+
+    /** Represents a ListWasmFilesResponse. */
+    class ListWasmFilesResponse implements IListWasmFilesResponse {
+
+        /**
+         * Constructs a new ListWasmFilesResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IListWasmFilesResponse);
+
+        /** ListWasmFilesResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** ListWasmFilesResponse names. */
+        public names: string[];
+
+        /**
+         * Creates a new ListWasmFilesResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ListWasmFilesResponse instance
+         */
+        public static create(properties?: protos.IListWasmFilesResponse): protos.ListWasmFilesResponse;
+
+        /**
+         * Encodes the specified ListWasmFilesResponse message. Does not implicitly {@link protos.ListWasmFilesResponse.verify|verify} messages.
+         * @param message ListWasmFilesResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IListWasmFilesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ListWasmFilesResponse message, length delimited. Does not implicitly {@link protos.ListWasmFilesResponse.verify|verify} messages.
+         * @param message ListWasmFilesResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IListWasmFilesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a ListWasmFilesResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ListWasmFilesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ListWasmFilesResponse;
+
+        /**
+         * Decodes a ListWasmFilesResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ListWasmFilesResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ListWasmFilesResponse;
+
+        /**
+         * Verifies a ListWasmFilesResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a ListWasmFilesResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ListWasmFilesResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.ListWasmFilesResponse;
+
+        /**
+         * Creates a plain object from a ListWasmFilesResponse message. Also converts values to other types if specified.
+         * @param message ListWasmFilesResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.ListWasmFilesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ListWasmFilesResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteWasmFileRequest. */
+    interface IDeleteWasmFileRequest {
+
+        /** DeleteWasmFileRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteWasmFileRequest name */
+        name?: (string|null);
+    }
+
+    /** Represents a DeleteWasmFileRequest. */
+    class DeleteWasmFileRequest implements IDeleteWasmFileRequest {
+
+        /**
+         * Constructs a new DeleteWasmFileRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteWasmFileRequest);
+
+        /** DeleteWasmFileRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteWasmFileRequest name. */
+        public name: string;
+
+        /**
+         * Creates a new DeleteWasmFileRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteWasmFileRequest instance
+         */
+        public static create(properties?: protos.IDeleteWasmFileRequest): protos.DeleteWasmFileRequest;
+
+        /**
+         * Encodes the specified DeleteWasmFileRequest message. Does not implicitly {@link protos.DeleteWasmFileRequest.verify|verify} messages.
+         * @param message DeleteWasmFileRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteWasmFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteWasmFileRequest message, length delimited. Does not implicitly {@link protos.DeleteWasmFileRequest.verify|verify} messages.
+         * @param message DeleteWasmFileRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteWasmFileRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteWasmFileRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteWasmFileRequest;
+
+        /**
+         * Decodes a DeleteWasmFileRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteWasmFileRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteWasmFileRequest;
+
+        /**
+         * Verifies a DeleteWasmFileRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteWasmFileRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteWasmFileRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteWasmFileRequest;
+
+        /**
+         * Creates a plain object from a DeleteWasmFileRequest message. Also converts values to other types if specified.
+         * @param message DeleteWasmFileRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteWasmFileRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteWasmFileRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteWasmFileResponse. */
+    interface IDeleteWasmFileResponse {
+
+        /** DeleteWasmFileResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteWasmFileResponse. */
+    class DeleteWasmFileResponse implements IDeleteWasmFileResponse {
+
+        /**
+         * Constructs a new DeleteWasmFileResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteWasmFileResponse);
+
+        /** DeleteWasmFileResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteWasmFileResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteWasmFileResponse instance
+         */
+        public static create(properties?: protos.IDeleteWasmFileResponse): protos.DeleteWasmFileResponse;
+
+        /**
+         * Encodes the specified DeleteWasmFileResponse message. Does not implicitly {@link protos.DeleteWasmFileResponse.verify|verify} messages.
+         * @param message DeleteWasmFileResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteWasmFileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteWasmFileResponse message, length delimited. Does not implicitly {@link protos.DeleteWasmFileResponse.verify|verify} messages.
+         * @param message DeleteWasmFileResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteWasmFileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteWasmFileResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteWasmFileResponse;
+
+        /**
+         * Decodes a DeleteWasmFileResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteWasmFileResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteWasmFileResponse;
+
+        /**
+         * Verifies a DeleteWasmFileResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteWasmFileResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteWasmFileResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteWasmFileResponse;
+
+        /**
+         * Creates a plain object from a DeleteWasmFileResponse message. Also converts values to other types if specified.
+         * @param message DeleteWasmFileResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteWasmFileResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteWasmFileResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
