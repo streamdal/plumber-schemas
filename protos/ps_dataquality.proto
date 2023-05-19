@@ -19,5 +19,5 @@ message GetDataQualityRulesRequest {
 message GetDataQualityRulesResponse {
   common.Status status = 1000;
 
-  common.RuleSet rule_set = 1;
+  repeated common.RuleSet rule_sets = 1;
 }
