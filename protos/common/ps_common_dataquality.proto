@@ -38,7 +38,6 @@ enum RuleMode {
   RULE_MODE_UNSET = 0;
   RULE_MODE_PUBLISH = 1;
   RULE_MODE_CONSUME = 2;
-  RULE_MODE_BOTH = 3;
 }
 
 enum RuleFailureMode {
@@ -69,9 +68,9 @@ message Rule {
   RuleFailureMode failure_mode = 5;
 
   oneof rule_config {
-    RuleMatchConfig match_config = 1000;
-    RuleTransformConfig transform_config = 1001;
-    RuleCustomConfig custom_config = 1002;
+    RuleConfigMatch match_config = 1000;
+    RuleConfigTransform transform_config = 1001;
+    RuleConfigCustom custom_config = 1002;
   }
 
   // The failure mode configuration
@@ -83,7 +82,7 @@ message Rule {
   }
 }
 
-message RuleMatchConfig {
+message RuleConfigMatch {
   // The json path we are matching on
   string path = 1;
 
@@ -96,7 +95,7 @@ message RuleMatchConfig {
   repeated string args = 3;
 }
 
-message RuleTransformConfig {
+message RuleConfigTransform {
   // The json path of the field we are transforming
   string path = 1;
 
@@ -104,11 +103,9 @@ message RuleTransformConfig {
   string value = 2;
 }
 
-message RuleCustomConfig {
+message RuleConfigCustom {
   // TODO
 }
-
-// TODO: some kind of rule config for transform and matcher
 
 message FailureModeReject {
   // Purposefully blank
