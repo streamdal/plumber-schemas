@@ -48,6 +48,10 @@ type PlumberServerClient interface {
 	ResumeTunnel(ctx context.Context, in *ResumeTunnelRequest, opts ...grpc.CallOption) (*ResumeTunnelResponse, error)
 	UpdateTunnel(ctx context.Context, in *UpdateTunnelRequest, opts ...grpc.CallOption) (*UpdateTunnelResponse, error)
 	DeleteTunnel(ctx context.Context, in *DeleteTunnelRequest, opts ...grpc.CallOption) (*DeleteTunnelResponse, error)
+	ListWasmFiles(ctx context.Context, in *ListWasmFilesRequest, opts ...grpc.CallOption) (*ListWasmFilesResponse, error)
+	UploadWasmFile(ctx context.Context, in *UploadWasmFileRequest, opts ...grpc.CallOption) (*UploadWasmFileResponse, error)
+	DownloadWasmFile(ctx context.Context, in *DownloadWasmFileRequest, opts ...grpc.CallOption) (*DownloadWasmFileResponse, error)
+	DeleteWasmFile(ctx context.Context, in *DeleteWasmFileRequest, opts ...grpc.CallOption) (*DeleteWasmFileResponse, error)
 	GetRules(ctx context.Context, in *GetDataQualityRulesRequest, opts ...grpc.CallOption) (*GetDataQualityRulesResponse, error)
 	SendRuleNotification(ctx context.Context, in *SendRuleNotificationRequest, opts ...grpc.CallOption) (*SendRuleNotificationResponse, error)
 	GetServerOptions(ctx context.Context, in *GetServerOptionsRequest, opts ...grpc.CallOption) (*GetServerOptionsResponse, error)
@@ -241,6 +245,42 @@ func (c *plumberServerClient) DeleteTunnel(ctx context.Context, in *DeleteTunnel
 	return out, nil
 }
 
+func (c *plumberServerClient) ListWasmFiles(ctx context.Context, in *ListWasmFilesRequest, opts ...grpc.CallOption) (*ListWasmFilesResponse, error) {
+	out := new(ListWasmFilesResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/ListWasmFiles", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *plumberServerClient) UploadWasmFile(ctx context.Context, in *UploadWasmFileRequest, opts ...grpc.CallOption) (*UploadWasmFileResponse, error) {
+	out := new(UploadWasmFileResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/UploadWasmFile", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *plumberServerClient) DownloadWasmFile(ctx context.Context, in *DownloadWasmFileRequest, opts ...grpc.CallOption) (*DownloadWasmFileResponse, error) {
+	out := new(DownloadWasmFileResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/DownloadWasmFile", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *plumberServerClient) DeleteWasmFile(ctx context.Context, in *DeleteWasmFileRequest, opts ...grpc.CallOption) (*DeleteWasmFileResponse, error) {
+	out := new(DeleteWasmFileResponse)
+	err := c.cc.Invoke(ctx, "/protos.PlumberServer/DeleteWasmFile", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *plumberServerClient) GetRules(ctx context.Context, in *GetDataQualityRulesRequest, opts ...grpc.CallOption) (*GetDataQualityRulesResponse, error) {
 	out := new(GetDataQualityRulesResponse)
 	err := c.cc.Invoke(ctx, "/protos.PlumberServer/GetRules", in, out, opts...)
@@ -298,6 +338,10 @@ type PlumberServerServer interface {
 	ResumeTunnel(context.Context, *ResumeTunnelRequest) (*ResumeTunnelResponse, error)
 	UpdateTunnel(context.Context, *UpdateTunnelRequest) (*UpdateTunnelResponse, error)
 	DeleteTunnel(context.Context, *DeleteTunnelRequest) (*DeleteTunnelResponse, error)
+	ListWasmFiles(context.Context, *ListWasmFilesRequest) (*ListWasmFilesResponse, error)
+	UploadWasmFile(context.Context, *UploadWasmFileRequest) (*UploadWasmFileResponse, error)
+	DownloadWasmFile(context.Context, *DownloadWasmFileRequest) (*DownloadWasmFileResponse, error)
+	DeleteWasmFile(context.Context, *DeleteWasmFileRequest) (*DeleteWasmFileResponse, error)
 	GetRules(context.Context, *GetDataQualityRulesRequest) (*GetDataQualityRulesResponse, error)
 	SendRuleNotification(context.Context, *SendRuleNotificationRequest) (*SendRuleNotificationResponse, error)
 	GetServerOptions(context.Context, *GetServerOptionsRequest) (*GetServerOptionsResponse, error)
@@ -366,6 +410,18 @@ func (UnimplementedPlumberServerServer) UpdateTunnel(context.Context, *UpdateTun
 }
 func (UnimplementedPlumberServerServer) DeleteTunnel(context.Context, *DeleteTunnelRequest) (*DeleteTunnelResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTunnel not implemented")
+}
+func (UnimplementedPlumberServerServer) ListWasmFiles(context.Context, *ListWasmFilesRequest) (*ListWasmFilesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListWasmFiles not implemented")
+}
+func (UnimplementedPlumberServerServer) UploadWasmFile(context.Context, *UploadWasmFileRequest) (*UploadWasmFileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UploadWasmFile not implemented")
+}
+func (UnimplementedPlumberServerServer) DownloadWasmFile(context.Context, *DownloadWasmFileRequest) (*DownloadWasmFileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DownloadWasmFile not implemented")
+}
+func (UnimplementedPlumberServerServer) DeleteWasmFile(context.Context, *DeleteWasmFileRequest) (*DeleteWasmFileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteWasmFile not implemented")
 }
 func (UnimplementedPlumberServerServer) GetRules(context.Context, *GetDataQualityRulesRequest) (*GetDataQualityRulesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRules not implemented")
@@ -748,6 +804,78 @@ func _PlumberServer_DeleteTunnel_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PlumberServer_ListWasmFiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListWasmFilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlumberServerServer).ListWasmFiles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.PlumberServer/ListWasmFiles",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlumberServerServer).ListWasmFiles(ctx, req.(*ListWasmFilesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlumberServer_UploadWasmFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UploadWasmFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlumberServerServer).UploadWasmFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.PlumberServer/UploadWasmFile",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlumberServerServer).UploadWasmFile(ctx, req.(*UploadWasmFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlumberServer_DownloadWasmFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DownloadWasmFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlumberServerServer).DownloadWasmFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.PlumberServer/DownloadWasmFile",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlumberServerServer).DownloadWasmFile(ctx, req.(*DownloadWasmFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlumberServer_DeleteWasmFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteWasmFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlumberServerServer).DeleteWasmFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.PlumberServer/DeleteWasmFile",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlumberServerServer).DeleteWasmFile(ctx, req.(*DeleteWasmFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _PlumberServer_GetRules_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetDataQualityRulesRequest)
 	if err := dec(in); err != nil {
@@ -888,6 +1016,22 @@ var PlumberServer_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteTunnel",
 			Handler:    _PlumberServer_DeleteTunnel_Handler,
+		},
+		{
+			MethodName: "ListWasmFiles",
+			Handler:    _PlumberServer_ListWasmFiles_Handler,
+		},
+		{
+			MethodName: "UploadWasmFile",
+			Handler:    _PlumberServer_UploadWasmFile_Handler,
+		},
+		{
+			MethodName: "DownloadWasmFile",
+			Handler:    _PlumberServer_DownloadWasmFile_Handler,
+		},
+		{
+			MethodName: "DeleteWasmFile",
+			Handler:    _PlumberServer_DeleteWasmFile_Handler,
 		},
 		{
 			MethodName: "GetRules",
