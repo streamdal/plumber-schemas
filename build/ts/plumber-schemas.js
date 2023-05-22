@@ -876,6 +876,39 @@ $root.protos = (function() {
          */
 
         /**
+         * Callback as used by {@link protos.PlumberServer#sendRuleNotification}.
+         * @memberof protos.PlumberServer
+         * @typedef SendRuleNotificationCallback
+         * @type {function}
+         * @param {Error|null} error Error, if any
+         * @param {protos.SendRuleNotificationResponse} [response] SendRuleNotificationResponse
+         */
+
+        /**
+         * Calls SendRuleNotification.
+         * @function sendRuleNotification
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ISendRuleNotificationRequest} request SendRuleNotificationRequest message or plain object
+         * @param {protos.PlumberServer.SendRuleNotificationCallback} callback Node-style callback called with the error, if any, and SendRuleNotificationResponse
+         * @returns {undefined}
+         * @variation 1
+         */
+        Object.defineProperty(PlumberServer.prototype.sendRuleNotification = function sendRuleNotification(request, callback) {
+            return this.rpcCall(sendRuleNotification, $root.protos.SendRuleNotificationRequest, $root.protos.SendRuleNotificationResponse, request, callback);
+        }, "name", { value: "SendRuleNotification" });
+
+        /**
+         * Calls SendRuleNotification.
+         * @function sendRuleNotification
+         * @memberof protos.PlumberServer
+         * @instance
+         * @param {protos.ISendRuleNotificationRequest} request SendRuleNotificationRequest message or plain object
+         * @returns {Promise<protos.SendRuleNotificationResponse>} Promise
+         * @variation 2
+         */
+
+        /**
          * Callback as used by {@link protos.PlumberServer#getServerOptions}.
          * @memberof protos.PlumberServer
          * @typedef GetServerOptionsCallback
@@ -4441,6 +4474,7 @@ $root.protos = (function() {
              * Properties of a RuleSet.
              * @memberof protos.common
              * @interface IRuleSet
+             * @property {string|null} [id] RuleSet id
              * @property {string|null} [name] RuleSet name
              * @property {protos.common.RuleMode|null} [mode] RuleSet mode
              * @property {Object.<string,protos.common.IRules>|null} [rules] RuleSet rules
@@ -4463,6 +4497,14 @@ $root.protos = (function() {
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
+
+            /**
+             * RuleSet id.
+             * @member {string} id
+             * @memberof protos.common.RuleSet
+             * @instance
+             */
+            RuleSet.prototype.id = "";
 
             /**
              * RuleSet name.
@@ -4528,19 +4570,21 @@ $root.protos = (function() {
             RuleSet.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
                 if (message.name != null && Object.hasOwnProperty.call(message, "name"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.name);
                 if (message.mode != null && Object.hasOwnProperty.call(message, "mode"))
-                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.mode);
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.mode);
                 if (message.rules != null && Object.hasOwnProperty.call(message, "rules"))
                     for (var keys = Object.keys(message.rules), i = 0; i < keys.length; ++i) {
-                        writer.uint32(/* id 3, wireType 2 =*/26).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
+                        writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
                         $root.protos.common.Rules.encode(message.rules[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                     }
                 if (message.bus != null && Object.hasOwnProperty.call(message, "bus"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.bus);
+                    writer.uint32(/* id 5, wireType 2 =*/42).string(message.bus);
                 if (message.version != null && Object.hasOwnProperty.call(message, "version"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.version);
+                    writer.uint32(/* id 6, wireType 0 =*/48).int32(message.version);
                 return writer;
             };
 
@@ -4576,12 +4620,15 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.name = reader.string();
+                        message.id = reader.string();
                         break;
                     case 2:
-                        message.mode = reader.int32();
+                        message.name = reader.string();
                         break;
                     case 3:
+                        message.mode = reader.int32();
+                        break;
+                    case 4:
                         if (message.rules === $util.emptyObject)
                             message.rules = {};
                         var end2 = reader.uint32() + reader.pos;
@@ -4603,10 +4650,10 @@ $root.protos = (function() {
                         }
                         message.rules[key] = value;
                         break;
-                    case 4:
+                    case 5:
                         message.bus = reader.string();
                         break;
-                    case 5:
+                    case 6:
                         message.version = reader.int32();
                         break;
                     default:
@@ -4644,6 +4691,9 @@ $root.protos = (function() {
             RuleSet.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
                 if (message.name != null && message.hasOwnProperty("name"))
                     if (!$util.isString(message.name))
                         return "name: string expected";
@@ -4687,6 +4737,8 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.common.RuleSet)
                     return object;
                 var message = new $root.protos.common.RuleSet();
+                if (object.id != null)
+                    message.id = String(object.id);
                 if (object.name != null)
                     message.name = String(object.name);
                 switch (object.mode) {
@@ -4736,11 +4788,14 @@ $root.protos = (function() {
                 if (options.objects || options.defaults)
                     object.rules = {};
                 if (options.defaults) {
+                    object.id = "";
                     object.name = "";
                     object.mode = options.enums === String ? "RULE_MODE_UNSET" : 0;
                     object.bus = "";
                     object.version = 0;
                 }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
                 if (message.name != null && message.hasOwnProperty("name"))
                     object.name = message.name;
                 if (message.mode != null && message.hasOwnProperty("mode"))
@@ -5040,6 +5095,7 @@ $root.protos = (function() {
              * Properties of a Rule.
              * @memberof protos.common
              * @interface IRule
+             * @property {string|null} [id] Rule id
              * @property {protos.common.RuleType|null} [type] Rule type
              * @property {protos.common.RuleFailureMode|null} [failureMode] Rule failureMode
              * @property {protos.common.IRuleConfigMatch|null} [matchConfig] Rule matchConfig
@@ -5065,6 +5121,14 @@ $root.protos = (function() {
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
+
+            /**
+             * Rule id.
+             * @member {string} id
+             * @memberof protos.common.Rule
+             * @instance
+             */
+            Rule.prototype.id = "";
 
             /**
              * Rule type.
@@ -5187,10 +5251,12 @@ $root.protos = (function() {
             Rule.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
                 if (message.type != null && Object.hasOwnProperty.call(message, "type"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
                 if (message.failureMode != null && Object.hasOwnProperty.call(message, "failureMode"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.failureMode);
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.failureMode);
                 if (message.matchConfig != null && Object.hasOwnProperty.call(message, "matchConfig"))
                     $root.protos.common.RuleConfigMatch.encode(message.matchConfig, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
                 if (message.transformConfig != null && Object.hasOwnProperty.call(message, "transformConfig"))
@@ -5240,9 +5306,12 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
                         message.type = reader.int32();
                         break;
-                    case 5:
+                    case 3:
                         message.failureMode = reader.int32();
                         break;
                     case 1000:
@@ -5302,6 +5371,9 @@ $root.protos = (function() {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
                 var properties = {};
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
                 if (message.type != null && message.hasOwnProperty("type"))
                     switch (message.type) {
                     default:
@@ -5404,6 +5476,8 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.common.Rule)
                     return object;
                 var message = new $root.protos.common.Rule();
+                if (object.id != null)
+                    message.id = String(object.id);
                 switch (object.type) {
                 case "RULE_TYPE_UNSET":
                 case 0:
@@ -5496,9 +5570,12 @@ $root.protos = (function() {
                     options = {};
                 var object = {};
                 if (options.defaults) {
+                    object.id = "";
                     object.type = options.enums === String ? "RULE_TYPE_UNSET" : 0;
                     object.failureMode = options.enums === String ? "RULE_FAILURE_MODE_UNSET" : 0;
                 }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
                 if (message.type != null && message.hasOwnProperty("type"))
                     object.type = options.enums === String ? $root.protos.common.RuleType[message.type] : message.type;
                 if (message.failureMode != null && message.hasOwnProperty("failureMode"))
@@ -60116,6 +60193,444 @@ $root.protos = (function() {
         };
 
         return GetDataQualityRulesResponse;
+    })();
+
+    protos.SendRuleNotificationRequest = (function() {
+
+        /**
+         * Properties of a SendRuleNotificationRequest.
+         * @memberof protos
+         * @interface ISendRuleNotificationRequest
+         * @property {protos.common.IAuth|null} [auth] SendRuleNotificationRequest auth
+         * @property {Uint8Array|null} [data] SendRuleNotificationRequest data
+         * @property {string|null} [ruleId] SendRuleNotificationRequest ruleId
+         */
+
+        /**
+         * Constructs a new SendRuleNotificationRequest.
+         * @memberof protos
+         * @classdesc Represents a SendRuleNotificationRequest.
+         * @implements ISendRuleNotificationRequest
+         * @constructor
+         * @param {protos.ISendRuleNotificationRequest=} [properties] Properties to set
+         */
+        function SendRuleNotificationRequest(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * SendRuleNotificationRequest auth.
+         * @member {protos.common.IAuth|null|undefined} auth
+         * @memberof protos.SendRuleNotificationRequest
+         * @instance
+         */
+        SendRuleNotificationRequest.prototype.auth = null;
+
+        /**
+         * SendRuleNotificationRequest data.
+         * @member {Uint8Array} data
+         * @memberof protos.SendRuleNotificationRequest
+         * @instance
+         */
+        SendRuleNotificationRequest.prototype.data = $util.newBuffer([]);
+
+        /**
+         * SendRuleNotificationRequest ruleId.
+         * @member {string} ruleId
+         * @memberof protos.SendRuleNotificationRequest
+         * @instance
+         */
+        SendRuleNotificationRequest.prototype.ruleId = "";
+
+        /**
+         * Creates a new SendRuleNotificationRequest instance using the specified properties.
+         * @function create
+         * @memberof protos.SendRuleNotificationRequest
+         * @static
+         * @param {protos.ISendRuleNotificationRequest=} [properties] Properties to set
+         * @returns {protos.SendRuleNotificationRequest} SendRuleNotificationRequest instance
+         */
+        SendRuleNotificationRequest.create = function create(properties) {
+            return new SendRuleNotificationRequest(properties);
+        };
+
+        /**
+         * Encodes the specified SendRuleNotificationRequest message. Does not implicitly {@link protos.SendRuleNotificationRequest.verify|verify} messages.
+         * @function encode
+         * @memberof protos.SendRuleNotificationRequest
+         * @static
+         * @param {protos.ISendRuleNotificationRequest} message SendRuleNotificationRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SendRuleNotificationRequest.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.data != null && Object.hasOwnProperty.call(message, "data"))
+                writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.data);
+            if (message.ruleId != null && Object.hasOwnProperty.call(message, "ruleId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.ruleId);
+            if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
+                $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SendRuleNotificationRequest message, length delimited. Does not implicitly {@link protos.SendRuleNotificationRequest.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.SendRuleNotificationRequest
+         * @static
+         * @param {protos.ISendRuleNotificationRequest} message SendRuleNotificationRequest message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SendRuleNotificationRequest.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a SendRuleNotificationRequest message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.SendRuleNotificationRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.SendRuleNotificationRequest} SendRuleNotificationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SendRuleNotificationRequest.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.SendRuleNotificationRequest();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 9999:
+                    message.auth = $root.protos.common.Auth.decode(reader, reader.uint32());
+                    break;
+                case 1:
+                    message.data = reader.bytes();
+                    break;
+                case 2:
+                    message.ruleId = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a SendRuleNotificationRequest message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.SendRuleNotificationRequest
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.SendRuleNotificationRequest} SendRuleNotificationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SendRuleNotificationRequest.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SendRuleNotificationRequest message.
+         * @function verify
+         * @memberof protos.SendRuleNotificationRequest
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SendRuleNotificationRequest.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.auth != null && message.hasOwnProperty("auth")) {
+                var error = $root.protos.common.Auth.verify(message.auth);
+                if (error)
+                    return "auth." + error;
+            }
+            if (message.data != null && message.hasOwnProperty("data"))
+                if (!(message.data && typeof message.data.length === "number" || $util.isString(message.data)))
+                    return "data: buffer expected";
+            if (message.ruleId != null && message.hasOwnProperty("ruleId"))
+                if (!$util.isString(message.ruleId))
+                    return "ruleId: string expected";
+            return null;
+        };
+
+        /**
+         * Creates a SendRuleNotificationRequest message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.SendRuleNotificationRequest
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.SendRuleNotificationRequest} SendRuleNotificationRequest
+         */
+        SendRuleNotificationRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.SendRuleNotificationRequest)
+                return object;
+            var message = new $root.protos.SendRuleNotificationRequest();
+            if (object.auth != null) {
+                if (typeof object.auth !== "object")
+                    throw TypeError(".protos.SendRuleNotificationRequest.auth: object expected");
+                message.auth = $root.protos.common.Auth.fromObject(object.auth);
+            }
+            if (object.data != null)
+                if (typeof object.data === "string")
+                    $util.base64.decode(object.data, message.data = $util.newBuffer($util.base64.length(object.data)), 0);
+                else if (object.data.length)
+                    message.data = object.data;
+            if (object.ruleId != null)
+                message.ruleId = String(object.ruleId);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SendRuleNotificationRequest message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.SendRuleNotificationRequest
+         * @static
+         * @param {protos.SendRuleNotificationRequest} message SendRuleNotificationRequest
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SendRuleNotificationRequest.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults) {
+                if (options.bytes === String)
+                    object.data = "";
+                else {
+                    object.data = [];
+                    if (options.bytes !== Array)
+                        object.data = $util.newBuffer(object.data);
+                }
+                object.ruleId = "";
+                object.auth = null;
+            }
+            if (message.data != null && message.hasOwnProperty("data"))
+                object.data = options.bytes === String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === Array ? Array.prototype.slice.call(message.data) : message.data;
+            if (message.ruleId != null && message.hasOwnProperty("ruleId"))
+                object.ruleId = message.ruleId;
+            if (message.auth != null && message.hasOwnProperty("auth"))
+                object.auth = $root.protos.common.Auth.toObject(message.auth, options);
+            return object;
+        };
+
+        /**
+         * Converts this SendRuleNotificationRequest to JSON.
+         * @function toJSON
+         * @memberof protos.SendRuleNotificationRequest
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SendRuleNotificationRequest.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return SendRuleNotificationRequest;
+    })();
+
+    protos.SendRuleNotificationResponse = (function() {
+
+        /**
+         * Properties of a SendRuleNotificationResponse.
+         * @memberof protos
+         * @interface ISendRuleNotificationResponse
+         * @property {protos.common.IStatus|null} [status] SendRuleNotificationResponse status
+         */
+
+        /**
+         * Constructs a new SendRuleNotificationResponse.
+         * @memberof protos
+         * @classdesc Represents a SendRuleNotificationResponse.
+         * @implements ISendRuleNotificationResponse
+         * @constructor
+         * @param {protos.ISendRuleNotificationResponse=} [properties] Properties to set
+         */
+        function SendRuleNotificationResponse(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * SendRuleNotificationResponse status.
+         * @member {protos.common.IStatus|null|undefined} status
+         * @memberof protos.SendRuleNotificationResponse
+         * @instance
+         */
+        SendRuleNotificationResponse.prototype.status = null;
+
+        /**
+         * Creates a new SendRuleNotificationResponse instance using the specified properties.
+         * @function create
+         * @memberof protos.SendRuleNotificationResponse
+         * @static
+         * @param {protos.ISendRuleNotificationResponse=} [properties] Properties to set
+         * @returns {protos.SendRuleNotificationResponse} SendRuleNotificationResponse instance
+         */
+        SendRuleNotificationResponse.create = function create(properties) {
+            return new SendRuleNotificationResponse(properties);
+        };
+
+        /**
+         * Encodes the specified SendRuleNotificationResponse message. Does not implicitly {@link protos.SendRuleNotificationResponse.verify|verify} messages.
+         * @function encode
+         * @memberof protos.SendRuleNotificationResponse
+         * @static
+         * @param {protos.ISendRuleNotificationResponse} message SendRuleNotificationResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SendRuleNotificationResponse.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                $root.protos.common.Status.encode(message.status, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified SendRuleNotificationResponse message, length delimited. Does not implicitly {@link protos.SendRuleNotificationResponse.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof protos.SendRuleNotificationResponse
+         * @static
+         * @param {protos.ISendRuleNotificationResponse} message SendRuleNotificationResponse message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        SendRuleNotificationResponse.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a SendRuleNotificationResponse message from the specified reader or buffer.
+         * @function decode
+         * @memberof protos.SendRuleNotificationResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {protos.SendRuleNotificationResponse} SendRuleNotificationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SendRuleNotificationResponse.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.SendRuleNotificationResponse();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1000:
+                    message.status = $root.protos.common.Status.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a SendRuleNotificationResponse message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof protos.SendRuleNotificationResponse
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {protos.SendRuleNotificationResponse} SendRuleNotificationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        SendRuleNotificationResponse.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a SendRuleNotificationResponse message.
+         * @function verify
+         * @memberof protos.SendRuleNotificationResponse
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        SendRuleNotificationResponse.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.status != null && message.hasOwnProperty("status")) {
+                var error = $root.protos.common.Status.verify(message.status);
+                if (error)
+                    return "status." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates a SendRuleNotificationResponse message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof protos.SendRuleNotificationResponse
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {protos.SendRuleNotificationResponse} SendRuleNotificationResponse
+         */
+        SendRuleNotificationResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.SendRuleNotificationResponse)
+                return object;
+            var message = new $root.protos.SendRuleNotificationResponse();
+            if (object.status != null) {
+                if (typeof object.status !== "object")
+                    throw TypeError(".protos.SendRuleNotificationResponse.status: object expected");
+                message.status = $root.protos.common.Status.fromObject(object.status);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from a SendRuleNotificationResponse message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof protos.SendRuleNotificationResponse
+         * @static
+         * @param {protos.SendRuleNotificationResponse} message SendRuleNotificationResponse
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        SendRuleNotificationResponse.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            var object = {};
+            if (options.defaults)
+                object.status = null;
+            if (message.status != null && message.hasOwnProperty("status"))
+                object.status = $root.protos.common.Status.toObject(message.status, options);
+            return object;
+        };
+
+        /**
+         * Converts this SendRuleNotificationResponse to JSON.
+         * @function toJSON
+         * @memberof protos.SendRuleNotificationResponse
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        SendRuleNotificationResponse.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return SendRuleNotificationResponse;
     })();
 
     protos.GetAllRelaysRequest = (function() {

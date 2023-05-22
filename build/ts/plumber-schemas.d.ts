@@ -373,6 +373,20 @@ export namespace protos {
         public getRules(request: protos.IGetDataQualityRulesRequest): Promise<protos.GetDataQualityRulesResponse>;
 
         /**
+         * Calls SendRuleNotification.
+         * @param request SendRuleNotificationRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and SendRuleNotificationResponse
+         */
+        public sendRuleNotification(request: protos.ISendRuleNotificationRequest, callback: protos.PlumberServer.SendRuleNotificationCallback): void;
+
+        /**
+         * Calls SendRuleNotification.
+         * @param request SendRuleNotificationRequest message or plain object
+         * @returns Promise
+         */
+        public sendRuleNotification(request: protos.ISendRuleNotificationRequest): Promise<protos.SendRuleNotificationResponse>;
+
+        /**
          * Calls GetServerOptions.
          * @param request GetServerOptionsRequest message or plain object
          * @param callback Node-style callback called with the error, if any, and GetServerOptionsResponse
@@ -563,6 +577,13 @@ export namespace protos {
          * @param [response] GetDataQualityRulesResponse
          */
         type GetRulesCallback = (error: (Error|null), response?: protos.GetDataQualityRulesResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#sendRuleNotification}.
+         * @param error Error, if any
+         * @param [response] SendRuleNotificationResponse
+         */
+        type SendRuleNotificationCallback = (error: (Error|null), response?: protos.SendRuleNotificationResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#getServerOptions}.
@@ -2117,6 +2138,9 @@ export namespace protos {
         /** Properties of a RuleSet. */
         interface IRuleSet {
 
+            /** RuleSet id */
+            id?: (string|null);
+
             /** RuleSet name */
             name?: (string|null);
 
@@ -2141,6 +2165,9 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.common.IRuleSet);
+
+            /** RuleSet id. */
+            public id: string;
 
             /** RuleSet name. */
             public name: string;
@@ -2345,6 +2372,9 @@ export namespace protos {
         /** Properties of a Rule. */
         interface IRule {
 
+            /** Rule id */
+            id?: (string|null);
+
             /** Rule type */
             type?: (protos.common.RuleType|null);
 
@@ -2381,6 +2411,9 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.common.IRule);
+
+            /** Rule id. */
+            public id: string;
 
             /** Rule type. */
             public type: protos.common.RuleType;
@@ -24735,6 +24768,198 @@ export namespace protos {
 
         /**
          * Converts this GetDataQualityRulesResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SendRuleNotificationRequest. */
+    interface ISendRuleNotificationRequest {
+
+        /** SendRuleNotificationRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** SendRuleNotificationRequest data */
+        data?: (Uint8Array|null);
+
+        /** SendRuleNotificationRequest ruleId */
+        ruleId?: (string|null);
+    }
+
+    /** Represents a SendRuleNotificationRequest. */
+    class SendRuleNotificationRequest implements ISendRuleNotificationRequest {
+
+        /**
+         * Constructs a new SendRuleNotificationRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ISendRuleNotificationRequest);
+
+        /** SendRuleNotificationRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** SendRuleNotificationRequest data. */
+        public data: Uint8Array;
+
+        /** SendRuleNotificationRequest ruleId. */
+        public ruleId: string;
+
+        /**
+         * Creates a new SendRuleNotificationRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SendRuleNotificationRequest instance
+         */
+        public static create(properties?: protos.ISendRuleNotificationRequest): protos.SendRuleNotificationRequest;
+
+        /**
+         * Encodes the specified SendRuleNotificationRequest message. Does not implicitly {@link protos.SendRuleNotificationRequest.verify|verify} messages.
+         * @param message SendRuleNotificationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ISendRuleNotificationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SendRuleNotificationRequest message, length delimited. Does not implicitly {@link protos.SendRuleNotificationRequest.verify|verify} messages.
+         * @param message SendRuleNotificationRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ISendRuleNotificationRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SendRuleNotificationRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SendRuleNotificationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.SendRuleNotificationRequest;
+
+        /**
+         * Decodes a SendRuleNotificationRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SendRuleNotificationRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.SendRuleNotificationRequest;
+
+        /**
+         * Verifies a SendRuleNotificationRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SendRuleNotificationRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SendRuleNotificationRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.SendRuleNotificationRequest;
+
+        /**
+         * Creates a plain object from a SendRuleNotificationRequest message. Also converts values to other types if specified.
+         * @param message SendRuleNotificationRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.SendRuleNotificationRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SendRuleNotificationRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a SendRuleNotificationResponse. */
+    interface ISendRuleNotificationResponse {
+
+        /** SendRuleNotificationResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a SendRuleNotificationResponse. */
+    class SendRuleNotificationResponse implements ISendRuleNotificationResponse {
+
+        /**
+         * Constructs a new SendRuleNotificationResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ISendRuleNotificationResponse);
+
+        /** SendRuleNotificationResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new SendRuleNotificationResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns SendRuleNotificationResponse instance
+         */
+        public static create(properties?: protos.ISendRuleNotificationResponse): protos.SendRuleNotificationResponse;
+
+        /**
+         * Encodes the specified SendRuleNotificationResponse message. Does not implicitly {@link protos.SendRuleNotificationResponse.verify|verify} messages.
+         * @param message SendRuleNotificationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ISendRuleNotificationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified SendRuleNotificationResponse message, length delimited. Does not implicitly {@link protos.SendRuleNotificationResponse.verify|verify} messages.
+         * @param message SendRuleNotificationResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ISendRuleNotificationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a SendRuleNotificationResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns SendRuleNotificationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.SendRuleNotificationResponse;
+
+        /**
+         * Decodes a SendRuleNotificationResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns SendRuleNotificationResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.SendRuleNotificationResponse;
+
+        /**
+         * Verifies a SendRuleNotificationResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a SendRuleNotificationResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns SendRuleNotificationResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.SendRuleNotificationResponse;
+
+        /**
+         * Creates a plain object from a SendRuleNotificationResponse message. Also converts values to other types if specified.
+         * @param message SendRuleNotificationResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.SendRuleNotificationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this SendRuleNotificationResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
