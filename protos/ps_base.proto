@@ -82,6 +82,8 @@ service PlumberServer {
 
   rpc GetRules(GetDataQualityRulesRequest) returns (GetDataQualityRulesResponse);
 
+  rpc SendRuleNotification(SendRuleNotificationRequest) returns (SendRuleNotificationResponse);
+
   // ------------------- Server -------------------
 
   rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);

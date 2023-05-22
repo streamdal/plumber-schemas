@@ -21,3 +21,16 @@ message GetDataQualityRulesResponse {
 
   repeated common.RuleSet rule_sets = 1;
 }
+
+message SendRuleNotificationRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  bytes data = 1;
+
+  string rule_id = 2;
+}
+
+message SendRuleNotificationResponse {
+  common.Status status = 1000;
+}

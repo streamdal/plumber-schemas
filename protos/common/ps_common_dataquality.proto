@@ -6,24 +6,26 @@ package protos.common;
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/common";
 
 message RuleSet {
+  string id = 1;
+
   // name will be used to identify this rule set in the frontend, it serves no other purpose
-  string name = 1;
+  string name = 2;
 
   // Determines when this rule is ran
-  RuleMode mode = 2;
+  RuleMode mode = 3;
 
   // What key to run these rules on
   // Kafka:
   //   - Key is the topic being published to, or read from
   // RabbitMQ
   //   - Key is the binding/routing key depending on publish or consume
-  map<string, Rules> rules = 3;
+  map<string, Rules> rules = 4;
 
   // The bus this rule set is associated with
-  string bus = 4;
+  string bus = 5;
 
   // Incrementing number to track rule set versions. Set by plumber
-  int32 version = 5;
+  int32 version = 6;
 }
 
 
@@ -61,11 +63,14 @@ message Rules {
 }
 
 message Rule {
+
+  string id = 1;
+
   // Defines which kind of wasm function we're executing
-  RuleType type = 1;
+  RuleType type = 2;
 
   // The failure mode to use if the rule fails
-  RuleFailureMode failure_mode = 5;
+  RuleFailureMode failure_mode = 3;
 
   oneof rule_config {
     RuleConfigMatch match_config = 1000;
