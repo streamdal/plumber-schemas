@@ -7,7 +7,7 @@ import "ps_dataquality.proto";
 import "ps_relay.proto";
 import "ps_server.proto";
 import "ps_tunnel.proto";
-import "ps_wasm.proto";
+//import "ps_wasm.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
@@ -70,13 +70,13 @@ service PlumberServer {
 
   // ----------------- WASM Files -----------------
 
-  rpc ListWasmFiles(ListWasmFilesRequest) returns (ListWasmFilesResponse);
-
-  rpc UploadWasmFile(UploadWasmFileRequest) returns (UploadWasmFileResponse);
-
-  rpc DownloadWasmFile(DownloadWasmFileRequest) returns (DownloadWasmFileResponse);
-
-  rpc DeleteWasmFile(DeleteWasmFileRequest) returns (DeleteWasmFileResponse);
+//  rpc ListWasmFiles(ListWasmFilesRequest) returns (ListWasmFilesResponse);
+//
+//  rpc UploadWasmFile(UploadWasmFileRequest) returns (UploadWasmFileResponse);
+//
+//  rpc DownloadWasmFile(DownloadWasmFileRequest) returns (DownloadWasmFileResponse);
+//
+//  rpc DeleteWasmFile(DeleteWasmFileRequest) returns (DeleteWasmFileResponse);
 
   // --------------- Data Quality Rules ------------
 
