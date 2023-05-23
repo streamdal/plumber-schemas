@@ -19,7 +19,7 @@ message RuleSet {
   //   - Key is the topic being published to, or read from
   // RabbitMQ
   //   - Key is the binding/routing key depending on publish or consume
-  map<string, Rules> rules = 4;
+  map<string, Rule> rules = 4;
 
   // The bus this rule set is associated with
   string bus = 5;
@@ -56,10 +56,6 @@ enum RuleFailureMode {
 
   // Send an alert to slack
   RULE_FAILURE_MODE_ALERT_SLACK = 4;
-}
-
-message Rules {
-  repeated Rule rules = 1;
 }
 
 message Rule {
