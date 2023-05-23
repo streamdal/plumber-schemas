@@ -2984,9 +2984,6 @@ export namespace protos {
         /** Properties of a FailureModeAlertSlack. */
         interface IFailureModeAlertSlack {
 
-            /** FailureModeAlertSlack slackToken */
-            slackToken?: (string|null);
-
             /** FailureModeAlertSlack slackChannel */
             slackChannel?: (string|null);
         }
@@ -2999,9 +2996,6 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.common.IFailureModeAlertSlack);
-
-            /** FailureModeAlertSlack slackToken. */
-            public slackToken: string;
 
             /** FailureModeAlertSlack slackChannel. */
             public slackChannel: string;

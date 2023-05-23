@@ -6606,7 +6606,6 @@ $root.protos = (function() {
              * Properties of a FailureModeAlertSlack.
              * @memberof protos.common
              * @interface IFailureModeAlertSlack
-             * @property {string|null} [slackToken] FailureModeAlertSlack slackToken
              * @property {string|null} [slackChannel] FailureModeAlertSlack slackChannel
              */
 
@@ -6624,14 +6623,6 @@ $root.protos = (function() {
                         if (properties[keys[i]] != null)
                             this[keys[i]] = properties[keys[i]];
             }
-
-            /**
-             * FailureModeAlertSlack slackToken.
-             * @member {string} slackToken
-             * @memberof protos.common.FailureModeAlertSlack
-             * @instance
-             */
-            FailureModeAlertSlack.prototype.slackToken = "";
 
             /**
              * FailureModeAlertSlack slackChannel.
@@ -6665,10 +6656,8 @@ $root.protos = (function() {
             FailureModeAlertSlack.encode = function encode(message, writer) {
                 if (!writer)
                     writer = $Writer.create();
-                if (message.slackToken != null && Object.hasOwnProperty.call(message, "slackToken"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.slackToken);
                 if (message.slackChannel != null && Object.hasOwnProperty.call(message, "slackChannel"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.slackChannel);
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.slackChannel);
                 return writer;
             };
 
@@ -6704,9 +6693,6 @@ $root.protos = (function() {
                     var tag = reader.uint32();
                     switch (tag >>> 3) {
                     case 1:
-                        message.slackToken = reader.string();
-                        break;
-                    case 2:
                         message.slackChannel = reader.string();
                         break;
                     default:
@@ -6744,9 +6730,6 @@ $root.protos = (function() {
             FailureModeAlertSlack.verify = function verify(message) {
                 if (typeof message !== "object" || message === null)
                     return "object expected";
-                if (message.slackToken != null && message.hasOwnProperty("slackToken"))
-                    if (!$util.isString(message.slackToken))
-                        return "slackToken: string expected";
                 if (message.slackChannel != null && message.hasOwnProperty("slackChannel"))
                     if (!$util.isString(message.slackChannel))
                         return "slackChannel: string expected";
@@ -6765,8 +6748,6 @@ $root.protos = (function() {
                 if (object instanceof $root.protos.common.FailureModeAlertSlack)
                     return object;
                 var message = new $root.protos.common.FailureModeAlertSlack();
-                if (object.slackToken != null)
-                    message.slackToken = String(object.slackToken);
                 if (object.slackChannel != null)
                     message.slackChannel = String(object.slackChannel);
                 return message;
@@ -6785,12 +6766,8 @@ $root.protos = (function() {
                 if (!options)
                     options = {};
                 var object = {};
-                if (options.defaults) {
-                    object.slackToken = "";
+                if (options.defaults)
                     object.slackChannel = "";
-                }
-                if (message.slackToken != null && message.hasOwnProperty("slackToken"))
-                    object.slackToken = message.slackToken;
                 if (message.slackChannel != null && message.hasOwnProperty("slackChannel"))
                     object.slackChannel = message.slackChannel;
                 return object;
