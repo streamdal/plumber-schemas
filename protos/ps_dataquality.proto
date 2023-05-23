@@ -28,7 +28,9 @@ message SendRuleNotificationRequest {
 
   bytes data = 1;
 
-  string rule_id = 2;
+  string ruleset_id = 2;
+
+  string rule_id = 3;
 }
 
 message SendRuleNotificationResponse {
