@@ -2148,7 +2148,7 @@ export namespace protos {
             mode?: (protos.common.RuleMode|null);
 
             /** RuleSet rules */
-            rules?: ({ [k: string]: protos.common.IRules }|null);
+            rules?: ({ [k: string]: protos.common.IRule }|null);
 
             /** RuleSet bus */
             bus?: (string|null);
@@ -2176,7 +2176,7 @@ export namespace protos {
             public mode: protos.common.RuleMode;
 
             /** RuleSet rules. */
-            public rules: { [k: string]: protos.common.IRules };
+            public rules: { [k: string]: protos.common.IRule };
 
             /** RuleSet bus. */
             public bus: string;
@@ -2277,96 +2277,6 @@ export namespace protos {
             RULE_FAILURE_MODE_DLQ = 2,
             RULE_FAILURE_MODE_TRANSFORM = 3,
             RULE_FAILURE_MODE_ALERT_SLACK = 4
-        }
-
-        /** Properties of a Rules. */
-        interface IRules {
-
-            /** Rules rules */
-            rules?: (protos.common.IRule[]|null);
-        }
-
-        /** Represents a Rules. */
-        class Rules implements IRules {
-
-            /**
-             * Constructs a new Rules.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.common.IRules);
-
-            /** Rules rules. */
-            public rules: protos.common.IRule[];
-
-            /**
-             * Creates a new Rules instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns Rules instance
-             */
-            public static create(properties?: protos.common.IRules): protos.common.Rules;
-
-            /**
-             * Encodes the specified Rules message. Does not implicitly {@link protos.common.Rules.verify|verify} messages.
-             * @param message Rules message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.common.IRules, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified Rules message, length delimited. Does not implicitly {@link protos.common.Rules.verify|verify} messages.
-             * @param message Rules message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.common.IRules, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a Rules message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns Rules
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.Rules;
-
-            /**
-             * Decodes a Rules message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns Rules
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.Rules;
-
-            /**
-             * Verifies a Rules message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a Rules message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns Rules
-             */
-            public static fromObject(object: { [k: string]: any }): protos.common.Rules;
-
-            /**
-             * Creates a plain object from a Rules message. Also converts values to other types if specified.
-             * @param message Rules
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.common.Rules, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this Rules to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
         }
 
         /** Properties of a Rule. */

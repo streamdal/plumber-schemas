@@ -4477,7 +4477,7 @@ $root.protos = (function() {
              * @property {string|null} [id] RuleSet id
              * @property {string|null} [name] RuleSet name
              * @property {protos.common.RuleMode|null} [mode] RuleSet mode
-             * @property {Object.<string,protos.common.IRules>|null} [rules] RuleSet rules
+             * @property {Object.<string,protos.common.IRule>|null} [rules] RuleSet rules
              * @property {string|null} [bus] RuleSet bus
              * @property {number|null} [version] RuleSet version
              */
@@ -4524,7 +4524,7 @@ $root.protos = (function() {
 
             /**
              * RuleSet rules.
-             * @member {Object.<string,protos.common.IRules>} rules
+             * @member {Object.<string,protos.common.IRule>} rules
              * @memberof protos.common.RuleSet
              * @instance
              */
@@ -4579,7 +4579,7 @@ $root.protos = (function() {
                 if (message.rules != null && Object.hasOwnProperty.call(message, "rules"))
                     for (var keys = Object.keys(message.rules), i = 0; i < keys.length; ++i) {
                         writer.uint32(/* id 4, wireType 2 =*/34).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]);
-                        $root.protos.common.Rules.encode(message.rules[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
+                        $root.protos.common.Rule.encode(message.rules[keys[i]], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim().ldelim();
                     }
                 if (message.bus != null && Object.hasOwnProperty.call(message, "bus"))
                     writer.uint32(/* id 5, wireType 2 =*/42).string(message.bus);
@@ -4641,7 +4641,7 @@ $root.protos = (function() {
                                 key = reader.string();
                                 break;
                             case 2:
-                                value = $root.protos.common.Rules.decode(reader, reader.uint32());
+                                value = $root.protos.common.Rule.decode(reader, reader.uint32());
                                 break;
                             default:
                                 reader.skipType(tag2 & 7);
@@ -4711,7 +4711,7 @@ $root.protos = (function() {
                         return "rules: object expected";
                     var key = Object.keys(message.rules);
                     for (var i = 0; i < key.length; ++i) {
-                        var error = $root.protos.common.Rules.verify(message.rules[key[i]]);
+                        var error = $root.protos.common.Rule.verify(message.rules[key[i]]);
                         if (error)
                             return "rules." + error;
                     }
@@ -4762,7 +4762,7 @@ $root.protos = (function() {
                     for (var keys = Object.keys(object.rules), i = 0; i < keys.length; ++i) {
                         if (typeof object.rules[keys[i]] !== "object")
                             throw TypeError(".protos.common.RuleSet.rules: object expected");
-                        message.rules[keys[i]] = $root.protos.common.Rules.fromObject(object.rules[keys[i]]);
+                        message.rules[keys[i]] = $root.protos.common.Rule.fromObject(object.rules[keys[i]]);
                     }
                 }
                 if (object.bus != null)
@@ -4804,7 +4804,7 @@ $root.protos = (function() {
                 if (message.rules && (keys2 = Object.keys(message.rules)).length) {
                     object.rules = {};
                     for (var j = 0; j < keys2.length; ++j)
-                        object.rules[keys2[j]] = $root.protos.common.Rules.toObject(message.rules[keys2[j]], options);
+                        object.rules[keys2[j]] = $root.protos.common.Rule.toObject(message.rules[keys2[j]], options);
                 }
                 if (message.bus != null && message.hasOwnProperty("bus"))
                     object.bus = message.bus;
@@ -4879,214 +4879,6 @@ $root.protos = (function() {
             values[valuesById[3] = "RULE_FAILURE_MODE_TRANSFORM"] = 3;
             values[valuesById[4] = "RULE_FAILURE_MODE_ALERT_SLACK"] = 4;
             return values;
-        })();
-
-        common.Rules = (function() {
-
-            /**
-             * Properties of a Rules.
-             * @memberof protos.common
-             * @interface IRules
-             * @property {Array.<protos.common.IRule>|null} [rules] Rules rules
-             */
-
-            /**
-             * Constructs a new Rules.
-             * @memberof protos.common
-             * @classdesc Represents a Rules.
-             * @implements IRules
-             * @constructor
-             * @param {protos.common.IRules=} [properties] Properties to set
-             */
-            function Rules(properties) {
-                this.rules = [];
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * Rules rules.
-             * @member {Array.<protos.common.IRule>} rules
-             * @memberof protos.common.Rules
-             * @instance
-             */
-            Rules.prototype.rules = $util.emptyArray;
-
-            /**
-             * Creates a new Rules instance using the specified properties.
-             * @function create
-             * @memberof protos.common.Rules
-             * @static
-             * @param {protos.common.IRules=} [properties] Properties to set
-             * @returns {protos.common.Rules} Rules instance
-             */
-            Rules.create = function create(properties) {
-                return new Rules(properties);
-            };
-
-            /**
-             * Encodes the specified Rules message. Does not implicitly {@link protos.common.Rules.verify|verify} messages.
-             * @function encode
-             * @memberof protos.common.Rules
-             * @static
-             * @param {protos.common.IRules} message Rules message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            Rules.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.rules != null && message.rules.length)
-                    for (var i = 0; i < message.rules.length; ++i)
-                        $root.protos.common.Rule.encode(message.rules[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified Rules message, length delimited. Does not implicitly {@link protos.common.Rules.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.common.Rules
-             * @static
-             * @param {protos.common.IRules} message Rules message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            Rules.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a Rules message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.common.Rules
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.common.Rules} Rules
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            Rules.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.Rules();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        if (!(message.rules && message.rules.length))
-                            message.rules = [];
-                        message.rules.push($root.protos.common.Rule.decode(reader, reader.uint32()));
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a Rules message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.common.Rules
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.common.Rules} Rules
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            Rules.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a Rules message.
-             * @function verify
-             * @memberof protos.common.Rules
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            Rules.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.rules != null && message.hasOwnProperty("rules")) {
-                    if (!Array.isArray(message.rules))
-                        return "rules: array expected";
-                    for (var i = 0; i < message.rules.length; ++i) {
-                        var error = $root.protos.common.Rule.verify(message.rules[i]);
-                        if (error)
-                            return "rules." + error;
-                    }
-                }
-                return null;
-            };
-
-            /**
-             * Creates a Rules message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.common.Rules
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.common.Rules} Rules
-             */
-            Rules.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.common.Rules)
-                    return object;
-                var message = new $root.protos.common.Rules();
-                if (object.rules) {
-                    if (!Array.isArray(object.rules))
-                        throw TypeError(".protos.common.Rules.rules: array expected");
-                    message.rules = [];
-                    for (var i = 0; i < object.rules.length; ++i) {
-                        if (typeof object.rules[i] !== "object")
-                            throw TypeError(".protos.common.Rules.rules: object expected");
-                        message.rules[i] = $root.protos.common.Rule.fromObject(object.rules[i]);
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a Rules message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.common.Rules
-             * @static
-             * @param {protos.common.Rules} message Rules
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            Rules.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.arrays || options.defaults)
-                    object.rules = [];
-                if (message.rules && message.rules.length) {
-                    object.rules = [];
-                    for (var j = 0; j < message.rules.length; ++j)
-                        object.rules[j] = $root.protos.common.Rule.toObject(message.rules[j], options);
-                }
-                return object;
-            };
-
-            /**
-             * Converts this Rules to JSON.
-             * @function toJSON
-             * @memberof protos.common.Rules
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            Rules.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return Rules;
         })();
 
         common.Rule = (function() {
