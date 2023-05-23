@@ -126,6 +126,5 @@ message FailureModeTransform {
 }
 
 message FailureModeAlertSlack {
-  string slack_token = 1; // TODO: should this be in here or configured somewhere else?
-  string slack_channel = 2;
+  string slack_channel = 1;
 }
