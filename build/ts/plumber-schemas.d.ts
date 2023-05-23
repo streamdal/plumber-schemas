@@ -24782,6 +24782,9 @@ export namespace protos {
         /** SendRuleNotificationRequest data */
         data?: (Uint8Array|null);
 
+        /** SendRuleNotificationRequest rulesetId */
+        rulesetId?: (string|null);
+
         /** SendRuleNotificationRequest ruleId */
         ruleId?: (string|null);
     }
@@ -24800,6 +24803,9 @@ export namespace protos {
 
         /** SendRuleNotificationRequest data. */
         public data: Uint8Array;
+
+        /** SendRuleNotificationRequest rulesetId. */
+        public rulesetId: string;
 
         /** SendRuleNotificationRequest ruleId. */
         public ruleId: string;

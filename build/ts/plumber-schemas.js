@@ -60203,6 +60203,7 @@ $root.protos = (function() {
          * @interface ISendRuleNotificationRequest
          * @property {protos.common.IAuth|null} [auth] SendRuleNotificationRequest auth
          * @property {Uint8Array|null} [data] SendRuleNotificationRequest data
+         * @property {string|null} [rulesetId] SendRuleNotificationRequest rulesetId
          * @property {string|null} [ruleId] SendRuleNotificationRequest ruleId
          */
 
@@ -60238,6 +60239,14 @@ $root.protos = (function() {
         SendRuleNotificationRequest.prototype.data = $util.newBuffer([]);
 
         /**
+         * SendRuleNotificationRequest rulesetId.
+         * @member {string} rulesetId
+         * @memberof protos.SendRuleNotificationRequest
+         * @instance
+         */
+        SendRuleNotificationRequest.prototype.rulesetId = "";
+
+        /**
          * SendRuleNotificationRequest ruleId.
          * @member {string} ruleId
          * @memberof protos.SendRuleNotificationRequest
@@ -60271,8 +60280,10 @@ $root.protos = (function() {
                 writer = $Writer.create();
             if (message.data != null && Object.hasOwnProperty.call(message, "data"))
                 writer.uint32(/* id 1, wireType 2 =*/10).bytes(message.data);
+            if (message.rulesetId != null && Object.hasOwnProperty.call(message, "rulesetId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.rulesetId);
             if (message.ruleId != null && Object.hasOwnProperty.call(message, "ruleId"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.ruleId);
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.ruleId);
             if (message.auth != null && Object.hasOwnProperty.call(message, "auth"))
                 $root.protos.common.Auth.encode(message.auth, writer.uint32(/* id 9999, wireType 2 =*/79994).fork()).ldelim();
             return writer;
@@ -60316,6 +60327,9 @@ $root.protos = (function() {
                     message.data = reader.bytes();
                     break;
                 case 2:
+                    message.rulesetId = reader.string();
+                    break;
+                case 3:
                     message.ruleId = reader.string();
                     break;
                 default:
@@ -60361,6 +60375,9 @@ $root.protos = (function() {
             if (message.data != null && message.hasOwnProperty("data"))
                 if (!(message.data && typeof message.data.length === "number" || $util.isString(message.data)))
                     return "data: buffer expected";
+            if (message.rulesetId != null && message.hasOwnProperty("rulesetId"))
+                if (!$util.isString(message.rulesetId))
+                    return "rulesetId: string expected";
             if (message.ruleId != null && message.hasOwnProperty("ruleId"))
                 if (!$util.isString(message.ruleId))
                     return "ruleId: string expected";
@@ -60389,6 +60406,8 @@ $root.protos = (function() {
                     $util.base64.decode(object.data, message.data = $util.newBuffer($util.base64.length(object.data)), 0);
                 else if (object.data.length)
                     message.data = object.data;
+            if (object.rulesetId != null)
+                message.rulesetId = String(object.rulesetId);
             if (object.ruleId != null)
                 message.ruleId = String(object.ruleId);
             return message;
@@ -60415,11 +60434,14 @@ $root.protos = (function() {
                     if (options.bytes !== Array)
                         object.data = $util.newBuffer(object.data);
                 }
+                object.rulesetId = "";
                 object.ruleId = "";
                 object.auth = null;
             }
             if (message.data != null && message.hasOwnProperty("data"))
                 object.data = options.bytes === String ? $util.base64.encode(message.data, 0, message.data.length) : options.bytes === Array ? Array.prototype.slice.call(message.data) : message.data;
+            if (message.rulesetId != null && message.hasOwnProperty("rulesetId"))
+                object.rulesetId = message.rulesetId;
             if (message.ruleId != null && message.hasOwnProperty("ruleId"))
                 object.ruleId = message.ruleId;
             if (message.auth != null && message.hasOwnProperty("auth"))
