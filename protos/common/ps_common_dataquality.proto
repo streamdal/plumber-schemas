@@ -13,12 +13,7 @@ message RuleSet {
 
   // Determines when this rule is ran
   RuleMode mode = 3;
-
-  // What key to run these rules on
-  // Kafka:
-  //   - Key is the topic being published to, or read from
-  // RabbitMQ
-  //   - Key is the binding/routing key depending on publish or consume
+  
   map<string, Rule> rules = 4;
 
   // The bus this rule set is associated with
@@ -26,6 +21,13 @@ message RuleSet {
 
   // Incrementing number to track rule set versions. Set by plumber
   int32 version = 6;
+
+  // What key to run these rules on
+  // Kafka:
+  //   - Key is the topic being published to, or read from
+  // RabbitMQ
+  //   - Key is the binding/routing key depending on publish or consume
+  string key = 7;
 }
 
 
