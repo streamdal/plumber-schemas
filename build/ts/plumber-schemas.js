@@ -4833,15 +4833,13 @@ $root.protos = (function() {
          * @enum {number}
          * @property {number} RULE_TYPE_UNSET=0 RULE_TYPE_UNSET value
          * @property {number} RULE_TYPE_MATCH=1 RULE_TYPE_MATCH value
-         * @property {number} RULE_TYPE_TRANSFORM=2 RULE_TYPE_TRANSFORM value
-         * @property {number} RULE_TYPE_CUSTOM=3 RULE_TYPE_CUSTOM value
+         * @property {number} RULE_TYPE_CUSTOM=2 RULE_TYPE_CUSTOM value
          */
         common.RuleType = (function() {
             var valuesById = {}, values = Object.create(valuesById);
             values[valuesById[0] = "RULE_TYPE_UNSET"] = 0;
             values[valuesById[1] = "RULE_TYPE_MATCH"] = 1;
-            values[valuesById[2] = "RULE_TYPE_TRANSFORM"] = 2;
-            values[valuesById[3] = "RULE_TYPE_CUSTOM"] = 3;
+            values[valuesById[2] = "RULE_TYPE_CUSTOM"] = 2;
             return values;
         })();
 
@@ -4891,7 +4889,6 @@ $root.protos = (function() {
              * @property {protos.common.RuleType|null} [type] Rule type
              * @property {protos.common.RuleFailureMode|null} [failureMode] Rule failureMode
              * @property {protos.common.IRuleConfigMatch|null} [matchConfig] Rule matchConfig
-             * @property {protos.common.IRuleConfigTransform|null} [transformConfig] Rule transformConfig
              * @property {protos.common.IRuleConfigCustom|null} [customConfig] Rule customConfig
              * @property {protos.common.IFailureModeReject|null} [reject] Rule reject
              * @property {protos.common.IFailureModeDLQ|null} [dlq] Rule dlq
@@ -4947,14 +4944,6 @@ $root.protos = (function() {
             Rule.prototype.matchConfig = null;
 
             /**
-             * Rule transformConfig.
-             * @member {protos.common.IRuleConfigTransform|null|undefined} transformConfig
-             * @memberof protos.common.Rule
-             * @instance
-             */
-            Rule.prototype.transformConfig = null;
-
-            /**
              * Rule customConfig.
              * @member {protos.common.IRuleConfigCustom|null|undefined} customConfig
              * @memberof protos.common.Rule
@@ -4999,12 +4988,12 @@ $root.protos = (function() {
 
             /**
              * Rule ruleConfig.
-             * @member {"matchConfig"|"transformConfig"|"customConfig"|undefined} ruleConfig
+             * @member {"matchConfig"|"customConfig"|undefined} ruleConfig
              * @memberof protos.common.Rule
              * @instance
              */
             Object.defineProperty(Rule.prototype, "ruleConfig", {
-                get: $util.oneOfGetter($oneOfFields = ["matchConfig", "transformConfig", "customConfig"]),
+                get: $util.oneOfGetter($oneOfFields = ["matchConfig", "customConfig"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -5051,10 +5040,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.failureMode);
                 if (message.matchConfig != null && Object.hasOwnProperty.call(message, "matchConfig"))
                     $root.protos.common.RuleConfigMatch.encode(message.matchConfig, writer.uint32(/* id 1000, wireType 2 =*/8002).fork()).ldelim();
-                if (message.transformConfig != null && Object.hasOwnProperty.call(message, "transformConfig"))
-                    $root.protos.common.RuleConfigTransform.encode(message.transformConfig, writer.uint32(/* id 1001, wireType 2 =*/8010).fork()).ldelim();
                 if (message.customConfig != null && Object.hasOwnProperty.call(message, "customConfig"))
-                    $root.protos.common.RuleConfigCustom.encode(message.customConfig, writer.uint32(/* id 1002, wireType 2 =*/8018).fork()).ldelim();
+                    $root.protos.common.RuleConfigCustom.encode(message.customConfig, writer.uint32(/* id 1001, wireType 2 =*/8010).fork()).ldelim();
                 if (message.reject != null && Object.hasOwnProperty.call(message, "reject"))
                     $root.protos.common.FailureModeReject.encode(message.reject, writer.uint32(/* id 2000, wireType 2 =*/16002).fork()).ldelim();
                 if (message.dlq != null && Object.hasOwnProperty.call(message, "dlq"))
@@ -5110,9 +5097,6 @@ $root.protos = (function() {
                         message.matchConfig = $root.protos.common.RuleConfigMatch.decode(reader, reader.uint32());
                         break;
                     case 1001:
-                        message.transformConfig = $root.protos.common.RuleConfigTransform.decode(reader, reader.uint32());
-                        break;
-                    case 1002:
                         message.customConfig = $root.protos.common.RuleConfigCustom.decode(reader, reader.uint32());
                         break;
                     case 2000:
@@ -5173,7 +5157,6 @@ $root.protos = (function() {
                     case 0:
                     case 1:
                     case 2:
-                    case 3:
                         break;
                     }
                 if (message.failureMode != null && message.hasOwnProperty("failureMode"))
@@ -5193,16 +5176,6 @@ $root.protos = (function() {
                         var error = $root.protos.common.RuleConfigMatch.verify(message.matchConfig);
                         if (error)
                             return "matchConfig." + error;
-                    }
-                }
-                if (message.transformConfig != null && message.hasOwnProperty("transformConfig")) {
-                    if (properties.ruleConfig === 1)
-                        return "ruleConfig: multiple values";
-                    properties.ruleConfig = 1;
-                    {
-                        var error = $root.protos.common.RuleConfigTransform.verify(message.transformConfig);
-                        if (error)
-                            return "transformConfig." + error;
                     }
                 }
                 if (message.customConfig != null && message.hasOwnProperty("customConfig")) {
@@ -5279,13 +5252,9 @@ $root.protos = (function() {
                 case 1:
                     message.type = 1;
                     break;
-                case "RULE_TYPE_TRANSFORM":
+                case "RULE_TYPE_CUSTOM":
                 case 2:
                     message.type = 2;
-                    break;
-                case "RULE_TYPE_CUSTOM":
-                case 3:
-                    message.type = 3;
                     break;
                 }
                 switch (object.failureMode) {
@@ -5314,11 +5283,6 @@ $root.protos = (function() {
                     if (typeof object.matchConfig !== "object")
                         throw TypeError(".protos.common.Rule.matchConfig: object expected");
                     message.matchConfig = $root.protos.common.RuleConfigMatch.fromObject(object.matchConfig);
-                }
-                if (object.transformConfig != null) {
-                    if (typeof object.transformConfig !== "object")
-                        throw TypeError(".protos.common.Rule.transformConfig: object expected");
-                    message.transformConfig = $root.protos.common.RuleConfigTransform.fromObject(object.transformConfig);
                 }
                 if (object.customConfig != null) {
                     if (typeof object.customConfig !== "object")
@@ -5376,11 +5340,6 @@ $root.protos = (function() {
                     object.matchConfig = $root.protos.common.RuleConfigMatch.toObject(message.matchConfig, options);
                     if (options.oneofs)
                         object.ruleConfig = "matchConfig";
-                }
-                if (message.transformConfig != null && message.hasOwnProperty("transformConfig")) {
-                    object.transformConfig = $root.protos.common.RuleConfigTransform.toObject(message.transformConfig, options);
-                    if (options.oneofs)
-                        object.ruleConfig = "transformConfig";
                 }
                 if (message.customConfig != null && message.hasOwnProperty("customConfig")) {
                     object.customConfig = $root.protos.common.RuleConfigCustom.toObject(message.customConfig, options);
@@ -5671,216 +5630,6 @@ $root.protos = (function() {
             };
 
             return RuleConfigMatch;
-        })();
-
-        common.RuleConfigTransform = (function() {
-
-            /**
-             * Properties of a RuleConfigTransform.
-             * @memberof protos.common
-             * @interface IRuleConfigTransform
-             * @property {string|null} [path] RuleConfigTransform path
-             * @property {string|null} [value] RuleConfigTransform value
-             */
-
-            /**
-             * Constructs a new RuleConfigTransform.
-             * @memberof protos.common
-             * @classdesc Represents a RuleConfigTransform.
-             * @implements IRuleConfigTransform
-             * @constructor
-             * @param {protos.common.IRuleConfigTransform=} [properties] Properties to set
-             */
-            function RuleConfigTransform(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * RuleConfigTransform path.
-             * @member {string} path
-             * @memberof protos.common.RuleConfigTransform
-             * @instance
-             */
-            RuleConfigTransform.prototype.path = "";
-
-            /**
-             * RuleConfigTransform value.
-             * @member {string} value
-             * @memberof protos.common.RuleConfigTransform
-             * @instance
-             */
-            RuleConfigTransform.prototype.value = "";
-
-            /**
-             * Creates a new RuleConfigTransform instance using the specified properties.
-             * @function create
-             * @memberof protos.common.RuleConfigTransform
-             * @static
-             * @param {protos.common.IRuleConfigTransform=} [properties] Properties to set
-             * @returns {protos.common.RuleConfigTransform} RuleConfigTransform instance
-             */
-            RuleConfigTransform.create = function create(properties) {
-                return new RuleConfigTransform(properties);
-            };
-
-            /**
-             * Encodes the specified RuleConfigTransform message. Does not implicitly {@link protos.common.RuleConfigTransform.verify|verify} messages.
-             * @function encode
-             * @memberof protos.common.RuleConfigTransform
-             * @static
-             * @param {protos.common.IRuleConfigTransform} message RuleConfigTransform message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RuleConfigTransform.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.path != null && Object.hasOwnProperty.call(message, "path"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
-                if (message.value != null && Object.hasOwnProperty.call(message, "value"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.value);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified RuleConfigTransform message, length delimited. Does not implicitly {@link protos.common.RuleConfigTransform.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.common.RuleConfigTransform
-             * @static
-             * @param {protos.common.IRuleConfigTransform} message RuleConfigTransform message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            RuleConfigTransform.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a RuleConfigTransform message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.common.RuleConfigTransform
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.common.RuleConfigTransform} RuleConfigTransform
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RuleConfigTransform.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.common.RuleConfigTransform();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.path = reader.string();
-                        break;
-                    case 2:
-                        message.value = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a RuleConfigTransform message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.common.RuleConfigTransform
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.common.RuleConfigTransform} RuleConfigTransform
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            RuleConfigTransform.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a RuleConfigTransform message.
-             * @function verify
-             * @memberof protos.common.RuleConfigTransform
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            RuleConfigTransform.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.path != null && message.hasOwnProperty("path"))
-                    if (!$util.isString(message.path))
-                        return "path: string expected";
-                if (message.value != null && message.hasOwnProperty("value"))
-                    if (!$util.isString(message.value))
-                        return "value: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a RuleConfigTransform message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.common.RuleConfigTransform
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.common.RuleConfigTransform} RuleConfigTransform
-             */
-            RuleConfigTransform.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.common.RuleConfigTransform)
-                    return object;
-                var message = new $root.protos.common.RuleConfigTransform();
-                if (object.path != null)
-                    message.path = String(object.path);
-                if (object.value != null)
-                    message.value = String(object.value);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a RuleConfigTransform message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.common.RuleConfigTransform
-             * @static
-             * @param {protos.common.RuleConfigTransform} message RuleConfigTransform
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            RuleConfigTransform.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.path = "";
-                    object.value = "";
-                }
-                if (message.path != null && message.hasOwnProperty("path"))
-                    object.path = message.path;
-                if (message.value != null && message.hasOwnProperty("value"))
-                    object.value = message.value;
-                return object;
-            };
-
-            /**
-             * Converts this RuleConfigTransform to JSON.
-             * @function toJSON
-             * @memberof protos.common.RuleConfigTransform
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            RuleConfigTransform.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return RuleConfigTransform;
         })();
 
         common.RuleConfigCustom = (function() {

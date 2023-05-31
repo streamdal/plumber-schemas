@@ -2259,8 +2259,7 @@ export namespace protos {
         enum RuleType {
             RULE_TYPE_UNSET = 0,
             RULE_TYPE_MATCH = 1,
-            RULE_TYPE_TRANSFORM = 2,
-            RULE_TYPE_CUSTOM = 3
+            RULE_TYPE_CUSTOM = 2
         }
 
         /** RuleMode enum. */
@@ -2293,9 +2292,6 @@ export namespace protos {
 
             /** Rule matchConfig */
             matchConfig?: (protos.common.IRuleConfigMatch|null);
-
-            /** Rule transformConfig */
-            transformConfig?: (protos.common.IRuleConfigTransform|null);
 
             /** Rule customConfig */
             customConfig?: (protos.common.IRuleConfigCustom|null);
@@ -2334,9 +2330,6 @@ export namespace protos {
             /** Rule matchConfig. */
             public matchConfig?: (protos.common.IRuleConfigMatch|null);
 
-            /** Rule transformConfig. */
-            public transformConfig?: (protos.common.IRuleConfigTransform|null);
-
             /** Rule customConfig. */
             public customConfig?: (protos.common.IRuleConfigCustom|null);
 
@@ -2353,7 +2346,7 @@ export namespace protos {
             public alertSlack?: (protos.common.IFailureModeAlertSlack|null);
 
             /** Rule ruleConfig. */
-            public ruleConfig?: ("matchConfig"|"transformConfig"|"customConfig");
+            public ruleConfig?: ("matchConfig"|"customConfig");
 
             /** Rule failureModeConfig. */
             public failureModeConfig?: ("reject"|"dlq"|"transform"|"alertSlack");
@@ -2526,102 +2519,6 @@ export namespace protos {
 
             /**
              * Converts this RuleConfigMatch to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-
-        /** Properties of a RuleConfigTransform. */
-        interface IRuleConfigTransform {
-
-            /** RuleConfigTransform path */
-            path?: (string|null);
-
-            /** RuleConfigTransform value */
-            value?: (string|null);
-        }
-
-        /** Represents a RuleConfigTransform. */
-        class RuleConfigTransform implements IRuleConfigTransform {
-
-            /**
-             * Constructs a new RuleConfigTransform.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: protos.common.IRuleConfigTransform);
-
-            /** RuleConfigTransform path. */
-            public path: string;
-
-            /** RuleConfigTransform value. */
-            public value: string;
-
-            /**
-             * Creates a new RuleConfigTransform instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns RuleConfigTransform instance
-             */
-            public static create(properties?: protos.common.IRuleConfigTransform): protos.common.RuleConfigTransform;
-
-            /**
-             * Encodes the specified RuleConfigTransform message. Does not implicitly {@link protos.common.RuleConfigTransform.verify|verify} messages.
-             * @param message RuleConfigTransform message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: protos.common.IRuleConfigTransform, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified RuleConfigTransform message, length delimited. Does not implicitly {@link protos.common.RuleConfigTransform.verify|verify} messages.
-             * @param message RuleConfigTransform message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: protos.common.IRuleConfigTransform, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a RuleConfigTransform message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns RuleConfigTransform
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.RuleConfigTransform;
-
-            /**
-             * Decodes a RuleConfigTransform message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns RuleConfigTransform
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.RuleConfigTransform;
-
-            /**
-             * Verifies a RuleConfigTransform message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a RuleConfigTransform message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns RuleConfigTransform
-             */
-            public static fromObject(object: { [k: string]: any }): protos.common.RuleConfigTransform;
-
-            /**
-             * Creates a plain object from a RuleConfigTransform message. Also converts values to other types if specified.
-             * @param message RuleConfigTransform
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: protos.common.RuleConfigTransform, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this RuleConfigTransform to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
