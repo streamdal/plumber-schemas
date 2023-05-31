@@ -8,14 +8,32 @@ import (
 
 func GenerateConnOpts(backend string, connArgs interface{}) (IsConnectionOptions_Conn, bool) {
 	switch backend {
-	case "awssqs":
-		asserted, ok := connArgs.(args.AWSSQSConn)
+	case "nats":
+		asserted, ok := connArgs.(args.NatsConn)
 		if !ok {
 			return nil, false
 		}
 
-		return &ConnectionOptions_AwsSqs{
-			AwsSqs: &asserted,
+		return &ConnectionOptions_Nats{
+			Nats: &asserted,
+		}, true
+	case "rabbit":
+		asserted, ok := connArgs.(args.RabbitConn)
+		if !ok {
+			return nil, false
+		}
+
+		return &ConnectionOptions_Rabbit{
+			Rabbit: &asserted,
+		}, true
+	case "redispubsub":
+		asserted, ok := connArgs.(args.RedisPubSubConn)
+		if !ok {
+			return nil, false
+		}
+
+		return &ConnectionOptions_RedisPubsub{
+			RedisPubsub: &asserted,
 		}, true
 	case "azureeventhub":
 		asserted, ok := connArgs.(args.AzureEventHubConn)
@@ -26,6 +44,24 @@ func GenerateConnOpts(backend string, connArgs interface{}) (IsConnectionOptions
 		return &ConnectionOptions_AzureEventHub{
 			AzureEventHub: &asserted,
 		}, true
+	case "azureservicebus":
+		asserted, ok := connArgs.(args.AzureServiceBusConn)
+		if !ok {
+			return nil, false
+		}
+
+		return &ConnectionOptions_AzureServiceBus{
+			AzureServiceBus: &asserted,
+		}, true
+	case "kubemqqueue":
+		asserted, ok := connArgs.(args.KubeMQQueueConn)
+		if !ok {
+			return nil, false
+		}
+
+		return &ConnectionOptions_KubemqQueue{
+			KubemqQueue: &asserted,
+		}, true
 	case "activemq":
 		asserted, ok := connArgs.(args.ActiveMQConn)
 		if !ok {
@@ -34,6 +70,15 @@ func GenerateConnOpts(backend string, connArgs interface{}) (IsConnectionOptions
 
 		return &ConnectionOptions_ActiveMq{
 			ActiveMq: &asserted,
+		}, true
+	case "awssqs":
+		asserted, ok := connArgs.(args.AWSSQSConn)
+		if !ok {
+			return nil, false
+		}
+
+		return &ConnectionOptions_AwsSqs{
+			AwsSqs: &asserted,
 		}, true
 	case "awssns":
 		asserted, ok := connArgs.(args.AWSSNSConn)
@@ -52,15 +97,6 @@ func GenerateConnOpts(backend string, connArgs interface{}) (IsConnectionOptions
 
 		return &ConnectionOptions_NatsStreaming{
 			NatsStreaming: &asserted,
-		}, true
-	case "nsq":
-		asserted, ok := connArgs.(args.NSQConn)
-		if !ok {
-			return nil, false
-		}
-
-		return &ConnectionOptions_Nsq{
-			Nsq: &asserted,
 		}, true
 	case "pulsar":
 		asserted, ok := connArgs.(args.PulsarConn)
@@ -89,50 +125,23 @@ func GenerateConnOpts(backend string, connArgs interface{}) (IsConnectionOptions
 		return &ConnectionOptions_Kafka{
 			Kafka: &asserted,
 		}, true
-	case "mongo":
-		asserted, ok := connArgs.(args.MongoConn)
+	case "nsq":
+		asserted, ok := connArgs.(args.NSQConn)
 		if !ok {
 			return nil, false
 		}
 
-		return &ConnectionOptions_Mongo{
-			Mongo: &asserted,
+		return &ConnectionOptions_Nsq{
+			Nsq: &asserted,
 		}, true
-	case "redisstreams":
-		asserted, ok := connArgs.(args.RedisStreamsConn)
+	case "rabbitstreams":
+		asserted, ok := connArgs.(args.RabbitStreamsConn)
 		if !ok {
 			return nil, false
 		}
 
-		return &ConnectionOptions_RedisStreams{
-			RedisStreams: &asserted,
-		}, true
-	case "kubemqqueue":
-		asserted, ok := connArgs.(args.KubeMQQueueConn)
-		if !ok {
-			return nil, false
-		}
-
-		return &ConnectionOptions_KubemqQueue{
-			KubemqQueue: &asserted,
-		}, true
-	case "gcppubsub":
-		asserted, ok := connArgs.(args.GCPPubSubConn)
-		if !ok {
-			return nil, false
-		}
-
-		return &ConnectionOptions_GcpPubsub{
-			GcpPubsub: &asserted,
-		}, true
-	case "natsjetstream":
-		asserted, ok := connArgs.(args.NatsJetstreamConn)
-		if !ok {
-			return nil, false
-		}
-
-		return &ConnectionOptions_NatsJetstream{
-			NatsJetstream: &asserted,
+		return &ConnectionOptions_RabbitStreams{
+			RabbitStreams: &asserted,
 		}, true
 	case "mqtt":
 		asserted, ok := connArgs.(args.MQTTConn)
@@ -152,14 +161,14 @@ func GenerateConnOpts(backend string, connArgs interface{}) (IsConnectionOptions
 		return &ConnectionOptions_Memphis{
 			Memphis: &asserted,
 		}, true
-	case "nats":
-		asserted, ok := connArgs.(args.NatsConn)
+	case "mongo":
+		asserted, ok := connArgs.(args.MongoConn)
 		if !ok {
 			return nil, false
 		}
 
-		return &ConnectionOptions_Nats{
-			Nats: &asserted,
+		return &ConnectionOptions_Mongo{
+			Mongo: &asserted,
 		}, true
 	case "postgres":
 		asserted, ok := connArgs.(args.PostgresConn)
@@ -170,41 +179,32 @@ func GenerateConnOpts(backend string, connArgs interface{}) (IsConnectionOptions
 		return &ConnectionOptions_Postgres{
 			Postgres: &asserted,
 		}, true
-	case "rabbit":
-		asserted, ok := connArgs.(args.RabbitConn)
+	case "redisstreams":
+		asserted, ok := connArgs.(args.RedisStreamsConn)
 		if !ok {
 			return nil, false
 		}
 
-		return &ConnectionOptions_Rabbit{
-			Rabbit: &asserted,
+		return &ConnectionOptions_RedisStreams{
+			RedisStreams: &asserted,
 		}, true
-	case "rabbitstreams":
-		asserted, ok := connArgs.(args.RabbitStreamsConn)
+	case "gcppubsub":
+		asserted, ok := connArgs.(args.GCPPubSubConn)
 		if !ok {
 			return nil, false
 		}
 
-		return &ConnectionOptions_RabbitStreams{
-			RabbitStreams: &asserted,
+		return &ConnectionOptions_GcpPubsub{
+			GcpPubsub: &asserted,
 		}, true
-	case "redispubsub":
-		asserted, ok := connArgs.(args.RedisPubSubConn)
+	case "natsjetstream":
+		asserted, ok := connArgs.(args.NatsJetstreamConn)
 		if !ok {
 			return nil, false
 		}
 
-		return &ConnectionOptions_RedisPubsub{
-			RedisPubsub: &asserted,
-		}, true
-	case "azureservicebus":
-		asserted, ok := connArgs.(args.AzureServiceBusConn)
-		if !ok {
-			return nil, false
-		}
-
-		return &ConnectionOptions_AzureServiceBus{
-			AzureServiceBus: &asserted,
+		return &ConnectionOptions_NatsJetstream{
+			NatsJetstream: &asserted,
 		}, true
 	default:
 		return nil, false

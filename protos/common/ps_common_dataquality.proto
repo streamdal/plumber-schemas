@@ -32,8 +32,7 @@ message RuleSet {
 enum RuleType {
   RULE_TYPE_UNSET = 0;
   RULE_TYPE_MATCH = 1;
-  RULE_TYPE_TRANSFORM = 2;
-  RULE_TYPE_CUSTOM = 3;
+  RULE_TYPE_CUSTOM = 2;
 }
 
 enum RuleMode {
@@ -70,8 +69,7 @@ message Rule {
 
   oneof rule_config {
     RuleConfigMatch match_config = 1000;
-    RuleConfigTransform transform_config = 1001;
-    RuleConfigCustom custom_config = 1002;
+    RuleConfigCustom custom_config = 1001;
   }
 
   // The failure mode configuration
@@ -94,14 +92,6 @@ message RuleConfigMatch {
   // The values we are matching on if the matcher takes arguments (ex: string_contains_any),
   // otherwise this is ignored
   repeated string args = 3;
-}
-
-message RuleConfigTransform {
-  // The json path of the field we are transforming
-  string path = 1;
-
-  // The value to replace the field with
-  string value = 2;
 }
 
 message RuleConfigCustom {
