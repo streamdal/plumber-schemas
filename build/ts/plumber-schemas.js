@@ -4480,6 +4480,7 @@ $root.protos = (function() {
              * @property {Object.<string,protos.common.IRule>|null} [rules] RuleSet rules
              * @property {string|null} [bus] RuleSet bus
              * @property {number|null} [version] RuleSet version
+             * @property {string|null} [key] RuleSet key
              */
 
             /**
@@ -4547,6 +4548,14 @@ $root.protos = (function() {
             RuleSet.prototype.version = 0;
 
             /**
+             * RuleSet key.
+             * @member {string} key
+             * @memberof protos.common.RuleSet
+             * @instance
+             */
+            RuleSet.prototype.key = "";
+
+            /**
              * Creates a new RuleSet instance using the specified properties.
              * @function create
              * @memberof protos.common.RuleSet
@@ -4585,6 +4594,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 5, wireType 2 =*/42).string(message.bus);
                 if (message.version != null && Object.hasOwnProperty.call(message, "version"))
                     writer.uint32(/* id 6, wireType 0 =*/48).int32(message.version);
+                if (message.key != null && Object.hasOwnProperty.call(message, "key"))
+                    writer.uint32(/* id 7, wireType 2 =*/58).string(message.key);
                 return writer;
             };
 
@@ -4656,6 +4667,9 @@ $root.protos = (function() {
                     case 6:
                         message.version = reader.int32();
                         break;
+                    case 7:
+                        message.key = reader.string();
+                        break;
                     default:
                         reader.skipType(tag & 7);
                         break;
@@ -4722,6 +4736,9 @@ $root.protos = (function() {
                 if (message.version != null && message.hasOwnProperty("version"))
                     if (!$util.isInteger(message.version))
                         return "version: integer expected";
+                if (message.key != null && message.hasOwnProperty("key"))
+                    if (!$util.isString(message.key))
+                        return "key: string expected";
                 return null;
             };
 
@@ -4769,6 +4786,8 @@ $root.protos = (function() {
                     message.bus = String(object.bus);
                 if (object.version != null)
                     message.version = object.version | 0;
+                if (object.key != null)
+                    message.key = String(object.key);
                 return message;
             };
 
@@ -4793,6 +4812,7 @@ $root.protos = (function() {
                     object.mode = options.enums === String ? "RULE_MODE_UNSET" : 0;
                     object.bus = "";
                     object.version = 0;
+                    object.key = "";
                 }
                 if (message.id != null && message.hasOwnProperty("id"))
                     object.id = message.id;
@@ -4810,6 +4830,8 @@ $root.protos = (function() {
                     object.bus = message.bus;
                 if (message.version != null && message.hasOwnProperty("version"))
                     object.version = message.version;
+                if (message.key != null && message.hasOwnProperty("key"))
+                    object.key = message.key;
                 return object;
             };
 

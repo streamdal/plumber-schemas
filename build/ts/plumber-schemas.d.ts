@@ -2155,6 +2155,9 @@ export namespace protos {
 
             /** RuleSet version */
             version?: (number|null);
+
+            /** RuleSet key */
+            key?: (string|null);
         }
 
         /** Represents a RuleSet. */
@@ -2183,6 +2186,9 @@ export namespace protos {
 
             /** RuleSet version. */
             public version: number;
+
+            /** RuleSet key. */
+            public key: string;
 
             /**
              * Creates a new RuleSet instance using the specified properties.
