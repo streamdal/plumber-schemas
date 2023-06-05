@@ -110,11 +110,20 @@ message FailureModeDLQ {
 }
 
 message FailureModeTransform {
+  enum TransformType {
+    TRANSFORM_TYPE_UNSET = 0;
+    TRANSFORM_TYPE_REPLACE = 1;
+    TRANSFORM_TYPE_DELETE = 2;
+  }
+
   // The key we are replacing
   string path = 1;
 
   // The value we are replacing it with
   string value = 2;
+
+  TransformType type = 3;
+
 }
 
 message FailureModeAlertSlack {
