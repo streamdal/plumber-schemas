@@ -1,0 +1,11 @@
+# @generated, do not edit
+[package]
+name = "proto_ps_relay"
+version = "0.0.1"
+edition = "2018"
+
+[dependencies]
+lazy_static = { version = "1.4.0" }
+pb-jelly = { version = "0.0.12" }
+proto_common = {path = "../proto_common"}
+proto_opts = {path = "../proto_opts"}

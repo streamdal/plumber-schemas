@@ -1,0 +1,12 @@
+# @generated, do not edit
+[package]
+name = "proto_opts"
+version = "0.0.1"
+edition = "2018"
+
+[dependencies]
+lazy_static = { version = "1.4.0" }
+pb-jelly = { version = "0.0.12" }
+proto_args = {path = "../proto_args"}
+proto_encoding = {path = "../proto_encoding"}
+proto_records = {path = "../proto_records"}
