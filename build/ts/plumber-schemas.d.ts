@@ -2796,6 +2796,9 @@ export namespace protos {
 
             /** FailureModeTransform value */
             value?: (string|null);
+
+            /** FailureModeTransform type */
+            type?: (protos.common.FailureModeTransform.TransformType|null);
         }
 
         /** Represents a FailureModeTransform. */
@@ -2812,6 +2815,9 @@ export namespace protos {
 
             /** FailureModeTransform value. */
             public value: string;
+
+            /** FailureModeTransform type. */
+            public type: protos.common.FailureModeTransform.TransformType;
 
             /**
              * Creates a new FailureModeTransform instance using the specified properties.
@@ -2882,6 +2888,16 @@ export namespace protos {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
+        }
+
+        namespace FailureModeTransform {
+
+            /** TransformType enum. */
+            enum TransformType {
+                TRANSFORM_TYPE_UNSET = 0,
+                TRANSFORM_TYPE_REPLACE = 1,
+                TRANSFORM_TYPE_DELETE = 2
+            }
         }
 
         /** Properties of a FailureModeAlertSlack. */

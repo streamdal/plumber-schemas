@@ -6169,6 +6169,7 @@ $root.protos = (function() {
              * @interface IFailureModeTransform
              * @property {string|null} [path] FailureModeTransform path
              * @property {string|null} [value] FailureModeTransform value
+             * @property {protos.common.FailureModeTransform.TransformType|null} [type] FailureModeTransform type
              */
 
             /**
@@ -6203,6 +6204,14 @@ $root.protos = (function() {
             FailureModeTransform.prototype.value = "";
 
             /**
+             * FailureModeTransform type.
+             * @member {protos.common.FailureModeTransform.TransformType} type
+             * @memberof protos.common.FailureModeTransform
+             * @instance
+             */
+            FailureModeTransform.prototype.type = 0;
+
+            /**
              * Creates a new FailureModeTransform instance using the specified properties.
              * @function create
              * @memberof protos.common.FailureModeTransform
@@ -6230,6 +6239,8 @@ $root.protos = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.path);
                 if (message.value != null && Object.hasOwnProperty.call(message, "value"))
                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.value);
+                if (message.type != null && Object.hasOwnProperty.call(message, "type"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.type);
                 return writer;
             };
 
@@ -6269,6 +6280,9 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message.value = reader.string();
+                        break;
+                    case 3:
+                        message.type = reader.int32();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -6311,6 +6325,15 @@ $root.protos = (function() {
                 if (message.value != null && message.hasOwnProperty("value"))
                     if (!$util.isString(message.value))
                         return "value: string expected";
+                if (message.type != null && message.hasOwnProperty("type"))
+                    switch (message.type) {
+                    default:
+                        return "type: enum value expected";
+                    case 0:
+                    case 1:
+                    case 2:
+                        break;
+                    }
                 return null;
             };
 
@@ -6330,6 +6353,20 @@ $root.protos = (function() {
                     message.path = String(object.path);
                 if (object.value != null)
                     message.value = String(object.value);
+                switch (object.type) {
+                case "TRANSFORM_TYPE_UNSET":
+                case 0:
+                    message.type = 0;
+                    break;
+                case "TRANSFORM_TYPE_REPLACE":
+                case 1:
+                    message.type = 1;
+                    break;
+                case "TRANSFORM_TYPE_DELETE":
+                case 2:
+                    message.type = 2;
+                    break;
+                }
                 return message;
             };
 
@@ -6349,11 +6386,14 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object.path = "";
                     object.value = "";
+                    object.type = options.enums === String ? "TRANSFORM_TYPE_UNSET" : 0;
                 }
                 if (message.path != null && message.hasOwnProperty("path"))
                     object.path = message.path;
                 if (message.value != null && message.hasOwnProperty("value"))
                     object.value = message.value;
+                if (message.type != null && message.hasOwnProperty("type"))
+                    object.type = options.enums === String ? $root.protos.common.FailureModeTransform.TransformType[message.type] : message.type;
                 return object;
             };
 
@@ -6367,6 +6407,22 @@ $root.protos = (function() {
             FailureModeTransform.prototype.toJSON = function toJSON() {
                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
             };
+
+            /**
+             * TransformType enum.
+             * @name protos.common.FailureModeTransform.TransformType
+             * @enum {number}
+             * @property {number} TRANSFORM_TYPE_UNSET=0 TRANSFORM_TYPE_UNSET value
+             * @property {number} TRANSFORM_TYPE_REPLACE=1 TRANSFORM_TYPE_REPLACE value
+             * @property {number} TRANSFORM_TYPE_DELETE=2 TRANSFORM_TYPE_DELETE value
+             */
+            FailureModeTransform.TransformType = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "TRANSFORM_TYPE_UNSET"] = 0;
+                values[valuesById[1] = "TRANSFORM_TYPE_REPLACE"] = 1;
+                values[valuesById[2] = "TRANSFORM_TYPE_DELETE"] = 2;
+                return values;
+            })();
 
             return FailureModeTransform;
         })();
