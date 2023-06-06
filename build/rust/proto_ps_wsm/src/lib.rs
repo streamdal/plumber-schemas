@@ -24,8 +24,4 @@
 #[macro_use]
 extern crate lazy_static;
 
-pub mod ps_common_auth;
-pub mod ps_common_backends;
-pub mod ps_common_dataquality;
-pub mod ps_common_status;
-pub mod ps_common_validation;
+pub mod proto_ps_wsm;
