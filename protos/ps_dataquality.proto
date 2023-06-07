@@ -8,7 +8,7 @@ import "common/ps_common_status.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 
-message GetDataQualityRulesRequest {
+message GetDataQualityRuleSetsRequest {
   // Every gRPC request must have a valid auth config
   common.Auth auth = 9999;
 
@@ -16,10 +16,120 @@ message GetDataQualityRulesRequest {
   string bus = 1;
 }
 
-message GetDataQualityRulesResponse {
+message GetDataQualityRuleSetsResponse {
   common.Status status = 1000;
 
   repeated common.RuleSet rule_sets = 1;
+}
+
+message GetDataQualityRuleSetRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string id = 1;
+}
+
+message GetDataQualityRuleSetResponse {
+  common.Status status = 1000;
+
+  common.RuleSet rule_set = 1;
+}
+
+message CreateDataQualityRuleSetRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  common.RuleSet rule_set = 1;
+}
+
+message CreateDataQualityRuleSetResponse {
+  common.Status status = 1000;
+
+  string id = 1;
+}
+
+message UpdateDataQualityRuleSetRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string id = 1;
+
+  common.RuleSet rule_set = 2;
+}
+
+message UpdateDataQualityRuleSetResponse {
+  common.Status status = 1000;
+}
+
+message DeleteDataQualityRuleSetRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string id = 1;
+}
+
+message DeleteDataQualityRuleSetResponse {
+  common.Status status = 1000;
+}
+
+message GetDataQualityRuleRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  // The rule set we're pulling rules for
+  string rule_set_id = 2;
+
+  // The rule we're pulling
+  string rule_id = 3;
+}
+
+message GetDataQualityRuleResponse {
+  common.Status status = 1000;
+
+  common.Rule rule = 1;
+}
+
+message CreateDataQualityRuleRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string rule_set_id = 1;
+
+  common.Rule rule = 2;
+}
+
+message CreateDataQualityRuleResponse {
+  common.Status status = 1000;
+
+  string id = 1;
+}
+
+message UpdateDataQualityRuleRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string rule_set_id = 1;
+
+  string rule_id = 2;
+
+  common.Rule rule = 3;
+}
+
+message UpdateDataQualityRuleResponse {
+  common.Status status = 1000;
+}
+
+message DeleteDataQualityRuleRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string rule_set_id = 1;
+
+  string rule_id = 2;
+}
+
+message DeleteDataQualityRuleResponse {
+  common.Status status = 1000;
 }
 
 message SendRuleNotificationRequest {

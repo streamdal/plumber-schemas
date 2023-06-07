@@ -80,7 +80,21 @@ service PlumberServer {
 
   // --------------- Data Quality Rules ------------
 
-  rpc GetRules(GetDataQualityRulesRequest) returns (GetDataQualityRulesResponse);
+  rpc GetRuleSets(GetDataQualityRuleSetsRequest) returns (GetDataQualityRuleSetsResponse);
+
+  rpc GetRule(GetDataQualityRuleRequest) returns (GetDataQualityRuleResponse);
+
+  rpc CreateRule(CreateDataQualityRuleRequest) returns (CreateDataQualityRuleResponse);
+
+  rpc UpdateRule(UpdateDataQualityRuleRequest) returns (UpdateDataQualityRuleResponse);
+
+  rpc DeleteRule(DeleteDataQualityRuleRequest) returns (DeleteDataQualityRuleResponse);
+
+  rpc CreateRuleSet(CreateDataQualityRuleSetRequest) returns (CreateDataQualityRuleSetResponse);
+
+  rpc UpdateRuleSet(UpdateDataQualityRuleSetRequest) returns (UpdateDataQualityRuleSetResponse);
+
+  rpc DeleteRuleSet(DeleteDataQualityRuleSetRequest) returns (DeleteDataQualityRuleSetResponse);
 
   rpc SendRuleNotification(SendRuleNotificationRequest) returns (SendRuleNotificationResponse);
 
