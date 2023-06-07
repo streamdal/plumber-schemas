@@ -359,18 +359,116 @@ export namespace protos {
         public deleteWasmFile(request: protos.IDeleteWasmFileRequest): Promise<protos.DeleteWasmFileResponse>;
 
         /**
-         * Calls GetRules.
-         * @param request GetDataQualityRulesRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and GetDataQualityRulesResponse
+         * Calls GetRuleSets.
+         * @param request GetDataQualityRuleSetsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetDataQualityRuleSetsResponse
          */
-        public getRules(request: protos.IGetDataQualityRulesRequest, callback: protos.PlumberServer.GetRulesCallback): void;
+        public getRuleSets(request: protos.IGetDataQualityRuleSetsRequest, callback: protos.PlumberServer.GetRuleSetsCallback): void;
 
         /**
-         * Calls GetRules.
-         * @param request GetDataQualityRulesRequest message or plain object
+         * Calls GetRuleSets.
+         * @param request GetDataQualityRuleSetsRequest message or plain object
          * @returns Promise
          */
-        public getRules(request: protos.IGetDataQualityRulesRequest): Promise<protos.GetDataQualityRulesResponse>;
+        public getRuleSets(request: protos.IGetDataQualityRuleSetsRequest): Promise<protos.GetDataQualityRuleSetsResponse>;
+
+        /**
+         * Calls GetRule.
+         * @param request GetDataQualityRuleRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and GetDataQualityRuleResponse
+         */
+        public getRule(request: protos.IGetDataQualityRuleRequest, callback: protos.PlumberServer.GetRuleCallback): void;
+
+        /**
+         * Calls GetRule.
+         * @param request GetDataQualityRuleRequest message or plain object
+         * @returns Promise
+         */
+        public getRule(request: protos.IGetDataQualityRuleRequest): Promise<protos.GetDataQualityRuleResponse>;
+
+        /**
+         * Calls CreateRule.
+         * @param request CreateDataQualityRuleRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateDataQualityRuleResponse
+         */
+        public createRule(request: protos.ICreateDataQualityRuleRequest, callback: protos.PlumberServer.CreateRuleCallback): void;
+
+        /**
+         * Calls CreateRule.
+         * @param request CreateDataQualityRuleRequest message or plain object
+         * @returns Promise
+         */
+        public createRule(request: protos.ICreateDataQualityRuleRequest): Promise<protos.CreateDataQualityRuleResponse>;
+
+        /**
+         * Calls UpdateRule.
+         * @param request UpdateDataQualityRuleRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateDataQualityRuleResponse
+         */
+        public updateRule(request: protos.IUpdateDataQualityRuleRequest, callback: protos.PlumberServer.UpdateRuleCallback): void;
+
+        /**
+         * Calls UpdateRule.
+         * @param request UpdateDataQualityRuleRequest message or plain object
+         * @returns Promise
+         */
+        public updateRule(request: protos.IUpdateDataQualityRuleRequest): Promise<protos.UpdateDataQualityRuleResponse>;
+
+        /**
+         * Calls DeleteRule.
+         * @param request DeleteDataQualityRuleRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteDataQualityRuleResponse
+         */
+        public deleteRule(request: protos.IDeleteDataQualityRuleRequest, callback: protos.PlumberServer.DeleteRuleCallback): void;
+
+        /**
+         * Calls DeleteRule.
+         * @param request DeleteDataQualityRuleRequest message or plain object
+         * @returns Promise
+         */
+        public deleteRule(request: protos.IDeleteDataQualityRuleRequest): Promise<protos.DeleteDataQualityRuleResponse>;
+
+        /**
+         * Calls CreateRuleSet.
+         * @param request CreateDataQualityRuleSetRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and CreateDataQualityRuleSetResponse
+         */
+        public createRuleSet(request: protos.ICreateDataQualityRuleSetRequest, callback: protos.PlumberServer.CreateRuleSetCallback): void;
+
+        /**
+         * Calls CreateRuleSet.
+         * @param request CreateDataQualityRuleSetRequest message or plain object
+         * @returns Promise
+         */
+        public createRuleSet(request: protos.ICreateDataQualityRuleSetRequest): Promise<protos.CreateDataQualityRuleSetResponse>;
+
+        /**
+         * Calls UpdateRuleSet.
+         * @param request UpdateDataQualityRuleSetRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and UpdateDataQualityRuleSetResponse
+         */
+        public updateRuleSet(request: protos.IUpdateDataQualityRuleSetRequest, callback: protos.PlumberServer.UpdateRuleSetCallback): void;
+
+        /**
+         * Calls UpdateRuleSet.
+         * @param request UpdateDataQualityRuleSetRequest message or plain object
+         * @returns Promise
+         */
+        public updateRuleSet(request: protos.IUpdateDataQualityRuleSetRequest): Promise<protos.UpdateDataQualityRuleSetResponse>;
+
+        /**
+         * Calls DeleteRuleSet.
+         * @param request DeleteDataQualityRuleSetRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteDataQualityRuleSetResponse
+         */
+        public deleteRuleSet(request: protos.IDeleteDataQualityRuleSetRequest, callback: protos.PlumberServer.DeleteRuleSetCallback): void;
+
+        /**
+         * Calls DeleteRuleSet.
+         * @param request DeleteDataQualityRuleSetRequest message or plain object
+         * @returns Promise
+         */
+        public deleteRuleSet(request: protos.IDeleteDataQualityRuleSetRequest): Promise<protos.DeleteDataQualityRuleSetResponse>;
 
         /**
          * Calls SendRuleNotification.
@@ -572,11 +670,60 @@ export namespace protos {
         type DeleteWasmFileCallback = (error: (Error|null), response?: protos.DeleteWasmFileResponse) => void;
 
         /**
-         * Callback as used by {@link protos.PlumberServer#getRules}.
+         * Callback as used by {@link protos.PlumberServer#getRuleSets}.
          * @param error Error, if any
-         * @param [response] GetDataQualityRulesResponse
+         * @param [response] GetDataQualityRuleSetsResponse
          */
-        type GetRulesCallback = (error: (Error|null), response?: protos.GetDataQualityRulesResponse) => void;
+        type GetRuleSetsCallback = (error: (Error|null), response?: protos.GetDataQualityRuleSetsResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#getRule}.
+         * @param error Error, if any
+         * @param [response] GetDataQualityRuleResponse
+         */
+        type GetRuleCallback = (error: (Error|null), response?: protos.GetDataQualityRuleResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createRule}.
+         * @param error Error, if any
+         * @param [response] CreateDataQualityRuleResponse
+         */
+        type CreateRuleCallback = (error: (Error|null), response?: protos.CreateDataQualityRuleResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateRule}.
+         * @param error Error, if any
+         * @param [response] UpdateDataQualityRuleResponse
+         */
+        type UpdateRuleCallback = (error: (Error|null), response?: protos.UpdateDataQualityRuleResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteRule}.
+         * @param error Error, if any
+         * @param [response] DeleteDataQualityRuleResponse
+         */
+        type DeleteRuleCallback = (error: (Error|null), response?: protos.DeleteDataQualityRuleResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#createRuleSet}.
+         * @param error Error, if any
+         * @param [response] CreateDataQualityRuleSetResponse
+         */
+        type CreateRuleSetCallback = (error: (Error|null), response?: protos.CreateDataQualityRuleSetResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#updateRuleSet}.
+         * @param error Error, if any
+         * @param [response] UpdateDataQualityRuleSetResponse
+         */
+        type UpdateRuleSetCallback = (error: (Error|null), response?: protos.UpdateDataQualityRuleSetResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#deleteRuleSet}.
+         * @param error Error, if any
+         * @param [response] DeleteDataQualityRuleSetResponse
+         */
+        type DeleteRuleSetCallback = (error: (Error|null), response?: protos.DeleteDataQualityRuleSetResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#sendRuleNotification}.
@@ -24404,193 +24551,1741 @@ export namespace protos {
         }
     }
 
-    /** Properties of a GetDataQualityRulesRequest. */
-    interface IGetDataQualityRulesRequest {
+    /** Properties of a GetDataQualityRuleSetsRequest. */
+    interface IGetDataQualityRuleSetsRequest {
 
-        /** GetDataQualityRulesRequest auth */
+        /** GetDataQualityRuleSetsRequest auth */
         auth?: (protos.common.IAuth|null);
 
-        /** GetDataQualityRulesRequest bus */
+        /** GetDataQualityRuleSetsRequest bus */
         bus?: (string|null);
     }
 
-    /** Represents a GetDataQualityRulesRequest. */
-    class GetDataQualityRulesRequest implements IGetDataQualityRulesRequest {
+    /** Represents a GetDataQualityRuleSetsRequest. */
+    class GetDataQualityRuleSetsRequest implements IGetDataQualityRuleSetsRequest {
 
         /**
-         * Constructs a new GetDataQualityRulesRequest.
+         * Constructs a new GetDataQualityRuleSetsRequest.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IGetDataQualityRulesRequest);
+        constructor(properties?: protos.IGetDataQualityRuleSetsRequest);
 
-        /** GetDataQualityRulesRequest auth. */
+        /** GetDataQualityRuleSetsRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
-        /** GetDataQualityRulesRequest bus. */
+        /** GetDataQualityRuleSetsRequest bus. */
         public bus: string;
 
         /**
-         * Creates a new GetDataQualityRulesRequest instance using the specified properties.
+         * Creates a new GetDataQualityRuleSetsRequest instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetDataQualityRulesRequest instance
+         * @returns GetDataQualityRuleSetsRequest instance
          */
-        public static create(properties?: protos.IGetDataQualityRulesRequest): protos.GetDataQualityRulesRequest;
+        public static create(properties?: protos.IGetDataQualityRuleSetsRequest): protos.GetDataQualityRuleSetsRequest;
 
         /**
-         * Encodes the specified GetDataQualityRulesRequest message. Does not implicitly {@link protos.GetDataQualityRulesRequest.verify|verify} messages.
-         * @param message GetDataQualityRulesRequest message or plain object to encode
+         * Encodes the specified GetDataQualityRuleSetsRequest message. Does not implicitly {@link protos.GetDataQualityRuleSetsRequest.verify|verify} messages.
+         * @param message GetDataQualityRuleSetsRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IGetDataQualityRulesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IGetDataQualityRuleSetsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetDataQualityRulesRequest message, length delimited. Does not implicitly {@link protos.GetDataQualityRulesRequest.verify|verify} messages.
-         * @param message GetDataQualityRulesRequest message or plain object to encode
+         * Encodes the specified GetDataQualityRuleSetsRequest message, length delimited. Does not implicitly {@link protos.GetDataQualityRuleSetsRequest.verify|verify} messages.
+         * @param message GetDataQualityRuleSetsRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IGetDataQualityRulesRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IGetDataQualityRuleSetsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetDataQualityRulesRequest message from the specified reader or buffer.
+         * Decodes a GetDataQualityRuleSetsRequest message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetDataQualityRulesRequest
+         * @returns GetDataQualityRuleSetsRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRulesRequest;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRuleSetsRequest;
 
         /**
-         * Decodes a GetDataQualityRulesRequest message from the specified reader or buffer, length delimited.
+         * Decodes a GetDataQualityRuleSetsRequest message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetDataQualityRulesRequest
+         * @returns GetDataQualityRuleSetsRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRulesRequest;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRuleSetsRequest;
 
         /**
-         * Verifies a GetDataQualityRulesRequest message.
+         * Verifies a GetDataQualityRuleSetsRequest message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetDataQualityRulesRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetDataQualityRuleSetsRequest message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetDataQualityRulesRequest
+         * @returns GetDataQualityRuleSetsRequest
          */
-        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRulesRequest;
+        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRuleSetsRequest;
 
         /**
-         * Creates a plain object from a GetDataQualityRulesRequest message. Also converts values to other types if specified.
-         * @param message GetDataQualityRulesRequest
+         * Creates a plain object from a GetDataQualityRuleSetsRequest message. Also converts values to other types if specified.
+         * @param message GetDataQualityRuleSetsRequest
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.GetDataQualityRulesRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.GetDataQualityRuleSetsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetDataQualityRulesRequest to JSON.
+         * Converts this GetDataQualityRuleSetsRequest to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a GetDataQualityRulesResponse. */
-    interface IGetDataQualityRulesResponse {
+    /** Properties of a GetDataQualityRuleSetsResponse. */
+    interface IGetDataQualityRuleSetsResponse {
 
-        /** GetDataQualityRulesResponse status */
+        /** GetDataQualityRuleSetsResponse status */
         status?: (protos.common.IStatus|null);
 
-        /** GetDataQualityRulesResponse ruleSets */
+        /** GetDataQualityRuleSetsResponse ruleSets */
         ruleSets?: (protos.common.IRuleSet[]|null);
     }
 
-    /** Represents a GetDataQualityRulesResponse. */
-    class GetDataQualityRulesResponse implements IGetDataQualityRulesResponse {
+    /** Represents a GetDataQualityRuleSetsResponse. */
+    class GetDataQualityRuleSetsResponse implements IGetDataQualityRuleSetsResponse {
 
         /**
-         * Constructs a new GetDataQualityRulesResponse.
+         * Constructs a new GetDataQualityRuleSetsResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IGetDataQualityRulesResponse);
+        constructor(properties?: protos.IGetDataQualityRuleSetsResponse);
 
-        /** GetDataQualityRulesResponse status. */
+        /** GetDataQualityRuleSetsResponse status. */
         public status?: (protos.common.IStatus|null);
 
-        /** GetDataQualityRulesResponse ruleSets. */
+        /** GetDataQualityRuleSetsResponse ruleSets. */
         public ruleSets: protos.common.IRuleSet[];
 
         /**
-         * Creates a new GetDataQualityRulesResponse instance using the specified properties.
+         * Creates a new GetDataQualityRuleSetsResponse instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns GetDataQualityRulesResponse instance
+         * @returns GetDataQualityRuleSetsResponse instance
          */
-        public static create(properties?: protos.IGetDataQualityRulesResponse): protos.GetDataQualityRulesResponse;
+        public static create(properties?: protos.IGetDataQualityRuleSetsResponse): protos.GetDataQualityRuleSetsResponse;
 
         /**
-         * Encodes the specified GetDataQualityRulesResponse message. Does not implicitly {@link protos.GetDataQualityRulesResponse.verify|verify} messages.
-         * @param message GetDataQualityRulesResponse message or plain object to encode
+         * Encodes the specified GetDataQualityRuleSetsResponse message. Does not implicitly {@link protos.GetDataQualityRuleSetsResponse.verify|verify} messages.
+         * @param message GetDataQualityRuleSetsResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IGetDataQualityRulesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IGetDataQualityRuleSetsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified GetDataQualityRulesResponse message, length delimited. Does not implicitly {@link protos.GetDataQualityRulesResponse.verify|verify} messages.
-         * @param message GetDataQualityRulesResponse message or plain object to encode
+         * Encodes the specified GetDataQualityRuleSetsResponse message, length delimited. Does not implicitly {@link protos.GetDataQualityRuleSetsResponse.verify|verify} messages.
+         * @param message GetDataQualityRuleSetsResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IGetDataQualityRulesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IGetDataQualityRuleSetsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a GetDataQualityRulesResponse message from the specified reader or buffer.
+         * Decodes a GetDataQualityRuleSetsResponse message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns GetDataQualityRulesResponse
+         * @returns GetDataQualityRuleSetsResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRulesResponse;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRuleSetsResponse;
 
         /**
-         * Decodes a GetDataQualityRulesResponse message from the specified reader or buffer, length delimited.
+         * Decodes a GetDataQualityRuleSetsResponse message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns GetDataQualityRulesResponse
+         * @returns GetDataQualityRuleSetsResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRulesResponse;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRuleSetsResponse;
 
         /**
-         * Verifies a GetDataQualityRulesResponse message.
+         * Verifies a GetDataQualityRuleSetsResponse message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a GetDataQualityRulesResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a GetDataQualityRuleSetsResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns GetDataQualityRulesResponse
+         * @returns GetDataQualityRuleSetsResponse
          */
-        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRulesResponse;
+        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRuleSetsResponse;
 
         /**
-         * Creates a plain object from a GetDataQualityRulesResponse message. Also converts values to other types if specified.
-         * @param message GetDataQualityRulesResponse
+         * Creates a plain object from a GetDataQualityRuleSetsResponse message. Also converts values to other types if specified.
+         * @param message GetDataQualityRuleSetsResponse
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.GetDataQualityRulesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.GetDataQualityRuleSetsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this GetDataQualityRulesResponse to JSON.
+         * Converts this GetDataQualityRuleSetsResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetDataQualityRuleSetRequest. */
+    interface IGetDataQualityRuleSetRequest {
+
+        /** GetDataQualityRuleSetRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetDataQualityRuleSetRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a GetDataQualityRuleSetRequest. */
+    class GetDataQualityRuleSetRequest implements IGetDataQualityRuleSetRequest {
+
+        /**
+         * Constructs a new GetDataQualityRuleSetRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetDataQualityRuleSetRequest);
+
+        /** GetDataQualityRuleSetRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetDataQualityRuleSetRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new GetDataQualityRuleSetRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetDataQualityRuleSetRequest instance
+         */
+        public static create(properties?: protos.IGetDataQualityRuleSetRequest): protos.GetDataQualityRuleSetRequest;
+
+        /**
+         * Encodes the specified GetDataQualityRuleSetRequest message. Does not implicitly {@link protos.GetDataQualityRuleSetRequest.verify|verify} messages.
+         * @param message GetDataQualityRuleSetRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetDataQualityRuleSetRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetDataQualityRuleSetRequest message, length delimited. Does not implicitly {@link protos.GetDataQualityRuleSetRequest.verify|verify} messages.
+         * @param message GetDataQualityRuleSetRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetDataQualityRuleSetRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetDataQualityRuleSetRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetDataQualityRuleSetRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRuleSetRequest;
+
+        /**
+         * Decodes a GetDataQualityRuleSetRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetDataQualityRuleSetRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRuleSetRequest;
+
+        /**
+         * Verifies a GetDataQualityRuleSetRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetDataQualityRuleSetRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetDataQualityRuleSetRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRuleSetRequest;
+
+        /**
+         * Creates a plain object from a GetDataQualityRuleSetRequest message. Also converts values to other types if specified.
+         * @param message GetDataQualityRuleSetRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetDataQualityRuleSetRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetDataQualityRuleSetRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetDataQualityRuleSetResponse. */
+    interface IGetDataQualityRuleSetResponse {
+
+        /** GetDataQualityRuleSetResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** GetDataQualityRuleSetResponse ruleSet */
+        ruleSet?: (protos.common.IRuleSet|null);
+    }
+
+    /** Represents a GetDataQualityRuleSetResponse. */
+    class GetDataQualityRuleSetResponse implements IGetDataQualityRuleSetResponse {
+
+        /**
+         * Constructs a new GetDataQualityRuleSetResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetDataQualityRuleSetResponse);
+
+        /** GetDataQualityRuleSetResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** GetDataQualityRuleSetResponse ruleSet. */
+        public ruleSet?: (protos.common.IRuleSet|null);
+
+        /**
+         * Creates a new GetDataQualityRuleSetResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetDataQualityRuleSetResponse instance
+         */
+        public static create(properties?: protos.IGetDataQualityRuleSetResponse): protos.GetDataQualityRuleSetResponse;
+
+        /**
+         * Encodes the specified GetDataQualityRuleSetResponse message. Does not implicitly {@link protos.GetDataQualityRuleSetResponse.verify|verify} messages.
+         * @param message GetDataQualityRuleSetResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetDataQualityRuleSetResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetDataQualityRuleSetResponse message, length delimited. Does not implicitly {@link protos.GetDataQualityRuleSetResponse.verify|verify} messages.
+         * @param message GetDataQualityRuleSetResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetDataQualityRuleSetResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetDataQualityRuleSetResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetDataQualityRuleSetResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRuleSetResponse;
+
+        /**
+         * Decodes a GetDataQualityRuleSetResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetDataQualityRuleSetResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRuleSetResponse;
+
+        /**
+         * Verifies a GetDataQualityRuleSetResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetDataQualityRuleSetResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetDataQualityRuleSetResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRuleSetResponse;
+
+        /**
+         * Creates a plain object from a GetDataQualityRuleSetResponse message. Also converts values to other types if specified.
+         * @param message GetDataQualityRuleSetResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetDataQualityRuleSetResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetDataQualityRuleSetResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateDataQualityRuleSetRequest. */
+    interface ICreateDataQualityRuleSetRequest {
+
+        /** CreateDataQualityRuleSetRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateDataQualityRuleSetRequest ruleSet */
+        ruleSet?: (protos.common.IRuleSet|null);
+    }
+
+    /** Represents a CreateDataQualityRuleSetRequest. */
+    class CreateDataQualityRuleSetRequest implements ICreateDataQualityRuleSetRequest {
+
+        /**
+         * Constructs a new CreateDataQualityRuleSetRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateDataQualityRuleSetRequest);
+
+        /** CreateDataQualityRuleSetRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateDataQualityRuleSetRequest ruleSet. */
+        public ruleSet?: (protos.common.IRuleSet|null);
+
+        /**
+         * Creates a new CreateDataQualityRuleSetRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateDataQualityRuleSetRequest instance
+         */
+        public static create(properties?: protos.ICreateDataQualityRuleSetRequest): protos.CreateDataQualityRuleSetRequest;
+
+        /**
+         * Encodes the specified CreateDataQualityRuleSetRequest message. Does not implicitly {@link protos.CreateDataQualityRuleSetRequest.verify|verify} messages.
+         * @param message CreateDataQualityRuleSetRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateDataQualityRuleSetRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateDataQualityRuleSetRequest message, length delimited. Does not implicitly {@link protos.CreateDataQualityRuleSetRequest.verify|verify} messages.
+         * @param message CreateDataQualityRuleSetRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateDataQualityRuleSetRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateDataQualityRuleSetRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateDataQualityRuleSetRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateDataQualityRuleSetRequest;
+
+        /**
+         * Decodes a CreateDataQualityRuleSetRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateDataQualityRuleSetRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateDataQualityRuleSetRequest;
+
+        /**
+         * Verifies a CreateDataQualityRuleSetRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateDataQualityRuleSetRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateDataQualityRuleSetRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateDataQualityRuleSetRequest;
+
+        /**
+         * Creates a plain object from a CreateDataQualityRuleSetRequest message. Also converts values to other types if specified.
+         * @param message CreateDataQualityRuleSetRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateDataQualityRuleSetRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateDataQualityRuleSetRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateDataQualityRuleSetResponse. */
+    interface ICreateDataQualityRuleSetResponse {
+
+        /** CreateDataQualityRuleSetResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** CreateDataQualityRuleSetResponse id */
+        id?: (string|null);
+    }
+
+    /** Represents a CreateDataQualityRuleSetResponse. */
+    class CreateDataQualityRuleSetResponse implements ICreateDataQualityRuleSetResponse {
+
+        /**
+         * Constructs a new CreateDataQualityRuleSetResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateDataQualityRuleSetResponse);
+
+        /** CreateDataQualityRuleSetResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** CreateDataQualityRuleSetResponse id. */
+        public id: string;
+
+        /**
+         * Creates a new CreateDataQualityRuleSetResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateDataQualityRuleSetResponse instance
+         */
+        public static create(properties?: protos.ICreateDataQualityRuleSetResponse): protos.CreateDataQualityRuleSetResponse;
+
+        /**
+         * Encodes the specified CreateDataQualityRuleSetResponse message. Does not implicitly {@link protos.CreateDataQualityRuleSetResponse.verify|verify} messages.
+         * @param message CreateDataQualityRuleSetResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateDataQualityRuleSetResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateDataQualityRuleSetResponse message, length delimited. Does not implicitly {@link protos.CreateDataQualityRuleSetResponse.verify|verify} messages.
+         * @param message CreateDataQualityRuleSetResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateDataQualityRuleSetResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateDataQualityRuleSetResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateDataQualityRuleSetResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateDataQualityRuleSetResponse;
+
+        /**
+         * Decodes a CreateDataQualityRuleSetResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateDataQualityRuleSetResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateDataQualityRuleSetResponse;
+
+        /**
+         * Verifies a CreateDataQualityRuleSetResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateDataQualityRuleSetResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateDataQualityRuleSetResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateDataQualityRuleSetResponse;
+
+        /**
+         * Creates a plain object from a CreateDataQualityRuleSetResponse message. Also converts values to other types if specified.
+         * @param message CreateDataQualityRuleSetResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateDataQualityRuleSetResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateDataQualityRuleSetResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateDataQualityRuleSetRequest. */
+    interface IUpdateDataQualityRuleSetRequest {
+
+        /** UpdateDataQualityRuleSetRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateDataQualityRuleSetRequest id */
+        id?: (string|null);
+
+        /** UpdateDataQualityRuleSetRequest ruleSet */
+        ruleSet?: (protos.common.IRuleSet|null);
+    }
+
+    /** Represents an UpdateDataQualityRuleSetRequest. */
+    class UpdateDataQualityRuleSetRequest implements IUpdateDataQualityRuleSetRequest {
+
+        /**
+         * Constructs a new UpdateDataQualityRuleSetRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateDataQualityRuleSetRequest);
+
+        /** UpdateDataQualityRuleSetRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateDataQualityRuleSetRequest id. */
+        public id: string;
+
+        /** UpdateDataQualityRuleSetRequest ruleSet. */
+        public ruleSet?: (protos.common.IRuleSet|null);
+
+        /**
+         * Creates a new UpdateDataQualityRuleSetRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateDataQualityRuleSetRequest instance
+         */
+        public static create(properties?: protos.IUpdateDataQualityRuleSetRequest): protos.UpdateDataQualityRuleSetRequest;
+
+        /**
+         * Encodes the specified UpdateDataQualityRuleSetRequest message. Does not implicitly {@link protos.UpdateDataQualityRuleSetRequest.verify|verify} messages.
+         * @param message UpdateDataQualityRuleSetRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateDataQualityRuleSetRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateDataQualityRuleSetRequest message, length delimited. Does not implicitly {@link protos.UpdateDataQualityRuleSetRequest.verify|verify} messages.
+         * @param message UpdateDataQualityRuleSetRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateDataQualityRuleSetRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateDataQualityRuleSetRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateDataQualityRuleSetRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateDataQualityRuleSetRequest;
+
+        /**
+         * Decodes an UpdateDataQualityRuleSetRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateDataQualityRuleSetRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateDataQualityRuleSetRequest;
+
+        /**
+         * Verifies an UpdateDataQualityRuleSetRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateDataQualityRuleSetRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateDataQualityRuleSetRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateDataQualityRuleSetRequest;
+
+        /**
+         * Creates a plain object from an UpdateDataQualityRuleSetRequest message. Also converts values to other types if specified.
+         * @param message UpdateDataQualityRuleSetRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateDataQualityRuleSetRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateDataQualityRuleSetRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateDataQualityRuleSetResponse. */
+    interface IUpdateDataQualityRuleSetResponse {
+
+        /** UpdateDataQualityRuleSetResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UpdateDataQualityRuleSetResponse. */
+    class UpdateDataQualityRuleSetResponse implements IUpdateDataQualityRuleSetResponse {
+
+        /**
+         * Constructs a new UpdateDataQualityRuleSetResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateDataQualityRuleSetResponse);
+
+        /** UpdateDataQualityRuleSetResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UpdateDataQualityRuleSetResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateDataQualityRuleSetResponse instance
+         */
+        public static create(properties?: protos.IUpdateDataQualityRuleSetResponse): protos.UpdateDataQualityRuleSetResponse;
+
+        /**
+         * Encodes the specified UpdateDataQualityRuleSetResponse message. Does not implicitly {@link protos.UpdateDataQualityRuleSetResponse.verify|verify} messages.
+         * @param message UpdateDataQualityRuleSetResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateDataQualityRuleSetResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateDataQualityRuleSetResponse message, length delimited. Does not implicitly {@link protos.UpdateDataQualityRuleSetResponse.verify|verify} messages.
+         * @param message UpdateDataQualityRuleSetResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateDataQualityRuleSetResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateDataQualityRuleSetResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateDataQualityRuleSetResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateDataQualityRuleSetResponse;
+
+        /**
+         * Decodes an UpdateDataQualityRuleSetResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateDataQualityRuleSetResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateDataQualityRuleSetResponse;
+
+        /**
+         * Verifies an UpdateDataQualityRuleSetResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateDataQualityRuleSetResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateDataQualityRuleSetResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateDataQualityRuleSetResponse;
+
+        /**
+         * Creates a plain object from an UpdateDataQualityRuleSetResponse message. Also converts values to other types if specified.
+         * @param message UpdateDataQualityRuleSetResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateDataQualityRuleSetResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateDataQualityRuleSetResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteDataQualityRuleSetRequest. */
+    interface IDeleteDataQualityRuleSetRequest {
+
+        /** DeleteDataQualityRuleSetRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteDataQualityRuleSetRequest id */
+        id?: (string|null);
+    }
+
+    /** Represents a DeleteDataQualityRuleSetRequest. */
+    class DeleteDataQualityRuleSetRequest implements IDeleteDataQualityRuleSetRequest {
+
+        /**
+         * Constructs a new DeleteDataQualityRuleSetRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteDataQualityRuleSetRequest);
+
+        /** DeleteDataQualityRuleSetRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteDataQualityRuleSetRequest id. */
+        public id: string;
+
+        /**
+         * Creates a new DeleteDataQualityRuleSetRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteDataQualityRuleSetRequest instance
+         */
+        public static create(properties?: protos.IDeleteDataQualityRuleSetRequest): protos.DeleteDataQualityRuleSetRequest;
+
+        /**
+         * Encodes the specified DeleteDataQualityRuleSetRequest message. Does not implicitly {@link protos.DeleteDataQualityRuleSetRequest.verify|verify} messages.
+         * @param message DeleteDataQualityRuleSetRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteDataQualityRuleSetRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteDataQualityRuleSetRequest message, length delimited. Does not implicitly {@link protos.DeleteDataQualityRuleSetRequest.verify|verify} messages.
+         * @param message DeleteDataQualityRuleSetRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteDataQualityRuleSetRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteDataQualityRuleSetRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteDataQualityRuleSetRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteDataQualityRuleSetRequest;
+
+        /**
+         * Decodes a DeleteDataQualityRuleSetRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteDataQualityRuleSetRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteDataQualityRuleSetRequest;
+
+        /**
+         * Verifies a DeleteDataQualityRuleSetRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteDataQualityRuleSetRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteDataQualityRuleSetRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteDataQualityRuleSetRequest;
+
+        /**
+         * Creates a plain object from a DeleteDataQualityRuleSetRequest message. Also converts values to other types if specified.
+         * @param message DeleteDataQualityRuleSetRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteDataQualityRuleSetRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteDataQualityRuleSetRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteDataQualityRuleSetResponse. */
+    interface IDeleteDataQualityRuleSetResponse {
+
+        /** DeleteDataQualityRuleSetResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteDataQualityRuleSetResponse. */
+    class DeleteDataQualityRuleSetResponse implements IDeleteDataQualityRuleSetResponse {
+
+        /**
+         * Constructs a new DeleteDataQualityRuleSetResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteDataQualityRuleSetResponse);
+
+        /** DeleteDataQualityRuleSetResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteDataQualityRuleSetResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteDataQualityRuleSetResponse instance
+         */
+        public static create(properties?: protos.IDeleteDataQualityRuleSetResponse): protos.DeleteDataQualityRuleSetResponse;
+
+        /**
+         * Encodes the specified DeleteDataQualityRuleSetResponse message. Does not implicitly {@link protos.DeleteDataQualityRuleSetResponse.verify|verify} messages.
+         * @param message DeleteDataQualityRuleSetResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteDataQualityRuleSetResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteDataQualityRuleSetResponse message, length delimited. Does not implicitly {@link protos.DeleteDataQualityRuleSetResponse.verify|verify} messages.
+         * @param message DeleteDataQualityRuleSetResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteDataQualityRuleSetResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteDataQualityRuleSetResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteDataQualityRuleSetResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteDataQualityRuleSetResponse;
+
+        /**
+         * Decodes a DeleteDataQualityRuleSetResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteDataQualityRuleSetResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteDataQualityRuleSetResponse;
+
+        /**
+         * Verifies a DeleteDataQualityRuleSetResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteDataQualityRuleSetResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteDataQualityRuleSetResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteDataQualityRuleSetResponse;
+
+        /**
+         * Creates a plain object from a DeleteDataQualityRuleSetResponse message. Also converts values to other types if specified.
+         * @param message DeleteDataQualityRuleSetResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteDataQualityRuleSetResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteDataQualityRuleSetResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetDataQualityRuleRequest. */
+    interface IGetDataQualityRuleRequest {
+
+        /** GetDataQualityRuleRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** GetDataQualityRuleRequest ruleSetId */
+        ruleSetId?: (string|null);
+
+        /** GetDataQualityRuleRequest ruleId */
+        ruleId?: (string|null);
+    }
+
+    /** Represents a GetDataQualityRuleRequest. */
+    class GetDataQualityRuleRequest implements IGetDataQualityRuleRequest {
+
+        /**
+         * Constructs a new GetDataQualityRuleRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetDataQualityRuleRequest);
+
+        /** GetDataQualityRuleRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** GetDataQualityRuleRequest ruleSetId. */
+        public ruleSetId: string;
+
+        /** GetDataQualityRuleRequest ruleId. */
+        public ruleId: string;
+
+        /**
+         * Creates a new GetDataQualityRuleRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetDataQualityRuleRequest instance
+         */
+        public static create(properties?: protos.IGetDataQualityRuleRequest): protos.GetDataQualityRuleRequest;
+
+        /**
+         * Encodes the specified GetDataQualityRuleRequest message. Does not implicitly {@link protos.GetDataQualityRuleRequest.verify|verify} messages.
+         * @param message GetDataQualityRuleRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetDataQualityRuleRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetDataQualityRuleRequest message, length delimited. Does not implicitly {@link protos.GetDataQualityRuleRequest.verify|verify} messages.
+         * @param message GetDataQualityRuleRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetDataQualityRuleRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetDataQualityRuleRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetDataQualityRuleRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRuleRequest;
+
+        /**
+         * Decodes a GetDataQualityRuleRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetDataQualityRuleRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRuleRequest;
+
+        /**
+         * Verifies a GetDataQualityRuleRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetDataQualityRuleRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetDataQualityRuleRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRuleRequest;
+
+        /**
+         * Creates a plain object from a GetDataQualityRuleRequest message. Also converts values to other types if specified.
+         * @param message GetDataQualityRuleRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetDataQualityRuleRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetDataQualityRuleRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a GetDataQualityRuleResponse. */
+    interface IGetDataQualityRuleResponse {
+
+        /** GetDataQualityRuleResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** GetDataQualityRuleResponse rule */
+        rule?: (protos.common.IRule|null);
+    }
+
+    /** Represents a GetDataQualityRuleResponse. */
+    class GetDataQualityRuleResponse implements IGetDataQualityRuleResponse {
+
+        /**
+         * Constructs a new GetDataQualityRuleResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IGetDataQualityRuleResponse);
+
+        /** GetDataQualityRuleResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** GetDataQualityRuleResponse rule. */
+        public rule?: (protos.common.IRule|null);
+
+        /**
+         * Creates a new GetDataQualityRuleResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GetDataQualityRuleResponse instance
+         */
+        public static create(properties?: protos.IGetDataQualityRuleResponse): protos.GetDataQualityRuleResponse;
+
+        /**
+         * Encodes the specified GetDataQualityRuleResponse message. Does not implicitly {@link protos.GetDataQualityRuleResponse.verify|verify} messages.
+         * @param message GetDataQualityRuleResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IGetDataQualityRuleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified GetDataQualityRuleResponse message, length delimited. Does not implicitly {@link protos.GetDataQualityRuleResponse.verify|verify} messages.
+         * @param message GetDataQualityRuleResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IGetDataQualityRuleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a GetDataQualityRuleResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GetDataQualityRuleResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.GetDataQualityRuleResponse;
+
+        /**
+         * Decodes a GetDataQualityRuleResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GetDataQualityRuleResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.GetDataQualityRuleResponse;
+
+        /**
+         * Verifies a GetDataQualityRuleResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a GetDataQualityRuleResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns GetDataQualityRuleResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.GetDataQualityRuleResponse;
+
+        /**
+         * Creates a plain object from a GetDataQualityRuleResponse message. Also converts values to other types if specified.
+         * @param message GetDataQualityRuleResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.GetDataQualityRuleResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this GetDataQualityRuleResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateDataQualityRuleRequest. */
+    interface ICreateDataQualityRuleRequest {
+
+        /** CreateDataQualityRuleRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** CreateDataQualityRuleRequest ruleSetId */
+        ruleSetId?: (string|null);
+
+        /** CreateDataQualityRuleRequest rule */
+        rule?: (protos.common.IRule|null);
+    }
+
+    /** Represents a CreateDataQualityRuleRequest. */
+    class CreateDataQualityRuleRequest implements ICreateDataQualityRuleRequest {
+
+        /**
+         * Constructs a new CreateDataQualityRuleRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateDataQualityRuleRequest);
+
+        /** CreateDataQualityRuleRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** CreateDataQualityRuleRequest ruleSetId. */
+        public ruleSetId: string;
+
+        /** CreateDataQualityRuleRequest rule. */
+        public rule?: (protos.common.IRule|null);
+
+        /**
+         * Creates a new CreateDataQualityRuleRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateDataQualityRuleRequest instance
+         */
+        public static create(properties?: protos.ICreateDataQualityRuleRequest): protos.CreateDataQualityRuleRequest;
+
+        /**
+         * Encodes the specified CreateDataQualityRuleRequest message. Does not implicitly {@link protos.CreateDataQualityRuleRequest.verify|verify} messages.
+         * @param message CreateDataQualityRuleRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateDataQualityRuleRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateDataQualityRuleRequest message, length delimited. Does not implicitly {@link protos.CreateDataQualityRuleRequest.verify|verify} messages.
+         * @param message CreateDataQualityRuleRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateDataQualityRuleRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateDataQualityRuleRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateDataQualityRuleRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateDataQualityRuleRequest;
+
+        /**
+         * Decodes a CreateDataQualityRuleRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateDataQualityRuleRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateDataQualityRuleRequest;
+
+        /**
+         * Verifies a CreateDataQualityRuleRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateDataQualityRuleRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateDataQualityRuleRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateDataQualityRuleRequest;
+
+        /**
+         * Creates a plain object from a CreateDataQualityRuleRequest message. Also converts values to other types if specified.
+         * @param message CreateDataQualityRuleRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateDataQualityRuleRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateDataQualityRuleRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CreateDataQualityRuleResponse. */
+    interface ICreateDataQualityRuleResponse {
+
+        /** CreateDataQualityRuleResponse status */
+        status?: (protos.common.IStatus|null);
+
+        /** CreateDataQualityRuleResponse id */
+        id?: (string|null);
+    }
+
+    /** Represents a CreateDataQualityRuleResponse. */
+    class CreateDataQualityRuleResponse implements ICreateDataQualityRuleResponse {
+
+        /**
+         * Constructs a new CreateDataQualityRuleResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.ICreateDataQualityRuleResponse);
+
+        /** CreateDataQualityRuleResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /** CreateDataQualityRuleResponse id. */
+        public id: string;
+
+        /**
+         * Creates a new CreateDataQualityRuleResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CreateDataQualityRuleResponse instance
+         */
+        public static create(properties?: protos.ICreateDataQualityRuleResponse): protos.CreateDataQualityRuleResponse;
+
+        /**
+         * Encodes the specified CreateDataQualityRuleResponse message. Does not implicitly {@link protos.CreateDataQualityRuleResponse.verify|verify} messages.
+         * @param message CreateDataQualityRuleResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.ICreateDataQualityRuleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CreateDataQualityRuleResponse message, length delimited. Does not implicitly {@link protos.CreateDataQualityRuleResponse.verify|verify} messages.
+         * @param message CreateDataQualityRuleResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.ICreateDataQualityRuleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CreateDataQualityRuleResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CreateDataQualityRuleResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.CreateDataQualityRuleResponse;
+
+        /**
+         * Decodes a CreateDataQualityRuleResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CreateDataQualityRuleResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.CreateDataQualityRuleResponse;
+
+        /**
+         * Verifies a CreateDataQualityRuleResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CreateDataQualityRuleResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CreateDataQualityRuleResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.CreateDataQualityRuleResponse;
+
+        /**
+         * Creates a plain object from a CreateDataQualityRuleResponse message. Also converts values to other types if specified.
+         * @param message CreateDataQualityRuleResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.CreateDataQualityRuleResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CreateDataQualityRuleResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateDataQualityRuleRequest. */
+    interface IUpdateDataQualityRuleRequest {
+
+        /** UpdateDataQualityRuleRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** UpdateDataQualityRuleRequest ruleSetId */
+        ruleSetId?: (string|null);
+
+        /** UpdateDataQualityRuleRequest ruleId */
+        ruleId?: (string|null);
+
+        /** UpdateDataQualityRuleRequest rule */
+        rule?: (protos.common.IRule|null);
+    }
+
+    /** Represents an UpdateDataQualityRuleRequest. */
+    class UpdateDataQualityRuleRequest implements IUpdateDataQualityRuleRequest {
+
+        /**
+         * Constructs a new UpdateDataQualityRuleRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateDataQualityRuleRequest);
+
+        /** UpdateDataQualityRuleRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** UpdateDataQualityRuleRequest ruleSetId. */
+        public ruleSetId: string;
+
+        /** UpdateDataQualityRuleRequest ruleId. */
+        public ruleId: string;
+
+        /** UpdateDataQualityRuleRequest rule. */
+        public rule?: (protos.common.IRule|null);
+
+        /**
+         * Creates a new UpdateDataQualityRuleRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateDataQualityRuleRequest instance
+         */
+        public static create(properties?: protos.IUpdateDataQualityRuleRequest): protos.UpdateDataQualityRuleRequest;
+
+        /**
+         * Encodes the specified UpdateDataQualityRuleRequest message. Does not implicitly {@link protos.UpdateDataQualityRuleRequest.verify|verify} messages.
+         * @param message UpdateDataQualityRuleRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateDataQualityRuleRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateDataQualityRuleRequest message, length delimited. Does not implicitly {@link protos.UpdateDataQualityRuleRequest.verify|verify} messages.
+         * @param message UpdateDataQualityRuleRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateDataQualityRuleRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateDataQualityRuleRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateDataQualityRuleRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateDataQualityRuleRequest;
+
+        /**
+         * Decodes an UpdateDataQualityRuleRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateDataQualityRuleRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateDataQualityRuleRequest;
+
+        /**
+         * Verifies an UpdateDataQualityRuleRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateDataQualityRuleRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateDataQualityRuleRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateDataQualityRuleRequest;
+
+        /**
+         * Creates a plain object from an UpdateDataQualityRuleRequest message. Also converts values to other types if specified.
+         * @param message UpdateDataQualityRuleRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateDataQualityRuleRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateDataQualityRuleRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an UpdateDataQualityRuleResponse. */
+    interface IUpdateDataQualityRuleResponse {
+
+        /** UpdateDataQualityRuleResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents an UpdateDataQualityRuleResponse. */
+    class UpdateDataQualityRuleResponse implements IUpdateDataQualityRuleResponse {
+
+        /**
+         * Constructs a new UpdateDataQualityRuleResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IUpdateDataQualityRuleResponse);
+
+        /** UpdateDataQualityRuleResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new UpdateDataQualityRuleResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns UpdateDataQualityRuleResponse instance
+         */
+        public static create(properties?: protos.IUpdateDataQualityRuleResponse): protos.UpdateDataQualityRuleResponse;
+
+        /**
+         * Encodes the specified UpdateDataQualityRuleResponse message. Does not implicitly {@link protos.UpdateDataQualityRuleResponse.verify|verify} messages.
+         * @param message UpdateDataQualityRuleResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IUpdateDataQualityRuleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified UpdateDataQualityRuleResponse message, length delimited. Does not implicitly {@link protos.UpdateDataQualityRuleResponse.verify|verify} messages.
+         * @param message UpdateDataQualityRuleResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IUpdateDataQualityRuleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an UpdateDataQualityRuleResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns UpdateDataQualityRuleResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.UpdateDataQualityRuleResponse;
+
+        /**
+         * Decodes an UpdateDataQualityRuleResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns UpdateDataQualityRuleResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.UpdateDataQualityRuleResponse;
+
+        /**
+         * Verifies an UpdateDataQualityRuleResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an UpdateDataQualityRuleResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns UpdateDataQualityRuleResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.UpdateDataQualityRuleResponse;
+
+        /**
+         * Creates a plain object from an UpdateDataQualityRuleResponse message. Also converts values to other types if specified.
+         * @param message UpdateDataQualityRuleResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.UpdateDataQualityRuleResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this UpdateDataQualityRuleResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteDataQualityRuleRequest. */
+    interface IDeleteDataQualityRuleRequest {
+
+        /** DeleteDataQualityRuleRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** DeleteDataQualityRuleRequest ruleSetId */
+        ruleSetId?: (string|null);
+
+        /** DeleteDataQualityRuleRequest ruleId */
+        ruleId?: (string|null);
+    }
+
+    /** Represents a DeleteDataQualityRuleRequest. */
+    class DeleteDataQualityRuleRequest implements IDeleteDataQualityRuleRequest {
+
+        /**
+         * Constructs a new DeleteDataQualityRuleRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteDataQualityRuleRequest);
+
+        /** DeleteDataQualityRuleRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** DeleteDataQualityRuleRequest ruleSetId. */
+        public ruleSetId: string;
+
+        /** DeleteDataQualityRuleRequest ruleId. */
+        public ruleId: string;
+
+        /**
+         * Creates a new DeleteDataQualityRuleRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteDataQualityRuleRequest instance
+         */
+        public static create(properties?: protos.IDeleteDataQualityRuleRequest): protos.DeleteDataQualityRuleRequest;
+
+        /**
+         * Encodes the specified DeleteDataQualityRuleRequest message. Does not implicitly {@link protos.DeleteDataQualityRuleRequest.verify|verify} messages.
+         * @param message DeleteDataQualityRuleRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteDataQualityRuleRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteDataQualityRuleRequest message, length delimited. Does not implicitly {@link protos.DeleteDataQualityRuleRequest.verify|verify} messages.
+         * @param message DeleteDataQualityRuleRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteDataQualityRuleRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteDataQualityRuleRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteDataQualityRuleRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteDataQualityRuleRequest;
+
+        /**
+         * Decodes a DeleteDataQualityRuleRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteDataQualityRuleRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteDataQualityRuleRequest;
+
+        /**
+         * Verifies a DeleteDataQualityRuleRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteDataQualityRuleRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteDataQualityRuleRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteDataQualityRuleRequest;
+
+        /**
+         * Creates a plain object from a DeleteDataQualityRuleRequest message. Also converts values to other types if specified.
+         * @param message DeleteDataQualityRuleRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteDataQualityRuleRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteDataQualityRuleRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a DeleteDataQualityRuleResponse. */
+    interface IDeleteDataQualityRuleResponse {
+
+        /** DeleteDataQualityRuleResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a DeleteDataQualityRuleResponse. */
+    class DeleteDataQualityRuleResponse implements IDeleteDataQualityRuleResponse {
+
+        /**
+         * Constructs a new DeleteDataQualityRuleResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IDeleteDataQualityRuleResponse);
+
+        /** DeleteDataQualityRuleResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new DeleteDataQualityRuleResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteDataQualityRuleResponse instance
+         */
+        public static create(properties?: protos.IDeleteDataQualityRuleResponse): protos.DeleteDataQualityRuleResponse;
+
+        /**
+         * Encodes the specified DeleteDataQualityRuleResponse message. Does not implicitly {@link protos.DeleteDataQualityRuleResponse.verify|verify} messages.
+         * @param message DeleteDataQualityRuleResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IDeleteDataQualityRuleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteDataQualityRuleResponse message, length delimited. Does not implicitly {@link protos.DeleteDataQualityRuleResponse.verify|verify} messages.
+         * @param message DeleteDataQualityRuleResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IDeleteDataQualityRuleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteDataQualityRuleResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteDataQualityRuleResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.DeleteDataQualityRuleResponse;
+
+        /**
+         * Decodes a DeleteDataQualityRuleResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteDataQualityRuleResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.DeleteDataQualityRuleResponse;
+
+        /**
+         * Verifies a DeleteDataQualityRuleResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteDataQualityRuleResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteDataQualityRuleResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.DeleteDataQualityRuleResponse;
+
+        /**
+         * Creates a plain object from a DeleteDataQualityRuleResponse message. Also converts values to other types if specified.
+         * @param message DeleteDataQualityRuleResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.DeleteDataQualityRuleResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteDataQualityRuleResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
