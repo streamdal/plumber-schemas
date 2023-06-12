@@ -16,8 +16,8 @@ message RuleSet {
   
   map<string, Rule> rules = 4;
 
-  // The bus this rule set is associated with
-  string bus = 5;
+  // The message bus / data_source this rule set is associated with
+  string data_source = 5;
 
   // Incrementing number to track rule set versions. Set by plumber
   int32 version = 6;
