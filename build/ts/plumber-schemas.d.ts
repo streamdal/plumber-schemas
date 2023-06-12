@@ -2441,25 +2441,16 @@ export namespace protos {
             type?: (protos.common.RuleType|null);
 
             /** Rule failureMode */
-            failureMode?: (protos.common.RuleFailureMode[]|null);
+            failureMode?: (protos.common.RuleFailureMode|null);
+
+            /** Rule failureModeConfigs */
+            failureModeConfigs?: (protos.common.IFailureMode[]|null);
 
             /** Rule matchConfig */
             matchConfig?: (protos.common.IRuleConfigMatch|null);
 
             /** Rule customConfig */
             customConfig?: (protos.common.IRuleConfigCustom|null);
-
-            /** Rule reject */
-            reject?: (protos.common.IFailureModeReject|null);
-
-            /** Rule dlq */
-            dlq?: (protos.common.IFailureModeDLQ|null);
-
-            /** Rule transform */
-            transform?: (protos.common.IFailureModeTransform|null);
-
-            /** Rule alertSlack */
-            alertSlack?: (protos.common.IFailureModeAlertSlack|null);
         }
 
         /** Represents a Rule. */
@@ -2478,7 +2469,10 @@ export namespace protos {
             public type: protos.common.RuleType;
 
             /** Rule failureMode. */
-            public failureMode: protos.common.RuleFailureMode[];
+            public failureMode: protos.common.RuleFailureMode;
+
+            /** Rule failureModeConfigs. */
+            public failureModeConfigs: protos.common.IFailureMode[];
 
             /** Rule matchConfig. */
             public matchConfig?: (protos.common.IRuleConfigMatch|null);
@@ -2486,23 +2480,8 @@ export namespace protos {
             /** Rule customConfig. */
             public customConfig?: (protos.common.IRuleConfigCustom|null);
 
-            /** Rule reject. */
-            public reject?: (protos.common.IFailureModeReject|null);
-
-            /** Rule dlq. */
-            public dlq?: (protos.common.IFailureModeDLQ|null);
-
-            /** Rule transform. */
-            public transform?: (protos.common.IFailureModeTransform|null);
-
-            /** Rule alertSlack. */
-            public alertSlack?: (protos.common.IFailureModeAlertSlack|null);
-
             /** Rule ruleConfig. */
             public ruleConfig?: ("matchConfig"|"customConfig");
-
-            /** Rule failureModeConfig. */
-            public failureModeConfig?: ("reject"|"dlq"|"transform"|"alertSlack");
 
             /**
              * Creates a new Rule instance using the specified properties.
@@ -2570,6 +2549,117 @@ export namespace protos {
 
             /**
              * Converts this Rule to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a FailureMode. */
+        interface IFailureMode {
+
+            /** FailureMode reject */
+            reject?: (protos.common.IFailureModeReject|null);
+
+            /** FailureMode dlq */
+            dlq?: (protos.common.IFailureModeDLQ|null);
+
+            /** FailureMode transform */
+            transform?: (protos.common.IFailureModeTransform|null);
+
+            /** FailureMode alertSlack */
+            alertSlack?: (protos.common.IFailureModeAlertSlack|null);
+        }
+
+        /** Represents a FailureMode. */
+        class FailureMode implements IFailureMode {
+
+            /**
+             * Constructs a new FailureMode.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: protos.common.IFailureMode);
+
+            /** FailureMode reject. */
+            public reject?: (protos.common.IFailureModeReject|null);
+
+            /** FailureMode dlq. */
+            public dlq?: (protos.common.IFailureModeDLQ|null);
+
+            /** FailureMode transform. */
+            public transform?: (protos.common.IFailureModeTransform|null);
+
+            /** FailureMode alertSlack. */
+            public alertSlack?: (protos.common.IFailureModeAlertSlack|null);
+
+            /** FailureMode config. */
+            public config?: ("reject"|"dlq"|"transform"|"alertSlack");
+
+            /**
+             * Creates a new FailureMode instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns FailureMode instance
+             */
+            public static create(properties?: protos.common.IFailureMode): protos.common.FailureMode;
+
+            /**
+             * Encodes the specified FailureMode message. Does not implicitly {@link protos.common.FailureMode.verify|verify} messages.
+             * @param message FailureMode message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: protos.common.IFailureMode, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified FailureMode message, length delimited. Does not implicitly {@link protos.common.FailureMode.verify|verify} messages.
+             * @param message FailureMode message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: protos.common.IFailureMode, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a FailureMode message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns FailureMode
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.common.FailureMode;
+
+            /**
+             * Decodes a FailureMode message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns FailureMode
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.common.FailureMode;
+
+            /**
+             * Verifies a FailureMode message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a FailureMode message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns FailureMode
+             */
+            public static fromObject(object: { [k: string]: any }): protos.common.FailureMode;
+
+            /**
+             * Creates a plain object from a FailureMode message. Also converts values to other types if specified.
+             * @param message FailureMode
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: protos.common.FailureMode, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this FailureMode to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
