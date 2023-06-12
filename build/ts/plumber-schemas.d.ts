@@ -2441,7 +2441,7 @@ export namespace protos {
             type?: (protos.common.RuleType|null);
 
             /** Rule failureMode */
-            failureMode?: (protos.common.RuleFailureMode|null);
+            failureMode?: (protos.common.RuleFailureMode[]|null);
 
             /** Rule matchConfig */
             matchConfig?: (protos.common.IRuleConfigMatch|null);
@@ -2478,7 +2478,7 @@ export namespace protos {
             public type: protos.common.RuleType;
 
             /** Rule failureMode. */
-            public failureMode: protos.common.RuleFailureMode;
+            public failureMode: protos.common.RuleFailureMode[];
 
             /** Rule matchConfig. */
             public matchConfig?: (protos.common.IRuleConfigMatch|null);
