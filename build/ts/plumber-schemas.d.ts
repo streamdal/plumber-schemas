@@ -485,6 +485,20 @@ export namespace protos {
         public sendRuleNotification(request: protos.ISendRuleNotificationRequest): Promise<protos.SendRuleNotificationResponse>;
 
         /**
+         * Calls PublishMetrics.
+         * @param request PublishMetricsRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and PublishMetricsResponse
+         */
+        public publishMetrics(request: protos.IPublishMetricsRequest, callback: protos.PlumberServer.PublishMetricsCallback): void;
+
+        /**
+         * Calls PublishMetrics.
+         * @param request PublishMetricsRequest message or plain object
+         * @returns Promise
+         */
+        public publishMetrics(request: protos.IPublishMetricsRequest): Promise<protos.PublishMetricsResponse>;
+
+        /**
          * Calls GetServerOptions.
          * @param request GetServerOptionsRequest message or plain object
          * @param callback Node-style callback called with the error, if any, and GetServerOptionsResponse
@@ -731,6 +745,13 @@ export namespace protos {
          * @param [response] SendRuleNotificationResponse
          */
         type SendRuleNotificationCallback = (error: (Error|null), response?: protos.SendRuleNotificationResponse) => void;
+
+        /**
+         * Callback as used by {@link protos.PlumberServer#publishMetrics}.
+         * @param error Error, if any
+         * @param [response] PublishMetricsResponse
+         */
+        type PublishMetricsCallback = (error: (Error|null), response?: protos.PublishMetricsResponse) => void;
 
         /**
          * Callback as used by {@link protos.PlumberServer#getServerOptions}.
@@ -24647,8 +24668,8 @@ export namespace protos {
         /** GetDataQualityRuleSetsRequest auth */
         auth?: (protos.common.IAuth|null);
 
-        /** GetDataQualityRuleSetsRequest bus */
-        bus?: (string|null);
+        /** GetDataQualityRuleSetsRequest dataSource */
+        dataSource?: (string|null);
     }
 
     /** Represents a GetDataQualityRuleSetsRequest. */
@@ -24663,8 +24684,8 @@ export namespace protos {
         /** GetDataQualityRuleSetsRequest auth. */
         public auth?: (protos.common.IAuth|null);
 
-        /** GetDataQualityRuleSetsRequest bus. */
-        public bus: string;
+        /** GetDataQualityRuleSetsRequest dataSource. */
+        public dataSource: string;
 
         /**
          * Creates a new GetDataQualityRuleSetsRequest instance using the specified properties.
@@ -26574,6 +26595,198 @@ export namespace protos {
 
         /**
          * Converts this SendRuleNotificationResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a PublishMetricsRequest. */
+    interface IPublishMetricsRequest {
+
+        /** PublishMetricsRequest auth */
+        auth?: (protos.common.IAuth|null);
+
+        /** PublishMetricsRequest counter */
+        counter?: (string|null);
+
+        /** PublishMetricsRequest value */
+        value?: (number|null);
+    }
+
+    /** Represents a PublishMetricsRequest. */
+    class PublishMetricsRequest implements IPublishMetricsRequest {
+
+        /**
+         * Constructs a new PublishMetricsRequest.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IPublishMetricsRequest);
+
+        /** PublishMetricsRequest auth. */
+        public auth?: (protos.common.IAuth|null);
+
+        /** PublishMetricsRequest counter. */
+        public counter: string;
+
+        /** PublishMetricsRequest value. */
+        public value: number;
+
+        /**
+         * Creates a new PublishMetricsRequest instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns PublishMetricsRequest instance
+         */
+        public static create(properties?: protos.IPublishMetricsRequest): protos.PublishMetricsRequest;
+
+        /**
+         * Encodes the specified PublishMetricsRequest message. Does not implicitly {@link protos.PublishMetricsRequest.verify|verify} messages.
+         * @param message PublishMetricsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IPublishMetricsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified PublishMetricsRequest message, length delimited. Does not implicitly {@link protos.PublishMetricsRequest.verify|verify} messages.
+         * @param message PublishMetricsRequest message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IPublishMetricsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a PublishMetricsRequest message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PublishMetricsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.PublishMetricsRequest;
+
+        /**
+         * Decodes a PublishMetricsRequest message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PublishMetricsRequest
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.PublishMetricsRequest;
+
+        /**
+         * Verifies a PublishMetricsRequest message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a PublishMetricsRequest message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PublishMetricsRequest
+         */
+        public static fromObject(object: { [k: string]: any }): protos.PublishMetricsRequest;
+
+        /**
+         * Creates a plain object from a PublishMetricsRequest message. Also converts values to other types if specified.
+         * @param message PublishMetricsRequest
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.PublishMetricsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PublishMetricsRequest to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a PublishMetricsResponse. */
+    interface IPublishMetricsResponse {
+
+        /** PublishMetricsResponse status */
+        status?: (protos.common.IStatus|null);
+    }
+
+    /** Represents a PublishMetricsResponse. */
+    class PublishMetricsResponse implements IPublishMetricsResponse {
+
+        /**
+         * Constructs a new PublishMetricsResponse.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: protos.IPublishMetricsResponse);
+
+        /** PublishMetricsResponse status. */
+        public status?: (protos.common.IStatus|null);
+
+        /**
+         * Creates a new PublishMetricsResponse instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns PublishMetricsResponse instance
+         */
+        public static create(properties?: protos.IPublishMetricsResponse): protos.PublishMetricsResponse;
+
+        /**
+         * Encodes the specified PublishMetricsResponse message. Does not implicitly {@link protos.PublishMetricsResponse.verify|verify} messages.
+         * @param message PublishMetricsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: protos.IPublishMetricsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified PublishMetricsResponse message, length delimited. Does not implicitly {@link protos.PublishMetricsResponse.verify|verify} messages.
+         * @param message PublishMetricsResponse message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: protos.IPublishMetricsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a PublishMetricsResponse message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PublishMetricsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.PublishMetricsResponse;
+
+        /**
+         * Decodes a PublishMetricsResponse message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PublishMetricsResponse
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.PublishMetricsResponse;
+
+        /**
+         * Verifies a PublishMetricsResponse message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a PublishMetricsResponse message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns PublishMetricsResponse
+         */
+        public static fromObject(object: { [k: string]: any }): protos.PublishMetricsResponse;
+
+        /**
+         * Creates a plain object from a PublishMetricsResponse message. Also converts values to other types if specified.
+         * @param message PublishMetricsResponse
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: protos.PublishMetricsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this PublishMetricsResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
