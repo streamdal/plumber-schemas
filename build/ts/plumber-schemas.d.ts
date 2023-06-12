@@ -2297,8 +2297,8 @@ export namespace protos {
             /** RuleSet rules */
             rules?: ({ [k: string]: protos.common.IRule }|null);
 
-            /** RuleSet bus */
-            bus?: (string|null);
+            /** RuleSet dataSource */
+            dataSource?: (string|null);
 
             /** RuleSet version */
             version?: (number|null);
@@ -2328,8 +2328,8 @@ export namespace protos {
             /** RuleSet rules. */
             public rules: { [k: string]: protos.common.IRule };
 
-            /** RuleSet bus. */
-            public bus: string;
+            /** RuleSet dataSource. */
+            public dataSource: string;
 
             /** RuleSet version. */
             public version: number;
