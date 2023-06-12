@@ -98,6 +98,8 @@ service PlumberServer {
 
   rpc SendRuleNotification(SendRuleNotificationRequest) returns (SendRuleNotificationResponse);
 
+  rpc PublishMetrics(PublishMetricsRequest) returns (PublishMetricsResponse);
+
   // ------------------- Server -------------------
 
   rpc GetServerOptions(GetServerOptionsRequest) returns (GetServerOptionsResponse);

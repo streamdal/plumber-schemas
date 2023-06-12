@@ -146,3 +146,16 @@ message SendRuleNotificationRequest {
 message SendRuleNotificationResponse {
   common.Status status = 1000;
 }
+
+message PublishMetricsRequest {
+  // Every gRPC request must have a valid auth config
+  common.Auth auth = 9999;
+
+  string counter = 1;
+
+  double value = 2;
+}
+
+message PublishMetricsResponse {
+  common.Status status = 1000;
+}
