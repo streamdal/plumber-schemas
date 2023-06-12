@@ -66,24 +66,23 @@ message Rule {
   // Defines which kind of wasm function we're executing
   RuleType type = 2;
 
-  // The failure mode to use if the rule fails
-  RuleFailureMode failure_mode = 3;
-
-  repeated FailureMode failure_mode_configs = 4;
+  repeated FailureMode failure_mode_configs = 3;
 
   oneof rule_config {
-    RuleConfigMatch match_config = 1000;
-    RuleConfigCustom custom_config = 1001;
+    RuleConfigMatch match_config = 100;
+    RuleConfigCustom custom_config = 101;
   }
 }
 
 message FailureMode {
+  RuleFailureMode mode = 1;
+
   // The failure mode configuration
   oneof config {
-    FailureModeReject reject = 2000;
-    FailureModeDLQ dlq = 2001;
-    FailureModeTransform transform = 2002;
-    FailureModeAlertSlack alert_slack = 2003;
+    FailureModeReject reject = 100;
+    FailureModeDLQ dlq = 101;
+    FailureModeTransform transform = 102;
+    FailureModeAlertSlack alert_slack = 103;
   }
 }
 
