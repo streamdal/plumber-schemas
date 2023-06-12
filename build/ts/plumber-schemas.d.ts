@@ -2440,9 +2440,6 @@ export namespace protos {
             /** Rule type */
             type?: (protos.common.RuleType|null);
 
-            /** Rule failureMode */
-            failureMode?: (protos.common.RuleFailureMode|null);
-
             /** Rule failureModeConfigs */
             failureModeConfigs?: (protos.common.IFailureMode[]|null);
 
@@ -2467,9 +2464,6 @@ export namespace protos {
 
             /** Rule type. */
             public type: protos.common.RuleType;
-
-            /** Rule failureMode. */
-            public failureMode: protos.common.RuleFailureMode;
 
             /** Rule failureModeConfigs. */
             public failureModeConfigs: protos.common.IFailureMode[];
@@ -2557,6 +2551,9 @@ export namespace protos {
         /** Properties of a FailureMode. */
         interface IFailureMode {
 
+            /** FailureMode mode */
+            mode?: (protos.common.RuleFailureMode|null);
+
             /** FailureMode reject */
             reject?: (protos.common.IFailureModeReject|null);
 
@@ -2578,6 +2575,9 @@ export namespace protos {
              * @param [properties] Properties to set
              */
             constructor(properties?: protos.common.IFailureMode);
+
+            /** FailureMode mode. */
+            public mode: protos.common.RuleFailureMode;
 
             /** FailureMode reject. */
             public reject?: (protos.common.IFailureModeReject|null);
