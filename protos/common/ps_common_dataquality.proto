@@ -67,7 +67,7 @@ message Rule {
   RuleType type = 2;
 
   // The failure mode to use if the rule fails
-  RuleFailureMode failure_mode = 3;
+  repeated RuleFailureMode failure_mode = 3;
 
   oneof rule_config {
     RuleConfigMatch match_config = 1000;
