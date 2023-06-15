@@ -5565,6 +5565,15 @@ export namespace protos {
 
             /** ServerOptions remoteControlDisableTls */
             remoteControlDisableTls?: (boolean|null);
+
+            /** ServerOptions _grpcAddress */
+            _grpcAddress?: (string|null);
+
+            /** ServerOptions _grpcTimeoutSeconds */
+            _grpcTimeoutSeconds?: (number|null);
+
+            /** ServerOptions _grpcInsecure */
+            _grpcInsecure?: (boolean|null);
         }
 
         /** Represents a ServerOptions. */
@@ -5629,6 +5638,15 @@ export namespace protos {
 
             /** ServerOptions remoteControlDisableTls. */
             public remoteControlDisableTls: boolean;
+
+            /** ServerOptions _grpcAddress. */
+            public _grpcAddress: string;
+
+            /** ServerOptions _grpcTimeoutSeconds. */
+            public _grpcTimeoutSeconds: number;
+
+            /** ServerOptions _grpcInsecure. */
+            public _grpcInsecure: boolean;
 
             /**
              * Creates a new ServerOptions instance using the specified properties.
