@@ -26627,6 +26627,9 @@ export namespace protos {
         /** PublishMetricsRequest counter */
         counter?: (string|null);
 
+        /** PublishMetricsRequest labels */
+        labels?: (string[]|null);
+
         /** PublishMetricsRequest value */
         value?: (number|null);
     }
@@ -26645,6 +26648,9 @@ export namespace protos {
 
         /** PublishMetricsRequest counter. */
         public counter: string;
+
+        /** PublishMetricsRequest labels. */
+        public labels: string[];
 
         /** PublishMetricsRequest value. */
         public value: number;
