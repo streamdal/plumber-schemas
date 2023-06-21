@@ -72,6 +72,9 @@ message Rule {
     RuleConfigMatch match_config = 100;
     RuleConfigCustom custom_config = 101;
   }
+
+  // Internal SDK use only, do not set
+  string _ruleset_id = 1000;
 }
 
 message FailureMode {
