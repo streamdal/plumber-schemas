@@ -26628,7 +26628,7 @@ export namespace protos {
         counter?: (string|null);
 
         /** PublishMetricsRequest labels */
-        labels?: (string[]|null);
+        labels?: ({ [k: string]: string }|null);
 
         /** PublishMetricsRequest value */
         value?: (number|null);
@@ -26650,7 +26650,7 @@ export namespace protos {
         public counter: string;
 
         /** PublishMetricsRequest labels. */
-        public labels: string[];
+        public labels: { [k: string]: string };
 
         /** PublishMetricsRequest value. */
         public value: number;
