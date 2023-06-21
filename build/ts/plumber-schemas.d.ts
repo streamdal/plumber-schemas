@@ -2469,6 +2469,9 @@ export namespace protos {
 
             /** Rule customConfig */
             customConfig?: (protos.common.IRuleConfigCustom|null);
+
+            /** Rule _rulesetId */
+            _rulesetId?: (string|null);
         }
 
         /** Represents a Rule. */
@@ -2494,6 +2497,9 @@ export namespace protos {
 
             /** Rule customConfig. */
             public customConfig?: (protos.common.IRuleConfigCustom|null);
+
+            /** Rule _rulesetId. */
+            public _rulesetId: string;
 
             /** Rule ruleConfig. */
             public ruleConfig?: ("matchConfig"|"customConfig");
