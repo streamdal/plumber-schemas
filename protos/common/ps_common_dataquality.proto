@@ -43,6 +43,16 @@ enum RuleMode {
   RULE_MODE_CONSUME = 2;
 }
 
+enum MatchComparison {
+  UNSET = 0;
+  EQUALS = 1;
+  NOT_EQUALS = 2;
+  GREATER_THAN = 3;
+  GREATER_THAN_OR_EQUAL = 4;
+  LESS_THAN = 5;
+  LESS_THAN_OR_EQUAL = 6;
+}
+
 enum RuleFailureMode {
   RULE_FAILURE_MODE_UNSET = 0;
 
@@ -100,6 +110,8 @@ message RuleConfigMatch {
   // The values we are matching on if the matcher takes arguments (ex: string_contains_any),
   // otherwise this is ignored
   repeated string args = 3;
+
+  MatchComparison comparison = 4;
 }
 
 message RuleConfigCustom {
