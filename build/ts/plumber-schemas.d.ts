@@ -2443,17 +2443,6 @@ export namespace protos {
             RULE_MODE_CONSUME = 2
         }
 
-        /** MatchComparison enum. */
-        enum MatchComparison {
-            UNSET = 0,
-            EQUALS = 1,
-            NOT_EQUALS = 2,
-            GREATER_THAN = 3,
-            GREATER_THAN_OR_EQUAL = 4,
-            LESS_THAN = 5,
-            LESS_THAN_OR_EQUAL = 6
-        }
-
         /** RuleFailureMode enum. */
         enum RuleFailureMode {
             RULE_FAILURE_MODE_UNSET = 0,
@@ -2714,9 +2703,6 @@ export namespace protos {
 
             /** RuleConfigMatch args */
             args?: (string[]|null);
-
-            /** RuleConfigMatch comparison */
-            comparison?: (protos.common.MatchComparison|null);
         }
 
         /** Represents a RuleConfigMatch. */
@@ -2736,9 +2722,6 @@ export namespace protos {
 
             /** RuleConfigMatch args. */
             public args: string[];
-
-            /** RuleConfigMatch comparison. */
-            public comparison: protos.common.MatchComparison;
 
             /**
              * Creates a new RuleConfigMatch instance using the specified properties.
