@@ -2464,6 +2464,9 @@ export namespace protos {
             /** Rule failureModeConfigs */
             failureModeConfigs?: (protos.common.IFailureMode[]|null);
 
+            /** Rule name */
+            name?: (string|null);
+
             /** Rule matchConfig */
             matchConfig?: (protos.common.IRuleConfigMatch|null);
 
@@ -2491,6 +2494,9 @@ export namespace protos {
 
             /** Rule failureModeConfigs. */
             public failureModeConfigs: protos.common.IFailureMode[];
+
+            /** Rule name. */
+            public name: string;
 
             /** Rule matchConfig. */
             public matchConfig?: (protos.common.IRuleConfigMatch|null);
