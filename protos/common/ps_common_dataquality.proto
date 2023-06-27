@@ -68,6 +68,8 @@ message Rule {
 
   repeated FailureMode failure_mode_configs = 3;
 
+  string name = 4;
+
   oneof rule_config {
     RuleConfigMatch match_config = 100;
     RuleConfigCustom custom_config = 101;
@@ -129,7 +131,6 @@ message FailureModeTransform {
   string value = 2;
 
   TransformType type = 3;
-
 }
 
 message FailureModeAlertSlack {
