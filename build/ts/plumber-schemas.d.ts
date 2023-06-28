@@ -2452,6 +2452,17 @@ export namespace protos {
             RULE_FAILURE_MODE_ALERT_SLACK = 4
         }
 
+        /** MatchOperator enum. */
+        enum MatchOperator {
+            MATCH_OPERATOR_UNSET = 0,
+            MATCH_OPERATOR_ISMATCH = 1,
+            MATCH_OPERATOR_EQUALS = 2,
+            MATCH_OPERATOR_GREATER_THAN = 3,
+            MATCH_OPERATOR_GREATER_THAN_OR_EQUAL = 4,
+            MATCH_OPERATOR_LESS_THAN = 5,
+            MATCH_OPERATOR_LESS_THAN_OR_EQUAL = 6
+        }
+
         /** Properties of a Rule. */
         interface IRule {
 
@@ -2709,6 +2720,9 @@ export namespace protos {
 
             /** RuleConfigMatch args */
             args?: (string[]|null);
+
+            /** RuleConfigMatch operator */
+            operator?: (protos.common.MatchOperator|null);
         }
 
         /** Represents a RuleConfigMatch. */
@@ -2728,6 +2742,9 @@ export namespace protos {
 
             /** RuleConfigMatch args. */
             public args: string[];
+
+            /** RuleConfigMatch operator. */
+            public operator: protos.common.MatchOperator;
 
             /**
              * Creates a new RuleConfigMatch instance using the specified properties.
