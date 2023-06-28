@@ -59,6 +59,16 @@ enum RuleFailureMode {
   RULE_FAILURE_MODE_ALERT_SLACK = 4;
 }
 
+enum MatchOperator {
+  MATCH_OPERATOR_UNSET = 0;
+  MATCH_OPERATOR_ISMATCH = 1;
+  MATCH_OPERATOR_EQUALS = 2;
+  MATCH_OPERATOR_GREATER_THAN = 3;
+  MATCH_OPERATOR_GREATER_THAN_OR_EQUAL = 4;
+  MATCH_OPERATOR_LESS_THAN = 5;
+  MATCH_OPERATOR_LESS_THAN_OR_EQUAL = 6;
+}
+
 message Rule {
 
   string id = 1;
@@ -102,6 +112,8 @@ message RuleConfigMatch {
   // The values we are matching on if the matcher takes arguments (ex: string_contains_any),
   // otherwise this is ignored
   repeated string args = 3;
+
+  MatchOperator operator = 4;
 }
 
 message RuleConfigCustom {
