@@ -2460,7 +2460,8 @@ export namespace protos {
             MATCH_OPERATOR_GREATER_THAN = 3,
             MATCH_OPERATOR_GREATER_THAN_OR_EQUAL = 4,
             MATCH_OPERATOR_LESS_THAN = 5,
-            MATCH_OPERATOR_LESS_THAN_OR_EQUAL = 6
+            MATCH_OPERATOR_LESS_THAN_OR_EQUAL = 6,
+            MATCH_OPERATOR_OLDER_THAN_SECONDS = 7
         }
 
         /** Properties of a Rule. */
