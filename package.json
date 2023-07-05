@@ -1,8 +1,7 @@
 {
-  "name": "plumber-schemas",
+  "name": "@streamdal/plumber-schemas",
   "version": "1.0.0",
   "description": "Plumber Schemas",
-  "main": "build/ts/plumber-schemas.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,18 +10,19 @@
     "url": "git+https://github.com/batchcorp/plumber-schemas.git"
   },
   "keywords": [
-    "Protobuf"
+    "Protobuf",
+    "Plumber",
+    "Streamdal"
   ],
-  "author": "Batchcorp",
-  "license": "GPL-3.0-or-later",
+  "author": "Streamdal",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/batchcorp/plumber-schemas/issues"
   },
   "homepage": "https://github.com/batchcorp/plumber-schemas#readme",
-  "dependencies": {
-    "protobufjs": "^6.11.3"
-  },
   "devDependencies": {
-    "grpc_tools_node_protoc_ts": "^5.3.2"
-  }
+    "@grpc/grpc-js": "^1.8.17",
+    "@grpc/proto-loader": "^0.7.7"
+  },
+  "main": "/ts/types"
 }

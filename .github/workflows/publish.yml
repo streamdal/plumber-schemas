@@ -1,0 +1,23 @@
+on:
+  push:
+    tags:
+      - 'v*'
+
+name: Publish release to NPM
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Publish Compiled Artifacts to NPM
+        working-directory: ./build/ts
+        run: |
+          npm version ${{ github.ref_name }}
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

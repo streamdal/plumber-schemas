@@ -21,9 +21,6 @@ setup/darwin:
 	# Go plugin used by the protocol compiler
 	go get -u github.com/golang/protobuf/protoc-gen-go
 
-	# protoc for ts
-	npm install grpc_tools_node_protoc_ts --save-dev
-
 	# protoc-go-inject-tag
 	go get github.com/favadi/protoc-go-inject-tag
 
@@ -59,23 +56,25 @@ local:
 #	cp -R $(GO_PROTOS_DIR)/ ~/Code/ui-bff/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
 
 .PHONY: generate/ts
-generate/ts: description = Compile TypeScript Interfaces for UI
+generate/ts: description = Compile protobuf schemas and typeScript interfaces for Node
 generate/ts: clean-ts
 generate/ts:
 	mkdir -p build/ts
-	./node_modules/.bin/pbjs \
-	-t static-module \
-	-w commonjs \
-	-p ./protos \
-	-p ./protos/args \
-	-p ./protos/common \
-	-p ./protos/opts \
-	-p ./protos/encoding \
-	-p ./protos/records \
-	-o ./build/ts/plumber-schemas.js \
-	./protos/*.proto \
-	./protos/**/*.proto
-	./node_modules/.bin/pbts -o ./build/ts/plumber-schemas.d.ts ./build/ts/plumber-schemas.js
+	npm install
+
+	docker run --platform linux/amd64 -w $(PWD) -v $(PWD):/defs namely/protoc-all:1.51_1 \
+    		-d /defs/protos \
+    		-l descriptor_set \
+    		-o /defs/build/ts/descriptor-sets/ \
+    		--descr-include-imports \
+    		--descr-include-source-info \
+    		--descr-filename protos.fds \
+    		protos/*.proto
+
+	npx proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=./build/ts/types ./protos/*.proto --includeDirs=./protos
+
+	cp ./package.json ./build/ts/package.json
+	cp ./TYPESCRIPT.README.md ./build/ts/README.md
 
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go

@@ -1,0 +1,187 @@
+import type * as grpc from '@grpc/grpc-js';
+import type { EnumTypeDefinition, MessageTypeDefinition } from '@grpc/proto-loader';
+
+import type { ForemanServerClient as _protos_ForemanServerClient, ForemanServerDefinition as _protos_ForemanServerDefinition } from './protos/ForemanServer';
+
+type SubtypeConstructor<Constructor extends new (...args: any) => any, Subtype> = {
+  new(...args: ConstructorParameters<Constructor>): Subtype;
+};
+
+export interface ProtoGrpcType {
+  protos: {
+    CreateConnectionRequest: MessageTypeDefinition
+    CreateConnectionResponse: MessageTypeDefinition
+    CreateRelayRequest: MessageTypeDefinition
+    CreateRelayResponse: MessageTypeDefinition
+    CreateTunnelRequest: MessageTypeDefinition
+    CreateTunnelResponse: MessageTypeDefinition
+    DeleteConnectionRequest: MessageTypeDefinition
+    DeleteConnectionResponse: MessageTypeDefinition
+    DeleteRelayRequest: MessageTypeDefinition
+    DeleteRelayResponse: MessageTypeDefinition
+    DeleteTunnelRequest: MessageTypeDefinition
+    DeleteTunnelResponse: MessageTypeDefinition
+    ForemanServer: SubtypeConstructor<typeof grpc.Client, _protos_ForemanServerClient> & { service: _protos_ForemanServerDefinition }
+    GetAllConnectionsRequest: MessageTypeDefinition
+    GetAllConnectionsResponse: MessageTypeDefinition
+    GetAllRelaysRequest: MessageTypeDefinition
+    GetAllRelaysResponse: MessageTypeDefinition
+    GetAllTunnelsRequest: MessageTypeDefinition
+    GetAllTunnelsResponse: MessageTypeDefinition
+    GetConnectionRequest: MessageTypeDefinition
+    GetConnectionResponse: MessageTypeDefinition
+    GetRelayRequest: MessageTypeDefinition
+    GetRelayResponse: MessageTypeDefinition
+    GetServerOptionsRequest: MessageTypeDefinition
+    GetServerOptionsResponse: MessageTypeDefinition
+    GetTunnelRequest: MessageTypeDefinition
+    GetTunnelResponse: MessageTypeDefinition
+    ListPlumbersRequest: MessageTypeDefinition
+    ListPlumbersResponse: MessageTypeDefinition
+    PlumberInfo: MessageTypeDefinition
+    ResumeRelayRequest: MessageTypeDefinition
+    ResumeRelayResponse: MessageTypeDefinition
+    ResumeTunnelRequest: MessageTypeDefinition
+    ResumeTunnelResponse: MessageTypeDefinition
+    StopRelayRequest: MessageTypeDefinition
+    StopRelayResponse: MessageTypeDefinition
+    StopTunnelRequest: MessageTypeDefinition
+    StopTunnelResponse: MessageTypeDefinition
+    TestConnectionRequest: MessageTypeDefinition
+    TestConnectionResponse: MessageTypeDefinition
+    UpdateConnectionRequest: MessageTypeDefinition
+    UpdateConnectionResponse: MessageTypeDefinition
+    UpdateRelayRequest: MessageTypeDefinition
+    UpdateRelayResponse: MessageTypeDefinition
+    UpdateTunnelRequest: MessageTypeDefinition
+    UpdateTunnelResponse: MessageTypeDefinition
+    args: {
+      AWSKinesisConn: MessageTypeDefinition
+      AWSKinesisReadArgs: MessageTypeDefinition
+      AWSKinesisWriteArgs: MessageTypeDefinition
+      AWSSNSConn: MessageTypeDefinition
+      AWSSNSWriteArgs: MessageTypeDefinition
+      AWSSQSConn: MessageTypeDefinition
+      AWSSQSReadArgs: MessageTypeDefinition
+      AWSSQSRelayArgs: MessageTypeDefinition
+      AWSSQSWriteArgs: MessageTypeDefinition
+      ActiveMQConn: MessageTypeDefinition
+      ActiveMQReadArgs: MessageTypeDefinition
+      ActiveMQWriteArgs: MessageTypeDefinition
+      AzureEventHubConn: MessageTypeDefinition
+      AzureEventHubReadArgs: MessageTypeDefinition
+      AzureEventHubWriteArgs: MessageTypeDefinition
+      AzureServiceBusConn: MessageTypeDefinition
+      AzureServiceBusReadArgs: MessageTypeDefinition
+      AzureServiceBusWriteArgs: MessageTypeDefinition
+      CreateConsumerConfig: MessageTypeDefinition
+      GCPPubSubConn: MessageTypeDefinition
+      GCPPubSubReadArgs: MessageTypeDefinition
+      GCPPubSubWriteArgs: MessageTypeDefinition
+      KafkaConn: MessageTypeDefinition
+      KafkaReadArgs: MessageTypeDefinition
+      KafkaRelayArgs: MessageTypeDefinition
+      KafkaWriteArgs: MessageTypeDefinition
+      KubeMQQueueConn: MessageTypeDefinition
+      KubeMQQueueReadArgs: MessageTypeDefinition
+      KubeMQQueueWriteArgs: MessageTypeDefinition
+      MQTTConn: MessageTypeDefinition
+      MQTTQoSLevel: EnumTypeDefinition
+      MQTTReadArgs: MessageTypeDefinition
+      MQTTTLSOptions: MessageTypeDefinition
+      MQTTWriteArgs: MessageTypeDefinition
+      MemphisConn: MessageTypeDefinition
+      MemphisReadArgs: MessageTypeDefinition
+      MemphisWriteArgs: MessageTypeDefinition
+      MongoConn: MessageTypeDefinition
+      MongoReadArgs: MessageTypeDefinition
+      NSQConn: MessageTypeDefinition
+      NSQReadArgs: MessageTypeDefinition
+      NSQWriteArgs: MessageTypeDefinition
+      NatsConn: MessageTypeDefinition
+      NatsJetstreamConn: MessageTypeDefinition
+      NatsJetstreamReadArgs: MessageTypeDefinition
+      NatsJetstreamTLSOptions: MessageTypeDefinition
+      NatsJetstreamWriteArgs: MessageTypeDefinition
+      NatsReadArgs: MessageTypeDefinition
+      NatsStreamingConn: MessageTypeDefinition
+      NatsStreamingReadArgs: MessageTypeDefinition
+      NatsStreamingTLSOptions: MessageTypeDefinition
+      NatsStreamingWriteArgs: MessageTypeDefinition
+      NatsTLSOptions: MessageTypeDefinition
+      NatsWriteArgs: MessageTypeDefinition
+      OffsetStart: EnumTypeDefinition
+      PostgresConn: MessageTypeDefinition
+      PostgresReadArgs: MessageTypeDefinition
+      PulsarConn: MessageTypeDefinition
+      PulsarReadArgs: MessageTypeDefinition
+      PulsarWriteArgs: MessageTypeDefinition
+      RabbitConn: MessageTypeDefinition
+      RabbitReadArgs: MessageTypeDefinition
+      RabbitStreamsConn: MessageTypeDefinition
+      RabbitStreamsOffsetOptions: MessageTypeDefinition
+      RabbitStreamsReadArgs: MessageTypeDefinition
+      RabbitStreamsWriteArgs: MessageTypeDefinition
+      RabbitWriteArgs: MessageTypeDefinition
+      RedisPubSubConn: MessageTypeDefinition
+      RedisPubSubReadArgs: MessageTypeDefinition
+      RedisPubSubWriteArgs: MessageTypeDefinition
+      RedisStreamsConn: MessageTypeDefinition
+      RedisStreamsReadArgs: MessageTypeDefinition
+      RedisStreamsWriteArgs: MessageTypeDefinition
+      SASLType: EnumTypeDefinition
+      SubscriptionInitialPosition: EnumTypeDefinition
+      SubscriptionType: EnumTypeDefinition
+    }
+    common: {
+      Auth: MessageTypeDefinition
+      Code: EnumTypeDefinition
+      Foreman: MessageTypeDefinition
+      SourceManager: MessageTypeDefinition
+      Status: MessageTypeDefinition
+    }
+    opts: {
+      ConnectionOptions: MessageTypeDefinition
+      RelayCLIOptions: MessageTypeDefinition
+      RelayGroupAWSSQSOptions: MessageTypeDefinition
+      RelayGroupAzureServiceBusOptions: MessageTypeDefinition
+      RelayGroupGCPPubSubOptions: MessageTypeDefinition
+      RelayGroupKafkaOptions: MessageTypeDefinition
+      RelayGroupKubeMQQueueOptions: MessageTypeDefinition
+      RelayGroupMQTTOptions: MessageTypeDefinition
+      RelayGroupMongoOptions: MessageTypeDefinition
+      RelayGroupNSQOptions: MessageTypeDefinition
+      RelayGroupNatsJetStreamOptions: MessageTypeDefinition
+      RelayGroupNatsOptions: MessageTypeDefinition
+      RelayGroupNatsStreamingOptions: MessageTypeDefinition
+      RelayGroupPostgresOptions: MessageTypeDefinition
+      RelayGroupRabbitOptions: MessageTypeDefinition
+      RelayGroupRedisPubSubOptions: MessageTypeDefinition
+      RelayGroupRedisStreamsOptions: MessageTypeDefinition
+      RelayOptions: MessageTypeDefinition
+      ServerOptions: MessageTypeDefinition
+      TunnelGroupAWSKinesisOptions: MessageTypeDefinition
+      TunnelGroupAWSSNSOptions: MessageTypeDefinition
+      TunnelGroupAWSSQSOptions: MessageTypeDefinition
+      TunnelGroupActiveMQOptions: MessageTypeDefinition
+      TunnelGroupAzureEventHubOptions: MessageTypeDefinition
+      TunnelGroupAzureServiceBusOptions: MessageTypeDefinition
+      TunnelGroupGCPPubSubOptions: MessageTypeDefinition
+      TunnelGroupKafkaOptions: MessageTypeDefinition
+      TunnelGroupKubeMQQueueOptions: MessageTypeDefinition
+      TunnelGroupMQTTOptions: MessageTypeDefinition
+      TunnelGroupMemphisOptions: MessageTypeDefinition
+      TunnelGroupNSQOptions: MessageTypeDefinition
+      TunnelGroupNatsJetstreamOptions: MessageTypeDefinition
+      TunnelGroupNatsOptions: MessageTypeDefinition
+      TunnelGroupNatsStreamingOptions: MessageTypeDefinition
+      TunnelGroupPulsarOptions: MessageTypeDefinition
+      TunnelGroupRabbitOptions: MessageTypeDefinition
+      TunnelGroupRabbitStreamsOptions: MessageTypeDefinition
+      TunnelGroupRedisPubSubOptions: MessageTypeDefinition
+      TunnelGroupRedisStreamsOptions: MessageTypeDefinition
+      TunnelOptions: MessageTypeDefinition
+    }
+  }
+}
+
