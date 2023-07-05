@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/streamdal/plumber-schemas/issues"
   },
-  "homepage": "https://github.com/streamdal/plumber-schemas#readme",
+  "homepage": "https://github.com/streamdal/plumber-schemas/build/ts/#readme",
   "devDependencies": {
     "@grpc/grpc-js": "^1.8.17",
     "@grpc/proto-loader": "^0.7.7"
