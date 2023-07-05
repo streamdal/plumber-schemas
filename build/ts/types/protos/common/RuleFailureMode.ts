@@ -1,4 +1,4 @@
-// Original file: protos/common/ps_common_dataquality.proto
+// Original file: ../../protos/common/ps_common_dataquality.proto
 
 export const RuleFailureMode = {
   RULE_FAILURE_MODE_UNSET: 'RULE_FAILURE_MODE_UNSET',

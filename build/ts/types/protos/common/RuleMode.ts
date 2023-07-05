@@ -1,4 +1,4 @@
-// Original file: protos/common/ps_common_dataquality.proto
+// Original file: ../../protos/common/ps_common_dataquality.proto
 
 export const RuleMode = {
   RULE_MODE_UNSET: 'RULE_MODE_UNSET',

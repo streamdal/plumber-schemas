@@ -1,4 +1,4 @@
-// Original file: protos/common/ps_common_dataquality.proto
+// Original file: ../../protos/common/ps_common_dataquality.proto
 
 import type { RuleFailureMode as _protos_common_RuleFailureMode, RuleFailureMode__Output as _protos_common_RuleFailureMode__Output } from '../../protos/common/RuleFailureMode';
 import type { FailureModeReject as _protos_common_FailureModeReject, FailureModeReject__Output as _protos_common_FailureModeReject__Output } from '../../protos/common/FailureModeReject';

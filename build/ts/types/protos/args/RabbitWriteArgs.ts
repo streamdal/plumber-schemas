@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_rabbit.proto
+// Original file: ../../protos/args/ps_args_rabbit.proto
 
 
 export interface RabbitWriteArgs {

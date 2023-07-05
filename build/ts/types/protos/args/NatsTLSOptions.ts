@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_nats.proto
+// Original file: ../../protos/args/ps_args_nats.proto
 
 
 export interface NatsTLSOptions {

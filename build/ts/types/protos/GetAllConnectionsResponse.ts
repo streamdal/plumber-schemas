@@ -1,4 +1,4 @@
-// Original file: protos/ps_connect.proto
+// Original file: ../../protos/ps_connect.proto
 
 import type { ConnectionOptions as _protos_opts_ConnectionOptions, ConnectionOptions__Output as _protos_opts_ConnectionOptions__Output } from '../protos/opts/ConnectionOptions';
 

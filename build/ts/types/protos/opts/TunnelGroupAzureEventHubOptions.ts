@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { AzureEventHubConn as _protos_args_AzureEventHubConn, AzureEventHubConn__Output as _protos_args_AzureEventHubConn__Output } from '../../protos/args/AzureEventHubConn';
 import type { AzureEventHubWriteArgs as _protos_args_AzureEventHubWriteArgs, AzureEventHubWriteArgs__Output as _protos_args_AzureEventHubWriteArgs__Output } from '../../protos/args/AzureEventHubWriteArgs';

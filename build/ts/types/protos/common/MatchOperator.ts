@@ -1,4 +1,4 @@
-// Original file: protos/common/ps_common_dataquality.proto
+// Original file: ../../protos/common/ps_common_dataquality.proto
 
 export const MatchOperator = {
   MATCH_OPERATOR_UNSET: 'MATCH_OPERATOR_UNSET',

@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_aws_sns.proto
+// Original file: ../../protos/args/ps_args_aws_sns.proto
 
 
 export interface AWSSNSConn {

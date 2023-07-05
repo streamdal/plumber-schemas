@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { KubeMQQueueConn as _protos_args_KubeMQQueueConn, KubeMQQueueConn__Output as _protos_args_KubeMQQueueConn__Output } from '../../protos/args/KubeMQQueueConn';
 import type { KubeMQQueueWriteArgs as _protos_args_KubeMQQueueWriteArgs, KubeMQQueueWriteArgs__Output as _protos_args_KubeMQQueueWriteArgs__Output } from '../../protos/args/KubeMQQueueWriteArgs';

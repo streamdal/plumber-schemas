@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { AWSSQSConn as _protos_args_AWSSQSConn, AWSSQSConn__Output as _protos_args_AWSSQSConn__Output } from '../../protos/args/AWSSQSConn';
 import type { AWSSQSWriteArgs as _protos_args_AWSSQSWriteArgs, AWSSQSWriteArgs__Output as _protos_args_AWSSQSWriteArgs__Output } from '../../protos/args/AWSSQSWriteArgs';

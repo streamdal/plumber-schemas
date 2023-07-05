@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_relay.proto
+// Original file: ../../protos/opts/ps_opts_relay.proto
 
 
 export interface RelayCLIOptions {

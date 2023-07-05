@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_pulsar.proto
+// Original file: ../../protos/args/ps_args_pulsar.proto
 
 import type { SubscriptionType as _protos_args_SubscriptionType, SubscriptionType__Output as _protos_args_SubscriptionType__Output } from '../../protos/args/SubscriptionType';
 import type { SubscriptionInitialPosition as _protos_args_SubscriptionInitialPosition, SubscriptionInitialPosition__Output as _protos_args_SubscriptionInitialPosition__Output } from '../../protos/args/SubscriptionInitialPosition';

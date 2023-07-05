@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_relay.proto
+// Original file: ../../protos/opts/ps_opts_relay.proto
 
 import type { RabbitConn as _protos_args_RabbitConn, RabbitConn__Output as _protos_args_RabbitConn__Output } from '../../protos/args/RabbitConn';
 import type { RabbitReadArgs as _protos_args_RabbitReadArgs, RabbitReadArgs__Output as _protos_args_RabbitReadArgs__Output } from '../../protos/args/RabbitReadArgs';

@@ -1,4 +1,4 @@
-// Original file: protos/common/ps_common_dataquality.proto
+// Original file: ../../protos/common/ps_common_dataquality.proto
 
 import type { MatchOperator as _protos_common_MatchOperator, MatchOperator__Output as _protos_common_MatchOperator__Output } from '../../protos/common/MatchOperator';
 

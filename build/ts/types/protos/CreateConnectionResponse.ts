@@ -1,4 +1,4 @@
-// Original file: protos/ps_connect.proto
+// Original file: ../../protos/ps_connect.proto
 
 
 export interface CreateConnectionResponse {

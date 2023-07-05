@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_relay.proto
+// Original file: ../../protos/opts/ps_opts_relay.proto
 
 import type { GCPPubSubConn as _protos_args_GCPPubSubConn, GCPPubSubConn__Output as _protos_args_GCPPubSubConn__Output } from '../../protos/args/GCPPubSubConn';
 import type { GCPPubSubReadArgs as _protos_args_GCPPubSubReadArgs, GCPPubSubReadArgs__Output as _protos_args_GCPPubSubReadArgs__Output } from '../../protos/args/GCPPubSubReadArgs';

@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { PulsarConn as _protos_args_PulsarConn, PulsarConn__Output as _protos_args_PulsarConn__Output } from '../../protos/args/PulsarConn';
 import type { PulsarWriteArgs as _protos_args_PulsarWriteArgs, PulsarWriteArgs__Output as _protos_args_PulsarWriteArgs__Output } from '../../protos/args/PulsarWriteArgs';

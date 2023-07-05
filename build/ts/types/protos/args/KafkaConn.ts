@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_kafka.proto
+// Original file: ../../protos/args/ps_args_kafka.proto
 
 import type { SASLType as _protos_args_SASLType, SASLType__Output as _protos_args_SASLType__Output } from '../../protos/args/SASLType';
 

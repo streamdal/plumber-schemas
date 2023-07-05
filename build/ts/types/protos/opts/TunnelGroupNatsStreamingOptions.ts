@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { NatsStreamingConn as _protos_args_NatsStreamingConn, NatsStreamingConn__Output as _protos_args_NatsStreamingConn__Output } from '../../protos/args/NatsStreamingConn';
 import type { NatsStreamingWriteArgs as _protos_args_NatsStreamingWriteArgs, NatsStreamingWriteArgs__Output as _protos_args_NatsStreamingWriteArgs__Output } from '../../protos/args/NatsStreamingWriteArgs';

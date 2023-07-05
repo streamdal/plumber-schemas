@@ -1,7 +1,7 @@
-// Original file: protos/common/ps_common_dataquality.proto
+// Original file: ../../protos/common/ps_common_dataquality.proto
 
 
-// Original file: protos/common/ps_common_dataquality.proto
+// Original file: ../../protos/common/ps_common_dataquality.proto
 
 export const _protos_common_FailureModeTransform_TransformType = {
   TRANSFORM_TYPE_UNSET: 'TRANSFORM_TYPE_UNSET',

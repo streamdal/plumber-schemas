@@ -1,4 +1,4 @@
-// Original file: protos/ps_server.proto
+// Original file: ../../protos/ps_server.proto
 
 import type { ServerOptions as _protos_opts_ServerOptions, ServerOptions__Output as _protos_opts_ServerOptions__Output } from '../protos/opts/ServerOptions';
 

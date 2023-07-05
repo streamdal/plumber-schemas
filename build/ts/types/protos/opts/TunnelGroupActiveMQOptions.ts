@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { ActiveMQConn as _protos_args_ActiveMQConn, ActiveMQConn__Output as _protos_args_ActiveMQConn__Output } from '../../protos/args/ActiveMQConn';
 import type { ActiveMQWriteArgs as _protos_args_ActiveMQWriteArgs, ActiveMQWriteArgs__Output as _protos_args_ActiveMQWriteArgs__Output } from '../../protos/args/ActiveMQWriteArgs';

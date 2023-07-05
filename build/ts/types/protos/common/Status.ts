@@ -1,4 +1,4 @@
-// Original file: protos/common/ps_common_status.proto
+// Original file: ../../protos/common/ps_common_status.proto
 
 import type { Code as _protos_common_Code, Code__Output as _protos_common_Code__Output } from '../../protos/common/Code';
 

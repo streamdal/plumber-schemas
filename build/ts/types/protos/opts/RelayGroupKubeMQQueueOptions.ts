@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_relay.proto
+// Original file: ../../protos/opts/ps_opts_relay.proto
 
 import type { KubeMQQueueConn as _protos_args_KubeMQQueueConn, KubeMQQueueConn__Output as _protos_args_KubeMQQueueConn__Output } from '../../protos/args/KubeMQQueueConn';
 import type { KubeMQQueueReadArgs as _protos_args_KubeMQQueueReadArgs, KubeMQQueueReadArgs__Output as _protos_args_KubeMQQueueReadArgs__Output } from '../../protos/args/KubeMQQueueReadArgs';

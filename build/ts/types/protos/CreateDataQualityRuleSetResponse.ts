@@ -1,4 +1,4 @@
-// Original file: protos/ps_dataquality.proto
+// Original file: ../../protos/ps_dataquality.proto
 
 import type { Status as _protos_common_Status, Status__Output as _protos_common_Status__Output } from '../protos/common/Status';
 

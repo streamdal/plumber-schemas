@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_activemq.proto
+// Original file: ../../protos/args/ps_args_activemq.proto
 
 
 export interface ActiveMQReadArgs {

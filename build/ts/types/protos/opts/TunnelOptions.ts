@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { TunnelGroupKafkaOptions as _protos_opts_TunnelGroupKafkaOptions, TunnelGroupKafkaOptions__Output as _protos_opts_TunnelGroupKafkaOptions__Output } from '../../protos/opts/TunnelGroupKafkaOptions';
 import type { TunnelGroupActiveMQOptions as _protos_opts_TunnelGroupActiveMQOptions, TunnelGroupActiveMQOptions__Output as _protos_opts_TunnelGroupActiveMQOptions__Output } from '../../protos/opts/TunnelGroupActiveMQOptions';

@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_relay.proto
+// Original file: ../../protos/opts/ps_opts_relay.proto
 
 import type { RelayGroupKafkaOptions as _protos_opts_RelayGroupKafkaOptions, RelayGroupKafkaOptions__Output as _protos_opts_RelayGroupKafkaOptions__Output } from '../../protos/opts/RelayGroupKafkaOptions';
 import type { RelayGroupAWSSQSOptions as _protos_opts_RelayGroupAWSSQSOptions, RelayGroupAWSSQSOptions__Output as _protos_opts_RelayGroupAWSSQSOptions__Output } from '../../protos/opts/RelayGroupAWSSQSOptions';

@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_nats_jetstream.proto
+// Original file: ../../protos/args/ps_args_nats_jetstream.proto
 
 
 export interface NatsJetstreamTLSOptions {

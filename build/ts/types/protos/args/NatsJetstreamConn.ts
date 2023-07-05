@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_nats_jetstream.proto
+// Original file: ../../protos/args/ps_args_nats_jetstream.proto
 
 import type { NatsJetstreamTLSOptions as _protos_args_NatsJetstreamTLSOptions, NatsJetstreamTLSOptions__Output as _protos_args_NatsJetstreamTLSOptions__Output } from '../../protos/args/NatsJetstreamTLSOptions';
 

@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_kafka.proto
+// Original file: ../../protos/args/ps_args_kafka.proto
 
 
 export interface KafkaWriteArgs {

@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_mongo.proto
+// Original file: ../../protos/args/ps_args_mongo.proto
 
 
 export interface MongoConn {

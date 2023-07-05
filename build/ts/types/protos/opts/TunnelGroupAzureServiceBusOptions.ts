@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { AzureServiceBusConn as _protos_args_AzureServiceBusConn, AzureServiceBusConn__Output as _protos_args_AzureServiceBusConn__Output } from '../../protos/args/AzureServiceBusConn';
 import type { AzureServiceBusWriteArgs as _protos_args_AzureServiceBusWriteArgs, AzureServiceBusWriteArgs__Output as _protos_args_AzureServiceBusWriteArgs__Output } from '../../protos/args/AzureServiceBusWriteArgs';

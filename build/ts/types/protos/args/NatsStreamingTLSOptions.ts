@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_nats_streaming.proto
+// Original file: ../../protos/args/ps_args_nats_streaming.proto
 
 
 export interface NatsStreamingTLSOptions {

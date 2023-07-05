@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { GCPPubSubConn as _protos_args_GCPPubSubConn, GCPPubSubConn__Output as _protos_args_GCPPubSubConn__Output } from '../../protos/args/GCPPubSubConn';
 import type { GCPPubSubWriteArgs as _protos_args_GCPPubSubWriteArgs, GCPPubSubWriteArgs__Output as _protos_args_GCPPubSubWriteArgs__Output } from '../../protos/args/GCPPubSubWriteArgs';

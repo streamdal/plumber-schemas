@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_connection.proto
+// Original file: ../../protos/opts/ps_opts_connection.proto
 
 import type { KafkaConn as _protos_args_KafkaConn, KafkaConn__Output as _protos_args_KafkaConn__Output } from '../../protos/args/KafkaConn';
 import type { ActiveMQConn as _protos_args_ActiveMQConn, ActiveMQConn__Output as _protos_args_ActiveMQConn__Output } from '../../protos/args/ActiveMQConn';

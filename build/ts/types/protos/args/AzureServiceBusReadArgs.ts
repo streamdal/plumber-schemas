@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_azure_service_bus.proto
+// Original file: ../../protos/args/ps_args_azure_service_bus.proto
 
 
 export interface AzureServiceBusReadArgs {

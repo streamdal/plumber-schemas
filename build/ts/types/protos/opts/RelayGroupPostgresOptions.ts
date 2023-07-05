@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_relay.proto
+// Original file: ../../protos/opts/ps_opts_relay.proto
 
 import type { PostgresConn as _protos_args_PostgresConn, PostgresConn__Output as _protos_args_PostgresConn__Output } from '../../protos/args/PostgresConn';
 import type { PostgresReadArgs as _protos_args_PostgresReadArgs, PostgresReadArgs__Output as _protos_args_PostgresReadArgs__Output } from '../../protos/args/PostgresReadArgs';

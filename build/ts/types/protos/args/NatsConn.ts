@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_nats.proto
+// Original file: ../../protos/args/ps_args_nats.proto
 
 import type { NatsTLSOptions as _protos_args_NatsTLSOptions, NatsTLSOptions__Output as _protos_args_NatsTLSOptions__Output } from '../../protos/args/NatsTLSOptions';
 

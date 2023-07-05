@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_relay.proto
+// Original file: ../../protos/opts/ps_opts_relay.proto
 
 import type { NatsJetstreamConn as _protos_args_NatsJetstreamConn, NatsJetstreamConn__Output as _protos_args_NatsJetstreamConn__Output } from '../../protos/args/NatsJetstreamConn';
 import type { NatsJetstreamReadArgs as _protos_args_NatsJetstreamReadArgs, NatsJetstreamReadArgs__Output as _protos_args_NatsJetstreamReadArgs__Output } from '../../protos/args/NatsJetstreamReadArgs';

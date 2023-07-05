@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_mqtt.proto
+// Original file: ../../protos/args/ps_args_mqtt.proto
 
 
 export interface MQTTReadArgs {

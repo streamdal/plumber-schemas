@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { KafkaConn as _protos_args_KafkaConn, KafkaConn__Output as _protos_args_KafkaConn__Output } from '../../protos/args/KafkaConn';
 import type { KafkaWriteArgs as _protos_args_KafkaWriteArgs, KafkaWriteArgs__Output as _protos_args_KafkaWriteArgs__Output } from '../../protos/args/KafkaWriteArgs';

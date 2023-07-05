@@ -1,4 +1,4 @@
-// Original file: protos/ps_foreman_client.proto
+// Original file: ../../protos/ps_foreman_client.proto
 
 
 export interface RegisterRequest {

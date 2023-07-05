@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_postgres.proto
+// Original file: ../../protos/args/ps_args_postgres.proto
 
 
 export interface PostgresConn {

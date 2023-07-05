@@ -1,4 +1,4 @@
-// Original file: protos/ps_foreman_server.proto
+// Original file: ../../protos/ps_foreman_server.proto
 
 
 export interface PlumberInfo {

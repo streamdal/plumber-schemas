@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_mqtt.proto
+// Original file: ../../protos/args/ps_args_mqtt.proto
 
 export const MQTTQoSLevel = {
   MQTT_QOS_LEVEL_AT_MOST_ONCE: 'MQTT_QOS_LEVEL_AT_MOST_ONCE',

@@ -59,9 +59,6 @@ local:
 generate/ts: description = Compile protobuf schemas and typeScript interfaces for Node
 generate/ts: clean-ts
 generate/ts:
-	mkdir -p build/ts
-	npm install
-
 	docker run --platform linux/amd64 -w $(PWD) -v $(PWD):/defs namely/protoc-all:1.51_1 \
     		-d /defs/protos \
     		-l descriptor_set \
@@ -71,10 +68,7 @@ generate/ts:
     		--descr-filename protos.fds \
     		protos/*.proto
 
-	npx proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=./build/ts/types ./protos/*.proto --includeDirs=./protos
-
-	cp ./package.json ./build/ts/package.json
-	cp ./TYPESCRIPT.README.md ./build/ts/README.md
+	cd ./build/ts; npm install; npx proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=./types ../../protos/*.proto --includeDirs=../../protos
 
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go
@@ -182,7 +176,8 @@ clean-go:
 .PHONY: clean-ts
 clean-ts: description = Remove all ts build artifacts
 clean-ts:
-	rm -rf ./build/ts/*
+	rm -rf ./build/ts/descriptor-sets/*
+	rm -rf ./build/ts/types/*
 
 .PHONY: lint
 lint: description = Run protolint

@@ -1,4 +1,4 @@
-// Original file: protos/ps_foreman_server.proto
+// Original file: ../../protos/ps_foreman_server.proto
 
 import type * as grpc from '@grpc/grpc-js'
 import type { MethodDefinition } from '@grpc/proto-loader'

@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_redis_streams.proto
+// Original file: ../../protos/args/ps_args_redis_streams.proto
 
 import type { OffsetStart as _protos_args_OffsetStart, OffsetStart__Output as _protos_args_OffsetStart__Output } from '../../protos/args/OffsetStart';
 

@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_aws_sqs.proto
+// Original file: ../../protos/args/ps_args_aws_sqs.proto
 
 
 export interface AWSSQSConn {

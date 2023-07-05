@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { NSQConn as _protos_args_NSQConn, NSQConn__Output as _protos_args_NSQConn__Output } from '../../protos/args/NSQConn';
 import type { NSQWriteArgs as _protos_args_NSQWriteArgs, NSQWriteArgs__Output as _protos_args_NSQWriteArgs__Output } from '../../protos/args/NSQWriteArgs';

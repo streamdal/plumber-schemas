@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_memphis.proto
+// Original file: ../../protos/args/ps_args_memphis.proto
 
 
 export interface MemphisWriteArgs {

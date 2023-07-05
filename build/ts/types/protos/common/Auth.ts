@@ -1,4 +1,4 @@
-// Original file: protos/common/ps_common_auth.proto
+// Original file: ../../protos/common/ps_common_auth.proto
 
 import type { Foreman as _protos_common_Foreman, Foreman__Output as _protos_common_Foreman__Output } from '../../protos/common/Foreman';
 import type { SourceManager as _protos_common_SourceManager, SourceManager__Output as _protos_common_SourceManager__Output } from '../../protos/common/SourceManager';

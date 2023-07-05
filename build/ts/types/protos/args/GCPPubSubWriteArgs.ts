@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_gcp_pubsub.proto
+// Original file: ../../protos/args/ps_args_gcp_pubsub.proto
 
 
 export interface GCPPubSubWriteArgs {

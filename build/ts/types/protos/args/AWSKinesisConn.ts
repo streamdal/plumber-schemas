@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_aws_kinesis.proto
+// Original file: ../../protos/args/ps_args_aws_kinesis.proto
 
 
 export interface AWSKinesisConn {

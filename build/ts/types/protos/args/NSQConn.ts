@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_nsq.proto
+// Original file: ../../protos/args/ps_args_nsq.proto
 
 
 export interface NSQConn {

@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_tunnel.proto
+// Original file: ../../protos/opts/ps_opts_tunnel.proto
 
 import type { RedisStreamsConn as _protos_args_RedisStreamsConn, RedisStreamsConn__Output as _protos_args_RedisStreamsConn__Output } from '../../protos/args/RedisStreamsConn';
 import type { RedisStreamsWriteArgs as _protos_args_RedisStreamsWriteArgs, RedisStreamsWriteArgs__Output as _protos_args_RedisStreamsWriteArgs__Output } from '../../protos/args/RedisStreamsWriteArgs';

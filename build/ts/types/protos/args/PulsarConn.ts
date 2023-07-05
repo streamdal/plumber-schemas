@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_pulsar.proto
+// Original file: ../../protos/args/ps_args_pulsar.proto
 
 
 export interface PulsarConn {

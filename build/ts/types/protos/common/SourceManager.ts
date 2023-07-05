@@ -1,4 +1,4 @@
-// Original file: protos/common/ps_common_auth.proto
+// Original file: ../../protos/common/ps_common_auth.proto
 
 
 export interface SourceManager {

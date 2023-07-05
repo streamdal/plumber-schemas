@@ -1,4 +1,4 @@
-// Original file: protos/ps_dataquality.proto
+// Original file: ../../protos/ps_dataquality.proto
 
 import type { Rule as _protos_common_Rule, Rule__Output as _protos_common_Rule__Output } from '../protos/common/Rule';
 import type { Auth as _protos_common_Auth, Auth__Output as _protos_common_Auth__Output } from '../protos/common/Auth';

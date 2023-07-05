@@ -1,4 +1,4 @@
-// Original file: protos/args/ps_args_kubemq_queue.proto
+// Original file: ../../protos/args/ps_args_kubemq_queue.proto
 
 
 export interface KubeMQQueueReadArgs {

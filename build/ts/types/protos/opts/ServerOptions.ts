@@ -1,4 +1,4 @@
-// Original file: protos/opts/ps_opts_server.proto
+// Original file: ../../protos/opts/ps_opts_server.proto
 
 
 export interface ServerOptions {
