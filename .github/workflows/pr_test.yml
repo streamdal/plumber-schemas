@@ -16,7 +16,6 @@ jobs:
       - name: Compile protos
         run: |
           make setup/linux
-          npm install
           make generate/all
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
