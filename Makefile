@@ -68,7 +68,10 @@ generate/ts:
     		--descr-filename protos.fds \
     		protos/*.proto
 
-	cd ./build/ts; npm install; npx proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=./types ../../protos/*.proto --includeDirs=../../protos
+	cd ./build/ts; \
+		npm install; \
+		npx proto-loader-gen-types --longs=String --enums=String --defaults --oneofs \
+		--grpcLib=@grpc/grpc-js --outDir=./types ../../protos/*.proto --includeDirs=../../protos
 
 .PHONY: generate/go
 generate/go: description = Compile protobuf schemas for Go
