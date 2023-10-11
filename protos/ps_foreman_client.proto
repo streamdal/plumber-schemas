@@ -8,10 +8,10 @@ option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos";
 // ForemanClient is a service used to connect to Foreman from a Plumber server cluster
 service ForemanClient {
   // Used by plumber to connect to Foreman and announce its presence.
-  rpc Register(RegisterRequest) returns (RegisterResponse);
+  rpc Register(ForemanRegisterRequest) returns (ForemanRegisterResponse);
 }
 
-message RegisterRequest {
+message ForemanRegisterRequest {
   // API token obtained from https://console.streamdal.com/account/security
   string api_token = 1;
 
@@ -27,7 +27,7 @@ message RegisterRequest {
   string node_id = 4;
 }
 
-message RegisterResponse {
+message ForemanRegisterResponse {
   // Authorized or not
   bool success = 1;
 
