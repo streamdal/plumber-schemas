@@ -63324,7 +63324,7 @@ $root.protos = (function() {
          * @typedef RegisterCallback
          * @type {function}
          * @param {Error|null} error Error, if any
-         * @param {protos.RegisterResponse} [response] RegisterResponse
+         * @param {protos.ForemanRegisterResponse} [response] ForemanRegisterResponse
          */
 
         /**
@@ -63332,13 +63332,13 @@ $root.protos = (function() {
          * @function register
          * @memberof protos.ForemanClient
          * @instance
-         * @param {protos.IRegisterRequest} request RegisterRequest message or plain object
-         * @param {protos.ForemanClient.RegisterCallback} callback Node-style callback called with the error, if any, and RegisterResponse
+         * @param {protos.IForemanRegisterRequest} request ForemanRegisterRequest message or plain object
+         * @param {protos.ForemanClient.RegisterCallback} callback Node-style callback called with the error, if any, and ForemanRegisterResponse
          * @returns {undefined}
          * @variation 1
          */
         Object.defineProperty(ForemanClient.prototype.register = function register(request, callback) {
-            return this.rpcCall(register, $root.protos.RegisterRequest, $root.protos.RegisterResponse, request, callback);
+            return this.rpcCall(register, $root.protos.ForemanRegisterRequest, $root.protos.ForemanRegisterResponse, request, callback);
         }, "name", { value: "Register" });
 
         /**
@@ -63346,35 +63346,35 @@ $root.protos = (function() {
          * @function register
          * @memberof protos.ForemanClient
          * @instance
-         * @param {protos.IRegisterRequest} request RegisterRequest message or plain object
-         * @returns {Promise<protos.RegisterResponse>} Promise
+         * @param {protos.IForemanRegisterRequest} request ForemanRegisterRequest message or plain object
+         * @returns {Promise<protos.ForemanRegisterResponse>} Promise
          * @variation 2
          */
 
         return ForemanClient;
     })();
 
-    protos.RegisterRequest = (function() {
+    protos.ForemanRegisterRequest = (function() {
 
         /**
-         * Properties of a RegisterRequest.
+         * Properties of a ForemanRegisterRequest.
          * @memberof protos
-         * @interface IRegisterRequest
-         * @property {string|null} [apiToken] RegisterRequest apiToken
-         * @property {string|null} [clusterId] RegisterRequest clusterId
-         * @property {string|null} [plumberToken] RegisterRequest plumberToken
-         * @property {string|null} [nodeId] RegisterRequest nodeId
+         * @interface IForemanRegisterRequest
+         * @property {string|null} [apiToken] ForemanRegisterRequest apiToken
+         * @property {string|null} [clusterId] ForemanRegisterRequest clusterId
+         * @property {string|null} [plumberToken] ForemanRegisterRequest plumberToken
+         * @property {string|null} [nodeId] ForemanRegisterRequest nodeId
          */
 
         /**
-         * Constructs a new RegisterRequest.
+         * Constructs a new ForemanRegisterRequest.
          * @memberof protos
-         * @classdesc Represents a RegisterRequest.
-         * @implements IRegisterRequest
+         * @classdesc Represents a ForemanRegisterRequest.
+         * @implements IForemanRegisterRequest
          * @constructor
-         * @param {protos.IRegisterRequest=} [properties] Properties to set
+         * @param {protos.IForemanRegisterRequest=} [properties] Properties to set
          */
-        function RegisterRequest(properties) {
+        function ForemanRegisterRequest(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -63382,59 +63382,59 @@ $root.protos = (function() {
         }
 
         /**
-         * RegisterRequest apiToken.
+         * ForemanRegisterRequest apiToken.
          * @member {string} apiToken
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @instance
          */
-        RegisterRequest.prototype.apiToken = "";
+        ForemanRegisterRequest.prototype.apiToken = "";
 
         /**
-         * RegisterRequest clusterId.
+         * ForemanRegisterRequest clusterId.
          * @member {string} clusterId
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @instance
          */
-        RegisterRequest.prototype.clusterId = "";
+        ForemanRegisterRequest.prototype.clusterId = "";
 
         /**
-         * RegisterRequest plumberToken.
+         * ForemanRegisterRequest plumberToken.
          * @member {string} plumberToken
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @instance
          */
-        RegisterRequest.prototype.plumberToken = "";
+        ForemanRegisterRequest.prototype.plumberToken = "";
 
         /**
-         * RegisterRequest nodeId.
+         * ForemanRegisterRequest nodeId.
          * @member {string} nodeId
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @instance
          */
-        RegisterRequest.prototype.nodeId = "";
+        ForemanRegisterRequest.prototype.nodeId = "";
 
         /**
-         * Creates a new RegisterRequest instance using the specified properties.
+         * Creates a new ForemanRegisterRequest instance using the specified properties.
          * @function create
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @static
-         * @param {protos.IRegisterRequest=} [properties] Properties to set
-         * @returns {protos.RegisterRequest} RegisterRequest instance
+         * @param {protos.IForemanRegisterRequest=} [properties] Properties to set
+         * @returns {protos.ForemanRegisterRequest} ForemanRegisterRequest instance
          */
-        RegisterRequest.create = function create(properties) {
-            return new RegisterRequest(properties);
+        ForemanRegisterRequest.create = function create(properties) {
+            return new ForemanRegisterRequest(properties);
         };
 
         /**
-         * Encodes the specified RegisterRequest message. Does not implicitly {@link protos.RegisterRequest.verify|verify} messages.
+         * Encodes the specified ForemanRegisterRequest message. Does not implicitly {@link protos.ForemanRegisterRequest.verify|verify} messages.
          * @function encode
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @static
-         * @param {protos.IRegisterRequest} message RegisterRequest message or plain object to encode
+         * @param {protos.IForemanRegisterRequest} message ForemanRegisterRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        RegisterRequest.encode = function encode(message, writer) {
+        ForemanRegisterRequest.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.apiToken != null && Object.hasOwnProperty.call(message, "apiToken"))
@@ -63449,33 +63449,33 @@ $root.protos = (function() {
         };
 
         /**
-         * Encodes the specified RegisterRequest message, length delimited. Does not implicitly {@link protos.RegisterRequest.verify|verify} messages.
+         * Encodes the specified ForemanRegisterRequest message, length delimited. Does not implicitly {@link protos.ForemanRegisterRequest.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @static
-         * @param {protos.IRegisterRequest} message RegisterRequest message or plain object to encode
+         * @param {protos.IForemanRegisterRequest} message ForemanRegisterRequest message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        RegisterRequest.encodeDelimited = function encodeDelimited(message, writer) {
+        ForemanRegisterRequest.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a RegisterRequest message from the specified reader or buffer.
+         * Decodes a ForemanRegisterRequest message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.RegisterRequest} RegisterRequest
+         * @returns {protos.ForemanRegisterRequest} ForemanRegisterRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        RegisterRequest.decode = function decode(reader, length) {
+        ForemanRegisterRequest.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.RegisterRequest();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ForemanRegisterRequest();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -63500,30 +63500,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a RegisterRequest message from the specified reader or buffer, length delimited.
+         * Decodes a ForemanRegisterRequest message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.RegisterRequest} RegisterRequest
+         * @returns {protos.ForemanRegisterRequest} ForemanRegisterRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        RegisterRequest.decodeDelimited = function decodeDelimited(reader) {
+        ForemanRegisterRequest.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a RegisterRequest message.
+         * Verifies a ForemanRegisterRequest message.
          * @function verify
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        RegisterRequest.verify = function verify(message) {
+        ForemanRegisterRequest.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.apiToken != null && message.hasOwnProperty("apiToken"))
@@ -63542,17 +63542,17 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a RegisterRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a ForemanRegisterRequest message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.RegisterRequest} RegisterRequest
+         * @returns {protos.ForemanRegisterRequest} ForemanRegisterRequest
          */
-        RegisterRequest.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.RegisterRequest)
+        ForemanRegisterRequest.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ForemanRegisterRequest)
                 return object;
-            var message = new $root.protos.RegisterRequest();
+            var message = new $root.protos.ForemanRegisterRequest();
             if (object.apiToken != null)
                 message.apiToken = String(object.apiToken);
             if (object.clusterId != null)
@@ -63565,15 +63565,15 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a plain object from a RegisterRequest message. Also converts values to other types if specified.
+         * Creates a plain object from a ForemanRegisterRequest message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @static
-         * @param {protos.RegisterRequest} message RegisterRequest
+         * @param {protos.ForemanRegisterRequest} message ForemanRegisterRequest
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        RegisterRequest.toObject = function toObject(message, options) {
+        ForemanRegisterRequest.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -63595,38 +63595,38 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this RegisterRequest to JSON.
+         * Converts this ForemanRegisterRequest to JSON.
          * @function toJSON
-         * @memberof protos.RegisterRequest
+         * @memberof protos.ForemanRegisterRequest
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        RegisterRequest.prototype.toJSON = function toJSON() {
+        ForemanRegisterRequest.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return RegisterRequest;
+        return ForemanRegisterRequest;
     })();
 
-    protos.RegisterResponse = (function() {
+    protos.ForemanRegisterResponse = (function() {
 
         /**
-         * Properties of a RegisterResponse.
+         * Properties of a ForemanRegisterResponse.
          * @memberof protos
-         * @interface IRegisterResponse
-         * @property {boolean|null} [success] RegisterResponse success
-         * @property {string|null} [message] RegisterResponse message
+         * @interface IForemanRegisterResponse
+         * @property {boolean|null} [success] ForemanRegisterResponse success
+         * @property {string|null} [message] ForemanRegisterResponse message
          */
 
         /**
-         * Constructs a new RegisterResponse.
+         * Constructs a new ForemanRegisterResponse.
          * @memberof protos
-         * @classdesc Represents a RegisterResponse.
-         * @implements IRegisterResponse
+         * @classdesc Represents a ForemanRegisterResponse.
+         * @implements IForemanRegisterResponse
          * @constructor
-         * @param {protos.IRegisterResponse=} [properties] Properties to set
+         * @param {protos.IForemanRegisterResponse=} [properties] Properties to set
          */
-        function RegisterResponse(properties) {
+        function ForemanRegisterResponse(properties) {
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -63634,43 +63634,43 @@ $root.protos = (function() {
         }
 
         /**
-         * RegisterResponse success.
+         * ForemanRegisterResponse success.
          * @member {boolean} success
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @instance
          */
-        RegisterResponse.prototype.success = false;
+        ForemanRegisterResponse.prototype.success = false;
 
         /**
-         * RegisterResponse message.
+         * ForemanRegisterResponse message.
          * @member {string} message
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @instance
          */
-        RegisterResponse.prototype.message = "";
+        ForemanRegisterResponse.prototype.message = "";
 
         /**
-         * Creates a new RegisterResponse instance using the specified properties.
+         * Creates a new ForemanRegisterResponse instance using the specified properties.
          * @function create
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @static
-         * @param {protos.IRegisterResponse=} [properties] Properties to set
-         * @returns {protos.RegisterResponse} RegisterResponse instance
+         * @param {protos.IForemanRegisterResponse=} [properties] Properties to set
+         * @returns {protos.ForemanRegisterResponse} ForemanRegisterResponse instance
          */
-        RegisterResponse.create = function create(properties) {
-            return new RegisterResponse(properties);
+        ForemanRegisterResponse.create = function create(properties) {
+            return new ForemanRegisterResponse(properties);
         };
 
         /**
-         * Encodes the specified RegisterResponse message. Does not implicitly {@link protos.RegisterResponse.verify|verify} messages.
+         * Encodes the specified ForemanRegisterResponse message. Does not implicitly {@link protos.ForemanRegisterResponse.verify|verify} messages.
          * @function encode
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @static
-         * @param {protos.IRegisterResponse} message RegisterResponse message or plain object to encode
+         * @param {protos.IForemanRegisterResponse} message ForemanRegisterResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        RegisterResponse.encode = function encode(message, writer) {
+        ForemanRegisterResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.success != null && Object.hasOwnProperty.call(message, "success"))
@@ -63681,33 +63681,33 @@ $root.protos = (function() {
         };
 
         /**
-         * Encodes the specified RegisterResponse message, length delimited. Does not implicitly {@link protos.RegisterResponse.verify|verify} messages.
+         * Encodes the specified ForemanRegisterResponse message, length delimited. Does not implicitly {@link protos.ForemanRegisterResponse.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @static
-         * @param {protos.IRegisterResponse} message RegisterResponse message or plain object to encode
+         * @param {protos.IForemanRegisterResponse} message ForemanRegisterResponse message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        RegisterResponse.encodeDelimited = function encodeDelimited(message, writer) {
+        ForemanRegisterResponse.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a RegisterResponse message from the specified reader or buffer.
+         * Decodes a ForemanRegisterResponse message from the specified reader or buffer.
          * @function decode
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {protos.RegisterResponse} RegisterResponse
+         * @returns {protos.ForemanRegisterResponse} ForemanRegisterResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        RegisterResponse.decode = function decode(reader, length) {
+        ForemanRegisterResponse.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.RegisterResponse();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.ForemanRegisterResponse();
             while (reader.pos < end) {
                 var tag = reader.uint32();
                 switch (tag >>> 3) {
@@ -63726,30 +63726,30 @@ $root.protos = (function() {
         };
 
         /**
-         * Decodes a RegisterResponse message from the specified reader or buffer, length delimited.
+         * Decodes a ForemanRegisterResponse message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {protos.RegisterResponse} RegisterResponse
+         * @returns {protos.ForemanRegisterResponse} ForemanRegisterResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        RegisterResponse.decodeDelimited = function decodeDelimited(reader) {
+        ForemanRegisterResponse.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a RegisterResponse message.
+         * Verifies a ForemanRegisterResponse message.
          * @function verify
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        RegisterResponse.verify = function verify(message) {
+        ForemanRegisterResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
             if (message.success != null && message.hasOwnProperty("success"))
@@ -63762,17 +63762,17 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a RegisterResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a ForemanRegisterResponse message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {protos.RegisterResponse} RegisterResponse
+         * @returns {protos.ForemanRegisterResponse} ForemanRegisterResponse
          */
-        RegisterResponse.fromObject = function fromObject(object) {
-            if (object instanceof $root.protos.RegisterResponse)
+        ForemanRegisterResponse.fromObject = function fromObject(object) {
+            if (object instanceof $root.protos.ForemanRegisterResponse)
                 return object;
-            var message = new $root.protos.RegisterResponse();
+            var message = new $root.protos.ForemanRegisterResponse();
             if (object.success != null)
                 message.success = Boolean(object.success);
             if (object.message != null)
@@ -63781,15 +63781,15 @@ $root.protos = (function() {
         };
 
         /**
-         * Creates a plain object from a RegisterResponse message. Also converts values to other types if specified.
+         * Creates a plain object from a ForemanRegisterResponse message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @static
-         * @param {protos.RegisterResponse} message RegisterResponse
+         * @param {protos.ForemanRegisterResponse} message ForemanRegisterResponse
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        RegisterResponse.toObject = function toObject(message, options) {
+        ForemanRegisterResponse.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
             var object = {};
@@ -63805,17 +63805,17 @@ $root.protos = (function() {
         };
 
         /**
-         * Converts this RegisterResponse to JSON.
+         * Converts this ForemanRegisterResponse to JSON.
          * @function toJSON
-         * @memberof protos.RegisterResponse
+         * @memberof protos.ForemanRegisterResponse
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        RegisterResponse.prototype.toJSON = function toJSON() {
+        ForemanRegisterResponse.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return RegisterResponse;
+        return ForemanRegisterResponse;
     })();
 
     protos.ForemanServer = (function() {

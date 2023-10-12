@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ForemanClientClient interface {
 	// Used by plumber to connect to Foreman and announce its presence.
-	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	Register(ctx context.Context, in *ForemanRegisterRequest, opts ...grpc.CallOption) (*ForemanRegisterResponse, error)
 }
 
 type foremanClientClient struct {
@@ -34,8 +34,8 @@ func NewForemanClientClient(cc grpc.ClientConnInterface) ForemanClientClient {
 	return &foremanClientClient{cc}
 }
 
-func (c *foremanClientClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
-	out := new(RegisterResponse)
+func (c *foremanClientClient) Register(ctx context.Context, in *ForemanRegisterRequest, opts ...grpc.CallOption) (*ForemanRegisterResponse, error) {
+	out := new(ForemanRegisterResponse)
 	err := c.cc.Invoke(ctx, "/protos.ForemanClient/Register", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -48,14 +48,14 @@ func (c *foremanClientClient) Register(ctx context.Context, in *RegisterRequest,
 // for forward compatibility
 type ForemanClientServer interface {
 	// Used by plumber to connect to Foreman and announce its presence.
-	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
+	Register(context.Context, *ForemanRegisterRequest) (*ForemanRegisterResponse, error)
 }
 
 // UnimplementedForemanClientServer should be embedded to have forward compatible implementations.
 type UnimplementedForemanClientServer struct {
 }
 
-func (UnimplementedForemanClientServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
+func (UnimplementedForemanClientServer) Register(context.Context, *ForemanRegisterRequest) (*ForemanRegisterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
 }
 
@@ -71,7 +71,7 @@ func RegisterForemanClientServer(s grpc.ServiceRegistrar, srv ForemanClientServe
 }
 
 func _ForemanClient_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterRequest)
+	in := new(ForemanRegisterRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -83,7 +83,7 @@ func _ForemanClient_Register_Handler(srv interface{}, ctx context.Context, dec f
 		FullMethod: "/protos.ForemanClient/Register",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ForemanClientServer).Register(ctx, req.(*RegisterRequest))
+		return srv.(ForemanClientServer).Register(ctx, req.(*ForemanRegisterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

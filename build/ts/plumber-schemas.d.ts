@@ -26265,17 +26265,17 @@ export namespace protos {
 
         /**
          * Calls Register.
-         * @param request RegisterRequest message or plain object
-         * @param callback Node-style callback called with the error, if any, and RegisterResponse
+         * @param request ForemanRegisterRequest message or plain object
+         * @param callback Node-style callback called with the error, if any, and ForemanRegisterResponse
          */
-        public register(request: protos.IRegisterRequest, callback: protos.ForemanClient.RegisterCallback): void;
+        public register(request: protos.IForemanRegisterRequest, callback: protos.ForemanClient.RegisterCallback): void;
 
         /**
          * Calls Register.
-         * @param request RegisterRequest message or plain object
+         * @param request ForemanRegisterRequest message or plain object
          * @returns Promise
          */
-        public register(request: protos.IRegisterRequest): Promise<protos.RegisterResponse>;
+        public register(request: protos.IForemanRegisterRequest): Promise<protos.ForemanRegisterResponse>;
     }
 
     namespace ForemanClient {
@@ -26283,210 +26283,210 @@ export namespace protos {
         /**
          * Callback as used by {@link protos.ForemanClient#register}.
          * @param error Error, if any
-         * @param [response] RegisterResponse
+         * @param [response] ForemanRegisterResponse
          */
-        type RegisterCallback = (error: (Error|null), response?: protos.RegisterResponse) => void;
+        type RegisterCallback = (error: (Error|null), response?: protos.ForemanRegisterResponse) => void;
     }
 
-    /** Properties of a RegisterRequest. */
-    interface IRegisterRequest {
+    /** Properties of a ForemanRegisterRequest. */
+    interface IForemanRegisterRequest {
 
-        /** RegisterRequest apiToken */
+        /** ForemanRegisterRequest apiToken */
         apiToken?: (string|null);
 
-        /** RegisterRequest clusterId */
+        /** ForemanRegisterRequest clusterId */
         clusterId?: (string|null);
 
-        /** RegisterRequest plumberToken */
+        /** ForemanRegisterRequest plumberToken */
         plumberToken?: (string|null);
 
-        /** RegisterRequest nodeId */
+        /** ForemanRegisterRequest nodeId */
         nodeId?: (string|null);
     }
 
-    /** Represents a RegisterRequest. */
-    class RegisterRequest implements IRegisterRequest {
+    /** Represents a ForemanRegisterRequest. */
+    class ForemanRegisterRequest implements IForemanRegisterRequest {
 
         /**
-         * Constructs a new RegisterRequest.
+         * Constructs a new ForemanRegisterRequest.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IRegisterRequest);
+        constructor(properties?: protos.IForemanRegisterRequest);
 
-        /** RegisterRequest apiToken. */
+        /** ForemanRegisterRequest apiToken. */
         public apiToken: string;
 
-        /** RegisterRequest clusterId. */
+        /** ForemanRegisterRequest clusterId. */
         public clusterId: string;
 
-        /** RegisterRequest plumberToken. */
+        /** ForemanRegisterRequest plumberToken. */
         public plumberToken: string;
 
-        /** RegisterRequest nodeId. */
+        /** ForemanRegisterRequest nodeId. */
         public nodeId: string;
 
         /**
-         * Creates a new RegisterRequest instance using the specified properties.
+         * Creates a new ForemanRegisterRequest instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns RegisterRequest instance
+         * @returns ForemanRegisterRequest instance
          */
-        public static create(properties?: protos.IRegisterRequest): protos.RegisterRequest;
+        public static create(properties?: protos.IForemanRegisterRequest): protos.ForemanRegisterRequest;
 
         /**
-         * Encodes the specified RegisterRequest message. Does not implicitly {@link protos.RegisterRequest.verify|verify} messages.
-         * @param message RegisterRequest message or plain object to encode
+         * Encodes the specified ForemanRegisterRequest message. Does not implicitly {@link protos.ForemanRegisterRequest.verify|verify} messages.
+         * @param message ForemanRegisterRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IRegisterRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IForemanRegisterRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified RegisterRequest message, length delimited. Does not implicitly {@link protos.RegisterRequest.verify|verify} messages.
-         * @param message RegisterRequest message or plain object to encode
+         * Encodes the specified ForemanRegisterRequest message, length delimited. Does not implicitly {@link protos.ForemanRegisterRequest.verify|verify} messages.
+         * @param message ForemanRegisterRequest message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IRegisterRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IForemanRegisterRequest, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a RegisterRequest message from the specified reader or buffer.
+         * Decodes a ForemanRegisterRequest message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns RegisterRequest
+         * @returns ForemanRegisterRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.RegisterRequest;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ForemanRegisterRequest;
 
         /**
-         * Decodes a RegisterRequest message from the specified reader or buffer, length delimited.
+         * Decodes a ForemanRegisterRequest message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns RegisterRequest
+         * @returns ForemanRegisterRequest
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.RegisterRequest;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ForemanRegisterRequest;
 
         /**
-         * Verifies a RegisterRequest message.
+         * Verifies a ForemanRegisterRequest message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a RegisterRequest message from a plain object. Also converts values to their respective internal types.
+         * Creates a ForemanRegisterRequest message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns RegisterRequest
+         * @returns ForemanRegisterRequest
          */
-        public static fromObject(object: { [k: string]: any }): protos.RegisterRequest;
+        public static fromObject(object: { [k: string]: any }): protos.ForemanRegisterRequest;
 
         /**
-         * Creates a plain object from a RegisterRequest message. Also converts values to other types if specified.
-         * @param message RegisterRequest
+         * Creates a plain object from a ForemanRegisterRequest message. Also converts values to other types if specified.
+         * @param message ForemanRegisterRequest
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.RegisterRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.ForemanRegisterRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this RegisterRequest to JSON.
+         * Converts this ForemanRegisterRequest to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
     }
 
-    /** Properties of a RegisterResponse. */
-    interface IRegisterResponse {
+    /** Properties of a ForemanRegisterResponse. */
+    interface IForemanRegisterResponse {
 
-        /** RegisterResponse success */
+        /** ForemanRegisterResponse success */
         success?: (boolean|null);
 
-        /** RegisterResponse message */
+        /** ForemanRegisterResponse message */
         message?: (string|null);
     }
 
-    /** Represents a RegisterResponse. */
-    class RegisterResponse implements IRegisterResponse {
+    /** Represents a ForemanRegisterResponse. */
+    class ForemanRegisterResponse implements IForemanRegisterResponse {
 
         /**
-         * Constructs a new RegisterResponse.
+         * Constructs a new ForemanRegisterResponse.
          * @param [properties] Properties to set
          */
-        constructor(properties?: protos.IRegisterResponse);
+        constructor(properties?: protos.IForemanRegisterResponse);
 
-        /** RegisterResponse success. */
+        /** ForemanRegisterResponse success. */
         public success: boolean;
 
-        /** RegisterResponse message. */
+        /** ForemanRegisterResponse message. */
         public message: string;
 
         /**
-         * Creates a new RegisterResponse instance using the specified properties.
+         * Creates a new ForemanRegisterResponse instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns RegisterResponse instance
+         * @returns ForemanRegisterResponse instance
          */
-        public static create(properties?: protos.IRegisterResponse): protos.RegisterResponse;
+        public static create(properties?: protos.IForemanRegisterResponse): protos.ForemanRegisterResponse;
 
         /**
-         * Encodes the specified RegisterResponse message. Does not implicitly {@link protos.RegisterResponse.verify|verify} messages.
-         * @param message RegisterResponse message or plain object to encode
+         * Encodes the specified ForemanRegisterResponse message. Does not implicitly {@link protos.ForemanRegisterResponse.verify|verify} messages.
+         * @param message ForemanRegisterResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: protos.IRegisterResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: protos.IForemanRegisterResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified RegisterResponse message, length delimited. Does not implicitly {@link protos.RegisterResponse.verify|verify} messages.
-         * @param message RegisterResponse message or plain object to encode
+         * Encodes the specified ForemanRegisterResponse message, length delimited. Does not implicitly {@link protos.ForemanRegisterResponse.verify|verify} messages.
+         * @param message ForemanRegisterResponse message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: protos.IRegisterResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: protos.IForemanRegisterResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Decodes a RegisterResponse message from the specified reader or buffer.
+         * Decodes a ForemanRegisterResponse message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns RegisterResponse
+         * @returns ForemanRegisterResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.RegisterResponse;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): protos.ForemanRegisterResponse;
 
         /**
-         * Decodes a RegisterResponse message from the specified reader or buffer, length delimited.
+         * Decodes a ForemanRegisterResponse message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns RegisterResponse
+         * @returns ForemanRegisterResponse
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.RegisterResponse;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): protos.ForemanRegisterResponse;
 
         /**
-         * Verifies a RegisterResponse message.
+         * Verifies a ForemanRegisterResponse message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
 
         /**
-         * Creates a RegisterResponse message from a plain object. Also converts values to their respective internal types.
+         * Creates a ForemanRegisterResponse message from a plain object. Also converts values to their respective internal types.
          * @param object Plain object
-         * @returns RegisterResponse
+         * @returns ForemanRegisterResponse
          */
-        public static fromObject(object: { [k: string]: any }): protos.RegisterResponse;
+        public static fromObject(object: { [k: string]: any }): protos.ForemanRegisterResponse;
 
         /**
-         * Creates a plain object from a RegisterResponse message. Also converts values to other types if specified.
-         * @param message RegisterResponse
+         * Creates a plain object from a ForemanRegisterResponse message. Also converts values to other types if specified.
+         * @param message ForemanRegisterResponse
          * @param [options] Conversion options
          * @returns Plain object
          */
-        public static toObject(message: protos.RegisterResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+        public static toObject(message: protos.ForemanRegisterResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
-         * Converts this RegisterResponse to JSON.
+         * Converts this ForemanRegisterResponse to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
