@@ -16,7 +16,7 @@ message RabbitConn {
 }
 
 message RabbitReadArgs {
-  // @gotags: kong:"help='Name of the exchange',env='PLUMBER_RELAY_RABBIT_EXCHANGE',default=''"
+  // @gotags: kong:"help='Name of the exchange',env='PLUMBER_RELAY_RABBIT_EXCHANGE'"
   string exchange_name = 1;
 
   // @gotags: kong:"help='Name of the queue where messages will be routed to',env='PLUMBER_RELAY_RABBIT_QUEUE',required"
