@@ -21,9 +21,6 @@ message GCPPubSubReadArgs {
 
   // @gotags: kong:"help='Whether to acknowledge message receive',env='PLUMBER_RELAY_GCP_ACK_MESSAGE',default=true"
   bool ack_messages = 2;
-
-  // @gotags: kong:"help='Testing new field'"
-  string another_field = 3;
 }
 
 message GCPPubSubWriteArgs {

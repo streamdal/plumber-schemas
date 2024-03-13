@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package protos.opts;
 
-import "opts/ps_opts_manage_relay.proto";
 import "args/ps_args_aws_sqs.proto";
 import "args/ps_args_azure_service_bus.proto";
 import "args/ps_args_gcp_pubsub.proto";
@@ -18,6 +17,7 @@ import "args/ps_args_postgres.proto";
 import "args/ps_args_rabbit.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
+import "opts/ps_opts_manage_relay.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
