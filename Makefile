@@ -54,7 +54,7 @@ generate/all: generate/ts generate/go inject-tags
 local: description = Compile protos for all languages and copy to local plumber
 local: generate/ts generate/go inject-tags/local
 local:
-	cp -R $(GO_PROTOS_DIR)/ ~/Code/plumber/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
+	cp -R $(GO_PROTOS_DIR)/ ~/Code/streamdal/plumber/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
 #	cp -R $(GO_PROTOS_DIR)/ ~/Code/foreman/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
 #	cp -R $(GO_PROTOS_DIR)/ ~/Code/ui-bff/vendor/github.com/batchcorp/plumber-schemas/$(GO_PROTOS_DIR)/
 
@@ -166,7 +166,7 @@ inject-tags/local:
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI
 inject-tags:
-	sudo chown -R runner:runner build/go
+	# sudo chown -R runner:runner build/go
 	# Injecting tags into *.pb.go files...
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"

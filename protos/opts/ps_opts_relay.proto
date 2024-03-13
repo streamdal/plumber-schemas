@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package protos.opts;
 
+import "opts/ps_opts_manage_relay.proto";
 import "args/ps_args_aws_sqs.proto";
 import "args/ps_args_azure_service_bus.proto";
 import "args/ps_args_gcp_pubsub.proto";
@@ -52,6 +53,9 @@ message RelayOptions {
 
   // @gotags: kong:"help='Consumed messages are intended to be dead-lettered',env='PLUMBER_RELAY_DEAD_LETTER'"
   bool dead_letter = 8;
+
+  // @gotags: kong:"embed"
+  opts.StreamdalIntegrationOptions streamdal_integration_options = 9;
 
   // --------------------------------------------------------------------- //
   //                          PRIVATE FIELDS (1000+)                       //
