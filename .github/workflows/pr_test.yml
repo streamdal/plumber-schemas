@@ -6,13 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
-      - name: Protobuf Liting
+      - name: Protobuf Linting
         uses: plexsystems/protolint-action@v0.4.0
         with:
           configDirectory: ./
       - uses: actions/setup-go@v3
         with:
-          go-version: '~1.16'
+          go-version: '~1.17'
       - name: Compile protos
         run: |
           make setup/linux
