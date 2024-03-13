@@ -17,6 +17,7 @@ import "args/ps_args_postgres.proto";
 import "args/ps_args_rabbit.proto";
 import "args/ps_args_redis_pubsub.proto";
 import "args/ps_args_redis_streams.proto";
+import "opts/ps_opts_manage_relay.proto";
 
 option go_package = "github.com/batchcorp/plumber-schemas/build/go/protos/opts";
 
@@ -52,6 +53,9 @@ message RelayOptions {
 
   // @gotags: kong:"help='Consumed messages are intended to be dead-lettered',env='PLUMBER_RELAY_DEAD_LETTER'"
   bool dead_letter = 8;
+
+  // @gotags: kong:"embed"
+  opts.StreamdalIntegrationOptions streamdal_integration_options = 9;
 
   // --------------------------------------------------------------------- //
   //                          PRIVATE FIELDS (1000+)                       //
