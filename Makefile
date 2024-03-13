@@ -1,5 +1,6 @@
 GO_PROTOS_DIR=./build/go/protos
 GO_DESCRIPTOR_SET_DIR=./build/go/descriptor-sets
+OS_NAME := $(shell uname -s | tr A-Z a-z)
 
 help: HELP_SCRIPT = \
 	if (/^([a-zA-Z0-9-\.\/]+).*?: description\s*=\s*(.+)/) { \
@@ -155,6 +156,9 @@ generate/go:
 .PHONY: inject-tags/local
 inject-tags/local: description = Inject tags for CLI
 inject-tags/local:
+ifneq ($(OS_NAME), darwin)
+sudo chown -R runner:runner build/go
+endif
 	# Injecting tags into *.pb.go files...
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
@@ -166,7 +170,9 @@ inject-tags/local:
 .PHONY: inject-tags
 inject-tags: description = Inject tags for CLI
 inject-tags:
-	# sudo chown -R runner:runner build/go
+	# Need additional perms for github actions
+if
+	sudo chown -R runner:runner build/go
 	# Injecting tags into *.pb.go files...
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
