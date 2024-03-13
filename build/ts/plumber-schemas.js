@@ -6014,7 +6014,6 @@ $root.protos = (function() {
              * @property {boolean|null} [statsEnable] RelayOptions statsEnable
              * @property {number|null} [statsReportIntervalSec] RelayOptions statsReportIntervalSec
              * @property {boolean|null} [deadLetter] RelayOptions deadLetter
-             * @property {protos.opts.IStreamdalIntegrationOptions|null} [streamdalIntegrationOptions] RelayOptions streamdalIntegrationOptions
              * @property {string|null} [_streamdalGrpcAddress] RelayOptions _streamdalGrpcAddress
              * @property {boolean|null} [_streamdalGrpcDisableTls] RelayOptions _streamdalGrpcDisableTls
              * @property {number|null} [_streamdalGrpcTimeoutSeconds] RelayOptions _streamdalGrpcTimeoutSeconds
@@ -6116,14 +6115,6 @@ $root.protos = (function() {
              * @instance
              */
             RelayOptions.prototype.deadLetter = false;
-
-            /**
-             * RelayOptions streamdalIntegrationOptions.
-             * @member {protos.opts.IStreamdalIntegrationOptions|null|undefined} streamdalIntegrationOptions
-             * @memberof protos.opts.RelayOptions
-             * @instance
-             */
-            RelayOptions.prototype.streamdalIntegrationOptions = null;
 
             /**
              * RelayOptions _streamdalGrpcAddress.
@@ -6333,8 +6324,6 @@ $root.protos = (function() {
                     writer.uint32(/* id 7, wireType 0 =*/56).int32(message.statsReportIntervalSec);
                 if (message.deadLetter != null && Object.hasOwnProperty.call(message, "deadLetter"))
                     writer.uint32(/* id 8, wireType 0 =*/64).bool(message.deadLetter);
-                if (message.streamdalIntegrationOptions != null && Object.hasOwnProperty.call(message, "streamdalIntegrationOptions"))
-                    $root.protos.opts.StreamdalIntegrationOptions.encode(message.streamdalIntegrationOptions, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
                 if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
                     $root.protos.opts.RelayGroupKafkaOptions.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
                 if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
@@ -6434,9 +6423,6 @@ $root.protos = (function() {
                         break;
                     case 8:
                         message.deadLetter = reader.bool();
-                        break;
-                    case 9:
-                        message.streamdalIntegrationOptions = $root.protos.opts.StreamdalIntegrationOptions.decode(reader, reader.uint32());
                         break;
                     case 1000:
                         message._streamdalGrpcAddress = reader.string();
@@ -6560,11 +6546,6 @@ $root.protos = (function() {
                 if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
                     if (typeof message.deadLetter !== "boolean")
                         return "deadLetter: boolean expected";
-                if (message.streamdalIntegrationOptions != null && message.hasOwnProperty("streamdalIntegrationOptions")) {
-                    var error = $root.protos.opts.StreamdalIntegrationOptions.verify(message.streamdalIntegrationOptions);
-                    if (error)
-                        return "streamdalIntegrationOptions." + error;
-                }
                 if (message._streamdalGrpcAddress != null && message.hasOwnProperty("_streamdalGrpcAddress"))
                     if (!$util.isString(message._streamdalGrpcAddress))
                         return "_streamdalGrpcAddress: string expected";
@@ -6691,11 +6672,6 @@ $root.protos = (function() {
                     message.statsReportIntervalSec = object.statsReportIntervalSec | 0;
                 if (object.deadLetter != null)
                     message.deadLetter = Boolean(object.deadLetter);
-                if (object.streamdalIntegrationOptions != null) {
-                    if (typeof object.streamdalIntegrationOptions !== "object")
-                        throw TypeError(".protos.opts.RelayOptions.streamdalIntegrationOptions: object expected");
-                    message.streamdalIntegrationOptions = $root.protos.opts.StreamdalIntegrationOptions.fromObject(object.streamdalIntegrationOptions);
-                }
                 if (object._streamdalGrpcAddress != null)
                     message._streamdalGrpcAddress = String(object._streamdalGrpcAddress);
                 if (object._streamdalGrpcDisableTls != null)
@@ -6811,7 +6787,6 @@ $root.protos = (function() {
                     object.statsEnable = false;
                     object.statsReportIntervalSec = 0;
                     object.deadLetter = false;
-                    object.streamdalIntegrationOptions = null;
                     object.kafka = null;
                     object.awsSqs = null;
                     object.mongo = null;
@@ -6850,8 +6825,6 @@ $root.protos = (function() {
                     object.statsReportIntervalSec = message.statsReportIntervalSec;
                 if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
                     object.deadLetter = message.deadLetter;
-                if (message.streamdalIntegrationOptions != null && message.hasOwnProperty("streamdalIntegrationOptions"))
-                    object.streamdalIntegrationOptions = $root.protos.opts.StreamdalIntegrationOptions.toObject(message.streamdalIntegrationOptions, options);
                 if (message.kafka != null && message.hasOwnProperty("kafka"))
                     object.kafka = $root.protos.opts.RelayGroupKafkaOptions.toObject(message.kafka, options);
                 if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
@@ -10209,1804 +10182,6 @@ $root.protos = (function() {
             };
 
             return RelayGroupNatsJetStreamOptions;
-        })();
-
-        opts.GetRelayOptions = (function() {
-
-            /**
-             * Properties of a GetRelayOptions.
-             * @memberof protos.opts
-             * @interface IGetRelayOptions
-             * @property {string|null} [id] GetRelayOptions id
-             */
-
-            /**
-             * Constructs a new GetRelayOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a GetRelayOptions.
-             * @implements IGetRelayOptions
-             * @constructor
-             * @param {protos.opts.IGetRelayOptions=} [properties] Properties to set
-             */
-            function GetRelayOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * GetRelayOptions id.
-             * @member {string} id
-             * @memberof protos.opts.GetRelayOptions
-             * @instance
-             */
-            GetRelayOptions.prototype.id = "";
-
-            /**
-             * Creates a new GetRelayOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.GetRelayOptions
-             * @static
-             * @param {protos.opts.IGetRelayOptions=} [properties] Properties to set
-             * @returns {protos.opts.GetRelayOptions} GetRelayOptions instance
-             */
-            GetRelayOptions.create = function create(properties) {
-                return new GetRelayOptions(properties);
-            };
-
-            /**
-             * Encodes the specified GetRelayOptions message. Does not implicitly {@link protos.opts.GetRelayOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.GetRelayOptions
-             * @static
-             * @param {protos.opts.IGetRelayOptions} message GetRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            GetRelayOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified GetRelayOptions message, length delimited. Does not implicitly {@link protos.opts.GetRelayOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.GetRelayOptions
-             * @static
-             * @param {protos.opts.IGetRelayOptions} message GetRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            GetRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a GetRelayOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.GetRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.GetRelayOptions} GetRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            GetRelayOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.GetRelayOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.id = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a GetRelayOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.GetRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.GetRelayOptions} GetRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            GetRelayOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a GetRelayOptions message.
-             * @function verify
-             * @memberof protos.opts.GetRelayOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            GetRelayOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.id != null && message.hasOwnProperty("id"))
-                    if (!$util.isString(message.id))
-                        return "id: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a GetRelayOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.GetRelayOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.GetRelayOptions} GetRelayOptions
-             */
-            GetRelayOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.GetRelayOptions)
-                    return object;
-                var message = new $root.protos.opts.GetRelayOptions();
-                if (object.id != null)
-                    message.id = String(object.id);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a GetRelayOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.GetRelayOptions
-             * @static
-             * @param {protos.opts.GetRelayOptions} message GetRelayOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            GetRelayOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults)
-                    object.id = "";
-                if (message.id != null && message.hasOwnProperty("id"))
-                    object.id = message.id;
-                return object;
-            };
-
-            /**
-             * Converts this GetRelayOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.GetRelayOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            GetRelayOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return GetRelayOptions;
-        })();
-
-        opts.StreamdalIntegrationOptions = (function() {
-
-            /**
-             * Properties of a StreamdalIntegrationOptions.
-             * @memberof protos.opts
-             * @interface IStreamdalIntegrationOptions
-             * @property {boolean|null} [streamdalIntegrationEnable] StreamdalIntegrationOptions streamdalIntegrationEnable
-             * @property {string|null} [streamdalIntegrationServerAddress] StreamdalIntegrationOptions streamdalIntegrationServerAddress
-             * @property {string|null} [streamdalIntegrationAuthToken] StreamdalIntegrationOptions streamdalIntegrationAuthToken
-             * @property {string|null} [streamdalIntegrationServiceName] StreamdalIntegrationOptions streamdalIntegrationServiceName
-             */
-
-            /**
-             * Constructs a new StreamdalIntegrationOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a StreamdalIntegrationOptions.
-             * @implements IStreamdalIntegrationOptions
-             * @constructor
-             * @param {protos.opts.IStreamdalIntegrationOptions=} [properties] Properties to set
-             */
-            function StreamdalIntegrationOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * StreamdalIntegrationOptions streamdalIntegrationEnable.
-             * @member {boolean} streamdalIntegrationEnable
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @instance
-             */
-            StreamdalIntegrationOptions.prototype.streamdalIntegrationEnable = false;
-
-            /**
-             * StreamdalIntegrationOptions streamdalIntegrationServerAddress.
-             * @member {string} streamdalIntegrationServerAddress
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @instance
-             */
-            StreamdalIntegrationOptions.prototype.streamdalIntegrationServerAddress = "";
-
-            /**
-             * StreamdalIntegrationOptions streamdalIntegrationAuthToken.
-             * @member {string} streamdalIntegrationAuthToken
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @instance
-             */
-            StreamdalIntegrationOptions.prototype.streamdalIntegrationAuthToken = "";
-
-            /**
-             * StreamdalIntegrationOptions streamdalIntegrationServiceName.
-             * @member {string} streamdalIntegrationServiceName
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @instance
-             */
-            StreamdalIntegrationOptions.prototype.streamdalIntegrationServiceName = "";
-
-            /**
-             * Creates a new StreamdalIntegrationOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @static
-             * @param {protos.opts.IStreamdalIntegrationOptions=} [properties] Properties to set
-             * @returns {protos.opts.StreamdalIntegrationOptions} StreamdalIntegrationOptions instance
-             */
-            StreamdalIntegrationOptions.create = function create(properties) {
-                return new StreamdalIntegrationOptions(properties);
-            };
-
-            /**
-             * Encodes the specified StreamdalIntegrationOptions message. Does not implicitly {@link protos.opts.StreamdalIntegrationOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @static
-             * @param {protos.opts.IStreamdalIntegrationOptions} message StreamdalIntegrationOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            StreamdalIntegrationOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.streamdalIntegrationEnable != null && Object.hasOwnProperty.call(message, "streamdalIntegrationEnable"))
-                    writer.uint32(/* id 1, wireType 0 =*/8).bool(message.streamdalIntegrationEnable);
-                if (message.streamdalIntegrationServerAddress != null && Object.hasOwnProperty.call(message, "streamdalIntegrationServerAddress"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.streamdalIntegrationServerAddress);
-                if (message.streamdalIntegrationAuthToken != null && Object.hasOwnProperty.call(message, "streamdalIntegrationAuthToken"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.streamdalIntegrationAuthToken);
-                if (message.streamdalIntegrationServiceName != null && Object.hasOwnProperty.call(message, "streamdalIntegrationServiceName"))
-                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.streamdalIntegrationServiceName);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified StreamdalIntegrationOptions message, length delimited. Does not implicitly {@link protos.opts.StreamdalIntegrationOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @static
-             * @param {protos.opts.IStreamdalIntegrationOptions} message StreamdalIntegrationOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            StreamdalIntegrationOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a StreamdalIntegrationOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.StreamdalIntegrationOptions} StreamdalIntegrationOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            StreamdalIntegrationOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StreamdalIntegrationOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.streamdalIntegrationEnable = reader.bool();
-                        break;
-                    case 2:
-                        message.streamdalIntegrationServerAddress = reader.string();
-                        break;
-                    case 3:
-                        message.streamdalIntegrationAuthToken = reader.string();
-                        break;
-                    case 4:
-                        message.streamdalIntegrationServiceName = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a StreamdalIntegrationOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.StreamdalIntegrationOptions} StreamdalIntegrationOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            StreamdalIntegrationOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a StreamdalIntegrationOptions message.
-             * @function verify
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            StreamdalIntegrationOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.streamdalIntegrationEnable != null && message.hasOwnProperty("streamdalIntegrationEnable"))
-                    if (typeof message.streamdalIntegrationEnable !== "boolean")
-                        return "streamdalIntegrationEnable: boolean expected";
-                if (message.streamdalIntegrationServerAddress != null && message.hasOwnProperty("streamdalIntegrationServerAddress"))
-                    if (!$util.isString(message.streamdalIntegrationServerAddress))
-                        return "streamdalIntegrationServerAddress: string expected";
-                if (message.streamdalIntegrationAuthToken != null && message.hasOwnProperty("streamdalIntegrationAuthToken"))
-                    if (!$util.isString(message.streamdalIntegrationAuthToken))
-                        return "streamdalIntegrationAuthToken: string expected";
-                if (message.streamdalIntegrationServiceName != null && message.hasOwnProperty("streamdalIntegrationServiceName"))
-                    if (!$util.isString(message.streamdalIntegrationServiceName))
-                        return "streamdalIntegrationServiceName: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a StreamdalIntegrationOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.StreamdalIntegrationOptions} StreamdalIntegrationOptions
-             */
-            StreamdalIntegrationOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.StreamdalIntegrationOptions)
-                    return object;
-                var message = new $root.protos.opts.StreamdalIntegrationOptions();
-                if (object.streamdalIntegrationEnable != null)
-                    message.streamdalIntegrationEnable = Boolean(object.streamdalIntegrationEnable);
-                if (object.streamdalIntegrationServerAddress != null)
-                    message.streamdalIntegrationServerAddress = String(object.streamdalIntegrationServerAddress);
-                if (object.streamdalIntegrationAuthToken != null)
-                    message.streamdalIntegrationAuthToken = String(object.streamdalIntegrationAuthToken);
-                if (object.streamdalIntegrationServiceName != null)
-                    message.streamdalIntegrationServiceName = String(object.streamdalIntegrationServiceName);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a StreamdalIntegrationOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @static
-             * @param {protos.opts.StreamdalIntegrationOptions} message StreamdalIntegrationOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            StreamdalIntegrationOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.streamdalIntegrationEnable = false;
-                    object.streamdalIntegrationServerAddress = "";
-                    object.streamdalIntegrationAuthToken = "";
-                    object.streamdalIntegrationServiceName = "";
-                }
-                if (message.streamdalIntegrationEnable != null && message.hasOwnProperty("streamdalIntegrationEnable"))
-                    object.streamdalIntegrationEnable = message.streamdalIntegrationEnable;
-                if (message.streamdalIntegrationServerAddress != null && message.hasOwnProperty("streamdalIntegrationServerAddress"))
-                    object.streamdalIntegrationServerAddress = message.streamdalIntegrationServerAddress;
-                if (message.streamdalIntegrationAuthToken != null && message.hasOwnProperty("streamdalIntegrationAuthToken"))
-                    object.streamdalIntegrationAuthToken = message.streamdalIntegrationAuthToken;
-                if (message.streamdalIntegrationServiceName != null && message.hasOwnProperty("streamdalIntegrationServiceName"))
-                    object.streamdalIntegrationServiceName = message.streamdalIntegrationServiceName;
-                return object;
-            };
-
-            /**
-             * Converts this StreamdalIntegrationOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.StreamdalIntegrationOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            StreamdalIntegrationOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return StreamdalIntegrationOptions;
-        })();
-
-        opts.CreateRelayOptions = (function() {
-
-            /**
-             * Properties of a CreateRelayOptions.
-             * @memberof protos.opts
-             * @interface ICreateRelayOptions
-             * @property {string|null} [connectionId] CreateRelayOptions connectionId
-             * @property {string|null} [collectionToken] CreateRelayOptions collectionToken
-             * @property {number|null} [batchSize] CreateRelayOptions batchSize
-             * @property {number|null} [batchMaxRetry] CreateRelayOptions batchMaxRetry
-             * @property {number|null} [numWorkers] CreateRelayOptions numWorkers
-             * @property {string|null} [streamdalGrpcAddress] CreateRelayOptions streamdalGrpcAddress
-             * @property {boolean|null} [streamdalGrpcDisableTls] CreateRelayOptions streamdalGrpcDisableTls
-             * @property {number|null} [streamdalGrpcTimeoutSeconds] CreateRelayOptions streamdalGrpcTimeoutSeconds
-             * @property {boolean|null} [deadLetter] CreateRelayOptions deadLetter
-             * @property {protos.opts.IStreamdalIntegrationOptions|null} [streamdalIntegrationOptions] CreateRelayOptions streamdalIntegrationOptions
-             * @property {protos.args.IKafkaRelayArgs|null} [kafka] CreateRelayOptions kafka
-             * @property {protos.args.IAWSSQSRelayArgs|null} [awsSqs] CreateRelayOptions awsSqs
-             * @property {protos.args.IMongoReadArgs|null} [mongo] CreateRelayOptions mongo
-             * @property {protos.args.INSQReadArgs|null} [nsq] CreateRelayOptions nsq
-             * @property {protos.args.IRabbitReadArgs|null} [rabbit] CreateRelayOptions rabbit
-             * @property {protos.args.IMQTTReadArgs|null} [mqtt] CreateRelayOptions mqtt
-             * @property {protos.args.IAzureServiceBusReadArgs|null} [azureServiceBus] CreateRelayOptions azureServiceBus
-             * @property {protos.args.IGCPPubSubReadArgs|null} [gcpPubsub] CreateRelayOptions gcpPubsub
-             * @property {protos.args.IKubeMQQueueReadArgs|null} [kubemqQueue] CreateRelayOptions kubemqQueue
-             * @property {protos.args.IRedisPubSubReadArgs|null} [redisPubsub] CreateRelayOptions redisPubsub
-             * @property {protos.args.IRedisStreamsReadArgs|null} [redisStreams] CreateRelayOptions redisStreams
-             * @property {protos.args.IPostgresReadArgs|null} [postgres] CreateRelayOptions postgres
-             * @property {protos.args.INatsReadArgs|null} [nats] CreateRelayOptions nats
-             * @property {protos.args.INatsStreamingReadArgs|null} [natsStreaming] CreateRelayOptions natsStreaming
-             * @property {protos.args.INatsJetstreamReadArgs|null} [natsJetstream] CreateRelayOptions natsJetstream
-             */
-
-            /**
-             * Constructs a new CreateRelayOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a CreateRelayOptions.
-             * @implements ICreateRelayOptions
-             * @constructor
-             * @param {protos.opts.ICreateRelayOptions=} [properties] Properties to set
-             */
-            function CreateRelayOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * CreateRelayOptions connectionId.
-             * @member {string} connectionId
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.connectionId = "";
-
-            /**
-             * CreateRelayOptions collectionToken.
-             * @member {string} collectionToken
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.collectionToken = "";
-
-            /**
-             * CreateRelayOptions batchSize.
-             * @member {number} batchSize
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.batchSize = 0;
-
-            /**
-             * CreateRelayOptions batchMaxRetry.
-             * @member {number} batchMaxRetry
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.batchMaxRetry = 0;
-
-            /**
-             * CreateRelayOptions numWorkers.
-             * @member {number} numWorkers
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.numWorkers = 0;
-
-            /**
-             * CreateRelayOptions streamdalGrpcAddress.
-             * @member {string} streamdalGrpcAddress
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.streamdalGrpcAddress = "";
-
-            /**
-             * CreateRelayOptions streamdalGrpcDisableTls.
-             * @member {boolean} streamdalGrpcDisableTls
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.streamdalGrpcDisableTls = false;
-
-            /**
-             * CreateRelayOptions streamdalGrpcTimeoutSeconds.
-             * @member {number} streamdalGrpcTimeoutSeconds
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.streamdalGrpcTimeoutSeconds = 0;
-
-            /**
-             * CreateRelayOptions deadLetter.
-             * @member {boolean} deadLetter
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.deadLetter = false;
-
-            /**
-             * CreateRelayOptions streamdalIntegrationOptions.
-             * @member {protos.opts.IStreamdalIntegrationOptions|null|undefined} streamdalIntegrationOptions
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.streamdalIntegrationOptions = null;
-
-            /**
-             * CreateRelayOptions kafka.
-             * @member {protos.args.IKafkaRelayArgs|null|undefined} kafka
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.kafka = null;
-
-            /**
-             * CreateRelayOptions awsSqs.
-             * @member {protos.args.IAWSSQSRelayArgs|null|undefined} awsSqs
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.awsSqs = null;
-
-            /**
-             * CreateRelayOptions mongo.
-             * @member {protos.args.IMongoReadArgs|null|undefined} mongo
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.mongo = null;
-
-            /**
-             * CreateRelayOptions nsq.
-             * @member {protos.args.INSQReadArgs|null|undefined} nsq
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.nsq = null;
-
-            /**
-             * CreateRelayOptions rabbit.
-             * @member {protos.args.IRabbitReadArgs|null|undefined} rabbit
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.rabbit = null;
-
-            /**
-             * CreateRelayOptions mqtt.
-             * @member {protos.args.IMQTTReadArgs|null|undefined} mqtt
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.mqtt = null;
-
-            /**
-             * CreateRelayOptions azureServiceBus.
-             * @member {protos.args.IAzureServiceBusReadArgs|null|undefined} azureServiceBus
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.azureServiceBus = null;
-
-            /**
-             * CreateRelayOptions gcpPubsub.
-             * @member {protos.args.IGCPPubSubReadArgs|null|undefined} gcpPubsub
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.gcpPubsub = null;
-
-            /**
-             * CreateRelayOptions kubemqQueue.
-             * @member {protos.args.IKubeMQQueueReadArgs|null|undefined} kubemqQueue
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.kubemqQueue = null;
-
-            /**
-             * CreateRelayOptions redisPubsub.
-             * @member {protos.args.IRedisPubSubReadArgs|null|undefined} redisPubsub
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.redisPubsub = null;
-
-            /**
-             * CreateRelayOptions redisStreams.
-             * @member {protos.args.IRedisStreamsReadArgs|null|undefined} redisStreams
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.redisStreams = null;
-
-            /**
-             * CreateRelayOptions postgres.
-             * @member {protos.args.IPostgresReadArgs|null|undefined} postgres
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.postgres = null;
-
-            /**
-             * CreateRelayOptions nats.
-             * @member {protos.args.INatsReadArgs|null|undefined} nats
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.nats = null;
-
-            /**
-             * CreateRelayOptions natsStreaming.
-             * @member {protos.args.INatsStreamingReadArgs|null|undefined} natsStreaming
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.natsStreaming = null;
-
-            /**
-             * CreateRelayOptions natsJetstream.
-             * @member {protos.args.INatsJetstreamReadArgs|null|undefined} natsJetstream
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             */
-            CreateRelayOptions.prototype.natsJetstream = null;
-
-            /**
-             * Creates a new CreateRelayOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.CreateRelayOptions
-             * @static
-             * @param {protos.opts.ICreateRelayOptions=} [properties] Properties to set
-             * @returns {protos.opts.CreateRelayOptions} CreateRelayOptions instance
-             */
-            CreateRelayOptions.create = function create(properties) {
-                return new CreateRelayOptions(properties);
-            };
-
-            /**
-             * Encodes the specified CreateRelayOptions message. Does not implicitly {@link protos.opts.CreateRelayOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.CreateRelayOptions
-             * @static
-             * @param {protos.opts.ICreateRelayOptions} message CreateRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            CreateRelayOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
-                if (message.collectionToken != null && Object.hasOwnProperty.call(message, "collectionToken"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.collectionToken);
-                if (message.batchSize != null && Object.hasOwnProperty.call(message, "batchSize"))
-                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.batchSize);
-                if (message.batchMaxRetry != null && Object.hasOwnProperty.call(message, "batchMaxRetry"))
-                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.batchMaxRetry);
-                if (message.numWorkers != null && Object.hasOwnProperty.call(message, "numWorkers"))
-                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.numWorkers);
-                if (message.streamdalGrpcAddress != null && Object.hasOwnProperty.call(message, "streamdalGrpcAddress"))
-                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.streamdalGrpcAddress);
-                if (message.streamdalGrpcDisableTls != null && Object.hasOwnProperty.call(message, "streamdalGrpcDisableTls"))
-                    writer.uint32(/* id 7, wireType 0 =*/56).bool(message.streamdalGrpcDisableTls);
-                if (message.streamdalGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "streamdalGrpcTimeoutSeconds"))
-                    writer.uint32(/* id 8, wireType 0 =*/64).int32(message.streamdalGrpcTimeoutSeconds);
-                if (message.deadLetter != null && Object.hasOwnProperty.call(message, "deadLetter"))
-                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.deadLetter);
-                if (message.streamdalIntegrationOptions != null && Object.hasOwnProperty.call(message, "streamdalIntegrationOptions"))
-                    $root.protos.opts.StreamdalIntegrationOptions.encode(message.streamdalIntegrationOptions, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
-                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
-                    $root.protos.args.KafkaRelayArgs.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
-                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
-                    $root.protos.args.AWSSQSRelayArgs.encode(message.awsSqs, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
-                if (message.mongo != null && Object.hasOwnProperty.call(message, "mongo"))
-                    $root.protos.args.MongoReadArgs.encode(message.mongo, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
-                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
-                    $root.protos.args.NSQReadArgs.encode(message.nsq, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
-                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
-                    $root.protos.args.RabbitReadArgs.encode(message.rabbit, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
-                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
-                    $root.protos.args.MQTTReadArgs.encode(message.mqtt, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
-                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
-                    $root.protos.args.AzureServiceBusReadArgs.encode(message.azureServiceBus, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
-                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
-                    $root.protos.args.GCPPubSubReadArgs.encode(message.gcpPubsub, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
-                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
-                    $root.protos.args.KubeMQQueueReadArgs.encode(message.kubemqQueue, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
-                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
-                    $root.protos.args.RedisPubSubReadArgs.encode(message.redisPubsub, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
-                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
-                    $root.protos.args.RedisStreamsReadArgs.encode(message.redisStreams, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
-                if (message.postgres != null && Object.hasOwnProperty.call(message, "postgres"))
-                    $root.protos.args.PostgresReadArgs.encode(message.postgres, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
-                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
-                    $root.protos.args.NatsReadArgs.encode(message.nats, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
-                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
-                    $root.protos.args.NatsStreamingReadArgs.encode(message.natsStreaming, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
-                if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
-                    $root.protos.args.NatsJetstreamReadArgs.encode(message.natsJetstream, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
-                return writer;
-            };
-
-            /**
-             * Encodes the specified CreateRelayOptions message, length delimited. Does not implicitly {@link protos.opts.CreateRelayOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.CreateRelayOptions
-             * @static
-             * @param {protos.opts.ICreateRelayOptions} message CreateRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            CreateRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a CreateRelayOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.CreateRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.CreateRelayOptions} CreateRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            CreateRelayOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.CreateRelayOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.connectionId = reader.string();
-                        break;
-                    case 2:
-                        message.collectionToken = reader.string();
-                        break;
-                    case 3:
-                        message.batchSize = reader.int32();
-                        break;
-                    case 4:
-                        message.batchMaxRetry = reader.int32();
-                        break;
-                    case 5:
-                        message.numWorkers = reader.int32();
-                        break;
-                    case 6:
-                        message.streamdalGrpcAddress = reader.string();
-                        break;
-                    case 7:
-                        message.streamdalGrpcDisableTls = reader.bool();
-                        break;
-                    case 8:
-                        message.streamdalGrpcTimeoutSeconds = reader.int32();
-                        break;
-                    case 9:
-                        message.deadLetter = reader.bool();
-                        break;
-                    case 10:
-                        message.streamdalIntegrationOptions = $root.protos.opts.StreamdalIntegrationOptions.decode(reader, reader.uint32());
-                        break;
-                    case 100:
-                        message.kafka = $root.protos.args.KafkaRelayArgs.decode(reader, reader.uint32());
-                        break;
-                    case 101:
-                        message.awsSqs = $root.protos.args.AWSSQSRelayArgs.decode(reader, reader.uint32());
-                        break;
-                    case 102:
-                        message.mongo = $root.protos.args.MongoReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 103:
-                        message.nsq = $root.protos.args.NSQReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 104:
-                        message.rabbit = $root.protos.args.RabbitReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 105:
-                        message.mqtt = $root.protos.args.MQTTReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 106:
-                        message.azureServiceBus = $root.protos.args.AzureServiceBusReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 107:
-                        message.gcpPubsub = $root.protos.args.GCPPubSubReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 108:
-                        message.kubemqQueue = $root.protos.args.KubeMQQueueReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 109:
-                        message.redisPubsub = $root.protos.args.RedisPubSubReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 111:
-                        message.redisStreams = $root.protos.args.RedisStreamsReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 112:
-                        message.postgres = $root.protos.args.PostgresReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 113:
-                        message.nats = $root.protos.args.NatsReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 114:
-                        message.natsStreaming = $root.protos.args.NatsStreamingReadArgs.decode(reader, reader.uint32());
-                        break;
-                    case 115:
-                        message.natsJetstream = $root.protos.args.NatsJetstreamReadArgs.decode(reader, reader.uint32());
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a CreateRelayOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.CreateRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.CreateRelayOptions} CreateRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            CreateRelayOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a CreateRelayOptions message.
-             * @function verify
-             * @memberof protos.opts.CreateRelayOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            CreateRelayOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                    if (!$util.isString(message.connectionId))
-                        return "connectionId: string expected";
-                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
-                    if (!$util.isString(message.collectionToken))
-                        return "collectionToken: string expected";
-                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
-                    if (!$util.isInteger(message.batchSize))
-                        return "batchSize: integer expected";
-                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
-                    if (!$util.isInteger(message.batchMaxRetry))
-                        return "batchMaxRetry: integer expected";
-                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
-                    if (!$util.isInteger(message.numWorkers))
-                        return "numWorkers: integer expected";
-                if (message.streamdalGrpcAddress != null && message.hasOwnProperty("streamdalGrpcAddress"))
-                    if (!$util.isString(message.streamdalGrpcAddress))
-                        return "streamdalGrpcAddress: string expected";
-                if (message.streamdalGrpcDisableTls != null && message.hasOwnProperty("streamdalGrpcDisableTls"))
-                    if (typeof message.streamdalGrpcDisableTls !== "boolean")
-                        return "streamdalGrpcDisableTls: boolean expected";
-                if (message.streamdalGrpcTimeoutSeconds != null && message.hasOwnProperty("streamdalGrpcTimeoutSeconds"))
-                    if (!$util.isInteger(message.streamdalGrpcTimeoutSeconds))
-                        return "streamdalGrpcTimeoutSeconds: integer expected";
-                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
-                    if (typeof message.deadLetter !== "boolean")
-                        return "deadLetter: boolean expected";
-                if (message.streamdalIntegrationOptions != null && message.hasOwnProperty("streamdalIntegrationOptions")) {
-                    var error = $root.protos.opts.StreamdalIntegrationOptions.verify(message.streamdalIntegrationOptions);
-                    if (error)
-                        return "streamdalIntegrationOptions." + error;
-                }
-                if (message.kafka != null && message.hasOwnProperty("kafka")) {
-                    var error = $root.protos.args.KafkaRelayArgs.verify(message.kafka);
-                    if (error)
-                        return "kafka." + error;
-                }
-                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
-                    var error = $root.protos.args.AWSSQSRelayArgs.verify(message.awsSqs);
-                    if (error)
-                        return "awsSqs." + error;
-                }
-                if (message.mongo != null && message.hasOwnProperty("mongo")) {
-                    var error = $root.protos.args.MongoReadArgs.verify(message.mongo);
-                    if (error)
-                        return "mongo." + error;
-                }
-                if (message.nsq != null && message.hasOwnProperty("nsq")) {
-                    var error = $root.protos.args.NSQReadArgs.verify(message.nsq);
-                    if (error)
-                        return "nsq." + error;
-                }
-                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
-                    var error = $root.protos.args.RabbitReadArgs.verify(message.rabbit);
-                    if (error)
-                        return "rabbit." + error;
-                }
-                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
-                    var error = $root.protos.args.MQTTReadArgs.verify(message.mqtt);
-                    if (error)
-                        return "mqtt." + error;
-                }
-                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
-                    var error = $root.protos.args.AzureServiceBusReadArgs.verify(message.azureServiceBus);
-                    if (error)
-                        return "azureServiceBus." + error;
-                }
-                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
-                    var error = $root.protos.args.GCPPubSubReadArgs.verify(message.gcpPubsub);
-                    if (error)
-                        return "gcpPubsub." + error;
-                }
-                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
-                    var error = $root.protos.args.KubeMQQueueReadArgs.verify(message.kubemqQueue);
-                    if (error)
-                        return "kubemqQueue." + error;
-                }
-                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
-                    var error = $root.protos.args.RedisPubSubReadArgs.verify(message.redisPubsub);
-                    if (error)
-                        return "redisPubsub." + error;
-                }
-                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
-                    var error = $root.protos.args.RedisStreamsReadArgs.verify(message.redisStreams);
-                    if (error)
-                        return "redisStreams." + error;
-                }
-                if (message.postgres != null && message.hasOwnProperty("postgres")) {
-                    var error = $root.protos.args.PostgresReadArgs.verify(message.postgres);
-                    if (error)
-                        return "postgres." + error;
-                }
-                if (message.nats != null && message.hasOwnProperty("nats")) {
-                    var error = $root.protos.args.NatsReadArgs.verify(message.nats);
-                    if (error)
-                        return "nats." + error;
-                }
-                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
-                    var error = $root.protos.args.NatsStreamingReadArgs.verify(message.natsStreaming);
-                    if (error)
-                        return "natsStreaming." + error;
-                }
-                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
-                    var error = $root.protos.args.NatsJetstreamReadArgs.verify(message.natsJetstream);
-                    if (error)
-                        return "natsJetstream." + error;
-                }
-                return null;
-            };
-
-            /**
-             * Creates a CreateRelayOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.CreateRelayOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.CreateRelayOptions} CreateRelayOptions
-             */
-            CreateRelayOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.CreateRelayOptions)
-                    return object;
-                var message = new $root.protos.opts.CreateRelayOptions();
-                if (object.connectionId != null)
-                    message.connectionId = String(object.connectionId);
-                if (object.collectionToken != null)
-                    message.collectionToken = String(object.collectionToken);
-                if (object.batchSize != null)
-                    message.batchSize = object.batchSize | 0;
-                if (object.batchMaxRetry != null)
-                    message.batchMaxRetry = object.batchMaxRetry | 0;
-                if (object.numWorkers != null)
-                    message.numWorkers = object.numWorkers | 0;
-                if (object.streamdalGrpcAddress != null)
-                    message.streamdalGrpcAddress = String(object.streamdalGrpcAddress);
-                if (object.streamdalGrpcDisableTls != null)
-                    message.streamdalGrpcDisableTls = Boolean(object.streamdalGrpcDisableTls);
-                if (object.streamdalGrpcTimeoutSeconds != null)
-                    message.streamdalGrpcTimeoutSeconds = object.streamdalGrpcTimeoutSeconds | 0;
-                if (object.deadLetter != null)
-                    message.deadLetter = Boolean(object.deadLetter);
-                if (object.streamdalIntegrationOptions != null) {
-                    if (typeof object.streamdalIntegrationOptions !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.streamdalIntegrationOptions: object expected");
-                    message.streamdalIntegrationOptions = $root.protos.opts.StreamdalIntegrationOptions.fromObject(object.streamdalIntegrationOptions);
-                }
-                if (object.kafka != null) {
-                    if (typeof object.kafka !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.kafka: object expected");
-                    message.kafka = $root.protos.args.KafkaRelayArgs.fromObject(object.kafka);
-                }
-                if (object.awsSqs != null) {
-                    if (typeof object.awsSqs !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.awsSqs: object expected");
-                    message.awsSqs = $root.protos.args.AWSSQSRelayArgs.fromObject(object.awsSqs);
-                }
-                if (object.mongo != null) {
-                    if (typeof object.mongo !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.mongo: object expected");
-                    message.mongo = $root.protos.args.MongoReadArgs.fromObject(object.mongo);
-                }
-                if (object.nsq != null) {
-                    if (typeof object.nsq !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.nsq: object expected");
-                    message.nsq = $root.protos.args.NSQReadArgs.fromObject(object.nsq);
-                }
-                if (object.rabbit != null) {
-                    if (typeof object.rabbit !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.rabbit: object expected");
-                    message.rabbit = $root.protos.args.RabbitReadArgs.fromObject(object.rabbit);
-                }
-                if (object.mqtt != null) {
-                    if (typeof object.mqtt !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.mqtt: object expected");
-                    message.mqtt = $root.protos.args.MQTTReadArgs.fromObject(object.mqtt);
-                }
-                if (object.azureServiceBus != null) {
-                    if (typeof object.azureServiceBus !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.azureServiceBus: object expected");
-                    message.azureServiceBus = $root.protos.args.AzureServiceBusReadArgs.fromObject(object.azureServiceBus);
-                }
-                if (object.gcpPubsub != null) {
-                    if (typeof object.gcpPubsub !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.gcpPubsub: object expected");
-                    message.gcpPubsub = $root.protos.args.GCPPubSubReadArgs.fromObject(object.gcpPubsub);
-                }
-                if (object.kubemqQueue != null) {
-                    if (typeof object.kubemqQueue !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.kubemqQueue: object expected");
-                    message.kubemqQueue = $root.protos.args.KubeMQQueueReadArgs.fromObject(object.kubemqQueue);
-                }
-                if (object.redisPubsub != null) {
-                    if (typeof object.redisPubsub !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.redisPubsub: object expected");
-                    message.redisPubsub = $root.protos.args.RedisPubSubReadArgs.fromObject(object.redisPubsub);
-                }
-                if (object.redisStreams != null) {
-                    if (typeof object.redisStreams !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.redisStreams: object expected");
-                    message.redisStreams = $root.protos.args.RedisStreamsReadArgs.fromObject(object.redisStreams);
-                }
-                if (object.postgres != null) {
-                    if (typeof object.postgres !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.postgres: object expected");
-                    message.postgres = $root.protos.args.PostgresReadArgs.fromObject(object.postgres);
-                }
-                if (object.nats != null) {
-                    if (typeof object.nats !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.nats: object expected");
-                    message.nats = $root.protos.args.NatsReadArgs.fromObject(object.nats);
-                }
-                if (object.natsStreaming != null) {
-                    if (typeof object.natsStreaming !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.natsStreaming: object expected");
-                    message.natsStreaming = $root.protos.args.NatsStreamingReadArgs.fromObject(object.natsStreaming);
-                }
-                if (object.natsJetstream != null) {
-                    if (typeof object.natsJetstream !== "object")
-                        throw TypeError(".protos.opts.CreateRelayOptions.natsJetstream: object expected");
-                    message.natsJetstream = $root.protos.args.NatsJetstreamReadArgs.fromObject(object.natsJetstream);
-                }
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a CreateRelayOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.CreateRelayOptions
-             * @static
-             * @param {protos.opts.CreateRelayOptions} message CreateRelayOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            CreateRelayOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults) {
-                    object.connectionId = "";
-                    object.collectionToken = "";
-                    object.batchSize = 0;
-                    object.batchMaxRetry = 0;
-                    object.numWorkers = 0;
-                    object.streamdalGrpcAddress = "";
-                    object.streamdalGrpcDisableTls = false;
-                    object.streamdalGrpcTimeoutSeconds = 0;
-                    object.deadLetter = false;
-                    object.streamdalIntegrationOptions = null;
-                    object.kafka = null;
-                    object.awsSqs = null;
-                    object.mongo = null;
-                    object.nsq = null;
-                    object.rabbit = null;
-                    object.mqtt = null;
-                    object.azureServiceBus = null;
-                    object.gcpPubsub = null;
-                    object.kubemqQueue = null;
-                    object.redisPubsub = null;
-                    object.redisStreams = null;
-                    object.postgres = null;
-                    object.nats = null;
-                    object.natsStreaming = null;
-                    object.natsJetstream = null;
-                }
-                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
-                    object.connectionId = message.connectionId;
-                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
-                    object.collectionToken = message.collectionToken;
-                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
-                    object.batchSize = message.batchSize;
-                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
-                    object.batchMaxRetry = message.batchMaxRetry;
-                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
-                    object.numWorkers = message.numWorkers;
-                if (message.streamdalGrpcAddress != null && message.hasOwnProperty("streamdalGrpcAddress"))
-                    object.streamdalGrpcAddress = message.streamdalGrpcAddress;
-                if (message.streamdalGrpcDisableTls != null && message.hasOwnProperty("streamdalGrpcDisableTls"))
-                    object.streamdalGrpcDisableTls = message.streamdalGrpcDisableTls;
-                if (message.streamdalGrpcTimeoutSeconds != null && message.hasOwnProperty("streamdalGrpcTimeoutSeconds"))
-                    object.streamdalGrpcTimeoutSeconds = message.streamdalGrpcTimeoutSeconds;
-                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
-                    object.deadLetter = message.deadLetter;
-                if (message.streamdalIntegrationOptions != null && message.hasOwnProperty("streamdalIntegrationOptions"))
-                    object.streamdalIntegrationOptions = $root.protos.opts.StreamdalIntegrationOptions.toObject(message.streamdalIntegrationOptions, options);
-                if (message.kafka != null && message.hasOwnProperty("kafka"))
-                    object.kafka = $root.protos.args.KafkaRelayArgs.toObject(message.kafka, options);
-                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
-                    object.awsSqs = $root.protos.args.AWSSQSRelayArgs.toObject(message.awsSqs, options);
-                if (message.mongo != null && message.hasOwnProperty("mongo"))
-                    object.mongo = $root.protos.args.MongoReadArgs.toObject(message.mongo, options);
-                if (message.nsq != null && message.hasOwnProperty("nsq"))
-                    object.nsq = $root.protos.args.NSQReadArgs.toObject(message.nsq, options);
-                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
-                    object.rabbit = $root.protos.args.RabbitReadArgs.toObject(message.rabbit, options);
-                if (message.mqtt != null && message.hasOwnProperty("mqtt"))
-                    object.mqtt = $root.protos.args.MQTTReadArgs.toObject(message.mqtt, options);
-                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
-                    object.azureServiceBus = $root.protos.args.AzureServiceBusReadArgs.toObject(message.azureServiceBus, options);
-                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
-                    object.gcpPubsub = $root.protos.args.GCPPubSubReadArgs.toObject(message.gcpPubsub, options);
-                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
-                    object.kubemqQueue = $root.protos.args.KubeMQQueueReadArgs.toObject(message.kubemqQueue, options);
-                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
-                    object.redisPubsub = $root.protos.args.RedisPubSubReadArgs.toObject(message.redisPubsub, options);
-                if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
-                    object.redisStreams = $root.protos.args.RedisStreamsReadArgs.toObject(message.redisStreams, options);
-                if (message.postgres != null && message.hasOwnProperty("postgres"))
-                    object.postgres = $root.protos.args.PostgresReadArgs.toObject(message.postgres, options);
-                if (message.nats != null && message.hasOwnProperty("nats"))
-                    object.nats = $root.protos.args.NatsReadArgs.toObject(message.nats, options);
-                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
-                    object.natsStreaming = $root.protos.args.NatsStreamingReadArgs.toObject(message.natsStreaming, options);
-                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
-                    object.natsJetstream = $root.protos.args.NatsJetstreamReadArgs.toObject(message.natsJetstream, options);
-                return object;
-            };
-
-            /**
-             * Converts this CreateRelayOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.CreateRelayOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            CreateRelayOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return CreateRelayOptions;
-        })();
-
-        opts.DeleteRelayOptions = (function() {
-
-            /**
-             * Properties of a DeleteRelayOptions.
-             * @memberof protos.opts
-             * @interface IDeleteRelayOptions
-             * @property {string|null} [id] DeleteRelayOptions id
-             */
-
-            /**
-             * Constructs a new DeleteRelayOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a DeleteRelayOptions.
-             * @implements IDeleteRelayOptions
-             * @constructor
-             * @param {protos.opts.IDeleteRelayOptions=} [properties] Properties to set
-             */
-            function DeleteRelayOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * DeleteRelayOptions id.
-             * @member {string} id
-             * @memberof protos.opts.DeleteRelayOptions
-             * @instance
-             */
-            DeleteRelayOptions.prototype.id = "";
-
-            /**
-             * Creates a new DeleteRelayOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.DeleteRelayOptions
-             * @static
-             * @param {protos.opts.IDeleteRelayOptions=} [properties] Properties to set
-             * @returns {protos.opts.DeleteRelayOptions} DeleteRelayOptions instance
-             */
-            DeleteRelayOptions.create = function create(properties) {
-                return new DeleteRelayOptions(properties);
-            };
-
-            /**
-             * Encodes the specified DeleteRelayOptions message. Does not implicitly {@link protos.opts.DeleteRelayOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.DeleteRelayOptions
-             * @static
-             * @param {protos.opts.IDeleteRelayOptions} message DeleteRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            DeleteRelayOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified DeleteRelayOptions message, length delimited. Does not implicitly {@link protos.opts.DeleteRelayOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.DeleteRelayOptions
-             * @static
-             * @param {protos.opts.IDeleteRelayOptions} message DeleteRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            DeleteRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a DeleteRelayOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.DeleteRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.DeleteRelayOptions} DeleteRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            DeleteRelayOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DeleteRelayOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.id = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a DeleteRelayOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.DeleteRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.DeleteRelayOptions} DeleteRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            DeleteRelayOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a DeleteRelayOptions message.
-             * @function verify
-             * @memberof protos.opts.DeleteRelayOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            DeleteRelayOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.id != null && message.hasOwnProperty("id"))
-                    if (!$util.isString(message.id))
-                        return "id: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a DeleteRelayOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.DeleteRelayOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.DeleteRelayOptions} DeleteRelayOptions
-             */
-            DeleteRelayOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.DeleteRelayOptions)
-                    return object;
-                var message = new $root.protos.opts.DeleteRelayOptions();
-                if (object.id != null)
-                    message.id = String(object.id);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a DeleteRelayOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.DeleteRelayOptions
-             * @static
-             * @param {protos.opts.DeleteRelayOptions} message DeleteRelayOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            DeleteRelayOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults)
-                    object.id = "";
-                if (message.id != null && message.hasOwnProperty("id"))
-                    object.id = message.id;
-                return object;
-            };
-
-            /**
-             * Converts this DeleteRelayOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.DeleteRelayOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            DeleteRelayOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return DeleteRelayOptions;
-        })();
-
-        opts.StopRelayOptions = (function() {
-
-            /**
-             * Properties of a StopRelayOptions.
-             * @memberof protos.opts
-             * @interface IStopRelayOptions
-             * @property {string|null} [id] StopRelayOptions id
-             */
-
-            /**
-             * Constructs a new StopRelayOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a StopRelayOptions.
-             * @implements IStopRelayOptions
-             * @constructor
-             * @param {protos.opts.IStopRelayOptions=} [properties] Properties to set
-             */
-            function StopRelayOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * StopRelayOptions id.
-             * @member {string} id
-             * @memberof protos.opts.StopRelayOptions
-             * @instance
-             */
-            StopRelayOptions.prototype.id = "";
-
-            /**
-             * Creates a new StopRelayOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.StopRelayOptions
-             * @static
-             * @param {protos.opts.IStopRelayOptions=} [properties] Properties to set
-             * @returns {protos.opts.StopRelayOptions} StopRelayOptions instance
-             */
-            StopRelayOptions.create = function create(properties) {
-                return new StopRelayOptions(properties);
-            };
-
-            /**
-             * Encodes the specified StopRelayOptions message. Does not implicitly {@link protos.opts.StopRelayOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.StopRelayOptions
-             * @static
-             * @param {protos.opts.IStopRelayOptions} message StopRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            StopRelayOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified StopRelayOptions message, length delimited. Does not implicitly {@link protos.opts.StopRelayOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.StopRelayOptions
-             * @static
-             * @param {protos.opts.IStopRelayOptions} message StopRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            StopRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a StopRelayOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.StopRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.StopRelayOptions} StopRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            StopRelayOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StopRelayOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.id = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a StopRelayOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.StopRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.StopRelayOptions} StopRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            StopRelayOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a StopRelayOptions message.
-             * @function verify
-             * @memberof protos.opts.StopRelayOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            StopRelayOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.id != null && message.hasOwnProperty("id"))
-                    if (!$util.isString(message.id))
-                        return "id: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a StopRelayOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.StopRelayOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.StopRelayOptions} StopRelayOptions
-             */
-            StopRelayOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.StopRelayOptions)
-                    return object;
-                var message = new $root.protos.opts.StopRelayOptions();
-                if (object.id != null)
-                    message.id = String(object.id);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a StopRelayOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.StopRelayOptions
-             * @static
-             * @param {protos.opts.StopRelayOptions} message StopRelayOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            StopRelayOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults)
-                    object.id = "";
-                if (message.id != null && message.hasOwnProperty("id"))
-                    object.id = message.id;
-                return object;
-            };
-
-            /**
-             * Converts this StopRelayOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.StopRelayOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            StopRelayOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return StopRelayOptions;
-        })();
-
-        opts.ResumeRelayOptions = (function() {
-
-            /**
-             * Properties of a ResumeRelayOptions.
-             * @memberof protos.opts
-             * @interface IResumeRelayOptions
-             * @property {string|null} [id] ResumeRelayOptions id
-             */
-
-            /**
-             * Constructs a new ResumeRelayOptions.
-             * @memberof protos.opts
-             * @classdesc Represents a ResumeRelayOptions.
-             * @implements IResumeRelayOptions
-             * @constructor
-             * @param {protos.opts.IResumeRelayOptions=} [properties] Properties to set
-             */
-            function ResumeRelayOptions(properties) {
-                if (properties)
-                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                        if (properties[keys[i]] != null)
-                            this[keys[i]] = properties[keys[i]];
-            }
-
-            /**
-             * ResumeRelayOptions id.
-             * @member {string} id
-             * @memberof protos.opts.ResumeRelayOptions
-             * @instance
-             */
-            ResumeRelayOptions.prototype.id = "";
-
-            /**
-             * Creates a new ResumeRelayOptions instance using the specified properties.
-             * @function create
-             * @memberof protos.opts.ResumeRelayOptions
-             * @static
-             * @param {protos.opts.IResumeRelayOptions=} [properties] Properties to set
-             * @returns {protos.opts.ResumeRelayOptions} ResumeRelayOptions instance
-             */
-            ResumeRelayOptions.create = function create(properties) {
-                return new ResumeRelayOptions(properties);
-            };
-
-            /**
-             * Encodes the specified ResumeRelayOptions message. Does not implicitly {@link protos.opts.ResumeRelayOptions.verify|verify} messages.
-             * @function encode
-             * @memberof protos.opts.ResumeRelayOptions
-             * @static
-             * @param {protos.opts.IResumeRelayOptions} message ResumeRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ResumeRelayOptions.encode = function encode(message, writer) {
-                if (!writer)
-                    writer = $Writer.create();
-                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
-                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
-                return writer;
-            };
-
-            /**
-             * Encodes the specified ResumeRelayOptions message, length delimited. Does not implicitly {@link protos.opts.ResumeRelayOptions.verify|verify} messages.
-             * @function encodeDelimited
-             * @memberof protos.opts.ResumeRelayOptions
-             * @static
-             * @param {protos.opts.IResumeRelayOptions} message ResumeRelayOptions message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
-             */
-            ResumeRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
-                return this.encode(message, writer).ldelim();
-            };
-
-            /**
-             * Decodes a ResumeRelayOptions message from the specified reader or buffer.
-             * @function decode
-             * @memberof protos.opts.ResumeRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {protos.opts.ResumeRelayOptions} ResumeRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ResumeRelayOptions.decode = function decode(reader, length) {
-                if (!(reader instanceof $Reader))
-                    reader = $Reader.create(reader);
-                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.ResumeRelayOptions();
-                while (reader.pos < end) {
-                    var tag = reader.uint32();
-                    switch (tag >>> 3) {
-                    case 1:
-                        message.id = reader.string();
-                        break;
-                    default:
-                        reader.skipType(tag & 7);
-                        break;
-                    }
-                }
-                return message;
-            };
-
-            /**
-             * Decodes a ResumeRelayOptions message from the specified reader or buffer, length delimited.
-             * @function decodeDelimited
-             * @memberof protos.opts.ResumeRelayOptions
-             * @static
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {protos.opts.ResumeRelayOptions} ResumeRelayOptions
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            ResumeRelayOptions.decodeDelimited = function decodeDelimited(reader) {
-                if (!(reader instanceof $Reader))
-                    reader = new $Reader(reader);
-                return this.decode(reader, reader.uint32());
-            };
-
-            /**
-             * Verifies a ResumeRelayOptions message.
-             * @function verify
-             * @memberof protos.opts.ResumeRelayOptions
-             * @static
-             * @param {Object.<string,*>} message Plain object to verify
-             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-             */
-            ResumeRelayOptions.verify = function verify(message) {
-                if (typeof message !== "object" || message === null)
-                    return "object expected";
-                if (message.id != null && message.hasOwnProperty("id"))
-                    if (!$util.isString(message.id))
-                        return "id: string expected";
-                return null;
-            };
-
-            /**
-             * Creates a ResumeRelayOptions message from a plain object. Also converts values to their respective internal types.
-             * @function fromObject
-             * @memberof protos.opts.ResumeRelayOptions
-             * @static
-             * @param {Object.<string,*>} object Plain object
-             * @returns {protos.opts.ResumeRelayOptions} ResumeRelayOptions
-             */
-            ResumeRelayOptions.fromObject = function fromObject(object) {
-                if (object instanceof $root.protos.opts.ResumeRelayOptions)
-                    return object;
-                var message = new $root.protos.opts.ResumeRelayOptions();
-                if (object.id != null)
-                    message.id = String(object.id);
-                return message;
-            };
-
-            /**
-             * Creates a plain object from a ResumeRelayOptions message. Also converts values to other types if specified.
-             * @function toObject
-             * @memberof protos.opts.ResumeRelayOptions
-             * @static
-             * @param {protos.opts.ResumeRelayOptions} message ResumeRelayOptions
-             * @param {$protobuf.IConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            ResumeRelayOptions.toObject = function toObject(message, options) {
-                if (!options)
-                    options = {};
-                var object = {};
-                if (options.defaults)
-                    object.id = "";
-                if (message.id != null && message.hasOwnProperty("id"))
-                    object.id = message.id;
-                return object;
-            };
-
-            /**
-             * Converts this ResumeRelayOptions to JSON.
-             * @function toJSON
-             * @memberof protos.opts.ResumeRelayOptions
-             * @instance
-             * @returns {Object.<string,*>} JSON object
-             */
-            ResumeRelayOptions.prototype.toJSON = function toJSON() {
-                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-            };
-
-            return ResumeRelayOptions;
         })();
 
         opts.ServerOptions = (function() {
@@ -21625,6 +19800,1523 @@ $root.protos = (function() {
             };
 
             return DeleteConnectionOptions;
+        })();
+
+        opts.GetRelayOptions = (function() {
+
+            /**
+             * Properties of a GetRelayOptions.
+             * @memberof protos.opts
+             * @interface IGetRelayOptions
+             * @property {string|null} [id] GetRelayOptions id
+             */
+
+            /**
+             * Constructs a new GetRelayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a GetRelayOptions.
+             * @implements IGetRelayOptions
+             * @constructor
+             * @param {protos.opts.IGetRelayOptions=} [properties] Properties to set
+             */
+            function GetRelayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * GetRelayOptions id.
+             * @member {string} id
+             * @memberof protos.opts.GetRelayOptions
+             * @instance
+             */
+            GetRelayOptions.prototype.id = "";
+
+            /**
+             * Creates a new GetRelayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.GetRelayOptions
+             * @static
+             * @param {protos.opts.IGetRelayOptions=} [properties] Properties to set
+             * @returns {protos.opts.GetRelayOptions} GetRelayOptions instance
+             */
+            GetRelayOptions.create = function create(properties) {
+                return new GetRelayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified GetRelayOptions message. Does not implicitly {@link protos.opts.GetRelayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.GetRelayOptions
+             * @static
+             * @param {protos.opts.IGetRelayOptions} message GetRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GetRelayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified GetRelayOptions message, length delimited. Does not implicitly {@link protos.opts.GetRelayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.GetRelayOptions
+             * @static
+             * @param {protos.opts.IGetRelayOptions} message GetRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            GetRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a GetRelayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.GetRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.GetRelayOptions} GetRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GetRelayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.GetRelayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a GetRelayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.GetRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.GetRelayOptions} GetRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            GetRelayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a GetRelayOptions message.
+             * @function verify
+             * @memberof protos.opts.GetRelayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            GetRelayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a GetRelayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.GetRelayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.GetRelayOptions} GetRelayOptions
+             */
+            GetRelayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.GetRelayOptions)
+                    return object;
+                var message = new $root.protos.opts.GetRelayOptions();
+                if (object.id != null)
+                    message.id = String(object.id);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a GetRelayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.GetRelayOptions
+             * @static
+             * @param {protos.opts.GetRelayOptions} message GetRelayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            GetRelayOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.id = "";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                return object;
+            };
+
+            /**
+             * Converts this GetRelayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.GetRelayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            GetRelayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return GetRelayOptions;
+        })();
+
+        opts.CreateRelayOptions = (function() {
+
+            /**
+             * Properties of a CreateRelayOptions.
+             * @memberof protos.opts
+             * @interface ICreateRelayOptions
+             * @property {string|null} [connectionId] CreateRelayOptions connectionId
+             * @property {string|null} [collectionToken] CreateRelayOptions collectionToken
+             * @property {number|null} [batchSize] CreateRelayOptions batchSize
+             * @property {number|null} [batchMaxRetry] CreateRelayOptions batchMaxRetry
+             * @property {number|null} [numWorkers] CreateRelayOptions numWorkers
+             * @property {string|null} [streamdalGrpcAddress] CreateRelayOptions streamdalGrpcAddress
+             * @property {boolean|null} [streamdalGrpcDisableTls] CreateRelayOptions streamdalGrpcDisableTls
+             * @property {number|null} [streamdalGrpcTimeoutSeconds] CreateRelayOptions streamdalGrpcTimeoutSeconds
+             * @property {boolean|null} [deadLetter] CreateRelayOptions deadLetter
+             * @property {protos.args.IKafkaRelayArgs|null} [kafka] CreateRelayOptions kafka
+             * @property {protos.args.IAWSSQSRelayArgs|null} [awsSqs] CreateRelayOptions awsSqs
+             * @property {protos.args.IMongoReadArgs|null} [mongo] CreateRelayOptions mongo
+             * @property {protos.args.INSQReadArgs|null} [nsq] CreateRelayOptions nsq
+             * @property {protos.args.IRabbitReadArgs|null} [rabbit] CreateRelayOptions rabbit
+             * @property {protos.args.IMQTTReadArgs|null} [mqtt] CreateRelayOptions mqtt
+             * @property {protos.args.IAzureServiceBusReadArgs|null} [azureServiceBus] CreateRelayOptions azureServiceBus
+             * @property {protos.args.IGCPPubSubReadArgs|null} [gcpPubsub] CreateRelayOptions gcpPubsub
+             * @property {protos.args.IKubeMQQueueReadArgs|null} [kubemqQueue] CreateRelayOptions kubemqQueue
+             * @property {protos.args.IRedisPubSubReadArgs|null} [redisPubsub] CreateRelayOptions redisPubsub
+             * @property {protos.args.IRedisStreamsReadArgs|null} [redisStreams] CreateRelayOptions redisStreams
+             * @property {protos.args.IPostgresReadArgs|null} [postgres] CreateRelayOptions postgres
+             * @property {protos.args.INatsReadArgs|null} [nats] CreateRelayOptions nats
+             * @property {protos.args.INatsStreamingReadArgs|null} [natsStreaming] CreateRelayOptions natsStreaming
+             * @property {protos.args.INatsJetstreamReadArgs|null} [natsJetstream] CreateRelayOptions natsJetstream
+             */
+
+            /**
+             * Constructs a new CreateRelayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a CreateRelayOptions.
+             * @implements ICreateRelayOptions
+             * @constructor
+             * @param {protos.opts.ICreateRelayOptions=} [properties] Properties to set
+             */
+            function CreateRelayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * CreateRelayOptions connectionId.
+             * @member {string} connectionId
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.connectionId = "";
+
+            /**
+             * CreateRelayOptions collectionToken.
+             * @member {string} collectionToken
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.collectionToken = "";
+
+            /**
+             * CreateRelayOptions batchSize.
+             * @member {number} batchSize
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.batchSize = 0;
+
+            /**
+             * CreateRelayOptions batchMaxRetry.
+             * @member {number} batchMaxRetry
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.batchMaxRetry = 0;
+
+            /**
+             * CreateRelayOptions numWorkers.
+             * @member {number} numWorkers
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.numWorkers = 0;
+
+            /**
+             * CreateRelayOptions streamdalGrpcAddress.
+             * @member {string} streamdalGrpcAddress
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.streamdalGrpcAddress = "";
+
+            /**
+             * CreateRelayOptions streamdalGrpcDisableTls.
+             * @member {boolean} streamdalGrpcDisableTls
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.streamdalGrpcDisableTls = false;
+
+            /**
+             * CreateRelayOptions streamdalGrpcTimeoutSeconds.
+             * @member {number} streamdalGrpcTimeoutSeconds
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.streamdalGrpcTimeoutSeconds = 0;
+
+            /**
+             * CreateRelayOptions deadLetter.
+             * @member {boolean} deadLetter
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.deadLetter = false;
+
+            /**
+             * CreateRelayOptions kafka.
+             * @member {protos.args.IKafkaRelayArgs|null|undefined} kafka
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.kafka = null;
+
+            /**
+             * CreateRelayOptions awsSqs.
+             * @member {protos.args.IAWSSQSRelayArgs|null|undefined} awsSqs
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.awsSqs = null;
+
+            /**
+             * CreateRelayOptions mongo.
+             * @member {protos.args.IMongoReadArgs|null|undefined} mongo
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.mongo = null;
+
+            /**
+             * CreateRelayOptions nsq.
+             * @member {protos.args.INSQReadArgs|null|undefined} nsq
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.nsq = null;
+
+            /**
+             * CreateRelayOptions rabbit.
+             * @member {protos.args.IRabbitReadArgs|null|undefined} rabbit
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.rabbit = null;
+
+            /**
+             * CreateRelayOptions mqtt.
+             * @member {protos.args.IMQTTReadArgs|null|undefined} mqtt
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.mqtt = null;
+
+            /**
+             * CreateRelayOptions azureServiceBus.
+             * @member {protos.args.IAzureServiceBusReadArgs|null|undefined} azureServiceBus
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.azureServiceBus = null;
+
+            /**
+             * CreateRelayOptions gcpPubsub.
+             * @member {protos.args.IGCPPubSubReadArgs|null|undefined} gcpPubsub
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.gcpPubsub = null;
+
+            /**
+             * CreateRelayOptions kubemqQueue.
+             * @member {protos.args.IKubeMQQueueReadArgs|null|undefined} kubemqQueue
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.kubemqQueue = null;
+
+            /**
+             * CreateRelayOptions redisPubsub.
+             * @member {protos.args.IRedisPubSubReadArgs|null|undefined} redisPubsub
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.redisPubsub = null;
+
+            /**
+             * CreateRelayOptions redisStreams.
+             * @member {protos.args.IRedisStreamsReadArgs|null|undefined} redisStreams
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.redisStreams = null;
+
+            /**
+             * CreateRelayOptions postgres.
+             * @member {protos.args.IPostgresReadArgs|null|undefined} postgres
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.postgres = null;
+
+            /**
+             * CreateRelayOptions nats.
+             * @member {protos.args.INatsReadArgs|null|undefined} nats
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.nats = null;
+
+            /**
+             * CreateRelayOptions natsStreaming.
+             * @member {protos.args.INatsStreamingReadArgs|null|undefined} natsStreaming
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.natsStreaming = null;
+
+            /**
+             * CreateRelayOptions natsJetstream.
+             * @member {protos.args.INatsJetstreamReadArgs|null|undefined} natsJetstream
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             */
+            CreateRelayOptions.prototype.natsJetstream = null;
+
+            /**
+             * Creates a new CreateRelayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.CreateRelayOptions
+             * @static
+             * @param {protos.opts.ICreateRelayOptions=} [properties] Properties to set
+             * @returns {protos.opts.CreateRelayOptions} CreateRelayOptions instance
+             */
+            CreateRelayOptions.create = function create(properties) {
+                return new CreateRelayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified CreateRelayOptions message. Does not implicitly {@link protos.opts.CreateRelayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.CreateRelayOptions
+             * @static
+             * @param {protos.opts.ICreateRelayOptions} message CreateRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CreateRelayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.connectionId != null && Object.hasOwnProperty.call(message, "connectionId"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.connectionId);
+                if (message.collectionToken != null && Object.hasOwnProperty.call(message, "collectionToken"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.collectionToken);
+                if (message.batchSize != null && Object.hasOwnProperty.call(message, "batchSize"))
+                    writer.uint32(/* id 3, wireType 0 =*/24).int32(message.batchSize);
+                if (message.batchMaxRetry != null && Object.hasOwnProperty.call(message, "batchMaxRetry"))
+                    writer.uint32(/* id 4, wireType 0 =*/32).int32(message.batchMaxRetry);
+                if (message.numWorkers != null && Object.hasOwnProperty.call(message, "numWorkers"))
+                    writer.uint32(/* id 5, wireType 0 =*/40).int32(message.numWorkers);
+                if (message.streamdalGrpcAddress != null && Object.hasOwnProperty.call(message, "streamdalGrpcAddress"))
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.streamdalGrpcAddress);
+                if (message.streamdalGrpcDisableTls != null && Object.hasOwnProperty.call(message, "streamdalGrpcDisableTls"))
+                    writer.uint32(/* id 7, wireType 0 =*/56).bool(message.streamdalGrpcDisableTls);
+                if (message.streamdalGrpcTimeoutSeconds != null && Object.hasOwnProperty.call(message, "streamdalGrpcTimeoutSeconds"))
+                    writer.uint32(/* id 8, wireType 0 =*/64).int32(message.streamdalGrpcTimeoutSeconds);
+                if (message.deadLetter != null && Object.hasOwnProperty.call(message, "deadLetter"))
+                    writer.uint32(/* id 9, wireType 0 =*/72).bool(message.deadLetter);
+                if (message.kafka != null && Object.hasOwnProperty.call(message, "kafka"))
+                    $root.protos.args.KafkaRelayArgs.encode(message.kafka, writer.uint32(/* id 100, wireType 2 =*/802).fork()).ldelim();
+                if (message.awsSqs != null && Object.hasOwnProperty.call(message, "awsSqs"))
+                    $root.protos.args.AWSSQSRelayArgs.encode(message.awsSqs, writer.uint32(/* id 101, wireType 2 =*/810).fork()).ldelim();
+                if (message.mongo != null && Object.hasOwnProperty.call(message, "mongo"))
+                    $root.protos.args.MongoReadArgs.encode(message.mongo, writer.uint32(/* id 102, wireType 2 =*/818).fork()).ldelim();
+                if (message.nsq != null && Object.hasOwnProperty.call(message, "nsq"))
+                    $root.protos.args.NSQReadArgs.encode(message.nsq, writer.uint32(/* id 103, wireType 2 =*/826).fork()).ldelim();
+                if (message.rabbit != null && Object.hasOwnProperty.call(message, "rabbit"))
+                    $root.protos.args.RabbitReadArgs.encode(message.rabbit, writer.uint32(/* id 104, wireType 2 =*/834).fork()).ldelim();
+                if (message.mqtt != null && Object.hasOwnProperty.call(message, "mqtt"))
+                    $root.protos.args.MQTTReadArgs.encode(message.mqtt, writer.uint32(/* id 105, wireType 2 =*/842).fork()).ldelim();
+                if (message.azureServiceBus != null && Object.hasOwnProperty.call(message, "azureServiceBus"))
+                    $root.protos.args.AzureServiceBusReadArgs.encode(message.azureServiceBus, writer.uint32(/* id 106, wireType 2 =*/850).fork()).ldelim();
+                if (message.gcpPubsub != null && Object.hasOwnProperty.call(message, "gcpPubsub"))
+                    $root.protos.args.GCPPubSubReadArgs.encode(message.gcpPubsub, writer.uint32(/* id 107, wireType 2 =*/858).fork()).ldelim();
+                if (message.kubemqQueue != null && Object.hasOwnProperty.call(message, "kubemqQueue"))
+                    $root.protos.args.KubeMQQueueReadArgs.encode(message.kubemqQueue, writer.uint32(/* id 108, wireType 2 =*/866).fork()).ldelim();
+                if (message.redisPubsub != null && Object.hasOwnProperty.call(message, "redisPubsub"))
+                    $root.protos.args.RedisPubSubReadArgs.encode(message.redisPubsub, writer.uint32(/* id 109, wireType 2 =*/874).fork()).ldelim();
+                if (message.redisStreams != null && Object.hasOwnProperty.call(message, "redisStreams"))
+                    $root.protos.args.RedisStreamsReadArgs.encode(message.redisStreams, writer.uint32(/* id 111, wireType 2 =*/890).fork()).ldelim();
+                if (message.postgres != null && Object.hasOwnProperty.call(message, "postgres"))
+                    $root.protos.args.PostgresReadArgs.encode(message.postgres, writer.uint32(/* id 112, wireType 2 =*/898).fork()).ldelim();
+                if (message.nats != null && Object.hasOwnProperty.call(message, "nats"))
+                    $root.protos.args.NatsReadArgs.encode(message.nats, writer.uint32(/* id 113, wireType 2 =*/906).fork()).ldelim();
+                if (message.natsStreaming != null && Object.hasOwnProperty.call(message, "natsStreaming"))
+                    $root.protos.args.NatsStreamingReadArgs.encode(message.natsStreaming, writer.uint32(/* id 114, wireType 2 =*/914).fork()).ldelim();
+                if (message.natsJetstream != null && Object.hasOwnProperty.call(message, "natsJetstream"))
+                    $root.protos.args.NatsJetstreamReadArgs.encode(message.natsJetstream, writer.uint32(/* id 115, wireType 2 =*/922).fork()).ldelim();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CreateRelayOptions message, length delimited. Does not implicitly {@link protos.opts.CreateRelayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.CreateRelayOptions
+             * @static
+             * @param {protos.opts.ICreateRelayOptions} message CreateRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CreateRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a CreateRelayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.CreateRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.CreateRelayOptions} CreateRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CreateRelayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.CreateRelayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.connectionId = reader.string();
+                        break;
+                    case 2:
+                        message.collectionToken = reader.string();
+                        break;
+                    case 3:
+                        message.batchSize = reader.int32();
+                        break;
+                    case 4:
+                        message.batchMaxRetry = reader.int32();
+                        break;
+                    case 5:
+                        message.numWorkers = reader.int32();
+                        break;
+                    case 6:
+                        message.streamdalGrpcAddress = reader.string();
+                        break;
+                    case 7:
+                        message.streamdalGrpcDisableTls = reader.bool();
+                        break;
+                    case 8:
+                        message.streamdalGrpcTimeoutSeconds = reader.int32();
+                        break;
+                    case 9:
+                        message.deadLetter = reader.bool();
+                        break;
+                    case 100:
+                        message.kafka = $root.protos.args.KafkaRelayArgs.decode(reader, reader.uint32());
+                        break;
+                    case 101:
+                        message.awsSqs = $root.protos.args.AWSSQSRelayArgs.decode(reader, reader.uint32());
+                        break;
+                    case 102:
+                        message.mongo = $root.protos.args.MongoReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 103:
+                        message.nsq = $root.protos.args.NSQReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 104:
+                        message.rabbit = $root.protos.args.RabbitReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 105:
+                        message.mqtt = $root.protos.args.MQTTReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 106:
+                        message.azureServiceBus = $root.protos.args.AzureServiceBusReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 107:
+                        message.gcpPubsub = $root.protos.args.GCPPubSubReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 108:
+                        message.kubemqQueue = $root.protos.args.KubeMQQueueReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 109:
+                        message.redisPubsub = $root.protos.args.RedisPubSubReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 111:
+                        message.redisStreams = $root.protos.args.RedisStreamsReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 112:
+                        message.postgres = $root.protos.args.PostgresReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 113:
+                        message.nats = $root.protos.args.NatsReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 114:
+                        message.natsStreaming = $root.protos.args.NatsStreamingReadArgs.decode(reader, reader.uint32());
+                        break;
+                    case 115:
+                        message.natsJetstream = $root.protos.args.NatsJetstreamReadArgs.decode(reader, reader.uint32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a CreateRelayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.CreateRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.CreateRelayOptions} CreateRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CreateRelayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CreateRelayOptions message.
+             * @function verify
+             * @memberof protos.opts.CreateRelayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CreateRelayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    if (!$util.isString(message.connectionId))
+                        return "connectionId: string expected";
+                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
+                    if (!$util.isString(message.collectionToken))
+                        return "collectionToken: string expected";
+                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
+                    if (!$util.isInteger(message.batchSize))
+                        return "batchSize: integer expected";
+                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
+                    if (!$util.isInteger(message.batchMaxRetry))
+                        return "batchMaxRetry: integer expected";
+                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
+                    if (!$util.isInteger(message.numWorkers))
+                        return "numWorkers: integer expected";
+                if (message.streamdalGrpcAddress != null && message.hasOwnProperty("streamdalGrpcAddress"))
+                    if (!$util.isString(message.streamdalGrpcAddress))
+                        return "streamdalGrpcAddress: string expected";
+                if (message.streamdalGrpcDisableTls != null && message.hasOwnProperty("streamdalGrpcDisableTls"))
+                    if (typeof message.streamdalGrpcDisableTls !== "boolean")
+                        return "streamdalGrpcDisableTls: boolean expected";
+                if (message.streamdalGrpcTimeoutSeconds != null && message.hasOwnProperty("streamdalGrpcTimeoutSeconds"))
+                    if (!$util.isInteger(message.streamdalGrpcTimeoutSeconds))
+                        return "streamdalGrpcTimeoutSeconds: integer expected";
+                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
+                    if (typeof message.deadLetter !== "boolean")
+                        return "deadLetter: boolean expected";
+                if (message.kafka != null && message.hasOwnProperty("kafka")) {
+                    var error = $root.protos.args.KafkaRelayArgs.verify(message.kafka);
+                    if (error)
+                        return "kafka." + error;
+                }
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs")) {
+                    var error = $root.protos.args.AWSSQSRelayArgs.verify(message.awsSqs);
+                    if (error)
+                        return "awsSqs." + error;
+                }
+                if (message.mongo != null && message.hasOwnProperty("mongo")) {
+                    var error = $root.protos.args.MongoReadArgs.verify(message.mongo);
+                    if (error)
+                        return "mongo." + error;
+                }
+                if (message.nsq != null && message.hasOwnProperty("nsq")) {
+                    var error = $root.protos.args.NSQReadArgs.verify(message.nsq);
+                    if (error)
+                        return "nsq." + error;
+                }
+                if (message.rabbit != null && message.hasOwnProperty("rabbit")) {
+                    var error = $root.protos.args.RabbitReadArgs.verify(message.rabbit);
+                    if (error)
+                        return "rabbit." + error;
+                }
+                if (message.mqtt != null && message.hasOwnProperty("mqtt")) {
+                    var error = $root.protos.args.MQTTReadArgs.verify(message.mqtt);
+                    if (error)
+                        return "mqtt." + error;
+                }
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus")) {
+                    var error = $root.protos.args.AzureServiceBusReadArgs.verify(message.azureServiceBus);
+                    if (error)
+                        return "azureServiceBus." + error;
+                }
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub")) {
+                    var error = $root.protos.args.GCPPubSubReadArgs.verify(message.gcpPubsub);
+                    if (error)
+                        return "gcpPubsub." + error;
+                }
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue")) {
+                    var error = $root.protos.args.KubeMQQueueReadArgs.verify(message.kubemqQueue);
+                    if (error)
+                        return "kubemqQueue." + error;
+                }
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub")) {
+                    var error = $root.protos.args.RedisPubSubReadArgs.verify(message.redisPubsub);
+                    if (error)
+                        return "redisPubsub." + error;
+                }
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams")) {
+                    var error = $root.protos.args.RedisStreamsReadArgs.verify(message.redisStreams);
+                    if (error)
+                        return "redisStreams." + error;
+                }
+                if (message.postgres != null && message.hasOwnProperty("postgres")) {
+                    var error = $root.protos.args.PostgresReadArgs.verify(message.postgres);
+                    if (error)
+                        return "postgres." + error;
+                }
+                if (message.nats != null && message.hasOwnProperty("nats")) {
+                    var error = $root.protos.args.NatsReadArgs.verify(message.nats);
+                    if (error)
+                        return "nats." + error;
+                }
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming")) {
+                    var error = $root.protos.args.NatsStreamingReadArgs.verify(message.natsStreaming);
+                    if (error)
+                        return "natsStreaming." + error;
+                }
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream")) {
+                    var error = $root.protos.args.NatsJetstreamReadArgs.verify(message.natsJetstream);
+                    if (error)
+                        return "natsJetstream." + error;
+                }
+                return null;
+            };
+
+            /**
+             * Creates a CreateRelayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.CreateRelayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.CreateRelayOptions} CreateRelayOptions
+             */
+            CreateRelayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.CreateRelayOptions)
+                    return object;
+                var message = new $root.protos.opts.CreateRelayOptions();
+                if (object.connectionId != null)
+                    message.connectionId = String(object.connectionId);
+                if (object.collectionToken != null)
+                    message.collectionToken = String(object.collectionToken);
+                if (object.batchSize != null)
+                    message.batchSize = object.batchSize | 0;
+                if (object.batchMaxRetry != null)
+                    message.batchMaxRetry = object.batchMaxRetry | 0;
+                if (object.numWorkers != null)
+                    message.numWorkers = object.numWorkers | 0;
+                if (object.streamdalGrpcAddress != null)
+                    message.streamdalGrpcAddress = String(object.streamdalGrpcAddress);
+                if (object.streamdalGrpcDisableTls != null)
+                    message.streamdalGrpcDisableTls = Boolean(object.streamdalGrpcDisableTls);
+                if (object.streamdalGrpcTimeoutSeconds != null)
+                    message.streamdalGrpcTimeoutSeconds = object.streamdalGrpcTimeoutSeconds | 0;
+                if (object.deadLetter != null)
+                    message.deadLetter = Boolean(object.deadLetter);
+                if (object.kafka != null) {
+                    if (typeof object.kafka !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.kafka: object expected");
+                    message.kafka = $root.protos.args.KafkaRelayArgs.fromObject(object.kafka);
+                }
+                if (object.awsSqs != null) {
+                    if (typeof object.awsSqs !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.awsSqs: object expected");
+                    message.awsSqs = $root.protos.args.AWSSQSRelayArgs.fromObject(object.awsSqs);
+                }
+                if (object.mongo != null) {
+                    if (typeof object.mongo !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.mongo: object expected");
+                    message.mongo = $root.protos.args.MongoReadArgs.fromObject(object.mongo);
+                }
+                if (object.nsq != null) {
+                    if (typeof object.nsq !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.nsq: object expected");
+                    message.nsq = $root.protos.args.NSQReadArgs.fromObject(object.nsq);
+                }
+                if (object.rabbit != null) {
+                    if (typeof object.rabbit !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.rabbit: object expected");
+                    message.rabbit = $root.protos.args.RabbitReadArgs.fromObject(object.rabbit);
+                }
+                if (object.mqtt != null) {
+                    if (typeof object.mqtt !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.mqtt: object expected");
+                    message.mqtt = $root.protos.args.MQTTReadArgs.fromObject(object.mqtt);
+                }
+                if (object.azureServiceBus != null) {
+                    if (typeof object.azureServiceBus !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.azureServiceBus: object expected");
+                    message.azureServiceBus = $root.protos.args.AzureServiceBusReadArgs.fromObject(object.azureServiceBus);
+                }
+                if (object.gcpPubsub != null) {
+                    if (typeof object.gcpPubsub !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.gcpPubsub: object expected");
+                    message.gcpPubsub = $root.protos.args.GCPPubSubReadArgs.fromObject(object.gcpPubsub);
+                }
+                if (object.kubemqQueue != null) {
+                    if (typeof object.kubemqQueue !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.kubemqQueue: object expected");
+                    message.kubemqQueue = $root.protos.args.KubeMQQueueReadArgs.fromObject(object.kubemqQueue);
+                }
+                if (object.redisPubsub != null) {
+                    if (typeof object.redisPubsub !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.redisPubsub: object expected");
+                    message.redisPubsub = $root.protos.args.RedisPubSubReadArgs.fromObject(object.redisPubsub);
+                }
+                if (object.redisStreams != null) {
+                    if (typeof object.redisStreams !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.redisStreams: object expected");
+                    message.redisStreams = $root.protos.args.RedisStreamsReadArgs.fromObject(object.redisStreams);
+                }
+                if (object.postgres != null) {
+                    if (typeof object.postgres !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.postgres: object expected");
+                    message.postgres = $root.protos.args.PostgresReadArgs.fromObject(object.postgres);
+                }
+                if (object.nats != null) {
+                    if (typeof object.nats !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.nats: object expected");
+                    message.nats = $root.protos.args.NatsReadArgs.fromObject(object.nats);
+                }
+                if (object.natsStreaming != null) {
+                    if (typeof object.natsStreaming !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.natsStreaming: object expected");
+                    message.natsStreaming = $root.protos.args.NatsStreamingReadArgs.fromObject(object.natsStreaming);
+                }
+                if (object.natsJetstream != null) {
+                    if (typeof object.natsJetstream !== "object")
+                        throw TypeError(".protos.opts.CreateRelayOptions.natsJetstream: object expected");
+                    message.natsJetstream = $root.protos.args.NatsJetstreamReadArgs.fromObject(object.natsJetstream);
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CreateRelayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.CreateRelayOptions
+             * @static
+             * @param {protos.opts.CreateRelayOptions} message CreateRelayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CreateRelayOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.connectionId = "";
+                    object.collectionToken = "";
+                    object.batchSize = 0;
+                    object.batchMaxRetry = 0;
+                    object.numWorkers = 0;
+                    object.streamdalGrpcAddress = "";
+                    object.streamdalGrpcDisableTls = false;
+                    object.streamdalGrpcTimeoutSeconds = 0;
+                    object.deadLetter = false;
+                    object.kafka = null;
+                    object.awsSqs = null;
+                    object.mongo = null;
+                    object.nsq = null;
+                    object.rabbit = null;
+                    object.mqtt = null;
+                    object.azureServiceBus = null;
+                    object.gcpPubsub = null;
+                    object.kubemqQueue = null;
+                    object.redisPubsub = null;
+                    object.redisStreams = null;
+                    object.postgres = null;
+                    object.nats = null;
+                    object.natsStreaming = null;
+                    object.natsJetstream = null;
+                }
+                if (message.connectionId != null && message.hasOwnProperty("connectionId"))
+                    object.connectionId = message.connectionId;
+                if (message.collectionToken != null && message.hasOwnProperty("collectionToken"))
+                    object.collectionToken = message.collectionToken;
+                if (message.batchSize != null && message.hasOwnProperty("batchSize"))
+                    object.batchSize = message.batchSize;
+                if (message.batchMaxRetry != null && message.hasOwnProperty("batchMaxRetry"))
+                    object.batchMaxRetry = message.batchMaxRetry;
+                if (message.numWorkers != null && message.hasOwnProperty("numWorkers"))
+                    object.numWorkers = message.numWorkers;
+                if (message.streamdalGrpcAddress != null && message.hasOwnProperty("streamdalGrpcAddress"))
+                    object.streamdalGrpcAddress = message.streamdalGrpcAddress;
+                if (message.streamdalGrpcDisableTls != null && message.hasOwnProperty("streamdalGrpcDisableTls"))
+                    object.streamdalGrpcDisableTls = message.streamdalGrpcDisableTls;
+                if (message.streamdalGrpcTimeoutSeconds != null && message.hasOwnProperty("streamdalGrpcTimeoutSeconds"))
+                    object.streamdalGrpcTimeoutSeconds = message.streamdalGrpcTimeoutSeconds;
+                if (message.deadLetter != null && message.hasOwnProperty("deadLetter"))
+                    object.deadLetter = message.deadLetter;
+                if (message.kafka != null && message.hasOwnProperty("kafka"))
+                    object.kafka = $root.protos.args.KafkaRelayArgs.toObject(message.kafka, options);
+                if (message.awsSqs != null && message.hasOwnProperty("awsSqs"))
+                    object.awsSqs = $root.protos.args.AWSSQSRelayArgs.toObject(message.awsSqs, options);
+                if (message.mongo != null && message.hasOwnProperty("mongo"))
+                    object.mongo = $root.protos.args.MongoReadArgs.toObject(message.mongo, options);
+                if (message.nsq != null && message.hasOwnProperty("nsq"))
+                    object.nsq = $root.protos.args.NSQReadArgs.toObject(message.nsq, options);
+                if (message.rabbit != null && message.hasOwnProperty("rabbit"))
+                    object.rabbit = $root.protos.args.RabbitReadArgs.toObject(message.rabbit, options);
+                if (message.mqtt != null && message.hasOwnProperty("mqtt"))
+                    object.mqtt = $root.protos.args.MQTTReadArgs.toObject(message.mqtt, options);
+                if (message.azureServiceBus != null && message.hasOwnProperty("azureServiceBus"))
+                    object.azureServiceBus = $root.protos.args.AzureServiceBusReadArgs.toObject(message.azureServiceBus, options);
+                if (message.gcpPubsub != null && message.hasOwnProperty("gcpPubsub"))
+                    object.gcpPubsub = $root.protos.args.GCPPubSubReadArgs.toObject(message.gcpPubsub, options);
+                if (message.kubemqQueue != null && message.hasOwnProperty("kubemqQueue"))
+                    object.kubemqQueue = $root.protos.args.KubeMQQueueReadArgs.toObject(message.kubemqQueue, options);
+                if (message.redisPubsub != null && message.hasOwnProperty("redisPubsub"))
+                    object.redisPubsub = $root.protos.args.RedisPubSubReadArgs.toObject(message.redisPubsub, options);
+                if (message.redisStreams != null && message.hasOwnProperty("redisStreams"))
+                    object.redisStreams = $root.protos.args.RedisStreamsReadArgs.toObject(message.redisStreams, options);
+                if (message.postgres != null && message.hasOwnProperty("postgres"))
+                    object.postgres = $root.protos.args.PostgresReadArgs.toObject(message.postgres, options);
+                if (message.nats != null && message.hasOwnProperty("nats"))
+                    object.nats = $root.protos.args.NatsReadArgs.toObject(message.nats, options);
+                if (message.natsStreaming != null && message.hasOwnProperty("natsStreaming"))
+                    object.natsStreaming = $root.protos.args.NatsStreamingReadArgs.toObject(message.natsStreaming, options);
+                if (message.natsJetstream != null && message.hasOwnProperty("natsJetstream"))
+                    object.natsJetstream = $root.protos.args.NatsJetstreamReadArgs.toObject(message.natsJetstream, options);
+                return object;
+            };
+
+            /**
+             * Converts this CreateRelayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.CreateRelayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CreateRelayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return CreateRelayOptions;
+        })();
+
+        opts.DeleteRelayOptions = (function() {
+
+            /**
+             * Properties of a DeleteRelayOptions.
+             * @memberof protos.opts
+             * @interface IDeleteRelayOptions
+             * @property {string|null} [id] DeleteRelayOptions id
+             */
+
+            /**
+             * Constructs a new DeleteRelayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a DeleteRelayOptions.
+             * @implements IDeleteRelayOptions
+             * @constructor
+             * @param {protos.opts.IDeleteRelayOptions=} [properties] Properties to set
+             */
+            function DeleteRelayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * DeleteRelayOptions id.
+             * @member {string} id
+             * @memberof protos.opts.DeleteRelayOptions
+             * @instance
+             */
+            DeleteRelayOptions.prototype.id = "";
+
+            /**
+             * Creates a new DeleteRelayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.DeleteRelayOptions
+             * @static
+             * @param {protos.opts.IDeleteRelayOptions=} [properties] Properties to set
+             * @returns {protos.opts.DeleteRelayOptions} DeleteRelayOptions instance
+             */
+            DeleteRelayOptions.create = function create(properties) {
+                return new DeleteRelayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified DeleteRelayOptions message. Does not implicitly {@link protos.opts.DeleteRelayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.DeleteRelayOptions
+             * @static
+             * @param {protos.opts.IDeleteRelayOptions} message DeleteRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            DeleteRelayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified DeleteRelayOptions message, length delimited. Does not implicitly {@link protos.opts.DeleteRelayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.DeleteRelayOptions
+             * @static
+             * @param {protos.opts.IDeleteRelayOptions} message DeleteRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            DeleteRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a DeleteRelayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.DeleteRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.DeleteRelayOptions} DeleteRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            DeleteRelayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.DeleteRelayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a DeleteRelayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.DeleteRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.DeleteRelayOptions} DeleteRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            DeleteRelayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a DeleteRelayOptions message.
+             * @function verify
+             * @memberof protos.opts.DeleteRelayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            DeleteRelayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a DeleteRelayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.DeleteRelayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.DeleteRelayOptions} DeleteRelayOptions
+             */
+            DeleteRelayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.DeleteRelayOptions)
+                    return object;
+                var message = new $root.protos.opts.DeleteRelayOptions();
+                if (object.id != null)
+                    message.id = String(object.id);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a DeleteRelayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.DeleteRelayOptions
+             * @static
+             * @param {protos.opts.DeleteRelayOptions} message DeleteRelayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            DeleteRelayOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.id = "";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                return object;
+            };
+
+            /**
+             * Converts this DeleteRelayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.DeleteRelayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            DeleteRelayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return DeleteRelayOptions;
+        })();
+
+        opts.StopRelayOptions = (function() {
+
+            /**
+             * Properties of a StopRelayOptions.
+             * @memberof protos.opts
+             * @interface IStopRelayOptions
+             * @property {string|null} [id] StopRelayOptions id
+             */
+
+            /**
+             * Constructs a new StopRelayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a StopRelayOptions.
+             * @implements IStopRelayOptions
+             * @constructor
+             * @param {protos.opts.IStopRelayOptions=} [properties] Properties to set
+             */
+            function StopRelayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * StopRelayOptions id.
+             * @member {string} id
+             * @memberof protos.opts.StopRelayOptions
+             * @instance
+             */
+            StopRelayOptions.prototype.id = "";
+
+            /**
+             * Creates a new StopRelayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.StopRelayOptions
+             * @static
+             * @param {protos.opts.IStopRelayOptions=} [properties] Properties to set
+             * @returns {protos.opts.StopRelayOptions} StopRelayOptions instance
+             */
+            StopRelayOptions.create = function create(properties) {
+                return new StopRelayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified StopRelayOptions message. Does not implicitly {@link protos.opts.StopRelayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.StopRelayOptions
+             * @static
+             * @param {protos.opts.IStopRelayOptions} message StopRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StopRelayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified StopRelayOptions message, length delimited. Does not implicitly {@link protos.opts.StopRelayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.StopRelayOptions
+             * @static
+             * @param {protos.opts.IStopRelayOptions} message StopRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            StopRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a StopRelayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.StopRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.StopRelayOptions} StopRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StopRelayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.StopRelayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a StopRelayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.StopRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.StopRelayOptions} StopRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            StopRelayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a StopRelayOptions message.
+             * @function verify
+             * @memberof protos.opts.StopRelayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            StopRelayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a StopRelayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.StopRelayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.StopRelayOptions} StopRelayOptions
+             */
+            StopRelayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.StopRelayOptions)
+                    return object;
+                var message = new $root.protos.opts.StopRelayOptions();
+                if (object.id != null)
+                    message.id = String(object.id);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a StopRelayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.StopRelayOptions
+             * @static
+             * @param {protos.opts.StopRelayOptions} message StopRelayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            StopRelayOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.id = "";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                return object;
+            };
+
+            /**
+             * Converts this StopRelayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.StopRelayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            StopRelayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return StopRelayOptions;
+        })();
+
+        opts.ResumeRelayOptions = (function() {
+
+            /**
+             * Properties of a ResumeRelayOptions.
+             * @memberof protos.opts
+             * @interface IResumeRelayOptions
+             * @property {string|null} [id] ResumeRelayOptions id
+             */
+
+            /**
+             * Constructs a new ResumeRelayOptions.
+             * @memberof protos.opts
+             * @classdesc Represents a ResumeRelayOptions.
+             * @implements IResumeRelayOptions
+             * @constructor
+             * @param {protos.opts.IResumeRelayOptions=} [properties] Properties to set
+             */
+            function ResumeRelayOptions(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * ResumeRelayOptions id.
+             * @member {string} id
+             * @memberof protos.opts.ResumeRelayOptions
+             * @instance
+             */
+            ResumeRelayOptions.prototype.id = "";
+
+            /**
+             * Creates a new ResumeRelayOptions instance using the specified properties.
+             * @function create
+             * @memberof protos.opts.ResumeRelayOptions
+             * @static
+             * @param {protos.opts.IResumeRelayOptions=} [properties] Properties to set
+             * @returns {protos.opts.ResumeRelayOptions} ResumeRelayOptions instance
+             */
+            ResumeRelayOptions.create = function create(properties) {
+                return new ResumeRelayOptions(properties);
+            };
+
+            /**
+             * Encodes the specified ResumeRelayOptions message. Does not implicitly {@link protos.opts.ResumeRelayOptions.verify|verify} messages.
+             * @function encode
+             * @memberof protos.opts.ResumeRelayOptions
+             * @static
+             * @param {protos.opts.IResumeRelayOptions} message ResumeRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ResumeRelayOptions.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ResumeRelayOptions message, length delimited. Does not implicitly {@link protos.opts.ResumeRelayOptions.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof protos.opts.ResumeRelayOptions
+             * @static
+             * @param {protos.opts.IResumeRelayOptions} message ResumeRelayOptions message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ResumeRelayOptions.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a ResumeRelayOptions message from the specified reader or buffer.
+             * @function decode
+             * @memberof protos.opts.ResumeRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {protos.opts.ResumeRelayOptions} ResumeRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ResumeRelayOptions.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.protos.opts.ResumeRelayOptions();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a ResumeRelayOptions message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof protos.opts.ResumeRelayOptions
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {protos.opts.ResumeRelayOptions} ResumeRelayOptions
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ResumeRelayOptions.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ResumeRelayOptions message.
+             * @function verify
+             * @memberof protos.opts.ResumeRelayOptions
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ResumeRelayOptions.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a ResumeRelayOptions message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof protos.opts.ResumeRelayOptions
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {protos.opts.ResumeRelayOptions} ResumeRelayOptions
+             */
+            ResumeRelayOptions.fromObject = function fromObject(object) {
+                if (object instanceof $root.protos.opts.ResumeRelayOptions)
+                    return object;
+                var message = new $root.protos.opts.ResumeRelayOptions();
+                if (object.id != null)
+                    message.id = String(object.id);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ResumeRelayOptions message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof protos.opts.ResumeRelayOptions
+             * @static
+             * @param {protos.opts.ResumeRelayOptions} message ResumeRelayOptions
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ResumeRelayOptions.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.id = "";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                return object;
+            };
+
+            /**
+             * Converts this ResumeRelayOptions to JSON.
+             * @function toJSON
+             * @memberof protos.opts.ResumeRelayOptions
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ResumeRelayOptions.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return ResumeRelayOptions;
         })();
 
         opts.GetTunnelOptions = (function() {
@@ -43601,7 +43293,6 @@ $root.protos = (function() {
              * @interface IGCPPubSubReadArgs
              * @property {string|null} [subscriptionId] GCPPubSubReadArgs subscriptionId
              * @property {boolean|null} [ackMessages] GCPPubSubReadArgs ackMessages
-             * @property {string|null} [anotherField] GCPPubSubReadArgs anotherField
              */
 
             /**
@@ -43636,14 +43327,6 @@ $root.protos = (function() {
             GCPPubSubReadArgs.prototype.ackMessages = false;
 
             /**
-             * GCPPubSubReadArgs anotherField.
-             * @member {string} anotherField
-             * @memberof protos.args.GCPPubSubReadArgs
-             * @instance
-             */
-            GCPPubSubReadArgs.prototype.anotherField = "";
-
-            /**
              * Creates a new GCPPubSubReadArgs instance using the specified properties.
              * @function create
              * @memberof protos.args.GCPPubSubReadArgs
@@ -43671,8 +43354,6 @@ $root.protos = (function() {
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.subscriptionId);
                 if (message.ackMessages != null && Object.hasOwnProperty.call(message, "ackMessages"))
                     writer.uint32(/* id 2, wireType 0 =*/16).bool(message.ackMessages);
-                if (message.anotherField != null && Object.hasOwnProperty.call(message, "anotherField"))
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.anotherField);
                 return writer;
             };
 
@@ -43712,9 +43393,6 @@ $root.protos = (function() {
                         break;
                     case 2:
                         message.ackMessages = reader.bool();
-                        break;
-                    case 3:
-                        message.anotherField = reader.string();
                         break;
                     default:
                         reader.skipType(tag & 7);
@@ -43757,9 +43435,6 @@ $root.protos = (function() {
                 if (message.ackMessages != null && message.hasOwnProperty("ackMessages"))
                     if (typeof message.ackMessages !== "boolean")
                         return "ackMessages: boolean expected";
-                if (message.anotherField != null && message.hasOwnProperty("anotherField"))
-                    if (!$util.isString(message.anotherField))
-                        return "anotherField: string expected";
                 return null;
             };
 
@@ -43779,8 +43454,6 @@ $root.protos = (function() {
                     message.subscriptionId = String(object.subscriptionId);
                 if (object.ackMessages != null)
                     message.ackMessages = Boolean(object.ackMessages);
-                if (object.anotherField != null)
-                    message.anotherField = String(object.anotherField);
                 return message;
             };
 
@@ -43800,14 +43473,11 @@ $root.protos = (function() {
                 if (options.defaults) {
                     object.subscriptionId = "";
                     object.ackMessages = false;
-                    object.anotherField = "";
                 }
                 if (message.subscriptionId != null && message.hasOwnProperty("subscriptionId"))
                     object.subscriptionId = message.subscriptionId;
                 if (message.ackMessages != null && message.hasOwnProperty("ackMessages"))
                     object.ackMessages = message.ackMessages;
-                if (message.anotherField != null && message.hasOwnProperty("anotherField"))
-                    object.anotherField = message.anotherField;
                 return object;
             };
 
