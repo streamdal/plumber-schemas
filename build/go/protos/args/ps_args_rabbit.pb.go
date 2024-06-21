@@ -91,8 +91,8 @@ type RabbitReadArgs struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @gotags: kong:"help='Name of the exchange',env='PLUMBER_RELAY_RABBIT_EXCHANGE',required"
-	ExchangeName string `protobuf:"bytes,1,opt,name=exchange_name,json=exchangeName,proto3" json:"exchange_name,omitempty" kong:"help='Name of the exchange',env='PLUMBER_RELAY_RABBIT_EXCHANGE',required"`
+	// @gotags: kong:"help='Name of the exchange. Leave empty for default exchange',env='PLUMBER_RELAY_RABBIT_EXCHANGE'"
+	ExchangeName string `protobuf:"bytes,1,opt,name=exchange_name,json=exchangeName,proto3" json:"exchange_name,omitempty" kong:"help='Name of the exchange. Leave empty for default exchange',env='PLUMBER_RELAY_RABBIT_EXCHANGE'"`
 	// @gotags: kong:"help='Name of the queue where messages will be routed to',env='PLUMBER_RELAY_RABBIT_QUEUE',required"
 	QueueName string `protobuf:"bytes,2,opt,name=queue_name,json=queueName,proto3" json:"queue_name,omitempty" kong:"help='Name of the queue where messages will be routed to',env='PLUMBER_RELAY_RABBIT_QUEUE',required"`
 	// @gotags: kong:"help='Binding key for topic based exchanges',env='PLUMBER_RELAY_RABBIT_ROUTING_KEY',required"
@@ -229,8 +229,8 @@ type RabbitWriteArgs struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// @gotags: kong:"help='Exchange to write message(s) to',required"
-	ExchangeName string `protobuf:"bytes,1,opt,name=exchange_name,json=exchangeName,proto3" json:"exchange_name,omitempty" kong:"help='Exchange to write message(s) to',required"`
+	// @gotags: kong:"help='Exchange to write message(s) to. Leave blank for default exchange'"
+	ExchangeName string `protobuf:"bytes,1,opt,name=exchange_name,json=exchangeName,proto3" json:"exchange_name,omitempty" kong:"help='Exchange to write message(s) to. Leave blank for default exchange'"`
 	// @gotags: kong:"help='Routing key to write message(s) to',required"
 	RoutingKey string `protobuf:"bytes,2,opt,name=routing_key,json=routingKey,proto3" json:"routing_key,omitempty" kong:"help='Routing key to write message(s) to',required"`
 	// @gotags: kong:"help='Fills message properties $app_id with this value',default=plumber"
