@@ -54,9 +54,6 @@ message RelayOptions {
   // @gotags: kong:"help='Consumed messages are intended to be dead-lettered',env='PLUMBER_RELAY_DEAD_LETTER'"
   bool dead_letter = 8;
 
-  // @gotags: kong:"embed"
-  opts.StreamdalIntegrationOptions streamdal_integration_options = 9;
-
   // --------------------------------------------------------------------- //
   //                          PRIVATE FIELDS (1000+)                       //
   // --------------------------------------------------------------------- //
