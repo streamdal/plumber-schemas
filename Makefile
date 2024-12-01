@@ -75,7 +75,6 @@ generate/ts:
 	-p ./protos/encoding \
 	-p ./protos/records \
 	-o ./build/ts/plumber-schemas.js \
-	./protos/*.proto \
 	./protos/**/*.proto
 	./node_modules/.bin/pbts -o ./build/ts/plumber-schemas.d.ts ./build/ts/plumber-schemas.js
 
@@ -90,23 +89,6 @@ generate/go:
 	mkdir -p $(GO_PROTOS_DIR)/encoding
 	mkdir -p $(GO_PROTOS_DIR)/opts
 	mkdir -p $(GO_PROTOS_DIR)/records
-
-	docker run --platform linux/amd64 -w $(PWD) -v $(PWD):/defs namely/protoc-all:1.51_1 \
-		-d /defs/protos \
-		-l descriptor_set \
-		--go-source-relative \
-		-o /defs/build/go/descriptor-sets/ \
-		--descr-include-imports \
-		--descr-include-source-info \
-		--descr-filename protos.fds \
-		protos/*.proto
-
-	docker run --platform linux/amd64 --rm -w $(PWD) -v $(PWD):/defs -w${PWD} namely/protoc-all:1.51_1 \
-		-d /defs/protos \
-		--go-source-relative \
-		-o /defs/build/go/protos \
-		-l go \
-		protos/*.proto
 
 	docker run --platform linux/amd64 --rm -w $(PWD) -v $(PWD):/defs -w${PWD} namely/protoc-all:1.51_1 \
 		-d /defs/protos/args \
@@ -151,8 +133,6 @@ generate/go:
 	# Running code generation tasks
 	go run generate-type-aliases.go
 	go run generate-conn-opts-func.go
-	go run generate-merge-relay-opts.go
-	go run generate-merge-tunnel-opts.go
 
 .PHONY: inject-tags/local
 inject-tags/local: description = Inject tags for CLI
@@ -175,7 +155,6 @@ ifdef CI
 endif
 
 	# Injecting tags into *.pb.go files...
-	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/args/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/common/*.pb.go"
 	protoc-go-inject-tag -input="$(GO_PROTOS_DIR)/encoding/*.pb.go"
