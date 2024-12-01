@@ -45,7 +45,7 @@ setup/linux:
 	go get -u github.com/golang/protobuf/protoc-gen-go
 
 	# protoc-go-inject-tag
-	go get github.com/favadi/protoc-go-inject-tag
+	go install github.com/favadi/protoc-go-inject-tag@latest
 
 .PHONY: generate/all
 generate/all: description = Compile protos for all languages
