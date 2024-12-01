@@ -6,7 +6,6 @@ import "opts/ps_opts_manage.proto";
 import "opts/ps_opts_read.proto";
 import "opts/ps_opts_relay.proto";
 import "opts/ps_opts_server.proto";
-import "opts/ps_opts_streamdal.proto";
 import "opts/ps_opts_tunnel.proto";
 import "opts/ps_opts_write.proto";
 
@@ -60,9 +59,6 @@ message CLIOptions {
 
   // @gotags: kong:"cmd,help='Use plumber as a destination tunnel in Streamdal'"
   opts.TunnelOptions tunnel = 5;
-
-  // @gotags: kong:"cmd,help='Control your Streamdal resources via the public API'"
-  opts.StreamdalOptions streamdal = 6;
 
   // @gotags: kong:"cmd,help='Run plumber in server mode'"
   opts.ServerOptions server = 7;

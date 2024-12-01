@@ -26,17 +26,6 @@ message GetRelayOptions {
   string id = 1;
 }
 
-message StreamdalIntegrationOptions {
-  // @gotags: kong:"help='Whether to enable Streamdal integration',group='Streamdal Integration (github.com/streamdal/streamdal)'"
-  bool streamdal_integration_enable = 1;
-  // @gotags: kong:"help='Streamdal integration server address',default='localhost:8082',group='Streamdal Integration (github.com/streamdal/streamdal)'"
-  string streamdal_integration_server_address = 2;
-  // @gotags: kong:"help='Streamdal integration auth token',default='1234',group='Streamdal Integration (github.com/streamdal/streamdal)'"
-  string streamdal_integration_auth_token = 3;
-  // @gotags: kong:"help='Streamdal integration service name',group='Streamdal Integration (github.com/streamdal/streamdal)'"
-  string streamdal_integration_service_name = 4;
-}
-
 message CreateRelayOptions {
   // @gotags: kong:"help='ID of the connection to use',required"
   string connection_id = 1;
@@ -64,9 +53,6 @@ message CreateRelayOptions {
 
   // @gotags: kong:"help='Consumed messages are intended to be dead-lettered'"
   bool dead_letter = 9;
-
-  // @gotags: kong:"embed"
-  StreamdalIntegrationOptions streamdal_integration_options = 10;
 
   // --------------------------------------------------------------------- //
   //                       SUPPORTED BACKENDS (100-999)                    //
